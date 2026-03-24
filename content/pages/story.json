@@ -1,0 +1,35 @@
+{
+  "pageHeader": {
+    "label": "Our Story",
+    "title": "Three Generations on the Lake",
+    "description": "From a post-war dream to a design glass cube. The Broggi family story."
+  },
+  "intro": {
+    "label": "The Beginning",
+    "title": "A Lakeside Dream",
+    "paragraphs": [
+      "After the Second World War, Silvio and Dina Broggi were looking for a lakeside retreat. During a motorcycle ride along the shores of Piedmont, their son Giorgio spotted a sign: \"Building land for sale.\" He told his father, who fell in love with the location at first sight.",
+      "That was the beginning of everything."
+    ]
+  },
+  "timeline": [
+    { "year": "1956", "title": "Casa Grande", "text": "Construction began under Engineer Giancarlo Badò. The main house welcomed the family of four children and became the centerpiece of their summers on Lake Orta, hosting weddings and family milestones for decades." },
+    { "year": "1960s", "title": "A Family Grows", "text": "After Silvio and Dina passed, Giorgio and his brother Marco inherited and divided the property, adding an extension toward the garden. The lake house became a cornerstone of family tradition." },
+    { "year": "1970s", "title": "La Quiete", "text": "As the family expanded, they built an 18-square-meter structure at the garden's southern end. Giorgio's wife Maura humorously named it \"La Quiete\" (The Quiet) — a designated children's space to preserve the adults' tranquility. It later became a card-game gathering spot." },
+    { "year": "2003", "title": "A New Purpose", "text": "When Giorgio's son Silvio developed a mobility-limiting condition, the 1950s architecture became inaccessible. The family began transforming La Quiete into a ground-floor, fully barrier-free residence — a project that would take a decade of navigating Italian bureaucracy." },
+    { "year": "2013", "title": "Villa Volpe is Born", "text": "The transformation was complete: a modern, design glass cube — fully accessible, just meters from the lake. The name \"Villa Volpe\" honors Giorgio's wife Maura, whose \"foxy cunning\" (volpe means fox in Italian) navigated the complex regulations that made the project possible." },
+    { "year": "Today", "title": "Your Turn", "text": "Now managed by Alberto, Villa Volpe welcomes guests from around the world. Over 690 happy visitors have enjoyed this unique place where family history, modern design, and the beauty of Lake Orta come together." }
+  ],
+  "patriarch": {
+    "label": "The Patriarch",
+    "title": "Giorgio Broggi",
+    "paragraphs": [
+      "Giorgio earned an engineering degree and built a distinguished career at the De Agostini Geographic Institute as Technical Director, where he spearheaded the digitization of geographic map production.",
+      "He retired in 1996 but never stopped learning — teaching computer skills until the age of 90. Today, he enjoys life as a great-grandfather, still on the shores of the lake his family has called home for nearly seventy years."
+    ]
+  },
+  "cta": {
+    "title": "Be Part of the Story",
+    "subtitle": "Book your stay and create your own memories at Villa Volpe."
+  }
+}
