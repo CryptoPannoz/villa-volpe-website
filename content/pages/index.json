@@ -1,0 +1,40 @@
+{
+  "hero": {
+    "label": "Lake Orta, Piedmont — Italy",
+    "title": "Villa Volpe",
+    "subtitle": "Everything you need, on the sunny side of Lake Orta. Three meters from crystal clear water."
+  },
+  "features": [
+    { "title": "By the Lake", "text": "Where morning light meets water. Your private beach, just steps away." },
+    { "title": "Sunlit Garden", "text": "A private space for reading, resting, and watching the light change over the water." },
+    { "title": "Private Parking", "text": "Perhaps the coolest parking spot in the world. Spacious and right above the villa." }
+  ],
+  "introduction": {
+    "label": "About the Property",
+    "title": "A Design Glass Cube on Lake Orta",
+    "paragraphs": [
+      "Nestled on the picturesque east shore of Lake Orta, Villa Volpe is a truly unique property. The villa, a design glass cube surrounded by a breathtakingly landscaped garden, is situated just three meters from the crystal clear waters of the lake, with a view of the illuminated island of San Giulio at night.",
+      "65 square meters of beautifully appointed living space. Two king-size bedrooms. A fully equipped kitchen. And outside, your private oasis: a lush garden that leads to your own beach."
+    ]
+  },
+  "stats": [
+    { "number": "690+", "label": "Happy Guests" },
+    { "number": "1,748", "label": "Nights Booked" },
+    { "number": "4.91", "label": "Airbnb Rating" },
+    { "number": "4.8", "label": "Google Rating" }
+  ],
+  "location": {
+    "title": "Where Piedmont Meets the Lake",
+    "subtitle": "Conveniently located 80 km from Milan, 45 km from Milano Malpensa Airport, and 120 km from Turin. Via Novara 38, Orta San Giulio 28016, Italy.",
+    "distances": [
+      { "label": "From Milan", "value": "80 km" },
+      { "label": "From Malpensa", "value": "45 km" },
+      { "label": "From Turin", "value": "120 km" },
+      { "label": "From the Lake", "value": "3 meters" }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Escape?",
+    "subtitle": "Book directly and save 15% compared to Airbnb."
+  }
+}
