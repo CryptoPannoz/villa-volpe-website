@@ -1,12 +1,237 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Villa Volpe — Content Manager</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <title>Villa Volpe — Lake Orta, Italy</title>
+  <meta name="description" content="Villa Volpe: a design glass cube on the sunny shore of Lake Orta. Private beach, wheelchair accessible, 3 meters from crystal clear water. Direct booking -15%.">
+  <meta property="og:title" content="Villa Volpe — Lake Orta, Italy">
+  <meta property="og:description" content="Everything you need, on the sunny side of Lake Orta.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.villa-volpe.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Decap CMS will render here automatically -->
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Villa <span>Volpe</span></a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link nav__link--active">Home</a></li>
+        <li><a href="discover.html" class="nav__link">Discover</a></li>
+        <li><a href="story.html" class="nav__link">Story</a></li>
+        <li><a href="blog.html" class="nav__link">Blog</a></li>
+        <li><a href="faqs.html" class="nav__link">FAQs</a></li>
+      </ul>
+      <a href="book.html" class="nav__cta">Book Now</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu__close" id="mobileClose" aria-label="Close menu">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="discover.html">Discover</a>
+    <a href="story.html">Story</a>
+    <a href="blog.html">Blog</a>
+    <a href="faqs.html">FAQs</a>
+    <a href="book.html" class="btn btn--dark">Book Now</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__bg">
+      <div class="img-placeholder" style="width:100%;height:100%;">
+        <!-- Replace with: hero image of Villa Volpe lakefront -->
+        HERO IMAGE — Villa Volpe lakefront
+      </div>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <span class="hero__label">Lake Orta, Piedmont &mdash; Italy</span>
+      <h1 class="hero__title">Villa Volpe</h1>
+      <p class="hero__subtitle">Everything you need, on the sunny side of Lake Orta. Three meters from crystal clear water.</p>
+      <div class="hero__actions">
+        <a href="book.html" class="btn btn--primary">Direct Booking &minus;15%</a>
+        <a href="discover.html" class="btn btn--outline">Discover the Villa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Cards -->
+  <section class="section">
+    <div class="container">
+      <div class="features reveal-stagger" id="features">
+        <div class="feature-card">
+          <div class="feature-card__img img-placeholder" style="width:100%;height:100%;">LAKE ACCESS</div>
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">By the Lake</h3>
+            <p class="feature-card__text">Where morning light meets water. Your private beach, just steps away.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__img img-placeholder" style="width:100%;height:100%;">GARDEN</div>
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Sunlit Garden</h3>
+            <p class="feature-card__text">A private space for reading, resting, and watching the light change over the water.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__img img-placeholder" style="width:100%;height:100%;">PARKING</div>
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Private Parking</h3>
+            <p class="feature-card__text">Perhaps the coolest parking spot in the world. Spacious and right above the villa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="two-col reveal">
+        <div class="two-col__content">
+          <span class="label">About the Property</span>
+          <div class="divider"></div>
+          <h2>A Design Glass Cube on Lake Orta</h2>
+          <p style="margin-top:1.5rem;">
+            Nestled on the picturesque east shore of Lake Orta, Villa Volpe is a truly unique property. The villa, a design glass cube surrounded by a breathtakingly landscaped garden, is situated just three meters from the crystal clear waters of the lake, with a view of the illuminated island of San Giulio at night.
+          </p>
+          <p style="margin-top:1rem;">
+            65 square meters of beautifully appointed living space. Two king-size bedrooms. A fully equipped kitchen. And outside, your private oasis: a lush garden that leads to your own beach.
+          </p>
+          <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
+            <span class="a11y-badge">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="2.5"/><path d="M12 7v5m-4 7 4-5 4 5M8 12h8"/></svg>
+              Fully Wheelchair Accessible
+            </span>
+            <span class="a11y-badge">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              Pet Friendly
+            </span>
+          </div>
+          <a href="discover.html" class="btn btn--ghost" style="margin-top:2rem;">Explore the Villa</a>
+        </div>
+        <div class="two-col__img img-placeholder" style="aspect-ratio:4/5;">
+          VILLA EXTERIOR
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section">
+    <div class="container">
+      <div class="stats reveal-stagger" id="stats">
+        <div class="stat">
+          <div class="stat__number">690+</div>
+          <div class="stat__label">Happy Guests</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number">1,748</div>
+          <div class="stat__label">Nights Booked</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number">4.91</div>
+          <div class="stat__label">Airbnb Rating</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number">4.8</div>
+          <div class="stat__label">Google Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section class="section section--alt">
+    <div class="container" style="text-align:center;">
+      <span class="label">Location</span>
+      <div class="divider divider--center"></div>
+      <h2 class="reveal">Where Piedmont Meets the Lake</h2>
+      <p class="reveal" style="margin:1.5rem auto 0;text-align:center;">
+        Conveniently located 80 km from Milan, 45 km from Milano Malpensa Airport, and 120 km from Turin. Via Novara 38, Orta San Giulio 28016, Italy.
+      </p>
+      <div class="contact-block reveal" style="margin-top:3rem;max-width:800px;margin-left:auto;margin-right:auto;">
+        <div class="contact-item">
+          <div class="contact-item__label">From Milan</div>
+          <div class="contact-item__value">80 km</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item__label">From Malpensa</div>
+          <div class="contact-item__value">45 km</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item__label">From Turin</div>
+          <div class="contact-item__value">120 km</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item__label">From the Lake</div>
+          <div class="contact-item__value">3 meters</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <h2>Ready to Escape?</h2>
+    <p>Book directly and save 15% compared to Airbnb.</p>
+    <a href="book.html" class="btn btn--accent">Book Your Stay</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">Villa <span>Volpe</span></div>
+          <p class="footer__desc">A design glass cube on the sunny shore of Lake Orta. Three meters from crystal clear water, with a view of San Giulio Island.</p>
+        </div>
+        <div>
+          <div class="footer__title">Explore</div>
+          <ul class="footer__links">
+            <li><a href="discover.html">Discover</a></li>
+            <li><a href="story.html">Our Story</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__title">Contact</div>
+          <ul class="footer__links">
+            <li><a href="mailto:villavolpeorta@gmail.com">villavolpeorta@gmail.com</a></li>
+            <li><a href="tel:+393336859707">+39 333 685 9707</a></li>
+            <li>Via Novara 38</li>
+            <li>Orta San Giulio 28016</li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__title">Book</div>
+          <ul class="footer__links">
+            <li><a href="book.html">Direct Booking (-15%)</a></li>
+            <li><a href="https://www.airbnb.com/rooms/26816946" target="_blank" rel="noopener">Airbnb Listing</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Villa Volpe. All rights reserved.</span>
+        <div class="footer__legal">
+          <span>CIN: IT003112C2L7M2HAGX</span>
+          <span>CIR: 00311200109</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
