@@ -1108,6 +1108,39 @@ p {
     flex-direction: column;
   }
 
+   /* ============================================
+   IMAGES
+   ============================================ */
+
+.hero__bg {
+  background-image: url('/images/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.feature-card__img {
+  background-size: cover;
+  background-position: center;
+}
+
+.feature-card:nth-child(1) .feature-card__img {
+  background-image: url('/images/feature-lake.jpg');
+}
+.feature-card:nth-child(2) .feature-card__img {
+  background-image: url('/images/feature-garden.jpg');
+}
+.feature-card:nth-child(3) .feature-card__img {
+  background-image: url('/images/feature-parking.jpg');
+}
+
+.two-col__img {
+  background-image: url('/images/villa-exterior.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
   .btn {
     text-align: center;
     justify-content: center;
