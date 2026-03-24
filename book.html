@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Stay — Villa Volpe</title>
+  <meta name="description" content="Book Villa Volpe directly and save 15% compared to Airbnb. Two bedrooms, private beach, Lake Orta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .booking-grid { grid-template-columns: 1fr; }
+    }
+    .booking-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .form-group label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--color-border);
+      background: var(--color-white);
+      color: var(--color-text);
+      transition: border-color var(--duration) var(--ease);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--color-accent);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+    }
+    @media (max-width: 480px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+    .policy-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .policy-list li {
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+    }
+    .policy-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Villa <span>Volpe</span></a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="discover.html" class="nav__link">Discover</a></li>
+        <li><a href="story.html" class="nav__link">Story</a></li>
+        <li><a href="blog.html" class="nav__link">Blog</a></li>
+        <li><a href="faqs.html" class="nav__link">FAQs</a></li>
+      </ul>
+      <a href="book.html" class="nav__cta">Book Now</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu__close" id="mobileClose" aria-label="Close menu">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="discover.html">Discover</a>
+    <a href="story.html">Story</a>
+    <a href="blog.html">Blog</a>
+    <a href="faqs.html">FAQs</a>
+    <a href="book.html" class="btn btn--dark">Book Now</a>
+  </div>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <span class="label page-header__label">Book</span>
+    <h1 class="page-header__title">Reserve Your Stay</h1>
+    <p class="page-header__desc">Book directly with us and enjoy a 15% discount compared to Airbnb.</p>
+  </header>
+
+  <!-- Booking Section -->
+  <section class="section">
+    <div class="container">
+      <div class="booking-grid">
+
+        <!-- Contact Form -->
+        <div class="booking-card reveal">
+          <h3 class="booking-card__title">Request a Booking</h3>
+          <p style="color:var(--color-text-light);margin-bottom:1.5rem;">
+            Fill in the form below and we'll get back to you with availability and pricing within 24 hours.
+          </p>
+          <form class="booking-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="checkin">Check-in Date</label>
+                <input type="date" id="checkin" name="checkin" required>
+              </div>
+              <div class="form-group">
+                <label for="checkout">Check-out Date</label>
+                <input type="date" id="checkout" name="checkout" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="guests">Number of Guests</label>
+                <select id="guests" name="guests">
+                  <option value="1">1 Guest</option>
+                  <option value="2" selected>2 Guests</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="pet">Traveling with a Pet?</label>
+                <select id="pet" name="pet">
+                  <option value="no">No</option>
+                  <option value="yes">Yes (extra cleaning fee applies)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Special Requests</label>
+              <textarea id="message" name="message" placeholder="Any special requests or questions..."></textarea>
+            </div>
+            <button type="submit" class="btn btn--dark" style="width:100%;">Send Booking Request</button>
+          </form>
+        </div>
+
+        <!-- Booking Info Sidebar -->
+        <div>
+          <div class="booking-card reveal" style="margin-bottom:var(--space-md);">
+            <h3 class="booking-card__title">How to Book</h3>
+            <div class="booking-highlight">
+              <div class="booking-highlight__title">Direct Booking &mdash; Save 15%</div>
+              <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.7;">
+                For the best rates, book directly with us via this form or by emailing <a href="mailto:villavolpeorta@gmail.com" style="color:var(--color-accent);font-weight:600;">villavolpeorta@gmail.com</a>. You'll enjoy a special 15% discount off the Airbnb price.
+              </p>
+            </div>
+            <div class="booking-highlight">
+              <div class="booking-highlight__title">Via Airbnb</div>
+              <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.7;">
+                Prefer the convenience of Airbnb? <a href="https://www.airbnb.com/rooms/26816946" target="_blank" rel="noopener" style="color:var(--color-accent);font-weight:600;">Book on Airbnb</a> for the security and support of the platform.
+              </p>
+            </div>
+          </div>
+
+          <div class="booking-card reveal">
+            <h3 class="booking-card__title">Policies</h3>
+            <ul class="policy-list" style="margin-top:1rem;">
+              <li><strong>Deposit:</strong> 30% of total price to confirm booking.</li>
+              <li><strong>Balance:</strong> Due 21 days before check-in.</li>
+              <li><strong>Cancellation:</strong> Full refund if cancelled 21+ days before arrival. After that, deposit is non-refundable.</li>
+              <li><strong>Tourist Tax:</strong> &euro;1.00 per night per guest, as required by law.</li>
+              <li><strong>Pets:</strong> Small pets welcome. &euro;120 additional cleaning fee per stay.</li>
+              <li><strong>ID Required:</strong> Valid identification for registration with local authorities.</li>
+              <li><strong>No Parties:</strong> Villa Volpe is an oasis of relaxation. No parties or events.</li>
+            </ul>
+          </div>
+
+          <div class="contact-block reveal" style="margin-top:var(--space-md);">
+            <div class="contact-item">
+              <div class="contact-item__label">Email</div>
+              <div class="contact-item__value"><a href="mailto:villavolpeorta@gmail.com">villavolpeorta@gmail.com</a></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item__label">Phone</div>
+              <div class="contact-item__value"><a href="tel:+393336859707">+39 333 685 9707</a></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">Villa <span>Volpe</span></div>
+          <p class="footer__desc">A design glass cube on the sunny shore of Lake Orta. Three meters from crystal clear water, with a view of San Giulio Island.</p>
+        </div>
+        <div>
+          <div class="footer__title">Explore</div>
+          <ul class="footer__links">
+            <li><a href="discover.html">Discover</a></li>
+            <li><a href="story.html">Our Story</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__title">Contact</div>
+          <ul class="footer__links">
+            <li><a href="mailto:villavolpeorta@gmail.com">villavolpeorta@gmail.com</a></li>
+            <li><a href="tel:+393336859707">+39 333 685 9707</a></li>
+            <li>Via Novara 38</li>
+            <li>Orta San Giulio 28016</li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__title">Book</div>
+          <ul class="footer__links">
+            <li><a href="book.html">Direct Booking (-15%)</a></li>
+            <li><a href="https://www.airbnb.com/rooms/26816946" target="_blank" rel="noopener">Airbnb Listing</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Villa Volpe. All rights reserved.</span>
+        <div class="footer__legal">
+          <span>CIN: IT003112C2L7M2HAGX</span>
+          <span>CIR: 00311200109</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "heroTitle": "Villa Volpe",
+  "heroSubtitle": "Everything you need, on the sunny side of Lake Orta. Three meters from crystal clear water.",
+  "heroImage": "",
+  "stats": [
+    { "number": "690+", "label": "Happy Guests" },
+    { "number": "1,748", "label": "Nights Booked" },
+    { "number": "4.91", "label": "Airbnb Rating" },
+    { "number": "4.8", "label": "Google Rating" }
+  ]
+}
