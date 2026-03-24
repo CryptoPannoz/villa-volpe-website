@@ -6,8 +6,10 @@ media_folder: "images"
 public_folder: "/images"
 
 collections:
+
+  # ─── BLOG POST ───────────────────────────────
   - name: "blog"
-    label: "Blog Posts"
+    label: "📝 Blog Posts"
     folder: "blog"
     create: true
     slug: "{{slug}}"
@@ -15,5 +17,36 @@ collections:
       - {label: "Titolo", name: "title", widget: "string"}
       - {label: "Data", name: "date", widget: "datetime"}
       - {label: "Categoria", name: "category", widget: "string"}
-      - {label: "Anteprima", name: "excerpt", widget: "text"}
+      - {label: "Anteprima (max 200 caratteri)", name: "excerpt", widget: "text"}
       - {label: "Contenuto", name: "body", widget: "markdown"}
+
+  # ─── IMPOSTAZIONI SITO ───────────────────────
+  - name: "settings"
+    label: "⚙️ Impostazioni Sito"
+    files:
+      - label: "Contatti & Info"
+        name: "general"
+        file: "content/settings.json"
+        fields:
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Telefono", name: "phone", widget: "string"}
+          - {label: "Indirizzo", name: "address", widget: "string"}
+          - {label: "Sconto prenotazione diretta (%)", name: "discount", widget: "number", default: 15}
+          - {label: "Link Airbnb", name: "airbnbUrl", widget: "string"}
+
+  # ─── PAGINE ──────────────────────────────────
+  - name: "pages"
+    label: "🏠 Pagine"
+    files:
+      - label: "Homepage"
+        name: "home"
+        file: "content/home.json"
+        fields:
+          - {label: "Titolo Hero", name: "heroTitle", widget: "string"}
+          - {label: "Sottotitolo Hero", name: "heroSubtitle", widget: "text"}
+          - label: "Statistiche"
+            name: "stats"
+            widget: "list"
+            fields:
+              - {label: "Numero", name: "number", widget: "string"}
+              - {label: "Etichetta", name: "label", widget: "string"}
