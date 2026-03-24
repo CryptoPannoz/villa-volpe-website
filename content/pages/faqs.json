@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "name": "Bookings & Stay",
+      "faqs": [
+        { "question": "How do I book a stay at Villa Volpe?", "answer": "You can book in two ways. Direct Booking (recommended): email us at villavolpeorta@gmail.com with your dates, number of guests, and any special requests. You'll enjoy a 15% discount off the Airbnb price. Via Airbnb: visit our Airbnb listing for the convenience and support of the platform." },
+        { "question": "What are the cancellation policies?", "answer": "Cancel up to 21 days before check-in for a full refund of your deposit. After this deadline, the deposit is non-refundable. We understand plans can change, so please contact us as soon as possible if you need to modify your reservation." },
+        { "question": "Can I change my reservation dates after booking?", "answer": "Yes, date changes are welcome subject to availability. Please contact us as soon as possible. Note that changes may be subject to additional charges depending on the season and availability." },
+        { "question": "What is the maximum number of guests?", "answer": "Villa Volpe accommodates up to 4 guests in 2 double bedrooms. This ensures ample space and a quality stay for everyone." },
+        { "question": "Is Villa Volpe suitable for children?", "answer": "Yes, Villa Volpe is family-friendly with secure premises and child-friendly amenities. However, we advise parents to always supervise their children, especially around the lake and outdoor areas." },
+        { "question": "What is the pet policy?", "answer": "We welcome one small to medium-sized pet per stay. There is a €120 cleaning fee per stay. Pets must be well-behaved and house-trained, and owners are responsible for any damage." },
+        { "question": "Are linens and towels included?", "answer": "Yes, all bedding and towels are included and ready upon your arrival." }
+      ]
+    },
+    {
+      "name": "Arrival & Departure",
+      "faqs": [
+        { "question": "What is the self check-in process?", "answer": "Once your booking is confirmed, you'll receive a detailed email with instructions for self check-in, including how to access the property, locate the keys, and navigate the villa's amenities." },
+        { "question": "What are the check-in and check-out times?", "answer": "Standard check-in is after 15:00 (3 PM). Check-out is at 10:00 (10 AM). If you need flexibility, please contact us in advance." },
+        { "question": "Where can I park my vehicle?", "answer": "Villa Volpe offers ample parking inside the property at no additional cost. During high season, only one car is allowed." },
+        { "question": "Can I walk to Orta San Giulio town center?", "answer": "The town center is about 1.3 km away. We strongly recommend driving — the road is quite busy and challenging for pedestrians." }
+      ]
+    },
+    {
+      "name": "Amenities & Services",
+      "faqs": [
+        { "question": "Does Villa Volpe have Wi-Fi?", "answer": "Yes, free Wi-Fi is available throughout the property via a portable router that supports up to 10 devices simultaneously." },
+        { "question": "Is there air conditioning and heating?", "answer": "Yes, the property is equipped with air conditioning for both cooling and heating in all rooms." },
+        { "question": "Are there laundry facilities?", "answer": "Yes, a washing machine is available in a dedicated technical closet with usage instructions provided." },
+        { "question": "Can I swim in the lake?", "answer": "Villa Volpe has private lake access, ideal for swimming. An outdoor hot and cold shower is available. Lake Orta is one of the cleanest lakes in Italy." },
+        { "question": "Is the property accessible for people with disabilities?", "answer": "Yes, Villa Volpe is fully accessible: ramp entry, wheelchair-friendly corridors, adapted bathroom with handles and movable seat, and on request, a people-lifting system for lake access." },
+        { "question": "Is the tap water safe to drink?", "answer": "Yes, the tap water is safe and drinkable. Some guests prefer bottled water, which is available at local grocery stores." }
+      ]
+    },
+    {
+      "name": "House Rules",
+      "faqs": [
+        { "question": "Are parties or events allowed?", "answer": "No. Villa Volpe is an oasis of relaxation. Parties and events are not permitted. Please maintain minimal noise, especially in the evenings." },
+        { "question": "Can I use a BBQ?", "answer": "No. Barbecues and open flame devices are strictly prohibited for safety and compliance with local regulations." },
+        { "question": "How does garbage collection work?", "answer": "Please separate waste into categories: paper, plastic, metal, glass, organic, and general waste. Collection points are located near the parking area." }
+      ]
+    }
+  ]
+}
