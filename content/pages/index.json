@@ -2,21 +2,31 @@
   "hero": {
     "label": "Lake Orta, Piedmont — Italy",
     "title": "Villa Volpe",
-    "subtitle": "Everything you need, on the sunny side of Lake Orta. Three meters from crystal clear water."
+    "subtitle": "Everything you need, on the sunny side of Lake Orta. Three meters from crystal clear water.",
+    "image": ""
   },
   "features": [
-    { "title": "By the Lake", "text": "Where morning light meets water. Your private beach, just steps away." },
-    { "title": "Sunlit Garden", "text": "A private space for reading, resting, and watching the light change over the water." },
-    { "title": "Private Parking", "text": "Perhaps the coolest parking spot in the world. Spacious and right above the villa." }
+    { "title": "By the Lake", "text": "Where morning light meets water. Your private beach, just steps away.", "image": "" },
+    { "title": "Sunlit Garden", "text": "A private space for reading, resting, and watching the light change over the water.", "image": "" },
+    { "title": "Private Parking", "text": "Perhaps the coolest parking spot in the world. Spacious and right above the villa.", "image": "" }
   ],
   "introduction": {
     "label": "About the Property",
     "title": "A Design Glass Cube on Lake Orta",
+    "image": "",
     "paragraphs": [
       "Nestled on the picturesque east shore of Lake Orta, Villa Volpe is a truly unique property. The villa, a design glass cube surrounded by a breathtakingly landscaped garden, is situated just three meters from the crystal clear waters of the lake, with a view of the illuminated island of San Giulio at night.",
       "65 square meters of beautifully appointed living space. Two king-size bedrooms. A fully equipped kitchen. And outside, your private oasis: a lush garden that leads to your own beach."
     ]
   },
+  "gallery": [
+    { "image": "", "caption": "Villa Volpe — Lake View" },
+    { "image": "", "caption": "Private Beach" },
+    { "image": "", "caption": "Garden" },
+    { "image": "", "caption": "Living Room" },
+    { "image": "", "caption": "Bedroom" },
+    { "image": "", "caption": "San Giulio Island at Night" }
+  ],
   "stats": [
     { "number": "690+", "label": "Happy Guests" },
     { "number": "1,748", "label": "Nights Booked" },
