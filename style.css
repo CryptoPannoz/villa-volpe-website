@@ -1190,3 +1190,164 @@ background-image: url('/images/villavolpeorta-drone-aerial-villa-waterfront-terr
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ============================================
+   VILLA VOLPE — Gallery, Lightbox & Map
+   Add this CSS at the end of style.css
+   ============================================ */
+
+/* ---------- Photo Gallery ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+}
+
+.gallery__item {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease);
+}
+
+.gallery__item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transition: opacity var(--duration) var(--ease);
+}
+
+.gallery__item:hover .gallery__caption {
+  opacity: 1;
+}
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration) var(--ease);
+}
+
+.lightbox--open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox__img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity var(--duration) var(--ease);
+  z-index: 2001;
+  line-height: 1;
+}
+
+.lightbox__close:hover {
+  opacity: 1;
+}
+
+.lightbox__prev,
+.lightbox__next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 3rem;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity var(--duration) var(--ease);
+  z-index: 2001;
+  padding: 1rem;
+  line-height: 1;
+}
+
+.lightbox__prev:hover,
+.lightbox__next:hover {
+  opacity: 1;
+}
+
+.lightbox__prev {
+  left: 1rem;
+}
+
+.lightbox__next {
+  right: 1rem;
+}
+
+.lightbox__caption {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+/* ---------- Map ---------- */
+.map-container {
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+#map {
+  z-index: 1;
+}
+
+/* ---------- Gallery Responsive ---------- */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lightbox__prev,
+  .lightbox__next {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
