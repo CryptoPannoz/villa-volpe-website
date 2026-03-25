@@ -8,6 +8,7 @@
   "outdoor": {
     "label": "Outdoor",
     "title": "Where Lake Meets Garden",
+    "image": "",
     "paragraphs": [
       "The villa is surrounded by a breathtakingly landscaped garden, situated just steps from the crystal clear waters of the lake. As a guest, you'll have exclusive access to a private beach where you can take a refreshing swim in the clear and inviting waters.",
       "The outdoor amenities include a hot and cold shower, sink, outdoor furniture with tables and umbrellas, and a spacious parking lot inside the property. There's even a unique sunbathing platform in the middle of the lake."
@@ -16,6 +17,7 @@
   "bedrooms": {
     "label": "Interior",
     "title": "Bedrooms & Living",
+    "image": "",
     "paragraphs": [
       "The house features a spacious living room with kitchen and sofa, plus a fully equipped kitchen with a 4-burner gas stove, dishwasher, refrigerator, kettle, and coffee machine.",
       "Two double bedrooms with comfortable king-size beds and ample wardrobe space. A bathroom with a walk-in shower, WC, bidet, and electric heater rack. Air conditioning for cooling and heating in all rooms.",
@@ -23,92 +25,39 @@
     ]
   },
   "amenities": [
-    {
-      "title": "Private Beach",
-      "text": "Exclusive lake access with outdoor shower"
-    },
-    {
-      "title": "Free Wi-Fi",
-      "text": "Portable router, up to 10 devices"
-    },
-    {
-      "title": "Air Conditioning",
-      "text": "Heating & cooling in all rooms"
-    },
-    {
-      "title": "Wheelchair Accessible",
-      "text": "Fully barrier-free, ramp entry, adapted bathroom"
-    },
-    {
-      "title": "Self Check-in",
-      "text": "Flexible, keyless arrival"
-    },
-    {
-      "title": "Private Parking",
-      "text": "Spacious lot inside the property"
-    },
-    {
-      "title": "Pet Friendly",
-      "text": "Small pets welcome (extra cleaning fee applies)"
-    },
-    {
-      "title": "Lake & Island Views",
-      "text": "San Giulio Island illuminated at night"
-    }
+    { "title": "Private Beach", "text": "Exclusive lake access with outdoor shower" },
+    { "title": "Free Wi-Fi", "text": "Portable router, up to 10 devices" },
+    { "title": "Air Conditioning", "text": "Heating & cooling in all rooms" },
+    { "title": "Wheelchair Accessible", "text": "Fully barrier-free, ramp entry, adapted bathroom" },
+    { "title": "Self Check-in", "text": "Flexible, keyless arrival" },
+    { "title": "Private Parking", "text": "Spacious lot inside the property" },
+    { "title": "Pet Friendly", "text": "Small pets welcome (extra cleaning fee applies)" },
+    { "title": "Lake & Island Views", "text": "San Giulio Island illuminated at night" }
   ],
   "accessibility": {
     "label": "Accessibility",
     "title": "Designed for Everyone",
+    "image": "",
     "paragraphs": [
       "Villa Volpe is fully accessible for people with disabilities. The property was designed without architectural barriers and has been tested for functionality by people in wheelchairs."
     ],
     "features": [
-      {
-        "heading": "Ramp Entry",
-        "text": "A ramp with a 12% gradient from the parking area to the house."
-      },
-      {
-        "heading": "Wheelchair-Friendly Layout",
-        "text": "Step-free, with corridors wide enough for wheelchair passage."
-      },
-      {
-        "heading": "Accessible Bathroom",
-        "text": "Equipped with handles, a specially designed shower, and a movable seat."
-      },
-      {
-        "heading": "Lakeside Access",
-        "text": "On request, we can set up a people-lifting system for lake access."
-      }
+      { "heading": "Ramp Entry", "text": "A ramp with a 12% gradient from the parking area to the house." },
+      { "heading": "Wheelchair-Friendly Layout", "text": "Step-free, with corridors wide enough for wheelchair passage." },
+      { "heading": "Accessible Bathroom", "text": "Equipped with handles, a specially designed shower, and a movable seat." },
+      { "heading": "Lakeside Access", "text": "On request, we can set up a people-lifting system for lake access." }
     ]
   },
   "propertyDetails": {
     "label": "At a Glance",
     "title": "Property Details",
     "details": [
-      {
-        "label": "Bedrooms",
-        "value": "2 Double"
-      },
-      {
-        "label": "Guests",
-        "value": "Up to 4"
-      },
-      {
-        "label": "Living Space",
-        "value": "65 m²"
-      },
-      {
-        "label": "Check-in",
-        "value": "After 15:00"
-      },
-      {
-        "label": "Check-out",
-        "value": "By 10:00"
-      },
-      {
-        "label": "From Lake",
-        "value": "3 meters"
-      }
+      { "label": "Bedrooms", "value": "2 Double" },
+      { "label": "Guests", "value": "Up to 4" },
+      { "label": "Living Space", "value": "65 m²" },
+      { "label": "Check-in", "value": "After 15:00" },
+      { "label": "Check-out", "value": "By 10:00" },
+      { "label": "From Lake", "value": "3 meters" }
     ]
   },
   "cta": {
