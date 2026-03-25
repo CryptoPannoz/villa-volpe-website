@@ -145,6 +145,7 @@ collections:
               - { label: "Etichetta", name: "label", widget: "string" }
               - { label: "Titolo", name: "title", widget: "string" }
               - { label: "Paragrafi", name: "paragraphs", widget: "list", field: { label: "Paragrafo", name: "paragraph", widget: "text" } }
+              - { label: "Immagine", name: "image", widget: "image", required: false, hint: "Foto rampa o bagno accessibile" }
               - label: "Caratteristiche"
                 name: "features"
                 widget: "list"
