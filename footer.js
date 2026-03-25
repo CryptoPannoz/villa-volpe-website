@@ -36,6 +36,7 @@
           <ul class="footer__links">
             <li><a href="${base}book.html">Direct Booking (-15%)</a></li>
             <li><a href="https://www.airbnb.com/rooms/26816946" target="_blank" rel="noopener">Airbnb Listing</a></li>
+            <li><a href="https://villavolpeortalake.dtravel.com/" target="_blank" rel="noopener">Pay with Crypto</a></li>
           </ul>
         </div>
       </div>
