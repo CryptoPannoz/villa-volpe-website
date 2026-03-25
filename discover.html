@@ -1,291 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Discover — Villa Volpe</title>
-  <meta name="description" content="Explore Villa Volpe: 65m² of design living on Lake Orta. Two king-size bedrooms, private beach, full accessibility, and breathtaking views of San Giulio Island.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="index.html" class="nav__logo">Villa <span>Volpe</span></a>
-      <ul class="nav__links">
-        <li><a href="index.html" class="nav__link">Home</a></li>
-        <li><a href="discover.html" class="nav__link nav__link--active">Discover</a></li>
-        <li><a href="story.html" class="nav__link">Story</a></li>
-        <li><a href="blog.html" class="nav__link">Blog</a></li>
-        <li><a href="faqs.html" class="nav__link">FAQs</a></li>
-      </ul>
-      <a href="book.html" class="nav__cta">Book Now</a>
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-menu__close" id="mobileClose" aria-label="Close menu">&times;</button>
-    <a href="index.html">Home</a>
-    <a href="discover.html">Discover</a>
-    <a href="story.html">Story</a>
-    <a href="blog.html">Blog</a>
-    <a href="faqs.html">FAQs</a>
-    <a href="book.html" class="btn btn--dark">Book Now</a>
-  </div>
-
-  <!-- Page Header -->
-  <header class="page-header">
-    <span class="label page-header__label" data-cms="pageHeader.label">Discover</span>
-    <h1 class="page-header__title" data-cms="pageHeader.title">The Villa</h1>
-    <p class="page-header__desc" data-cms="pageHeader.description">65 square meters of design living, three meters from crystal clear water.</p>
-  </header>
-
-  <!-- Outdoor Area -->
-  <section class="section">
-    <div class="container">
-      <div class="two-col reveal">
-        <div class="two-col__img img-placeholder" style="aspect-ratio:4/5;" data-cms-img="outdoor.image">OUTDOOR — LAKE VIEW</div>
-        <div class="two-col__content">
-          <span class="label" data-cms="outdoor.label">Outdoor</span>
-          <div class="divider"></div>
-          <h2 data-cms="outdoor.title">Where Lake Meets Garden</h2>
-          <p style="margin-top:1.5rem;" data-cms="outdoor.paragraphs.0">
-            The villa is surrounded by a breathtakingly landscaped garden, situated just steps from the crystal clear waters of the lake. As a guest, you'll have exclusive access to a private beach where you can take a refreshing swim in the clear and inviting waters.
-          </p>
-          <p style="margin-top:1rem;" data-cms="outdoor.paragraphs.1">
-            The outdoor amenities include a hot and cold shower, sink, outdoor furniture with tables and umbrellas, and a spacious parking lot inside the property. There's even a unique sunbathing platform in the middle of the lake.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Bedrooms & Interior -->
-  <section class="section section--alt">
-    <div class="container">
-      <div class="two-col two-col--reverse reveal">
-        <div class="two-col__img img-placeholder" style="aspect-ratio:4/5;" data-cms-img="bedrooms.image">BEDROOM</div>
-        <div class="two-col__content">
-          <span class="label" data-cms="bedrooms.label">Interior</span>
-          <div class="divider"></div>
-          <h2 data-cms="bedrooms.title">Bedrooms &amp; Living</h2>
-          <p style="margin-top:1.5rem;" data-cms="bedrooms.paragraphs.0">
-            The house features a spacious living room with kitchen and sofa, plus a fully equipped kitchen with a 4-burner gas stove, dishwasher, refrigerator, kettle, and coffee machine.
-          </p>
-          <p style="margin-top:1rem;" data-cms="bedrooms.paragraphs.1">
-            Two double bedrooms with comfortable king-size beds and ample wardrobe space. A bathroom with a walk-in shower, WC, bidet, and electric heater rack. Air conditioning for cooling and heating in all rooms.
-          </p>
-          <p style="margin-top:1rem;font-style:italic;color:var(--color-accent);" data-cms="bedrooms.paragraphs.2">
-            "Spend more time enjoying sunsets and less time streaming Netflix."
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Amenities -->
-  <section class="section">
-    <div class="container">
-      <div style="text-align:center;margin-bottom:3rem;">
-        <span class="label">What's Included</span>
-        <div class="divider divider--center"></div>
-        <h2>Amenities</h2>
-      </div>
-      <div class="amenities reveal-stagger" id="amenities">
-        <div class="amenity">
-          <svg class="amenity__icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-          <div>
-            <div class="amenity__title">Private Beach</div>
-            <div class="amenity__text">Exclusive lake access with outdoor shower</div>
-          </div>
-        </div>
-        <div class="amenity">
-          <svg class="amenity__icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.858 15.355-5.858 21.213 0"/></svg>
-          <div>
-            <div class="amenity__title">Free Wi-Fi</div>
-            <div class="amenity__text">Portable router, up to 10 devices</div>
-          </div>
-        </div>
-        <div class="amenity">
-          <svg class="amenity__icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          <div>
-            <div class="amenity__title">Air Conditioning</div>
-            <div class="amenity__text">Heating &amp; cooling in all rooms</div>
-          </div>
-        </div>
-        <div class="amenity">
-          <svg class="amenity__icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="2.5"/><path d="M12 7v5m-4 7 4-5 4 5M8 12h8"/></svg>
-          <div>
-            <div class="amenity__title">Wheelchair Accessible</div>
-            <div class="amenity__text">Fully barrier-free, ramp entry, adapted bathroom</div>
-          </div>
-        </div>
-        <div class="amenity">
-          <svg class="amenity__icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 7h3a5 5 0 015 5 5 5 0 01-5 5h-3m-6 0H6a5 5 0 01-5-5 5 5 0 015-5h3m-1 5h10"/></svg>
-          <div>
-            <div class="amenity__title">Self Check-in</div>
-            <div class="amenity__text">Flexible, keyless arrival</div>
-          </div>
-        </div>
-        <div class="amenity">
-          <svg class="amenity__icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          <div>
-            <div class="amenity__title">Private Parking</div>
-            <div class="amenity__text">Spacious lot inside the property</div>
-          </div>
-        </div>
-        <div class="amenity">
-          <svg class="amenity__icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          <div>
-            <div class="amenity__title">Pet Friendly</div>
-            <div class="amenity__text">Small pets welcome (extra cleaning fee applies)</div>
-          </div>
-        </div>
-        <div class="amenity">
-          <svg class="amenity__icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-          <div>
-            <div class="amenity__title">Lake &amp; Island Views</div>
-            <div class="amenity__text">San Giulio Island illuminated at night</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Accessibility -->
-  <section class="section section--alt">
-    <div class="container">
-      <div class="two-col reveal">
-        <div class="two-col__content">
-          <span class="label" data-cms="accessibility.label">Accessibility</span>
-          <div class="divider"></div>
-          <h2 data-cms="accessibility.title">Designed for Everyone</h2>
-          <p style="margin-top:1.5rem;" data-cms="accessibility.paragraphs.0">
-            Villa Volpe is fully accessible for people with disabilities. The property was designed without architectural barriers and has been tested for functionality by people in wheelchairs.
-          </p>
-          <p style="margin-top:1rem;">
-            <strong>Ramp Entry:</strong> A ramp with a 12% gradient from the parking area to the house.
-          </p>
-          <p style="margin-top:0.75rem;">
-            <strong>Wheelchair-Friendly Layout:</strong> Step-free, with corridors wide enough for wheelchair passage.
-          </p>
-          <p style="margin-top:0.75rem;">
-            <strong>Accessible Bathroom:</strong> Equipped with handles, a specially designed shower, and a movable seat.
-          </p>
-          <p style="margin-top:0.75rem;">
-            <strong>Lakeside Access:</strong> On request, we can set up a people-lifting system for lake access.
-          </p>
-        </div>
-        <div class="two-col__img img-placeholder" style="aspect-ratio:4/5;" data-cms-img="accessibility.image">ACCESSIBILITY — RAMP / BATHROOM</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Property Details -->
-  <section class="section">
-    <div class="container" style="text-align:center;">
-      <span class="label" data-cms="propertyDetails.label">At a Glance</span>
-      <div class="divider divider--center"></div>
-      <h2 style="margin-bottom:3rem;" data-cms="propertyDetails.title">Property Details</h2>
-      <div class="contact-block reveal" style="max-width:1000px;margin:0 auto;">
-        <div class="contact-item">
-          <div class="contact-item__label">Bedrooms</div>
-          <div class="contact-item__value">2 Double</div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item__label">Guests</div>
-          <div class="contact-item__value">Up to 4</div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item__label">Living Space</div>
-          <div class="contact-item__value">65 m&sup2;</div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item__label">Check-in</div>
-          <div class="contact-item__value">After 15:00</div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item__label">Check-out</div>
-          <div class="contact-item__value">By 10:00</div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item__label">From Lake</div>
-          <div class="contact-item__value">3 meters</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-banner">
-    <h2 data-cms="cta.title">Seen Enough?</h2>
-    <p data-cms="cta.subtitle">Book directly and save 15% compared to Airbnb.</p>
-    <a href="book.html" class="btn btn--accent">Book Your Stay</a>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div>
-          <div class="footer__brand">Villa <span>Volpe</span></div>
-          <p class="footer__desc">A design glass cube on the sunny shore of Lake Orta. Three meters from crystal clear water, with a view of San Giulio Island.</p>
-        </div>
-        <div>
-          <div class="footer__title">Explore</div>
-          <ul class="footer__links">
-            <li><a href="discover.html">Discover</a></li>
-            <li><a href="story.html">Our Story</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="faqs.html">FAQs</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer__title">Contact</div>
-          <ul class="footer__links">
-            <li><a href="mailto:villavolpeorta@gmail.com">villavolpeorta@gmail.com</a></li>
-            <li><a href="tel:+393336859707">+39 333 685 9707</a></li>
-            <li>Via Novara 38</li>
-            <li>Orta San Giulio 28016</li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer__title">Book</div>
-          <ul class="footer__links">
-            <li><a href="book.html">Direct Booking (-15%)</a></li>
-            <li><a href="https://www.airbnb.com/rooms/26816946" target="_blank" rel="noopener">Airbnb Listing</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <span>&copy; 2026 Villa Volpe. All rights reserved.</span>
-        <div class="footer__legal">
-          <span>CIN: IT003112C2L7M2HAGX</span>
-          <span>CIR: 00311200109</span>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="main.js"></script>
-  <script src="js/content-loader.js"></script>
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
-</body>
-</html>
+{
+  "pageHeader": {
+    "label": "Discover",
+    "title": "The Villa",
+    "description": "65 square meters of design living, three meters from crystal clear water.",
+    "image": ""
+  },
+  "outdoor": {
+    "label": "Outdoor",
+    "title": "Where Lake Meets Garden",
+    "image": "",
+    "paragraphs": [
+      "The villa is surrounded by a breathtakingly landscaped garden, situated just steps from the crystal clear waters of the lake. As a guest, you'll have exclusive access to a private beach where you can take a refreshing swim in the clear and inviting waters.",
+      "The outdoor amenities include a hot and cold shower, sink, outdoor furniture with tables and umbrellas, and a spacious parking lot inside the property. There's even a unique sunbathing platform in the middle of the lake."
+    ]
+  },
+  "bedrooms": {
+    "label": "Interior",
+    "title": "Bedrooms & Living",
+    "image": "",
+    "paragraphs": [
+      "The house features a spacious living room with kitchen and sofa, plus a fully equipped kitchen with a 4-burner gas stove, dishwasher, refrigerator, kettle, and coffee machine.",
+      "Two double bedrooms with comfortable king-size beds and ample wardrobe space. A bathroom with a walk-in shower, WC, bidet, and electric heater rack. Air conditioning for cooling and heating in all rooms.",
+      "\"Spend more time enjoying sunsets and less time streaming Netflix.\""
+    ]
+  },
+  "amenities": [
+    { "title": "Private Beach", "text": "Exclusive lake access with outdoor shower" },
+    { "title": "Free Wi-Fi", "text": "Portable router, up to 10 devices" },
+    { "title": "Air Conditioning", "text": "Heating & cooling in all rooms" },
+    { "title": "Wheelchair Accessible", "text": "Fully barrier-free, ramp entry, adapted bathroom" },
+    { "title": "Self Check-in", "text": "Flexible, keyless arrival" },
+    { "title": "Private Parking", "text": "Spacious lot inside the property" },
+    { "title": "Pet Friendly", "text": "Small pets welcome (extra cleaning fee applies)" },
+    { "title": "Lake & Island Views", "text": "San Giulio Island illuminated at night" }
+  ],
+  "accessibility": {
+    "label": "Accessibility",
+    "title": "Designed for Everyone",
+    "image": "",
+    "paragraphs": [
+      "Villa Volpe is fully accessible for people with disabilities. The property was designed without architectural barriers and has been tested for functionality by people in wheelchairs."
+    ],
+    "features": [
+      { "heading": "Ramp Entry", "text": "A ramp with a 12% gradient from the parking area to the house." },
+      { "heading": "Wheelchair-Friendly Layout", "text": "Step-free, with corridors wide enough for wheelchair passage." },
+      { "heading": "Accessible Bathroom", "text": "Equipped with handles, a specially designed shower, and a movable seat." },
+      { "heading": "Lakeside Access", "text": "On request, we can set up a people-lifting system for lake access." }
+    ]
+  },
+  "propertyDetails": {
+    "label": "At a Glance",
+    "title": "Property Details",
+    "details": [
+      { "label": "Bedrooms", "value": "2 Double" },
+      { "label": "Guests", "value": "Up to 4" },
+      { "label": "Living Space", "value": "65 m²" },
+      { "label": "Check-in", "value": "After 15:00" },
+      { "label": "Check-out", "value": "By 10:00" },
+      { "label": "From Lake", "value": "3 meters" }
+    ]
+  },
+  "cta": {
+    "title": "Seen Enough?",
+    "subtitle": "Book directly and save 15% compared to Airbnb."
+  }
+}
