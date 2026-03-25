@@ -42,24 +42,24 @@
 
   <!-- Page Header -->
   <header class="page-header">
-    <span class="label page-header__label">Discover</span>
-    <h1 class="page-header__title">The Villa</h1>
-    <p class="page-header__desc">65 square meters of design living, three meters from crystal clear water.</p>
+    <span class="label page-header__label" data-cms="pageHeader.label">Discover</span>
+    <h1 class="page-header__title" data-cms="pageHeader.title">The Villa</h1>
+    <p class="page-header__desc" data-cms="pageHeader.description">65 square meters of design living, three meters from crystal clear water.</p>
   </header>
 
   <!-- Outdoor Area -->
   <section class="section">
     <div class="container">
       <div class="two-col reveal">
-        <div class="two-col__img img-placeholder" style="aspect-ratio:4/5;">OUTDOOR — LAKE VIEW</div>
+        <div class="two-col__img img-placeholder" style="aspect-ratio:4/5;" data-cms-img="outdoor.image">OUTDOOR — LAKE VIEW</div>
         <div class="two-col__content">
-          <span class="label">Outdoor</span>
+          <span class="label" data-cms="outdoor.label">Outdoor</span>
           <div class="divider"></div>
-          <h2>Where Lake Meets Garden</h2>
-          <p style="margin-top:1.5rem;">
+          <h2 data-cms="outdoor.title">Where Lake Meets Garden</h2>
+          <p style="margin-top:1.5rem;" data-cms="outdoor.paragraphs.0">
             The villa is surrounded by a breathtakingly landscaped garden, situated just steps from the crystal clear waters of the lake. As a guest, you'll have exclusive access to a private beach where you can take a refreshing swim in the clear and inviting waters.
           </p>
-          <p style="margin-top:1rem;">
+          <p style="margin-top:1rem;" data-cms="outdoor.paragraphs.1">
             The outdoor amenities include a hot and cold shower, sink, outdoor furniture with tables and umbrellas, and a spacious parking lot inside the property. There's even a unique sunbathing platform in the middle of the lake.
           </p>
         </div>
@@ -71,18 +71,18 @@
   <section class="section section--alt">
     <div class="container">
       <div class="two-col two-col--reverse reveal">
-        <div class="two-col__img img-placeholder" style="aspect-ratio:4/5;">BEDROOM</div>
+        <div class="two-col__img img-placeholder" style="aspect-ratio:4/5;" data-cms-img="bedrooms.image">BEDROOM</div>
         <div class="two-col__content">
-          <span class="label">Interior</span>
+          <span class="label" data-cms="bedrooms.label">Interior</span>
           <div class="divider"></div>
-          <h2>Bedrooms &amp; Living</h2>
-          <p style="margin-top:1.5rem;">
+          <h2 data-cms="bedrooms.title">Bedrooms &amp; Living</h2>
+          <p style="margin-top:1.5rem;" data-cms="bedrooms.paragraphs.0">
             The house features a spacious living room with kitchen and sofa, plus a fully equipped kitchen with a 4-burner gas stove, dishwasher, refrigerator, kettle, and coffee machine.
           </p>
-          <p style="margin-top:1rem;">
+          <p style="margin-top:1rem;" data-cms="bedrooms.paragraphs.1">
             Two double bedrooms with comfortable king-size beds and ample wardrobe space. A bathroom with a walk-in shower, WC, bidet, and electric heater rack. Air conditioning for cooling and heating in all rooms.
           </p>
-          <p style="margin-top:1rem;font-style:italic;color:var(--color-accent);">
+          <p style="margin-top:1rem;font-style:italic;color:var(--color-accent);" data-cms="bedrooms.paragraphs.2">
             "Spend more time enjoying sunsets and less time streaming Netflix."
           </p>
         </div>
@@ -164,10 +164,10 @@
     <div class="container">
       <div class="two-col reveal">
         <div class="two-col__content">
-          <span class="label">Accessibility</span>
+          <span class="label" data-cms="accessibility.label">Accessibility</span>
           <div class="divider"></div>
-          <h2>Designed for Everyone</h2>
-          <p style="margin-top:1.5rem;">
+          <h2 data-cms="accessibility.title">Designed for Everyone</h2>
+          <p style="margin-top:1.5rem;" data-cms="accessibility.paragraphs.0">
             Villa Volpe is fully accessible for people with disabilities. The property was designed without architectural barriers and has been tested for functionality by people in wheelchairs.
           </p>
           <p style="margin-top:1rem;">
@@ -183,7 +183,7 @@
             <strong>Lakeside Access:</strong> On request, we can set up a people-lifting system for lake access.
           </p>
         </div>
-        <div class="two-col__img img-placeholder" style="aspect-ratio:4/5;">ACCESSIBILITY — RAMP / BATHROOM</div>
+        <div class="two-col__img img-placeholder" style="aspect-ratio:4/5;" data-cms-img="accessibility.image">ACCESSIBILITY — RAMP / BATHROOM</div>
       </div>
     </div>
   </section>
@@ -191,9 +191,9 @@
   <!-- Property Details -->
   <section class="section">
     <div class="container" style="text-align:center;">
-      <span class="label">At a Glance</span>
+      <span class="label" data-cms="propertyDetails.label">At a Glance</span>
       <div class="divider divider--center"></div>
-      <h2 style="margin-bottom:3rem;">Property Details</h2>
+      <h2 style="margin-bottom:3rem;" data-cms="propertyDetails.title">Property Details</h2>
       <div class="contact-block reveal" style="max-width:1000px;margin:0 auto;">
         <div class="contact-item">
           <div class="contact-item__label">Bedrooms</div>
@@ -225,8 +225,8 @@
 
   <!-- CTA -->
   <section class="cta-banner">
-    <h2>Seen Enough?</h2>
-    <p>Book directly and save 15% compared to Airbnb.</p>
+    <h2 data-cms="cta.title">Seen Enough?</h2>
+    <p data-cms="cta.subtitle">Book directly and save 15% compared to Airbnb.</p>
     <a href="book.html" class="btn btn--accent">Book Your Stay</a>
   </section>
 
@@ -275,5 +275,17 @@
   </footer>
 
   <script src="main.js"></script>
+  <script src="js/content-loader.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>
