@@ -115,6 +115,10 @@
       {
         "label": "Airconditioning",
         "value": "In All Rooms"
+      },
+      {
+        "label": "Parking",
+        "value": "EV + 2 Cars"
       }
     ]
   },
