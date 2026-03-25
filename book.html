@@ -11,17 +11,13 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="booking-engine/styles.css">
   <style>
-    /* ── Layout: widget + sidebar ── */
+    /* ── Layout: single column, full-width ── */
     .booking-layout {
-      display: grid;
-      grid-template-columns: 1fr 380px;
+      display: flex;
+      flex-direction: column;
       gap: var(--space-xl);
-      align-items: start;
-    }
-    @media (max-width: 960px) {
-      .booking-layout {
-        grid-template-columns: 1fr;
-      }
+      max-width: 680px;
+      margin: 0 auto;
     }
 
     /* Override widget styles per embed nel sito */
@@ -33,8 +29,8 @@
       max-width: 100%;
     }
 
-    /* Sidebar cards */
-    .booking-sidebar {
+    /* Info blocks sotto il widget */
+    .booking-info-blocks {
       display: flex;
       flex-direction: column;
       gap: var(--space-md);
@@ -255,6 +251,7 @@
               <ul>
                 <li><strong>Deposit:</strong> 30% of total price to confirm your booking</li>
                 <li><strong>Balance:</strong> Due 21 days before check-in</li>
+                <li><strong>Bank Transfer:</strong> to confirm your booking</li>
               </ul>
               <h3>Cancellation</h3>
               <ul>
@@ -298,9 +295,9 @@
         </div><!-- .booking-widget -->
 
         <!-- ══════════════════════════════════════════════ -->
-        <!-- SIDEBAR                                        -->
+        <!-- HOW TO BOOK                                    -->
         <!-- ══════════════════════════════════════════════ -->
-        <div class="booking-sidebar">
+        <div class="booking-info-blocks">
 
           <div class="booking-card reveal">
             <h3 class="booking-card__title">How to Book</h3>
@@ -333,6 +330,9 @@
             </div>
           </div>
 
+          <!-- ══════════════════════════════════════════════ -->
+          <!-- POLICIES                                       -->
+          <!-- ══════════════════════════════════════════════ -->
           <div class="booking-card reveal">
             <h3 class="booking-card__title">Policies</h3>
             <ul class="policy-list" style="margin-top:1rem;">
@@ -346,27 +346,15 @@
             </ul>
           </div>
 
-          <div class="contact-block reveal">
-            <div class="contact-item">
-              <div class="contact-item__label">Email</div>
-              <div class="contact-item__value"><a href="mailto:villavolpeorta@gmail.com">villavolpeorta@gmail.com</a></div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item__label">Phone</div>
-              <div class="contact-item__value"><a href="tel:+393336859707">+39 333 685 9707</a></div>
-            </div>
-          </div>
-
-        </div><!-- .booking-sidebar -->
+        </div><!-- .booking-info-blocks -->
 
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-<div id="site-footer"></div>
-<script src="footer.js"></script>
-
+  <div id="site-footer"></div>
+  <script src="footer.js"></script>
 
   <script src="main.js"></script>
   <script src="booking-engine/calendar.js"></script>
