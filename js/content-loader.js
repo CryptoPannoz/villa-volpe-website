@@ -156,6 +156,103 @@
   }
 
   /**
+   * Build photo gallery from JSON data
+   * Expects data.gallery = [{ image: "/path.jpg", caption: "text" }, ...]
+   */
+  function buildGallery(data) {
+    if (!data || !data.gallery) return;
+    var container = document.querySelector('[data-cms-gallery]');
+    if (!container) return;
+
+    // Filter out items without images
+    var items = data.gallery.filter(function(item) { return item.image && item.image !== ''; });
+    if (items.length === 0) return;
+
+    // Clear placeholder content
+    container.innerHTML = '';
+
+    // Build gallery grid
+    items.forEach(function(item, index) {
+      var div = document.createElement('div');
+      div.className = 'gallery__item';
+      var img = document.createElement('img');
+      img.src = item.image;
+      img.alt = item.caption || 'Villa Volpe';
+      img.loading = 'lazy';
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.objectFit = 'cover';
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', function() {
+        openLightbox(items, index);
+      });
+      div.appendChild(img);
+      if (item.caption) {
+        var cap = document.createElement('div');
+        cap.className = 'gallery__caption';
+        cap.textContent = item.caption;
+        div.appendChild(cap);
+      }
+      container.appendChild(div);
+    });
+  }
+
+  /**
+   * Lightbox functionality
+   */
+  var lightboxItems = [];
+  var lightboxIndex = 0;
+
+  function openLightbox(items, index) {
+    lightboxItems = items;
+    lightboxIndex = index;
+    var lightbox = document.getElementById('lightbox');
+    var img = document.getElementById('lightboxImg');
+    var caption = document.getElementById('lightboxCaption');
+    if (!lightbox || !img) return;
+    img.src = items[index].image;
+    if (caption) caption.textContent = items[index].caption || '';
+    lightbox.classList.add('lightbox--open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    var lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+      lightbox.classList.remove('lightbox--open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function navigateLightbox(direction) {
+    lightboxIndex = (lightboxIndex + direction + lightboxItems.length) % lightboxItems.length;
+    var img = document.getElementById('lightboxImg');
+    var caption = document.getElementById('lightboxCaption');
+    if (img) img.src = lightboxItems[lightboxIndex].image;
+    if (caption) caption.textContent = lightboxItems[lightboxIndex].caption || '';
+  }
+
+  // Lightbox event listeners
+  document.addEventListener('DOMContentLoaded', function() {
+    var closeBtn = document.getElementById('lightboxClose');
+    var prevBtn = document.getElementById('lightboxPrev');
+    var nextBtn = document.getElementById('lightboxNext');
+    var lightbox = document.getElementById('lightbox');
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    if (prevBtn) prevBtn.addEventListener('click', function() { navigateLightbox(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function() { navigateLightbox(1); });
+    if (lightbox) lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!document.getElementById('lightbox').classList.contains('lightbox--open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigateLightbox(-1);
+      if (e.key === 'ArrowRight') navigateLightbox(1);
+    });
+  });
+
+  /**
    * Main content update function
    */
   function updateContent(data) {
@@ -163,6 +260,7 @@
     updateTextContent(data);
     updateImages(data);
     updateBackgroundImages(data);
+    buildGallery(data);
   }
 
   async function init() {
