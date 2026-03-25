@@ -1,0 +1,6 @@
+.DS_Store
+netlify.toml
+admin/
+CMS_IMPLEMENTATION.md
+QUICK_START.md
+DEPLOY-GUIDE.md
