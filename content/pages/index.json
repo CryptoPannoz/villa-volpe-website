@@ -37,10 +37,6 @@
       "caption": "Villa Volpe — Lake View"
     },
     {
-      "image": "/images/uploads/villavolpeorta-interior-bedroom-double-bed-ensuite.jpg",
-      "caption": "Private Beach"
-    },
-    {
       "image": "/images/uploads/villavolpeorta-interior-living-room-sofa-lake-panorama.jpg",
       "caption": "Living Room"
     },
@@ -55,6 +51,10 @@
     {
       "image": "/images/uploads/villavolpeorta-interior-kitchen-dining-lake-view.jpg",
       "caption": "San Giulio Island at Night"
+    },
+    {
+      "image": "/images/uploads/villavolpeorta-interior-bedroom-double-bed-ensuite.jpg",
+      "caption": "Private Beach"
     }
   ],
   "stats": [
