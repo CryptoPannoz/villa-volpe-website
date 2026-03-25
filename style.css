@@ -1108,39 +1108,6 @@ p {
     flex-direction: column;
   }
 
-   /* ============================================
-   IMAGES
-   ============================================ */
-
-.hero__bg {
-background-image: url('/images/villavolpeorta-drone-aerial-villa-waterfront-terrace.jpg');
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 100%;
-}
-
-.feature-card__img {
-  background-size: cover;
-  background-position: center;
-}
-
-.feature-card:nth-child(1) .feature-card__img {
-  background-image: url('/images/feature-lake.jpg');
-}
-.feature-card:nth-child(2) .feature-card__img {
-  background-image: url('/images/feature-garden.jpg');
-}
-.feature-card:nth-child(3) .feature-card__img {
-  background-image: url('/images/feature-parking.jpg');
-}
-
-.two-col__img {
-  background-image: url('/images/villa-exterior.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
   .btn {
     text-align: center;
     justify-content: center;
@@ -1160,6 +1127,174 @@ background-image: url('/images/villavolpeorta-drone-aerial-villa-waterfront-terr
   .contact-block {
     grid-template-columns: 1fr;
   }
+}
+
+/* ---------- Blog Post Article ---------- */
+.post-header {
+  padding-top: calc(var(--nav-height) + var(--space-xl));
+  padding-bottom: var(--space-lg);
+  text-align: center;
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+.post-header__meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.post-header__category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.post-header__date {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.post-header__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--color-black);
+  margin-bottom: var(--space-md);
+}
+
+.post-header__excerpt {
+  font-size: 1.15rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+.post-hero-img {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto var(--space-xl);
+  aspect-ratio: 21/9;
+  object-fit: cover;
+  display: block;
+}
+
+.post-content {
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+  padding: 0 var(--space-md) var(--space-xl);
+}
+
+.post-content h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+}
+
+.post-content h3 {
+  font-size: 1.35rem;
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.post-content p {
+  font-size: 1.05rem;
+  color: var(--color-text-light);
+  line-height: 1.85;
+  margin-bottom: var(--space-md);
+  max-width: none;
+}
+
+.post-content strong {
+  color: var(--color-black);
+  font-weight: 600;
+}
+
+.post-content em {
+  font-style: italic;
+}
+
+.post-content a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.post-content a:hover {
+  color: var(--color-accent-dark);
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding: var(--space-sm) var(--space-md);
+  margin: var(--space-lg) 0;
+  background: var(--color-surface);
+}
+
+.post-content blockquote p {
+  font-style: italic;
+  color: var(--color-text);
+  margin-bottom: 0;
+}
+
+.post-content img {
+  width: 100%;
+  margin: var(--space-lg) 0;
+  border-radius: 0;
+}
+
+.post-content figure {
+  margin: var(--space-lg) 0;
+}
+
+.post-content figcaption {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: var(--space-xs);
+}
+
+.post-content ul,
+.post-content ol {
+  padding-left: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.post-content li {
+  font-size: 1.05rem;
+  color: var(--color-text-light);
+  line-height: 1.85;
+  margin-bottom: 0.5rem;
+}
+
+.post-nav {
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-nav__back {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.post-nav__back:hover {
+  color: var(--color-black);
 }
 
 /* ---------- Animations (on-scroll) ---------- */
@@ -1189,165 +1324,4 @@ background-image: url('/images/villavolpeorta-drone-aerial-villa-waterfront-terr
 .reveal-stagger--visible > * {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* ============================================
-   VILLA VOLPE — Gallery, Lightbox & Map
-   Add this CSS at the end of style.css
-   ============================================ */
-
-/* ---------- Photo Gallery ---------- */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-sm);
-}
-
-.gallery__item {
-  position: relative;
-  aspect-ratio: 4/3;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.gallery__item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--duration-slow) var(--ease);
-}
-
-.gallery__item:hover img {
-  transform: scale(1.05);
-}
-
-.gallery__caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 0.75rem 1rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
-  color: rgba(255,255,255,0.9);
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
-  opacity: 0;
-  transition: opacity var(--duration) var(--ease);
-}
-
-.gallery__item:hover .gallery__caption {
-  opacity: 1;
-}
-
-/* ---------- Lightbox ---------- */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  background: rgba(0, 0, 0, 0.95);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--duration) var(--ease);
-}
-
-.lightbox--open {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.lightbox__img {
-  max-width: 90vw;
-  max-height: 85vh;
-  object-fit: contain;
-}
-
-.lightbox__close {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2.5rem;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity var(--duration) var(--ease);
-  z-index: 2001;
-  line-height: 1;
-}
-
-.lightbox__close:hover {
-  opacity: 1;
-}
-
-.lightbox__prev,
-.lightbox__next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: white;
-  font-size: 3rem;
-  cursor: pointer;
-  opacity: 0.5;
-  transition: opacity var(--duration) var(--ease);
-  z-index: 2001;
-  padding: 1rem;
-  line-height: 1;
-}
-
-.lightbox__prev:hover,
-.lightbox__next:hover {
-  opacity: 1;
-}
-
-.lightbox__prev {
-  left: 1rem;
-}
-
-.lightbox__next {
-  right: 1rem;
-}
-
-.lightbox__caption {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(255,255,255,0.8);
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  text-align: center;
-}
-
-/* ---------- Map ---------- */
-.map-container {
-  border: 1px solid var(--color-border);
-  overflow: hidden;
-}
-
-#map {
-  z-index: 1;
-}
-
-/* ---------- Gallery Responsive ---------- */
-@media (max-width: 768px) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .lightbox__prev,
-  .lightbox__next {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .gallery {
-    grid-template-columns: 1fr;
-  }
 }
