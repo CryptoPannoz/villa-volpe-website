@@ -6,9 +6,21 @@
     "image": ""
   },
   "features": [
-    { "title": "By the Lake", "text": "Where morning light meets water. Your private beach, just steps away.", "image": "" },
-    { "title": "Sunlit Garden", "text": "A private space for reading, resting, and watching the light change over the water.", "image": "" },
-    { "title": "Private Parking", "text": "Perhaps the coolest parking spot in the world. Spacious and right above the villa.", "image": "" }
+    {
+      "title": "By the Lake",
+      "text": "Where morning light meets water. Your private beach, just steps away.",
+      "image": ""
+    },
+    {
+      "title": "Sunlit Garden",
+      "text": "A private space for reading, resting, and watching the light change over the water.",
+      "image": ""
+    },
+    {
+      "title": "Private Parking",
+      "text": "Perhaps the coolest parking spot in the world. Spacious and right above the villa.",
+      "image": ""
+    }
   ],
   "introduction": {
     "label": "About the Property",
@@ -20,27 +32,65 @@
     ]
   },
   "gallery": [
-    { "image": "", "caption": "Villa Volpe — Lake View" },
-    { "image": "", "caption": "Private Beach" },
-    { "image": "", "caption": "Garden" },
-    { "image": "", "caption": "Living Room" },
-    { "image": "", "caption": "Bedroom" },
-    { "image": "", "caption": "San Giulio Island at Night" }
+    {
+      "image": "/images/uploads/villavolpeorta-exterior-facade-garden-lake-parasol.jpg",
+      "caption": "Villa Volpe — Lake View"
+    },
+    {
+      "image": "/images/uploads/villavolpeorta-interior-bedroom-double-bed-ensuite.jpg",
+      "caption": "Private Beach"
+    },
+    {
+      "image": "/images/uploads/villavolpeorta-interior-living-room-sofa-lake-panorama.jpg",
+      "caption": "Living Room"
+    },
+    {
+      "image": "/images/uploads/villavolpeorta-exterior-terrace-sliding-doors-lake-view.jpg",
+      "caption": "Garden"
+    },
+    {
+      "image": "/images/uploads/villavolpeorta-interior-living-dining-evening-light.jpg",
+      "caption": "Bedroom"
+    },
+    {
+      "image": "/images/uploads/villavolpeorta-interior-kitchen-dining-lake-view.jpg",
+      "caption": "San Giulio Island at Night"
+    }
   ],
   "stats": [
-    { "number": "690+", "label": "Happy Guests" },
-    { "number": "1,748", "label": "Nights Booked" },
-    { "number": "4.91", "label": "Airbnb Rating" },
-    { "number": "4.8", "label": "Google Rating" }
+    {
+      "number": "690+",
+      "label": "Happy Guests"
+    },
+    {
+      "number": "1,748",
+      "label": "Nights Booked"
+    },
+    {
+      "number": "4.91",
+      "label": "Airbnb Rating"
+    },
+    {
+      "number": "4.8",
+      "label": "Google Rating"
+    }
   ],
   "location": {
     "title": "Where Piedmont Meets the Lake",
     "subtitle": "Conveniently located 80 km from Milan, 45 km from Milano Malpensa Airport, and 120 km from Turin. Via Novara 38, Orta San Giulio 28016, Italy.",
     "distances": [
-      { "label": "From Milan", "value": "80 km" },
-      { "label": "From Malpensa", "value": "45 km" },
-      { "label": "From Turin", "value": "120 km" },
-      { "label": "From the Lake", "value": "3 meters" }
+      {
+        "label": "From Milan",
+        "value": "80 km"
+      },
+      {
+        "label": "From Malpensa",
+        "value": "45 km"
+      },
+      {
+        "label": "From Turin",
+        "value": "120 km"
+      }
     ]
   },
   "cta": {
