@@ -78,6 +78,13 @@ collections:
               - { label: "Titolo", name: "title", widget: "string" }
               - { label: "Paragrafi", name: "paragraphs", widget: "list", field: { label: "Paragrafo", name: "paragraph", widget: "text" } }
               - { label: "Immagine", name: "image", widget: "image", required: false }
+          - label: "Gallery Fotografica"
+            name: "gallery"
+            widget: "list"
+            hint: "Aggiungi foto alla gallery della homepage. Puoi aggiungere, riordinare e rimuovere foto."
+            fields:
+              - { label: "Foto", name: "image", widget: "image" }
+              - { label: "Didascalia", name: "caption", widget: "string", required: false }
           - label: "Statistiche"
             name: "stats"
             widget: "list"
