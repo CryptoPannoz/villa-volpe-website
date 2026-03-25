@@ -8,12 +8,13 @@
   'use strict';
 
   function getCurrentPage() {
-    const path = window.location.pathname;
-    if (path.includes('index.html') || path === '/' || path === '/index.html') return 'index';
-    if (path.includes('faqs.html')) return 'faqs';
-    if (path.includes('discover.html')) return 'discover';
-    if (path.includes('story.html')) return 'story';
-    if (path.includes('book.html')) return 'book';
+    const path = window.location.pathname.replace(/\/+$/, '');
+    // Support both /discover.html and /discover (Netlify Pretty URLs)
+    if (path === '' || path === '/' || path.includes('index')) return 'index';
+    if (path.includes('faqs')) return 'faqs';
+    if (path.includes('discover')) return 'discover';
+    if (path.includes('story')) return 'story';
+    if (path.includes('book')) return 'book';
     return null;
   }
 
