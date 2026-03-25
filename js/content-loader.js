@@ -1,6 +1,7 @@
 /**
  * Villa Volpe Content Management System Loader
  * Dynamically loads and updates page content from JSON files
+ * Supports text content (data-cms), images (data-cms-img), and background images (data-cms-bg)
  */
 
 (function() {
@@ -26,13 +27,19 @@
     }
   }
 
-  function updateContent(data) {
-    if (!data) return;
-    function getValue(obj, pathStr) {
-      return pathStr.split('.').reduce((current, prop) => {
-        return current && current[prop] !== undefined ? current[prop] : null;
-      }, obj);
-    }
+  /**
+   * Resolve a dot-notation path like "outdoor.image" from a nested object
+   */
+  function getValue(obj, pathStr) {
+    return pathStr.split('.').reduce((current, prop) => {
+      return current && current[prop] !== undefined ? current[prop] : null;
+    }, obj);
+  }
+
+  /**
+   * Update text content — elements with [data-cms="path.to.value"]
+   */
+  function updateTextContent(data) {
     const elements = document.querySelectorAll('[data-cms]');
     elements.forEach(element => {
       const key = element.getAttribute('data-cms');
@@ -47,6 +54,61 @@
     });
   }
 
+  /**
+   * Update images — elements with [data-cms-img="path.to.image"]
+   * Replaces placeholder divs with actual <img> tags,
+   * or sets src on existing <img> elements
+   */
+  function updateImages(data) {
+    const elements = document.querySelectorAll('[data-cms-img]');
+    elements.forEach(element => {
+      const key = element.getAttribute('data-cms-img');
+      const value = getValue(data, key);
+      if (value && typeof value === 'string') {
+        if (element.tagName === 'IMG') {
+          // If it's already an <img>, just update src
+          element.src = value;
+          if (!element.alt) {
+            element.alt = key.split('.').pop();
+          }
+        } else {
+          // Replace placeholder div with an <img>
+          const img = document.createElement('img');
+          img.src = value;
+          img.alt = element.textContent || key.split('.').pop();
+          img.loading = 'lazy';
+          // Preserve the original element's classes and style
+          img.className = element.className;
+          img.style.cssText = element.style.cssText;
+          // Ensure it fills the container
+          img.style.width = '100%';
+          img.style.height = '100%';
+          img.style.objectFit = 'cover';
+          element.replaceWith(img);
+        }
+      }
+    });
+  }
+
+  /**
+   * Update background images — elements with [data-cms-bg="path.to.image"]
+   */
+  function updateBackgroundImages(data) {
+    const elements = document.querySelectorAll('[data-cms-bg]');
+    elements.forEach(element => {
+      const key = element.getAttribute('data-cms-bg');
+      const value = getValue(data, key);
+      if (value && typeof value === 'string') {
+        element.style.backgroundImage = `url('${value}')`;
+        element.style.backgroundSize = 'cover';
+        element.style.backgroundPosition = 'center';
+      }
+    });
+  }
+
+  /**
+   * Build FAQ accordion from JSON data
+   */
   function buildFAQAccordion(faqData) {
     if (!faqData || !faqData.categories) return;
     const container = document.querySelector('[data-cms-faq-container]');
@@ -90,6 +152,16 @@
       categoryDiv.appendChild(faqList);
       container.appendChild(categoryDiv);
     });
+  }
+
+  /**
+   * Main content update function
+   */
+  function updateContent(data) {
+    if (!data) return;
+    updateTextContent(data);
+    updateImages(data);
+    updateBackgroundImages(data);
   }
 
   async function init() {
