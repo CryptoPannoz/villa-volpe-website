@@ -1,52 +1,234 @@
+# ============================================
+# VILLA VOLPE — Decap CMS Configuration
+# ============================================
+#
+# COME ATTIVARE:
+# 1. Vai su Netlify Dashboard → Site settings → Identity → Enable Identity
+# 2. Vai su Identity → Services → Enable Git Gateway
+# 3. Invita te stesso come utente da Identity → Invite users
+# 4. Accedi al CMS su tuodominio.com/admin/
+#
+
 backend:
   name: git-gateway
   branch: main
 
-media_folder: "images"
-public_folder: "/images"
+# Dove vengono salvate le immagini caricate
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+site_url: https://www.villa-volpe.com
+display_url: https://www.villa-volpe.com
+
+locale: "it"
 
 collections:
 
-  # ─── BLOG POST ───────────────────────────────
+  # ============================================
+  # BLOG
+  # ============================================
   - name: "blog"
-    label: "📝 Blog Posts"
-    folder: "blog"
+    label: "Blog"
+    folder: "blog/posts"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{date}}"
+    sortable_fields: ["date", "title"]
     fields:
-      - {label: "Titolo", name: "title", widget: "string"}
-      - {label: "Data", name: "date", widget: "datetime"}
-      - {label: "Categoria", name: "category", widget: "string"}
-      - {label: "Anteprima (max 200 caratteri)", name: "excerpt", widget: "text"}
-      - {label: "Contenuto", name: "body", widget: "markdown"}
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Immagine di copertina", name: "thumbnail", widget: "image", required: false }
+      - { label: "Categoria", name: "category", widget: "select", options: ["Destination Guide", "Destination Comparison", "Local History", "Accessibility", "Activities", "Dining", "Local Stories"], default: "Destination Guide" }
+      - { label: "Estratto", name: "excerpt", widget: "text", pattern: ['.{10,200}', "Tra 10 e 200 caratteri"] }
+      - { label: "Contenuto", name: "body", widget: "markdown" }
+      - { label: "Lingua", name: "lang", widget: "select", options: ["en", "it", "de"], default: "en" }
 
-  # ─── IMPOSTAZIONI SITO ───────────────────────
+  # ============================================
+  # PAGINE
+  # ============================================
+  - name: "pages"
+    label: "Pagine"
+    files:
+
+      # ---- Homepage ----
+      - label: "Homepage"
+        name: "index"
+        file: "content/pages/index.json"
+        fields:
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Etichetta", name: "label", widget: "string" }
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Sottotitolo", name: "subtitle", widget: "text" }
+              - { label: "Immagine Hero", name: "image", widget: "image", required: false, hint: "Immagine di sfondo della hero section" }
+          - label: "Feature Cards"
+            name: "features"
+            widget: "list"
+            fields:
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Testo", name: "text", widget: "string" }
+              - { label: "Immagine", name: "image", widget: "image", required: false }
+          - label: "Introduzione"
+            name: "introduction"
+            widget: "object"
+            fields:
+              - { label: "Etichetta", name: "label", widget: "string" }
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Paragrafi", name: "paragraphs", widget: "list", field: { label: "Paragrafo", name: "paragraph", widget: "text" } }
+              - { label: "Immagine", name: "image", widget: "image", required: false }
+          - label: "Statistiche"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Numero", name: "number", widget: "string" }
+              - { label: "Etichetta", name: "label", widget: "string" }
+          - label: "Location"
+            name: "location"
+            widget: "object"
+            fields:
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Sottotitolo", name: "subtitle", widget: "text" }
+              - label: "Distanze"
+                name: "distances"
+                widget: "list"
+                fields:
+                  - { label: "Da", name: "label", widget: "string" }
+                  - { label: "Distanza", name: "value", widget: "string" }
+          - label: "Call to Action"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Sottotitolo", name: "subtitle", widget: "string" }
+
+      # ---- Discover ----
+      - label: "Discover"
+        name: "discover"
+        file: "content/pages/discover.json"
+        fields:
+          - label: "Intestazione"
+            name: "pageHeader"
+            widget: "object"
+            fields:
+              - { label: "Etichetta", name: "label", widget: "string" }
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Descrizione", name: "description", widget: "text" }
+              - { label: "Immagine", name: "image", widget: "image", required: false }
+          - label: "Outdoor"
+            name: "outdoor"
+            widget: "object"
+            fields:
+              - { label: "Etichetta", name: "label", widget: "string" }
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Paragrafi", name: "paragraphs", widget: "list", field: { label: "Paragrafo", name: "paragraph", widget: "text" } }
+              - { label: "Immagine", name: "image", widget: "image", required: false }
+          - label: "Camere e Interni"
+            name: "bedrooms"
+            widget: "object"
+            fields:
+              - { label: "Etichetta", name: "label", widget: "string" }
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Paragrafi", name: "paragraphs", widget: "list", field: { label: "Paragrafo", name: "paragraph", widget: "text" } }
+              - { label: "Immagine", name: "image", widget: "image", required: false }
+          - label: "Amenities"
+            name: "amenities"
+            widget: "list"
+            fields:
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Testo", name: "text", widget: "string" }
+          - label: "Accessibilità"
+            name: "accessibility"
+            widget: "object"
+            fields:
+              - { label: "Etichetta", name: "label", widget: "string" }
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Paragrafi", name: "paragraphs", widget: "list", field: { label: "Paragrafo", name: "paragraph", widget: "text" } }
+              - label: "Caratteristiche"
+                name: "features"
+                widget: "list"
+                fields:
+                  - { label: "Titolo", name: "heading", widget: "string" }
+                  - { label: "Testo", name: "text", widget: "string" }
+          - label: "Dettagli Proprietà"
+            name: "propertyDetails"
+            widget: "object"
+            fields:
+              - { label: "Etichetta", name: "label", widget: "string" }
+              - { label: "Titolo", name: "title", widget: "string" }
+              - label: "Dettagli"
+                name: "details"
+                widget: "list"
+                fields:
+                  - { label: "Etichetta", name: "label", widget: "string" }
+                  - { label: "Valore", name: "value", widget: "string" }
+          - label: "Call to Action"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Sottotitolo", name: "subtitle", widget: "string" }
+
+      # ---- Booking ----
+      - label: "Prenotazioni"
+        name: "book"
+        file: "content/pages/book.json"
+        fields:
+          - label: "Intestazione"
+            name: "pageHeader"
+            widget: "object"
+            fields:
+              - { label: "Etichetta", name: "label", widget: "string" }
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Descrizione", name: "description", widget: "text" }
+          - label: "Form di Prenotazione"
+            name: "bookingForm"
+            widget: "object"
+            fields:
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Sottotitolo", name: "subtitle", widget: "text" }
+          - label: "Come Prenotare"
+            name: "howToBook"
+            widget: "object"
+            fields:
+              - label: "Prenotazione Diretta"
+                name: "direct"
+                widget: "object"
+                fields:
+                  - { label: "Titolo", name: "title", widget: "string" }
+                  - { label: "Testo", name: "text", widget: "text" }
+              - label: "Airbnb"
+                name: "airbnb"
+                widget: "object"
+                fields:
+                  - { label: "Titolo", name: "title", widget: "string" }
+                  - { label: "Testo", name: "text", widget: "text" }
+          - label: "Politiche"
+            name: "policies"
+            widget: "list"
+            fields:
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Testo", name: "text", widget: "text" }
+          - label: "Contatti"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Telefono", name: "phone", widget: "string" }
+
+  # ============================================
+  # IMPOSTAZIONI SITO
+  # ============================================
   - name: "settings"
-    label: "⚙️ Impostazioni Sito"
+    label: "Impostazioni"
     files:
       - label: "Contatti & Info"
         name: "general"
         file: "content/settings.json"
         fields:
-          - {label: "Email", name: "email", widget: "string"}
-          - {label: "Telefono", name: "phone", widget: "string"}
-          - {label: "Indirizzo", name: "address", widget: "string"}
-          - {label: "Sconto prenotazione diretta (%)", name: "discount", widget: "number", default: 15}
-          - {label: "Link Airbnb", name: "airbnbUrl", widget: "string"}
-
-  # ─── PAGINE ──────────────────────────────────
-  - name: "pages"
-    label: "🏠 Pagine"
-    files:
-      - label: "Homepage"
-        name: "home"
-        file: "content/home.json"
-        fields:
-          - {label: "Titolo Hero", name: "heroTitle", widget: "string"}
-          - {label: "Sottotitolo Hero", name: "heroSubtitle", widget: "text"}
-          - label: "Statistiche"
-            name: "stats"
-            widget: "list"
-            fields:
-              - {label: "Numero", name: "number", widget: "string"}
-              - {label: "Etichetta", name: "label", widget: "string"}
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Telefono", name: "phone", widget: "string" }
+          - { label: "Indirizzo", name: "address", widget: "text" }
+          - { label: "Sconto prenotazione diretta (%)", name: "discount", widget: "number", default: 15, value_type: "int", min: 0, max: 50 }
+          - { label: "Link Airbnb", name: "airbnbUrl", widget: "string" }
