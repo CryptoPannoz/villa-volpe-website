@@ -11,12 +11,12 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="booking-engine/styles.css">
   <style>
-    /* ── Layout: single column, full-width ── */
+    /* ── Layout: single column, centrato ── */
     .booking-layout {
       display: flex;
       flex-direction: column;
       gap: var(--space-xl);
-      max-width: 680px;
+      max-width: 860px;
       margin: 0 auto;
     }
 
@@ -25,7 +25,7 @@
       box-shadow: none;
       border: 1px solid var(--color-border);
       border-radius: 0;
-      padding: var(--space-md);
+      padding: var(--space-lg) var(--space-xl);
       max-width: 100%;
     }
 
@@ -34,6 +34,15 @@
       display: flex;
       flex-direction: column;
       gap: var(--space-md);
+    }
+
+    /* Available gaps: orizzontale su desktop */
+    @media (min-width: 640px) {
+      .available-gaps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 8px;
+      }
     }
   </style>
 </head>
@@ -113,6 +122,17 @@
             <h2>Select Your Dates</h2>
             <p class="subtitle">Minimum 3 nights stay required</p>
 
+            <!-- Available Periods (sopra il calendario) -->
+            <div class="available-gaps-section">
+              <h4>Available Periods</h4>
+              <div class="available-gaps" id="available-gaps">
+                <div class="calendar-loader" style="padding:8px;">
+                  <span class="spinner"></span>
+                  <span style="font-size:13px;">Loading...</span>
+                </div>
+              </div>
+            </div>
+
             <div class="calendar-container">
               <div class="calendar-header">
                 <button class="nav-btn" id="prev-month" aria-label="Previous month">
@@ -149,16 +169,6 @@
               <div class="date-box">
                 <label>Check-out</label>
                 <span id="checkout-display">Select date</span>
-              </div>
-            </div>
-
-            <div class="available-gaps-section">
-              <h4>Available Periods</h4>
-              <div class="available-gaps" id="available-gaps">
-                <div class="calendar-loader" style="padding:8px;">
-                  <span class="spinner"></span>
-                  <span style="font-size:13px;">Loading...</span>
-                </div>
               </div>
             </div>
 
@@ -251,7 +261,6 @@
               <ul>
                 <li><strong>Deposit:</strong> 30% of total price to confirm your booking</li>
                 <li><strong>Balance:</strong> Due 21 days before check-in</li>
-                <li><strong>Bank Transfer:</strong> to confirm your booking</li>
               </ul>
               <h3>Cancellation</h3>
               <ul>
@@ -344,6 +353,17 @@
               <li><strong>ID Required:</strong> Valid identification for registration with local authorities.</li>
               <li><strong>No Parties:</strong> Villa Volpe is an oasis of relaxation. No parties or events.</li>
             </ul>
+          </div>
+
+          <div class="contact-block reveal">
+            <div class="contact-item">
+              <div class="contact-item__label">Email</div>
+              <div class="contact-item__value"><a href="mailto:villavolpeorta@gmail.com">villavolpeorta@gmail.com</a></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item__label">Phone</div>
+              <div class="contact-item__value"><a href="tel:+393336859707">+39 333 685 9707</a></div>
+            </div>
           </div>
 
         </div><!-- .booking-info-blocks -->
