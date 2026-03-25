@@ -20,16 +20,37 @@
     }
   },
   "policies": [
-    { "title": "Deposit", "text": "30% of total price to confirm booking." },
-    { "title": "Balance", "text": "Due 21 days before check-in." },
-    { "title": "Cancellation", "text": "Full refund if cancelled 21+ days before arrival. After that, deposit is non-refundable." },
-    { "title": "Tourist Tax", "text": "€1.00 per night per guest, as required by law." },
-    { "title": "Pets", "text": "Small pets welcome. €120 additional cleaning fee per stay." },
-    { "title": "ID Required", "text": "Valid identification for registration with local authorities." },
-    { "title": "No Parties", "text": "Villa Volpe is an oasis of relaxation. No parties or events." }
+    {
+      "title": "Deposit",
+      "text": "30% of total price to confirm booking."
+    },
+    {
+      "title": "Balance",
+      "text": "Due 21 days before check-in."
+    },
+    {
+      "title": "Cancellation",
+      "text": "Full refund if cancelled 21+ days before arrival. After that, deposit is non-refundable."
+    },
+    {
+      "title": "Tourist Tax",
+      "text": "€1.00 per night per guest, as required by law."
+    },
+    {
+      "title": "Pets",
+      "text": "Small pets welcome. €120 additional cleaning fee per stay."
+    },
+    {
+      "title": "ID Required",
+      "text": "Valid identification for registration with local authorities."
+    },
+    {
+      "title": "No Parties",
+      "text": "Villa Volpe is an oasis of relaxation. No parties or events."
+    }
   ],
   "contact": {
     "email": "villavolpeorta@gmail.com",
-    "phone": "+39 333 685 9707"
+    "phone": "+393478628738"
   }
 }
