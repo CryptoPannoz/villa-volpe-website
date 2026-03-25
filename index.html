@@ -13,6 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- Leaflet CSS for interactive map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
 
@@ -47,17 +49,16 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero__bg">
-      <div class="img-placeholder" style="width:100%;height:100%;">
-        <!-- Replace with: hero image of Villa Volpe lakefront -->
+    <div class="hero__bg" data-cms-bg="hero.image">
+      <div class="img-placeholder" style="width:100%;height:100%;" data-cms-img="hero.image">
         HERO IMAGE — Villa Volpe lakefront
       </div>
     </div>
     <div class="hero__overlay"></div>
     <div class="hero__content">
-      <span class="hero__label">Lake Orta, Piedmont &mdash; Italy</span>
-      <h1 class="hero__title">Villa Volpe</h1>
-      <p class="hero__subtitle">Everything you need, on the sunny side of Lake Orta. Three meters from crystal clear water.</p>
+      <span class="hero__label" data-cms="hero.label">Lake Orta, Piedmont &mdash; Italy</span>
+      <h1 class="hero__title" data-cms="hero.title">Villa Volpe</h1>
+      <p class="hero__subtitle" data-cms="hero.subtitle">Everything you need, on the sunny side of Lake Orta. Three meters from crystal clear water.</p>
       <div class="hero__actions">
         <a href="book.html" class="btn btn--primary">Direct Booking &minus;15%</a>
         <a href="discover.html" class="btn btn--outline">Discover the Villa</a>
@@ -70,24 +71,24 @@
     <div class="container">
       <div class="features reveal-stagger" id="features">
         <div class="feature-card">
-          <div class="feature-card__img img-placeholder" style="width:100%;height:100%;">LAKE ACCESS</div>
+          <div class="feature-card__img img-placeholder" style="width:100%;height:100%;" data-cms-img="features.0.image">LAKE ACCESS</div>
           <div class="feature-card__content">
-            <h3 class="feature-card__title">By the Lake</h3>
-            <p class="feature-card__text">Where morning light meets water. Your private beach, just steps away.</p>
+            <h3 class="feature-card__title" data-cms="features.0.title">By the Lake</h3>
+            <p class="feature-card__text" data-cms="features.0.text">Where morning light meets water. Your private beach, just steps away.</p>
           </div>
         </div>
         <div class="feature-card">
-          <div class="feature-card__img img-placeholder" style="width:100%;height:100%;">GARDEN</div>
+          <div class="feature-card__img img-placeholder" style="width:100%;height:100%;" data-cms-img="features.1.image">GARDEN</div>
           <div class="feature-card__content">
-            <h3 class="feature-card__title">Sunlit Garden</h3>
-            <p class="feature-card__text">A private space for reading, resting, and watching the light change over the water.</p>
+            <h3 class="feature-card__title" data-cms="features.1.title">Sunlit Garden</h3>
+            <p class="feature-card__text" data-cms="features.1.text">A private space for reading, resting, and watching the light change over the water.</p>
           </div>
         </div>
         <div class="feature-card">
-          <div class="feature-card__img img-placeholder" style="width:100%;height:100%;">PARKING</div>
+          <div class="feature-card__img img-placeholder" style="width:100%;height:100%;" data-cms-img="features.2.image">PARKING</div>
           <div class="feature-card__content">
-            <h3 class="feature-card__title">Private Parking</h3>
-            <p class="feature-card__text">Perhaps the coolest parking spot in the world. Spacious and right above the villa.</p>
+            <h3 class="feature-card__title" data-cms="features.2.title">Private Parking</h3>
+            <p class="feature-card__text" data-cms="features.2.text">Perhaps the coolest parking spot in the world. Spacious and right above the villa.</p>
           </div>
         </div>
       </div>
@@ -99,13 +100,13 @@
     <div class="container">
       <div class="two-col reveal">
         <div class="two-col__content">
-          <span class="label">About the Property</span>
+          <span class="label" data-cms="introduction.label">About the Property</span>
           <div class="divider"></div>
-          <h2>A Design Glass Cube on Lake Orta</h2>
-          <p style="margin-top:1.5rem;">
+          <h2 data-cms="introduction.title">A Design Glass Cube on Lake Orta</h2>
+          <p style="margin-top:1.5rem;" data-cms="introduction.paragraphs.0">
             Nestled on the picturesque east shore of Lake Orta, Villa Volpe is a truly unique property. The villa, a design glass cube surrounded by a breathtakingly landscaped garden, is situated just three meters from the crystal clear waters of the lake, with a view of the illuminated island of San Giulio at night.
           </p>
-          <p style="margin-top:1rem;">
+          <p style="margin-top:1rem;" data-cms="introduction.paragraphs.1">
             65 square meters of beautifully appointed living space. Two king-size bedrooms. A fully equipped kitchen. And outside, your private oasis: a lush garden that leads to your own beach.
           </p>
           <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
@@ -120,44 +121,74 @@
           </div>
           <a href="discover.html" class="btn btn--ghost" style="margin-top:2rem;">Explore the Villa</a>
         </div>
-        <div class="two-col__img img-placeholder" style="aspect-ratio:4/5;">
+        <div class="two-col__img img-placeholder" style="aspect-ratio:4/5;" data-cms-img="introduction.image">
           VILLA EXTERIOR
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Stats -->
+  <!-- Photo Gallery -->
   <section class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <span class="label">Gallery</span>
+        <div class="divider divider--center"></div>
+        <h2>Explore the Villa</h2>
+      </div>
+      <div class="gallery reveal-stagger" id="gallery" data-cms-gallery="gallery">
+        <!-- Gallery items are populated by content-loader.js from JSON -->
+        <!-- Fallback if no gallery items in JSON -->
+        <div class="gallery__item img-placeholder" style="aspect-ratio:4/3;">PHOTO 1</div>
+        <div class="gallery__item img-placeholder" style="aspect-ratio:4/3;">PHOTO 2</div>
+        <div class="gallery__item img-placeholder" style="aspect-ratio:4/3;">PHOTO 3</div>
+        <div class="gallery__item img-placeholder" style="aspect-ratio:4/3;">PHOTO 4</div>
+        <div class="gallery__item img-placeholder" style="aspect-ratio:4/3;">PHOTO 5</div>
+        <div class="gallery__item img-placeholder" style="aspect-ratio:4/3;">PHOTO 6</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close">&times;</button>
+    <button class="lightbox__prev" id="lightboxPrev" aria-label="Previous">&#8249;</button>
+    <button class="lightbox__next" id="lightboxNext" aria-label="Next">&#8250;</button>
+    <img class="lightbox__img" id="lightboxImg" src="" alt="">
+    <div class="lightbox__caption" id="lightboxCaption"></div>
+  </div>
+
+  <!-- Stats -->
+  <section class="section section--alt">
     <div class="container">
       <div class="stats reveal-stagger" id="stats">
         <div class="stat">
-          <div class="stat__number">690+</div>
-          <div class="stat__label">Happy Guests</div>
+          <div class="stat__number" data-cms="stats.0.number">690+</div>
+          <div class="stat__label" data-cms="stats.0.label">Happy Guests</div>
         </div>
         <div class="stat">
-          <div class="stat__number">1,748</div>
-          <div class="stat__label">Nights Booked</div>
+          <div class="stat__number" data-cms="stats.1.number">1,748</div>
+          <div class="stat__label" data-cms="stats.1.label">Nights Booked</div>
         </div>
         <div class="stat">
-          <div class="stat__number">4.91</div>
-          <div class="stat__label">Airbnb Rating</div>
+          <div class="stat__number" data-cms="stats.2.number">4.91</div>
+          <div class="stat__label" data-cms="stats.2.label">Airbnb Rating</div>
         </div>
         <div class="stat">
-          <div class="stat__number">4.8</div>
-          <div class="stat__label">Google Rating</div>
+          <div class="stat__number" data-cms="stats.3.number">4.8</div>
+          <div class="stat__label" data-cms="stats.3.label">Google Rating</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Location -->
-  <section class="section section--alt">
+  <!-- Location + Map -->
+  <section class="section">
     <div class="container" style="text-align:center;">
       <span class="label">Location</span>
       <div class="divider divider--center"></div>
-      <h2 class="reveal">Where Piedmont Meets the Lake</h2>
-      <p class="reveal" style="margin:1.5rem auto 0;text-align:center;">
+      <h2 class="reveal" data-cms="location.title">Where Piedmont Meets the Lake</h2>
+      <p class="reveal" style="margin:1.5rem auto 0;text-align:center;" data-cms="location.subtitle">
         Conveniently located 80 km from Milan, 45 km from Milano Malpensa Airport, and 120 km from Turin. Via Novara 38, Orta San Giulio 28016, Italy.
       </p>
       <div class="contact-block reveal" style="margin-top:3rem;max-width:800px;margin-left:auto;margin-right:auto;">
@@ -178,13 +209,17 @@
           <div class="contact-item__value">3 meters</div>
         </div>
       </div>
+      <!-- Interactive Map -->
+      <div class="map-container reveal" style="margin-top:3rem;">
+        <div id="map" style="width:100%;height:450px;border-radius:0;"></div>
+      </div>
     </div>
   </section>
 
   <!-- CTA Banner -->
   <section class="cta-banner">
-    <h2>Ready to Escape?</h2>
-    <p>Book directly and save 15% compared to Airbnb.</p>
+    <h2 data-cms="cta.title">Ready to Escape?</h2>
+    <p data-cms="cta.subtitle">Book directly and save 15% compared to Airbnb.</p>
     <a href="book.html" class="btn btn--accent">Book Your Stay</a>
   </section>
 
@@ -232,7 +267,28 @@
     </div>
   </footer>
 
-<script src="main.js"></script>
+  <script src="main.js"></script>
+  <script src="js/content-loader.js"></script>
+  <!-- Leaflet JS for interactive map -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Initialize map — Villa Volpe, Via Novara 38, Orta San Giulio
+    document.addEventListener('DOMContentLoaded', function() {
+      var mapEl = document.getElementById('map');
+      if (mapEl && typeof L !== 'undefined') {
+        var lat = 45.7975;
+        var lng = 8.4112;
+        var map = L.map('map', { scrollWheelZoom: false }).setView([lat, lng], 15);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; OpenStreetMap contributors',
+          maxZoom: 19
+        }).addTo(map);
+        L.marker([lat, lng]).addTo(map)
+          .bindPopup('<strong>Villa Volpe</strong><br>Via Novara 38<br>Orta San Giulio 28016')
+          .openPopup();
+      }
+    });
+  </script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
     if (window.netlifyIdentity) {
