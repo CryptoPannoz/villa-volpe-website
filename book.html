@@ -9,84 +9,35 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="booking-engine/styles.css">
   <style>
-    .booking-grid {
+    /* ── Layout: widget + sidebar ── */
+    .booking-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 380px;
       gap: var(--space-xl);
       align-items: start;
     }
-    @media (max-width: 768px) {
-      .booking-grid { grid-template-columns: 1fr; }
+    @media (max-width: 960px) {
+      .booking-layout {
+        grid-template-columns: 1fr;
+      }
     }
-    .booking-form {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .form-group label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--color-text-muted);
-    }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      font-family: var(--font-body);
-      font-size: 1rem;
-      padding: 0.85rem 1rem;
+
+    /* Override widget styles per embed nel sito */
+    .booking-layout .booking-widget {
+      box-shadow: none;
       border: 1px solid var(--color-border);
-      background: var(--color-white);
-      color: var(--color-text);
-      transition: border-color var(--duration) var(--ease);
+      border-radius: 0;
+      padding: var(--space-md);
+      max-width: 100%;
     }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: var(--color-accent);
-    }
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-sm);
-    }
-    @media (max-width: 480px) {
-      .form-row { grid-template-columns: 1fr; }
-    }
-    .policy-list {
-      list-style: none;
+
+    /* Sidebar cards */
+    .booking-sidebar {
       display: flex;
       flex-direction: column;
       gap: var(--space-md);
-    }
-    .policy-list li {
-      padding-left: 1.5rem;
-      position: relative;
-      font-size: 0.95rem;
-      color: var(--color-text-light);
-      line-height: 1.7;
-    }
-    .policy-list li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 10px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--color-accent);
     }
   </style>
 </head>
@@ -124,81 +75,260 @@
   <header class="page-header">
     <span class="label page-header__label">Book</span>
     <h1 class="page-header__title">Reserve Your Stay</h1>
-    <p class="page-header__desc">Book directly with us and enjoy a 15% discount compared to Airbnb.</p>
+    <p class="page-header__desc">Check availability and book directly — save 15% compared to Airbnb.</p>
   </header>
 
   <!-- Booking Section -->
   <section class="section">
     <div class="container">
-      <div class="booking-grid">
+      <div class="booking-layout">
 
-        <!-- Contact Form -->
-        <div class="booking-card reveal">
-          <h3 class="booking-card__title">Request a Booking</h3>
-          <p style="color:var(--color-text-light);margin-bottom:1.5rem;">
-            Fill in the form below and we'll get back to you with availability and pricing within 24 hours.
-          </p>
-          <form class="booking-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required placeholder="Your name">
+        <!-- ══════════════════════════════════════════════ -->
+        <!-- BOOKING WIDGET (calendar + form + confirm)    -->
+        <!-- ══════════════════════════════════════════════ -->
+        <div class="booking-widget">
+
+          <!-- Progress Bar -->
+          <div class="progress-bar">
+            <div class="progress-step active">
+              <span class="step-dot"></span>
+              <span class="step-label">Dates</span>
+            </div>
+            <span class="progress-connector"></span>
+            <div class="progress-step">
+              <span class="step-dot"></span>
+              <span class="step-label">Details</span>
+            </div>
+            <span class="progress-connector"></span>
+            <div class="progress-step">
+              <span class="step-dot"></span>
+              <span class="step-label">Confirm</span>
+            </div>
+            <span class="progress-connector"></span>
+            <div class="progress-step">
+              <span class="step-dot"></span>
+              <span class="step-label">Done</span>
+            </div>
+          </div>
+
+          <!-- STEP 1: CALENDAR -->
+          <div id="step-calendar" class="step active">
+
+            <h2>Select Your Dates</h2>
+            <p class="subtitle">Minimum 3 nights stay required</p>
+
+            <div class="calendar-container">
+              <div class="calendar-header">
+                <button class="nav-btn" id="prev-month" aria-label="Previous month">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <h3 id="current-month"></h3>
+                <button class="nav-btn" id="next-month" aria-label="Next month">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
               </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="your@email.com">
+              <div class="calendar-grid" id="calendar-grid"></div>
+              <div class="calendar-legend">
+                <div class="legend-item"><span class="legend-dot available"></span> Available</div>
+                <div class="legend-item"><span class="legend-dot blocked"></span> Booked</div>
+                <div class="legend-item"><span class="legend-dot selected"></span> Selected</div>
               </div>
             </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="checkin">Check-in Date</label>
-                <input type="date" id="checkin" name="checkin" required>
+
+            <div class="calendar-loader" id="calendar-loader">
+              <span class="spinner"></span> Loading availability...
+            </div>
+
+            <p class="selection-hint" id="selection-hint">Select your check-in date</p>
+            <div class="date-error" id="date-error"></div>
+
+            <div class="selected-dates">
+              <div class="date-box">
+                <label>Check-in</label>
+                <span id="checkin-display">Select date</span>
               </div>
-              <div class="form-group">
-                <label for="checkout">Check-out Date</label>
-                <input type="date" id="checkout" name="checkout" required>
+              <div class="nights-display" id="nights-display" style="display:none;">
+                <span id="nights-count"></span> nights
+              </div>
+              <div class="date-box">
+                <label>Check-out</label>
+                <span id="checkout-display">Select date</span>
               </div>
             </div>
-            <div class="form-row">
+
+            <div class="available-gaps-section">
+              <h4>Available Periods</h4>
+              <div class="available-gaps" id="available-gaps">
+                <div class="calendar-loader" style="padding:8px;">
+                  <span class="spinner"></span>
+                  <span style="font-size:13px;">Loading...</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:1.5rem;">
+              <button class="btn-primary" id="continue-to-guests" disabled>Continue</button>
+            </div>
+          </div>
+
+          <!-- STEP 2: GUEST DETAILS -->
+          <div id="step-guests" class="step">
+            <button class="back-btn" onclick="goToStep('calendar')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              Back to calendar
+            </button>
+            <h2>Guest Details</h2>
+            <p class="subtitle">Tell us about your group</p>
+            <div class="dates-mini-summary" id="dates-mini-summary"></div>
+            <form id="guest-form">
               <div class="form-group">
-                <label for="guests">Number of Guests</label>
-                <select id="guests" name="guests">
-                  <option value="1">1 Guest</option>
-                  <option value="2" selected>2 Guests</option>
-                  <option value="3">3 Guests</option>
-                  <option value="4">4 Guests</option>
-                </select>
+                <label for="guest-name">Full Name</label>
+                <input type="text" id="guest-name" placeholder="Your name" required>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="guest-email">Email</label>
+                  <input type="email" id="guest-email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                  <label for="guest-phone">Phone</label>
+                  <input type="tel" id="guest-phone" placeholder="+39 123 456 7890" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="num-adults">Adults</label>
+                  <select id="num-adults">
+                    <option value="1">1</option>
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="num-children">Children</label>
+                  <select id="num-children">
+                    <option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                  </select>
+                </div>
+              </div>
+              <div class="warning-message" id="guest-limit-warning">
+                <span>Maximum 4 guests total (adults + children)</span>
               </div>
               <div class="form-group">
-                <label for="pet">Traveling with a Pet?</label>
-                <select id="pet" name="pet">
+                <label for="pets">Traveling with a pet?</label>
+                <select id="pets">
                   <option value="no">No</option>
-                  <option value="yes">Yes (extra cleaning fee applies)</option>
+                  <option value="yes">Yes (€120 cleaning fee)</option>
                 </select>
               </div>
-            </div>
-            <div class="form-group">
-              <label for="message">Special Requests</label>
-              <textarea id="message" name="message" placeholder="Any special requests or questions..."></textarea>
-            </div>
-            <button type="submit" class="btn btn--dark" style="width:100%;">Send Booking Request</button>
-          </form>
-        </div>
+              <div class="form-group">
+                <label for="special-requests">Special Requests</label>
+                <textarea id="special-requests" placeholder="Any special requests or questions... (optional)" rows="3"></textarea>
+              </div>
+            </form>
+            <button class="btn-primary" id="continue-to-policy">Review & Confirm</button>
+          </div>
 
-        <!-- Booking Info Sidebar -->
-        <div>
-          <div class="booking-card reveal" style="margin-bottom:var(--space-md);">
+          <!-- STEP 3: SUMMARY + POLICY -->
+          <div id="step-policy" class="step">
+            <button class="back-btn" onclick="goToStep('guests')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              Back to details
+            </button>
+            <h2>Review Your Booking</h2>
+            <p class="subtitle">Please review and accept our policies</p>
+            <div class="summary-card">
+              <h3>Booking Summary</h3>
+              <div class="summary-row"><span>Guest</span><strong id="summary-name"></strong></div>
+              <div class="summary-row"><span>Email</span><strong id="summary-email"></strong></div>
+              <div class="summary-row"><span>Check-in</span><strong id="summary-checkin"></strong></div>
+              <div class="summary-row"><span>Check-out</span><strong id="summary-checkout"></strong></div>
+              <div class="summary-row"><span>Duration</span><strong id="summary-nights"></strong></div>
+              <div class="summary-row"><span>Guests</span><strong id="summary-guests"></strong></div>
+              <div class="summary-row"><span>Pets</span><strong id="summary-pets"></strong></div>
+            </div>
+            <div class="policy-section">
+              <h3>Payment</h3>
+              <ul>
+                <li><strong>Deposit:</strong> 30% of total price to confirm your booking</li>
+                <li><strong>Balance:</strong> Due 21 days before check-in</li>
+              </ul>
+              <h3>Cancellation</h3>
+              <ul>
+                <li>Full refund if cancelled 21+ days before arrival</li>
+                <li>After that, the deposit is non-refundable</li>
+              </ul>
+              <h3>House Rules</h3>
+              <ul>
+                <li><strong>Check-in:</strong> from 3:00 PM</li>
+                <li><strong>Check-out:</strong> by 10:00 AM</li>
+                <li><strong>Tourist tax:</strong> €1.00 per night per guest (as required by law)</li>
+                <li><strong>Pets:</strong> Small pets welcome, €120 additional cleaning fee</li>
+                <li><strong>Maximum guests:</strong> 4</li>
+              </ul>
+            </div>
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="accept-policy">
+                I have read and accept the booking policies. I understand this is a booking request and I will receive confirmation within 24 hours.
+              </label>
+            </div>
+            <button class="btn-primary" id="send-request" disabled>Send Booking Request</button>
+          </div>
+
+          <!-- STEP 4: CONFIRMATION -->
+          <div id="step-confirmation" class="step">
+            <div class="confirmation-content">
+              <div class="success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <h2>Request Sent!</h2>
+              <p>Thank you for your interest in Villa Volpe. We will review your request and send you a confirmation at <strong id="confirmation-email"></strong> within 24 hours.</p>
+              <p class="confirmation-note">Please check your spam folder if you don't hear from us.</p>
+              <button class="btn-secondary" onclick="resetWidget()">Make Another Booking</button>
+            </div>
+          </div>
+
+        </div><!-- .booking-widget -->
+
+        <!-- ══════════════════════════════════════════════ -->
+        <!-- SIDEBAR                                        -->
+        <!-- ══════════════════════════════════════════════ -->
+        <div class="booking-sidebar">
+
+          <div class="booking-card reveal">
             <h3 class="booking-card__title">How to Book</h3>
+
             <div class="booking-highlight">
               <div class="booking-highlight__title">Direct Booking &mdash; Save 15%</div>
               <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.7;">
-                For the best rates, book directly with us via this form or by emailing <a href="mailto:villavolpeorta@gmail.com" style="color:var(--color-accent);font-weight:600;">villavolpeorta@gmail.com</a>. You'll enjoy a special 15% discount off the Airbnb price.
+                For the best rates, book directly with us via this form or by emailing
+                <a href="mailto:villavolpeorta@gmail.com" style="color:var(--color-accent);font-weight:600;">villavolpeorta@gmail.com</a>.
+                You'll enjoy a special 15% discount off the Airbnb price.
               </p>
             </div>
+
             <div class="booking-highlight">
               <div class="booking-highlight__title">Via Airbnb</div>
               <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.7;">
-                Prefer the convenience of Airbnb? <a href="https://www.airbnb.com/rooms/26816946" target="_blank" rel="noopener" style="color:var(--color-accent);font-weight:600;">Book on Airbnb</a> for the security and support of the platform.
+                Prefer the convenience of Airbnb?
+                <a href="https://www.airbnb.com/rooms/26816946" target="_blank" rel="noopener" style="color:var(--color-accent);font-weight:600;">Book on Airbnb</a>
+                for the security and support of the platform.
+              </p>
+            </div>
+
+            <div class="booking-highlight">
+              <div class="booking-highlight__title">Pay with Crypto</div>
+              <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.7;">
+                Want to pay with cryptocurrency?
+                <a href="https://villavolpeortalake.dtravel.com/" target="_blank" rel="noopener" style="color:var(--color-accent);font-weight:600;">Book on Dtravel</a>
+                and pay with USDT, USDC, ETH or BTC.
               </p>
             </div>
           </div>
@@ -216,7 +346,7 @@
             </ul>
           </div>
 
-          <div class="contact-block reveal" style="margin-top:var(--space-md);">
+          <div class="contact-block reveal">
             <div class="contact-item">
               <div class="contact-item__label">Email</div>
               <div class="contact-item__value"><a href="mailto:villavolpeorta@gmail.com">villavolpeorta@gmail.com</a></div>
@@ -226,7 +356,8 @@
               <div class="contact-item__value"><a href="tel:+393336859707">+39 333 685 9707</a></div>
             </div>
           </div>
-        </div>
+
+        </div><!-- .booking-sidebar -->
 
       </div>
     </div>
@@ -253,7 +384,7 @@
           <div class="footer__title">Contact</div>
           <ul class="footer__links">
             <li><a href="mailto:villavolpeorta@gmail.com">villavolpeorta@gmail.com</a></li>
-    <li><a href="https://maps.app.goo.gl/Sn4s6anH8q2rQJvVA" target="_blank" rel="noopener">Via Novara 38 - Orta San Giulio 28016 - Italy</a></li>
+            <li><a href="https://maps.app.goo.gl/Sn4s6anH8q2rQJvVA" target="_blank" rel="noopener">Via Novara 38 - Orta San Giulio 28016 - Italy</a></li>
           </ul>
         </div>
         <div>
@@ -261,6 +392,7 @@
           <ul class="footer__links">
             <li><a href="book.html">Direct Booking (-15%)</a></li>
             <li><a href="https://www.airbnb.com/rooms/26816946" target="_blank" rel="noopener">Airbnb Listing</a></li>
+            <li><a href="https://villavolpeortalake.dtravel.com/" target="_blank" rel="noopener">Pay with Crypto</a></li>
           </ul>
         </div>
       </div>
@@ -275,5 +407,23 @@
   </footer>
 
   <script src="main.js"></script>
+  <script src="booking-engine/calendar.js"></script>
+  <script>
+    // Hook: popola mini-summary quando si passa allo step guests
+    var _originalGoToStep = goToStep;
+    goToStep = function(stepName) {
+      _originalGoToStep(stepName);
+      if (stepName === 'guests' && state.checkInDate && state.checkOutDate) {
+        var nights = calculateNights(state.checkInDate, state.checkOutDate);
+        var el = document.getElementById('dates-mini-summary');
+        if (el) {
+          el.innerHTML = '<strong>' + formatDateDisplay(state.checkInDate) + '</strong>'
+            + ' &nbsp;&rarr;&nbsp; '
+            + '<strong>' + formatDateDisplay(state.checkOutDate) + '</strong>'
+            + ' &nbsp;&middot;&nbsp; ' + nights + ' night' + (nights > 1 ? 's' : '');
+        }
+      }
+    };
+  </script>
 </body>
 </html>
