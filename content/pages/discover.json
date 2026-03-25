@@ -61,7 +61,7 @@
   "accessibility": {
     "label": "Accessibility",
     "title": "Designed for Everyone",
-    "image": "",
+    "image": "/images/uploads/villavolpeorta-interior-bathroom-walk-in-shower-sink.jpg",
     "paragraphs": [
       "Villa Volpe is fully accessible for people with disabilities. The property was designed without architectural barriers and has been tested for functionality by people in wheelchairs."
     ],
@@ -111,6 +111,10 @@
       {
         "label": "From Lake",
         "value": "3 meters"
+      },
+      {
+        "label": "Airconditioning",
+        "value": "In All Rooms"
       }
     ]
   },
