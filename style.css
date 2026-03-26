@@ -913,6 +913,62 @@ p {
   transform: translateY(-2px);
 }
 
+/* ---------- Mosaic Gallery ---------- */
+.mosaic {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: var(--space-sm);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.mosaic__hero {
+  grid-row: 1 / -1;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.mosaic__hero img,
+.mosaic__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s var(--ease);
+}
+
+.mosaic__hero:hover img,
+.mosaic__thumb:hover img {
+  transform: scale(1.03);
+}
+
+.mosaic__thumb {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.mosaic__title {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.mosaic__title .label {
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+@media (max-width: 768px) {
+  .mosaic {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .mosaic__hero {
+    grid-row: auto;
+    grid-column: 1 / -1;
+  }
+}
+
 /* ---------- Page Header ---------- */
 .page-header {
   padding-top: calc(var(--nav-height) + var(--space-xl));
