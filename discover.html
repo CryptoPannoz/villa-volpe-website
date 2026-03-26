@@ -51,19 +51,42 @@
   <!-- Outdoor Area -->
   <section class="section">
     <div class="container">
-      <div class="two-col reveal">
-        <div class="two-col__img img-placeholder" style="aspect-ratio:4/5;" data-cms-img="outdoor.image">OUTDOOR — LAKE VIEW</div>
-        <div class="two-col__content">
-          <span class="label" data-cms="outdoor.label">Outdoor</span>
-          <div class="divider"></div>
-          <h2 data-cms="outdoor.title">Where Lake Meets Garden</h2>
-          <p style="margin-top:1.5rem;" data-cms="outdoor.paragraphs.0">
-            The villa is surrounded by a breathtakingly landscaped garden, situated just steps from the crystal clear waters of the lake. As a guest, you'll have exclusive access to a private beach where you can take a refreshing swim in the clear and inviting waters.
-          </p>
-          <p style="margin-top:1rem;" data-cms="outdoor.paragraphs.1">
-            The outdoor amenities include a hot and cold shower, sink, outdoor furniture with tables and umbrellas, and a spacious parking lot inside the property. There's even a unique sunbathing platform in the middle of the lake.
-          </p>
+      <div class="mosaic__title reveal">
+        <span class="label">Outdoor</span>
+        <div class="divider divider--center"></div>
+        <h2>Where Lake Meets Garden</h2>
+        <p style="margin-top:1rem;max-width:600px;margin-left:auto;margin-right:auto;opacity:0.8;">Private beach, landscaped garden, drone views, and sunsets over San Giulio Island — just three meters from crystal clear water.</p>
+      </div>
+      <div class="carousel reveal" id="outdoorCarousel">
+        <div class="carousel__track">
+          <div class="carousel__slide">
+            <img src="images/gallery/villavolpeorta-drone-aerial-overview-lakefront-wide.jpg" alt="Aerial overview — villa lakefront" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol.jpg" alt="Garden facade with lake and parasol" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="images/gallery/villavolpeorta-exterior-sunloungers-sunset-lake-reflection.jpg" alt="Sunloungers at sunset with lake reflection" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="images/gallery/villavolpeorta-drone-aerial-villa-waterfront-terrace.jpg" alt="Aerial — villa waterfront and terrace" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="images/gallery/villavolpeorta-exterior-terrace-sliding-doors-lake-view.jpg" alt="Terrace with sliding doors and lake view" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="images/gallery/villavolpeorta-drone-aerial-garden-jacuzzi-chapel.jpg" alt="Aerial — garden, jacuzzi and chapel" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="images/gallery/villavolpeorta-exterior-facade-entrance-ivy-closeup.jpg" alt="Facade entrance with ivy closeup" loading="lazy">
+          </div>
+          <div class="carousel__slide">
+            <img src="images/gallery/villavolpeorta-drone-aerial-villa-chapel-garden.jpg" alt="Aerial — villa, chapel and garden" loading="lazy">
+          </div>
         </div>
+        <button class="carousel__btn carousel__btn--prev" aria-label="Previous slide">&#8249;</button>
+        <button class="carousel__btn carousel__btn--next" aria-label="Next slide">&#8250;</button>
+        <div class="carousel__dots"></div>
       </div>
     </div>
   </section>
@@ -115,6 +138,34 @@
         </div>
         <div class="mosaic__thumb">
           <img src="images/gallery/villavolpeorta-interior-living-dining-evening-light.jpg" alt="Living and dining — evening light" loading="lazy">
+        </div>
+      </div>
+      <div class="mosaic__bottom reveal">
+        <div class="mosaic__thumb">
+          <img src="images/gallery/6.villavolpeorta-interior-livingroom-dining-sofa-entrance.jpg" alt="Living room — dining area and entrance" loading="lazy">
+        </div>
+        <div class="mosaic__thumb">
+          <img src="images/gallery/villavolpeorta-interior-kitchen1.jpg" alt="Kitchen — detail view" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bathroom Gallery -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="mosaic__title reveal">
+        <span class="label">Bathroom</span>
+        <div class="divider divider--center"></div>
+        <h2>Accessible &amp; Modern</h2>
+        <p style="margin-top:1rem;max-width:600px;margin-left:auto;margin-right:auto;opacity:0.8;">A fully accessible bathroom with walk-in shower, grab handles, movable seat, WC, bidet, and electric heater rack.</p>
+      </div>
+      <div class="mosaic--duo reveal">
+        <div class="mosaic__thumb">
+          <img src="images/gallery/villavolpeorta-interior-bathroom.jpg" alt="Bathroom — overview" loading="lazy">
+        </div>
+        <div class="mosaic__thumb">
+          <img src="images/gallery/villavolpeorta-interior-bathroom-walk-in-shower-sink.jpg" alt="Bathroom — shower and sink detail" loading="lazy">
         </div>
       </div>
     </div>
@@ -266,6 +317,57 @@
   
   <script src="main.js"></script>
   <script src="js/content-loader.js"></script>
+
+  <!-- Carousel logic -->
+  <script>
+  (function() {
+    document.querySelectorAll('.carousel').forEach(function(carousel) {
+      const track = carousel.querySelector('.carousel__track');
+      const slides = carousel.querySelectorAll('.carousel__slide');
+      const prevBtn = carousel.querySelector('.carousel__btn--prev');
+      const nextBtn = carousel.querySelector('.carousel__btn--next');
+      const dotsContainer = carousel.querySelector('.carousel__dots');
+      let current = 0;
+      const total = slides.length;
+
+      // Create dots
+      slides.forEach(function(_, i) {
+        const dot = document.createElement('button');
+        dot.className = 'carousel__dot' + (i === 0 ? ' carousel__dot--active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', function() { goTo(i); });
+        dotsContainer.appendChild(dot);
+      });
+
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dotsContainer.querySelectorAll('.carousel__dot').forEach(function(d, i) {
+          d.classList.toggle('carousel__dot--active', i === current);
+        });
+      }
+
+      prevBtn.addEventListener('click', function() { goTo(current - 1); });
+      nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+      // Touch/swipe support
+      let startX = 0;
+      track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; });
+      track.addEventListener('touchend', function(e) {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+      });
+
+      // Auto-advance every 5s
+      let timer = setInterval(function() { goTo(current + 1); }, 5000);
+      carousel.addEventListener('mouseenter', function() { clearInterval(timer); });
+      carousel.addEventListener('mouseleave', function() {
+        timer = setInterval(function() { goTo(current + 1); }, 5000);
+      });
+    });
+  })();
+  </script>
+
   <script>
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {

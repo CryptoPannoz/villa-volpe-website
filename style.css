@@ -913,6 +913,81 @@ p {
   transform: translateY(-2px);
 }
 
+/* ---------- Carousel ---------- */
+.carousel {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.carousel__track {
+  display: flex;
+  transition: transform 0.5s var(--ease);
+  will-change: transform;
+}
+
+.carousel__slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.carousel__slide img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.3s var(--ease);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel__btn:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.carousel__btn--prev { left: var(--space-sm); }
+.carousel__btn--next { right: var(--space-sm); }
+
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: var(--space-sm);
+}
+
+.carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s var(--ease);
+}
+
+.carousel__dot--active {
+  background: var(--color-accent);
+}
+
 /* ---------- Mosaic Gallery ---------- */
 .mosaic {
   display: grid;
@@ -958,6 +1033,36 @@ p {
   margin-bottom: var(--space-xs);
 }
 
+/* Mosaic bottom row for extra photos */
+.mosaic__bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mosaic__bottom .mosaic__thumb {
+  aspect-ratio: 3/2;
+}
+
+/* Duo layout — 2 photos side by side */
+.mosaic--duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.mosaic--duo .mosaic__thumb {
+  aspect-ratio: 3/2;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
 @media (max-width: 768px) {
   .mosaic {
     grid-template-columns: 1fr 1fr;
@@ -966,6 +1071,12 @@ p {
   .mosaic__hero {
     grid-row: auto;
     grid-column: 1 / -1;
+  }
+  .mosaic__bottom {
+    grid-template-columns: 1fr;
+  }
+  .mosaic--duo {
+    grid-template-columns: 1fr;
   }
 }
 
