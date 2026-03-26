@@ -146,9 +146,12 @@
         <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="images/uploads/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide.jpg" alt="Second bedroom with king bed" style="width:100%;height:100%;object-fit:cover;"></div>
         <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="images/uploads/3.villavolpeorta-interior-bathroom-walkinshower-accessible.jpg" alt="Accessible walk-in shower bathroom" style="width:100%;height:100%;object-fit:cover;"></div>      
       </div>
+      <div style="text-align:center;margin-top:2.5rem;">
+        <a href="discover.html" class="btn btn--ghost">Discover More</a>
+      </div>
     </div>
   </section>
-  
+
   <!-- Stats -->
   <section class="section section--alt">
     <div class="container">
@@ -214,6 +217,15 @@
 <div id="site-footer"></div>
 <script src="footer.js"></script>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" aria-label="Close">&times;</button>
+    <button class="lightbox__btn lightbox__btn--prev" aria-label="Previous">&#8249;</button>
+    <img class="lightbox__img" src="" alt="">
+    <button class="lightbox__btn lightbox__btn--next" aria-label="Next">&#8250;</button>
+    <div class="lightbox__counter"></div>
+  </div>
+
   <script src="main.js"></script>
   <script src="js/content-loader.js"></script>
   <!-- Leaflet JS for interactive map -->
@@ -236,6 +248,80 @@
       }
     });
   </script>
+  <!-- Lightbox logic -->
+  <script>
+  (function() {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+    const lbImg = lightbox.querySelector('.lightbox__img');
+    const lbCounter = lightbox.querySelector('.lightbox__counter');
+    const gallery = document.getElementById('gallery');
+    if (!gallery) return;
+
+    let images = [];
+    let current = 0;
+
+    function collectImages() {
+      images = Array.from(gallery.querySelectorAll('.gallery__item img'));
+    }
+
+    function open(index) {
+      collectImages();
+      current = index;
+      update();
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function update() {
+      if (!images[current]) return;
+      lbImg.src = images[current].src;
+      lbImg.alt = images[current].alt;
+      lbCounter.textContent = (current + 1) + ' / ' + images.length;
+    }
+
+    function next() { current = (current + 1) % images.length; update(); }
+    function prev() { current = (current - 1 + images.length) % images.length; update(); }
+
+    gallery.addEventListener('click', function(e) {
+      const item = e.target.closest('.gallery__item');
+      if (!item) return;
+      collectImages();
+      const img = item.querySelector('img');
+      const idx = images.indexOf(img);
+      if (idx !== -1) open(idx);
+    });
+
+    lightbox.querySelector('.lightbox__close').addEventListener('click', close);
+    lightbox.querySelector('.lightbox__btn--prev').addEventListener('click', prev);
+    lightbox.querySelector('.lightbox__btn--next').addEventListener('click', next);
+
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) close();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    });
+
+    // Touch/swipe support
+    let startX = 0;
+    lbImg.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; });
+    lbImg.addEventListener('touchend', function(e) {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
+    });
+  })();
+  </script>
+
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
     if (window.netlifyIdentity) {
