@@ -1297,6 +1297,10 @@ p {
   color: var(--color-black);
 }
 
+.mobile-menu a.btn--dark {
+  color: var(--color-white);
+}
+
 .mobile-menu__close {
   position: absolute;
   top: var(--space-md);
