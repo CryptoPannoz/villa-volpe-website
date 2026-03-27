@@ -239,9 +239,10 @@
         var lat = 45.7903779;
         var lng = 8.4188104;
         var map = L.map('map', { scrollWheelZoom: false }).setView([lat, lng], 15);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; OpenStreetMap contributors',
-          maxZoom: 19
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
+          maxZoom: 20,
+          subdomains: 'abcd'
         }).addTo(map);
         L.marker([lat, lng]).addTo(map)
           .bindPopup('<strong>Villa Volpe</strong><br>Via Novara 38<br>Orta San Giulio 28016')

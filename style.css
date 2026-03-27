@@ -1634,3 +1634,39 @@ p {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ---------- Map Styling ---------- */
+#map {
+  filter: saturate(0.3) sepia(0.15) brightness(1.02) contrast(0.95);
+  transition: filter 0.3s ease;
+}
+
+#map:hover {
+  filter: saturate(0.5) sepia(0.1) brightness(1.02) contrast(0.95);
+}
+
+.leaflet-popup-content-wrapper {
+  font-family: 'Inter', sans-serif;
+  color: var(--color-text);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.leaflet-popup-content {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 12px 16px;
+}
+
+.leaflet-popup-content strong {
+  font-family: 'Playfair Display', serif;
+  color: var(--color-accent);
+  font-size: 1rem;
+}
+
+.leaflet-popup-tip {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+}
