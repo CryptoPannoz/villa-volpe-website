@@ -151,7 +151,7 @@
         </figure>
         <figure style="margin:0;flex-shrink:0;width:220px;">
           <div style="border-radius:var(--radius);overflow:hidden;"><img src="images/story/lakefront-before-2007.jpg" alt="The lakefront property before Villa Volpe was built, seen from the water in 2007" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"></div>
-          <figcaption style="font-size:0.8rem;color:var(--color-muted);margin-top:0.5rem;line-height:1.4;">La Quiete from the lake, 2007</figcaption>
+          <figcaption style="font-size:0.8rem;color:var(--color-muted);margin-top:0.5rem;line-height:1.4;">Villa Volpe taking shape, 2013</figcaption>
         </figure>
         <figure style="margin:0;flex-shrink:0;width:220px;">
           <div style="border-radius:var(--radius);overflow:hidden;"><img src="images/story/la-quiete-before-2007.jpg" alt="The original La Quiete structure before transformation into Villa Volpe, 2007" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"></div>
@@ -159,7 +159,7 @@
         </figure>
         <figure style="margin:0;flex-shrink:0;width:220px;">
           <div style="border-radius:var(--radius);overflow:hidden;"><img src="images/story/villa-volpe-construction-site.jpg" alt="Villa Volpe under construction on the shore of Lake Orta" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"></div>
-          <figcaption style="font-size:0.8rem;color:var(--color-muted);margin-top:0.5rem;line-height:1.4;">Villa Volpe taking shape</figcaption>
+          <figcaption style="font-size:0.8rem;color:var(--color-muted);margin-top:0.5rem;line-height:1.4;">La Quiete, 2007</figcaption>
         </figure>
         <figure style="margin:0;flex-shrink:0;width:220px;">
           <div style="border-radius:var(--radius);overflow:hidden;"><img src="images/story/villa-volpe-construction-visit.jpg" alt="Maura and Silvio Broggi visiting the Villa Volpe construction site" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"></div>
@@ -202,6 +202,60 @@
 <div id="site-footer"></div>
 <script src="footer.js"></script>
 
+  <!-- Lightbox for Story Carousel -->
+  <div class="lightbox" id="story-lightbox">
+    <button class="lightbox__close" aria-label="Close">&times;</button>
+    <button class="lightbox__btn lightbox__btn--prev" aria-label="Previous">&#8249;</button>
+    <img class="lightbox__img" src="" alt="">
+    <button class="lightbox__btn lightbox__btn--next" aria-label="Next">&#8250;</button>
+    <div class="lightbox__counter"></div>
+  </div>
+
   <script src="main.js"></script>
+  <script>
+  (function() {
+    var lightbox = document.getElementById('story-lightbox');
+    if (!lightbox) return;
+    var lbImg = lightbox.querySelector('.lightbox__img');
+    var lbCounter = lightbox.querySelector('.lightbox__counter');
+    var slideshow = document.querySelector('.story-slideshow');
+    if (!slideshow) return;
+    var figures = slideshow.querySelectorAll('figure');
+    var images = [];
+    figures.forEach(function(fig) {
+      var img = fig.querySelector('img');
+      var cap = fig.querySelector('figcaption');
+      if (img) images.push({ src: img.src, alt: cap ? cap.textContent : img.alt });
+    });
+    var current = 0;
+    function update() {
+      lbImg.src = images[current].src;
+      lbImg.alt = images[current].alt;
+      lbCounter.textContent = (current + 1) + ' / ' + images.length;
+    }
+    figures.forEach(function(fig, i) {
+      fig.style.cursor = 'pointer';
+      fig.addEventListener('click', function() {
+        current = i;
+        update();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function close() { lightbox.classList.remove('active'); document.body.style.overflow = ''; }
+    function prev() { current = (current - 1 + images.length) % images.length; update(); }
+    function next() { current = (current + 1) % images.length; update(); }
+    lightbox.querySelector('.lightbox__close').addEventListener('click', close);
+    lightbox.querySelector('.lightbox__btn--prev').addEventListener('click', prev);
+    lightbox.querySelector('.lightbox__btn--next').addEventListener('click', next);
+    lightbox.addEventListener('click', function(e) { if (e.target === lightbox) close(); });
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    });
+  })();
+  </script>
 </body>
 </html>
