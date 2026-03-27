@@ -147,35 +147,56 @@ function renderAvailableGapsList() {
     return;
   }
 
-  // Mostra max 5 prossimi gap
-  var html = '';
-  var shown = 0;
-  for (var i = 0; i < state.availableGaps.length && shown < 5; i++) {
+  // Spezza i gap in blocchi da suggestedNights (5) e mostra max 3
+  var suggestedNights = 5;
+  var maxBlocks = 3;
+  var blocks = [];
+  var today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  for (var i = 0; i < state.availableGaps.length && blocks.length < maxBlocks; i++) {
     var gap = state.availableGaps[i];
-    var today = new Date();
-    today.setHours(0, 0, 0, 0);
     if (gap.end <= today) continue;
 
-    // Non mostrare periodi troppo lunghi (> maxNightsToShow)
-    if (gap.nights > BOOKING_CONFIG.maxNightsToShow) continue;
+    // Punto di partenza: oggi se il gap è già iniziato, altrimenti inizio gap
+    var blockStart = gap.start < today ? new Date(today) : new Date(gap.start);
 
-    html += '<div class="gap-chip" data-gap-index="' + i + '">'
+    while (blocks.length < maxBlocks) {
+      var blockEnd = new Date(blockStart);
+      blockEnd.setDate(blockEnd.getDate() + suggestedNights);
+
+      // Se il blocco sfora il gap, prendi quello che resta (solo se >= minNights)
+      if (blockEnd > gap.end) {
+        var remainingNights = Math.round((gap.end - blockStart) / (1000 * 60 * 60 * 24));
+        if (remainingNights >= BOOKING_CONFIG.minNights) {
+          blocks.push({ start: new Date(blockStart), end: new Date(gap.end), nights: remainingNights, gapIndex: i });
+        }
+        break;
+      }
+
+      blocks.push({ start: new Date(blockStart), end: new Date(blockEnd), nights: suggestedNights, gapIndex: i });
+      blockStart = new Date(blockEnd);
+    }
+  }
+
+  var html = '';
+  for (var b = 0; b < blocks.length; b++) {
+    var block = blocks[b];
+    html += '<div class="gap-chip" data-gap-index="' + block.gapIndex + '" data-start="' + block.start.toISOString() + '">'
       + '<span class="gap-dates">'
-      + formatDateShort(gap.start) + ' → ' + formatDateShort(gap.end)
+      + formatDateShort(block.start) + ' → ' + formatDateShort(block.end)
       + '</span>'
-      + '<span class="gap-nights">' + gap.nights + ' nights available</span>'
+      + '<span class="gap-nights">' + block.nights + ' nights available</span>'
       + '</div>';
-    shown++;
   }
 
   container.innerHTML = html;
 
-  // Click su un gap: naviga al mese corrispondente
+  // Click su un blocco: naviga al mese corrispondente
   container.querySelectorAll('.gap-chip').forEach(function(chip) {
     chip.addEventListener('click', function() {
-      var idx = parseInt(this.dataset.gapIndex);
-      var gap = state.availableGaps[idx];
-      state.currentMonth = new Date(gap.start.getFullYear(), gap.start.getMonth(), 1);
+      var startDate = new Date(this.dataset.start);
+      state.currentMonth = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
       renderCalendar();
     });
   });
