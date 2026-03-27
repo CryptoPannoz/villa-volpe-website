@@ -1637,12 +1637,12 @@ p {
 
 /* ---------- Map Styling ---------- */
 #map {
-  filter: saturate(0.3) sepia(0.15) brightness(1.02) contrast(0.95);
+  filter: saturate(0.6) sepia(0.08) brightness(1.02) contrast(0.95);
   transition: filter 0.3s ease;
 }
 
 #map:hover {
-  filter: saturate(0.5) sepia(0.1) brightness(1.02) contrast(0.95);
+  filter: saturate(0.75) sepia(0.05) brightness(1.02) contrast(0.95);
 }
 
 .leaflet-popup-content-wrapper {
