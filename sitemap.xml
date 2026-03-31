@@ -40,6 +40,11 @@
 
   <!-- Blog -->
   <url>
+    <loc>https://www.villa-volpe.com/blog/posts/wakeboarding-wakesurfing-lake-orta.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.villa-volpe.com/blog/posts/lake-orta-the-miracle-of-liming.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
