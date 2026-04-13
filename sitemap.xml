@@ -40,6 +40,11 @@
 
   <!-- Blog -->
   <url>
+    <loc>https://www.villa-volpe.com/blog/posts/cold-plunge-waterfall-lake-orta.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.villa-volpe.com/blog/posts/lake-orta-in-spring-shoulder-season.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
