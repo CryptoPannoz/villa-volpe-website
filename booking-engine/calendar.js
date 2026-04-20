@@ -21,7 +21,7 @@
 const BOOKING_CONFIG = {
   calendarId: 'be5a630aebb1f10d8e8bee8144948cda4b8227517394f8ff109a17c9424b6e57@group.calendar.google.com',
   apiKey: 'AIzaSyDkmWoTVEgonSPPTYrKIY9SuoodIVO4lpQ',
-  webAppUrl: 'https://script.google.com/macros/s/AKfycbyR_KhUaMlt0TrvT3mqjn28L_cI9LfcKVQ6pwLTSXioBZn4NCXk6mk1Wv_Xh7gi69ugyg/exec',
+  webAppUrl: 'https://script.google.com/macros/s/AKfycbwRS03OQTl9x2KLZbQFEqvA9f3MoccyPcf7sdeHiSzd53r5u6ubnC4b6OS2tE9kuJUo-Q/exec',
   minNights: 3,
   maxNightsToShow: 29,  // Gap > 29 notti non vengono mostrati nella lista
   maxGuests: 4,
