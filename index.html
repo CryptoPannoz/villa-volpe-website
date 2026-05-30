@@ -53,8 +53,12 @@
   <!-- Hero -->
   <section class="hero">
    <div class="hero__bg">
-      <img src="images/villa-volpe-hero-new.jpg" alt="Villa Volpe — lakefront view on Lake Orta">
-    </div>
+      <video class="hero__video" autoplay muted loop playsinline preload="auto"
+             poster="images/villa-volpe-hero-poster.jpg">
+        <source src="images/villa-volpe-hero.webm" type="video/webm">
+        <source src="images/villa-volpe-hero.mp4" type="video/mp4">
+        <img src="images/villa-volpe-hero-new.jpg" alt="Villa Volpe — lakefront view on Lake Orta">
+      </video>
     </div>
     <div class="hero__overlay"></div>
     <div class="hero__content">
@@ -124,7 +128,14 @@
           <a href="discover.html" class="btn btn--ghost" style="margin-top:2rem;">Explore the Villa</a>
         </div>
        <div class="two-col__img" style="aspect-ratio:4/5;">
-  <img src="images/uploads/camera zio.jpg" alt="Villa Volpe Orta Lake from bed" style="width:100%;height:100%;object-fit:cover;">
+  <video class="two-col__video" data-inview muted loop playsinline preload="metadata"
+         poster="images/uploads/villavolpe-about-bedroom-poster.jpg"
+         style="width:100%;height:100%;object-fit:cover;display:block;"
+         aria-label="Villa Volpe bedroom with Lake Orta view">
+    <source src="images/uploads/villavolpe-about-bedroom.webm" type="video/webm">
+    <source src="images/uploads/villavolpe-about-bedroom.mp4" type="video/mp4">
+    <img src="images/uploads/camera zio.jpg" alt="Villa Volpe Orta Lake from bed" style="width:100%;height:100%;object-fit:cover;">
+  </video>
         </div>
       </div>
     </div>
@@ -229,6 +240,24 @@
   </div>
 
   <script src="main.js"></script>
+  <!-- Play inline videos only while in view (lightweight, mobile-friendly) -->
+  <script>
+  (function(){
+    var vids = document.querySelectorAll('video[data-inview]');
+    if(!vids.length) return;
+    if(!('IntersectionObserver' in window)){
+      vids.forEach(function(v){ v.play().catch(function(){}); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.play().catch(function(){}); }
+        else { e.target.pause(); }
+      });
+    }, { threshold: 0.25 });
+    vids.forEach(function(v){ io.observe(v); });
+  })();
+  </script>
   <script src="js/content-loader.js"></script>
   <!-- Leaflet JS for interactive map -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
