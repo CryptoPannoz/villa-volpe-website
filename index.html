@@ -50,27 +50,24 @@
     <a href="book.html" class="btn btn--dark">Book Now</a>
   </div>
 
-  <!-- Hero (scroll-zoom entrance) -->
-  <section class="hero hero--scrollzoom" id="heroScroll">
-    <div class="hero__sticky">
-      <div class="hero__bg">
-        <video class="hero__video" id="heroVideo" muted playsinline preload="auto"
-               poster="images/hero-entrance-poster.jpg">
-          <source src="images/hero-entrance.mp4" type="video/mp4">
-          <img src="images/villa-volpe-hero-new.jpg" alt="Villa Volpe — Lake Orta view">
-        </video>
+  <!-- Hero (autoplay video) -->
+  <section class="hero hero--video" id="hero">
+    <div class="hero__bg">
+      <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto"
+             poster="images/hero-drone-poster.jpg">
+        <source src="images/hero-drone.mp4" type="video/mp4">
+        <img src="images/villa-volpe-hero-new.jpg" alt="Villa Volpe — Lake Orta view">
+      </video>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <span class="hero__label" data-cms="hero.label">Lake Orta, Piedmont &mdash; Italy</span>
+      <h1 class="hero__title" data-cms="hero.title">Villa Volpe</h1>
+      <p class="hero__subtitle" data-cms="hero.subtitle">Everything you need, on the sunny side of Lake Orta. Three meters from crystal clear water.</p>
+      <div class="hero__actions">
+        <a href="book.html" class="btn btn--primary">Direct Booking &minus;15%</a>
+        <a href="discover.html" class="btn btn--outline">Discover the Villa</a>
       </div>
-      <div class="hero__overlay"></div>
-      <div class="hero__content">
-        <span class="hero__label" data-cms="hero.label">Lake Orta, Piedmont &mdash; Italy</span>
-        <h1 class="hero__title" data-cms="hero.title">Villa Volpe</h1>
-        <p class="hero__subtitle" data-cms="hero.subtitle">Everything you need, on the sunny side of Lake Orta. Three meters from crystal clear water.</p>
-        <div class="hero__actions">
-          <a href="book.html" class="btn btn--primary">Direct Booking &minus;15%</a>
-          <a href="discover.html" class="btn btn--outline">Discover the Villa</a>
-        </div>
-      </div>
-      <div class="hero__scrollhint" aria-hidden="true"><span></span></div>
     </div>
   </section>
 
@@ -242,65 +239,17 @@
   </div>
 
   <script src="main.js"></script>
-  <!-- Hero scroll-zoom: scrubs the video timeline with scroll (no autoplay) -->
+  <!-- Hero video: force autoplay (mobile) + pause when offscreen (battery friendly) -->
   <script>
   (function(){
-    var section = document.getElementById('heroScroll');
-    var video   = document.getElementById('heroVideo');
-    if(!section || !video) return;
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    var duration = 0, target = 0, current = 0, running = false, primed = false, inView = true;
-    var hint = section.querySelector('.hero__scrollhint');
-
-    function readMeta(){ duration = video.duration || 0; }
-    if(video.readyState >= 1) readMeta();
-    video.addEventListener('loadedmetadata', readMeta);
-
-    // Unlock seeking-display on iOS/Safari (muted play -> immediate pause)
-    function prime(){
-      if(primed) return; primed = true;
-      var p = video.play();
-      if(p && p.then){ p.then(function(){ video.pause(); }).catch(function(){}); }
-      else { try{ video.pause(); }catch(e){} }
-    }
-
-    function progress(){
-      var total = section.offsetHeight - window.innerHeight;
-      if(total <= 0) return 0;
-      var top = section.getBoundingClientRect().top;
-      return Math.min(1, Math.max(0, (-top) / total));
-    }
-
-    function frame(){
-      target = progress() * (duration || 0);
-      current += (target - current) * 0.18;            // easing -> silky
-      if(Math.abs(target - current) < 0.004) current = target;
-      if(duration){
-        var t = Math.min(duration - 0.001, Math.max(0, current));
-        if(Math.abs(video.currentTime - t) > 0.002){
-          try { video.currentTime = t; } catch(e){}
-        }
-      }
-      if(inView && Math.abs(target - current) > 0.001){ requestAnimationFrame(frame); }
-      else { running = false; }
-    }
-    function kick(){
-      prime();
-      if(hint && !hint.classList.contains('is-hidden') && window.scrollY > 20){ hint.classList.add('is-hidden'); }
-      if(!running){ running = true; requestAnimationFrame(frame); }
-    }
-
-    window.addEventListener('scroll', kick, { passive:true });
-    window.addEventListener('touchmove', kick, { passive:true });
-    window.addEventListener('resize', kick);
-    video.addEventListener('loadeddata', kick);
-
+    var v = document.getElementById('heroVideo');
+    if(!v) return;
+    function tryPlay(){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
+    if(v.readyState >= 2) tryPlay(); else v.addEventListener('loadeddata', tryPlay);
     if('IntersectionObserver' in window){
       new IntersectionObserver(function(es){
-        inView = es[0].isIntersecting;
-        if(inView) kick();
-      }, { threshold: 0 }).observe(section);
+        if(es[0].isIntersecting) tryPlay(); else { try{ v.pause(); }catch(e){} }
+      }, { threshold: 0.05 }).observe(v);
     }
   })();
   </script>
