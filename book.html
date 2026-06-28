@@ -66,13 +66,13 @@
         <li><a href="faqs.html" class="nav__link">FAQs</a></li>
       </ul>
       <a href="book.html" class="nav__cta">Book Now</a>
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu">
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <button class="mobile-menu__close" id="mobileClose" aria-label="Close menu">&times;</button>
     <a href="index.html">Home</a>
     <a href="discover.html">Discover</a>
@@ -87,6 +87,11 @@
     <span class="label page-header__label">Book</span>
     <h1 class="page-header__title">Reserve Your Stay</h1>
     <p class="page-header__desc">Check availability and book directly — save 15% compared to Airbnb.</p>
+    <div class="booking-trust-strip" aria-label="Guest trust signals">
+      <span>690+ happy guests</span>
+      <span>4.91 Airbnb rating</span>
+      <span>Confirmation within 24 hours</span>
+    </div>
   </header>
 
   <!-- Booking Section -->
@@ -162,6 +167,7 @@
             </div>
 
             <p class="selection-hint" id="selection-hint">Select your check-in date</p>
+            <p class="booking-reassurance">This is a request only. You will receive the final quote before any payment is due.</p>
             <div class="date-error" id="date-error"></div>
 
             <div class="selected-dates">
@@ -261,6 +267,7 @@
               <div class="summary-row"><span>Duration</span><strong id="summary-nights"></strong></div>
               <div class="summary-row"><span>Guests</span><strong id="summary-guests"></strong></div>
               <div class="summary-row"><span>Pets</span><strong id="summary-pets"></strong></div>
+              <div class="summary-row summary-row--note"><span>Pricing</span><strong id="summary-pricing-note">Final quote sent before deposit</strong></div>
             </div>
             <div class="policy-section">
               <h3>Payment</h3>
@@ -329,9 +336,9 @@
             <div class="booking-highlight">
               <div class="booking-highlight__title">Via Airbnb</div>
               <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.7;">
-                Prefer paying platform fees over trusting a friendly Italian host?
-                We get it — <a href="https://airbnb.com/rooms/16759665" target="_blank" rel="noopener" style="color:var(--color-accent);font-weight:600;">book on Airbnb</a>.
-                Just know you're paying 15% more for the same villa, same lake, same us.
+                Prefer Airbnb's platform support? You can
+                <a href="https://airbnb.com/rooms/16759665" target="_blank" rel="noopener" style="color:var(--color-accent);font-weight:600;">book on Airbnb</a>
+                too. Direct booking simply gives you the same villa, same lake, and same hosts with a 15% saving.
               </p>
             </div>
 

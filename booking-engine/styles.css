@@ -260,6 +260,9 @@ h3 {
 }
 
 .calendar-day {
+  border: 0;
+  background: transparent;
+  appearance: none;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -270,9 +273,12 @@ h3 {
   transition: all 0.15s ease;
   position: relative;
   font-weight: 500;
+  font-family: inherit;
 }
 
 .calendar-day.header {
+  border: 0;
+  background: transparent;
   font-weight: 600;
   color: var(--text-secondary);
   font-size: 11px;
@@ -313,6 +319,12 @@ h3 {
   text-decoration: line-through;
   cursor: not-allowed;
   opacity: 0.4;
+}
+
+.calendar-day:focus-visible,
+.gap-chip:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 /* ── Selezionato ── */
@@ -399,6 +411,14 @@ h3 {
   margin-top: var(--spacing-sm);
 }
 
+.booking-reassurance {
+  text-align: center;
+  color: var(--accent-color);
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 var(--spacing-md);
+}
+
 /* ── Selected Dates Display ────────────────────────────── */
 
 .selected-dates {
@@ -467,15 +487,18 @@ h3 {
 }
 
 .gap-chip {
+  border: 1px solid var(--available-border);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-sm) var(--spacing-md);
   background-color: var(--available-color);
-  border: 1px solid var(--available-border);
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 0.2s ease;
+  width: 100%;
+  font-family: inherit;
+  text-align: left;
 }
 
 .gap-chip:hover {
@@ -666,6 +689,11 @@ textarea { resize: vertical; min-height: 80px; }
 .summary-row:last-child { border-bottom: none; }
 .summary-row span { color: var(--text-secondary); font-size: 14px; }
 .summary-row strong { color: var(--text-primary); font-size: 14px; }
+
+.summary-row--note strong {
+  color: var(--accent-color);
+  text-align: right;
+}
 
 /* ── Policy ────────────────────────────────────────────── */
 

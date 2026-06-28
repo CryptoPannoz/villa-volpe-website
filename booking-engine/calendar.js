@@ -38,6 +38,7 @@ var state = {
   blockedDates: [],
   availableGaps: [],   // Array di { start: Date, end: Date, nights: number }
   calendarLoaded: false,
+  hasAutoJumpedToAvailability: false,
   guestData: {
     name: '',
     email: '',
@@ -182,12 +183,12 @@ function renderAvailableGapsList() {
   var html = '';
   for (var b = 0; b < blocks.length; b++) {
     var block = blocks[b];
-    html += '<div class="gap-chip" data-gap-index="' + block.gapIndex + '" data-start="' + block.start.toISOString() + '">'
+    html += '<button type="button" class="gap-chip" data-gap-index="' + block.gapIndex + '" data-start="' + block.start.toISOString() + '" data-end="' + block.end.toISOString() + '" aria-label="Select availability from ' + formatDateDisplay(block.start) + ' to ' + formatDateDisplay(block.end) + '">'
       + '<span class="gap-dates">'
       + formatDateShort(block.start) + ' → ' + formatDateShort(block.end)
       + '</span>'
       + '<span class="gap-nights">' + block.nights + ' nights available</span>'
-      + '</div>';
+      + '</button>';
   }
 
   container.innerHTML = html;
@@ -196,7 +197,11 @@ function renderAvailableGapsList() {
   container.querySelectorAll('.gap-chip').forEach(function(chip) {
     chip.addEventListener('click', function() {
       var startDate = new Date(this.dataset.start);
+      var endDate = new Date(this.dataset.end);
       state.currentMonth = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
+      state.checkInDate = startDate;
+      state.checkOutDate = endDate;
+      updateDateDisplay();
       renderCalendar();
     });
   });
@@ -246,8 +251,9 @@ function renderCalendar() {
   // Day cells
   for (var day = 1; day <= daysInMonth; day++) {
     var date = new Date(year, month, day);
-    var dayCell = document.createElement('div');
+    var dayCell = document.createElement('button');
     dayCell.className = 'calendar-day';
+    dayCell.type = 'button';
     dayCell.textContent = day;
     dayCell.dataset.date = date.toISOString().split('T')[0];
 
@@ -256,8 +262,11 @@ function renderCalendar() {
 
     if (isPast || isBlocked) {
       dayCell.classList.add('blocked');
+      dayCell.disabled = true;
+      dayCell.setAttribute('aria-label', formatDateDisplay(date) + ' unavailable');
     } else {
       dayCell.classList.add('available');
+      dayCell.setAttribute('aria-label', formatDateDisplay(date) + ' available');
 
       // Evidenzia se il giorno fa parte di un gap valido (≥ minNights)
       if (state.calendarLoaded && isInAvailableGap(date)) {
@@ -276,9 +285,13 @@ function renderCalendar() {
     // Selected dates
     if (state.checkInDate && date.toDateString() === state.checkInDate.toDateString()) {
       dayCell.classList.add('selected', 'checkin-selected');
+      dayCell.setAttribute('aria-pressed', 'true');
+      dayCell.setAttribute('aria-label', formatDateDisplay(date) + ' selected as check-in');
     }
     if (state.checkOutDate && date.toDateString() === state.checkOutDate.toDateString()) {
       dayCell.classList.add('selected', 'checkout-selected');
+      dayCell.setAttribute('aria-pressed', 'true');
+      dayCell.setAttribute('aria-label', formatDateDisplay(date) + ' selected as check-out');
     }
 
     // Range between check-in and check-out
@@ -452,6 +465,7 @@ function loadBlockedDates() {
 
       state.calendarLoaded = true;
       calculateAvailableGaps();
+      jumpToFirstAvailableMonth();
       renderCalendar();
     })
     .catch(function(error) {
@@ -465,6 +479,19 @@ function showCalendarError(message) {
   if (loader) {
     loader.innerHTML = '<span class="loader-error">' + message + '</span>';
   }
+
+  var gaps = document.getElementById('available-gaps');
+  if (gaps) {
+    gaps.innerHTML = '<p class="no-gaps">Availability could not be loaded. Please email us directly at <a href="mailto:' + BOOKING_CONFIG.email + '">' + BOOKING_CONFIG.email + '</a>.</p>';
+  }
+}
+
+function jumpToFirstAvailableMonth() {
+  if (state.hasAutoJumpedToAvailability || !state.availableGaps.length) return;
+
+  var firstGap = state.availableGaps[0];
+  state.currentMonth = new Date(firstGap.start.getFullYear(), firstGap.start.getMonth(), 1);
+  state.hasAutoJumpedToAvailability = true;
 }
 
 

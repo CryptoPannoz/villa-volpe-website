@@ -33,14 +33,14 @@
         <li><a href="faqs.html" class="nav__link">FAQs</a></li>
       </ul>
       <a href="book.html" class="nav__cta">Book Now</a>
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu">
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <button class="mobile-menu__close" id="mobileClose" aria-label="Close menu">&times;</button>
     <a href="index.html">Home</a>
     <a href="discover.html">Discover</a>
@@ -64,6 +64,7 @@
       <span class="hero__label" data-cms="hero.label">Lake Orta, Piedmont &mdash; Italy</span>
       <h1 class="hero__title" data-cms="hero.title">Villa Volpe</h1>
       <p class="hero__subtitle" data-cms="hero.subtitle">Everything you need, on the sunny side of Lake Orta. Three meters from crystal clear water.</p>
+      <p class="hero__mobile-proof">Private beach · fully accessible · direct booking saves 15%</p>
       <div class="hero__actions">
         <a href="book.html" class="btn btn--primary">Direct Booking &minus;15%</a>
         <a href="discover.html" class="btn btn--outline">Discover the Villa</a>
