@@ -15,9 +15,9 @@
   var depthFromRoot = segs.length;                       // /fr/ -> 1 ; /blog/posts/ -> 2 ; / -> 0
   var toRoot = depthFromRoot > 0 ? '../'.repeat(depthFromRoot) : '';
 
-  // Localized pages live under toRoot + <lang>/ ; the blog stays English at the site root.
+  // Localized pages live under toRoot + <lang>/ (langBase === toRoot for English).
   var langBase = (lang === 'en') ? toRoot : toRoot + lang + '/';
-  var blogHref = toRoot + 'blog.html';
+  var blogHref = langBase + 'blog.html';
 
   // ── Translations ──────────────────────────────────────────
   var T = {
