@@ -1,42 +1,80 @@
 (function() {
-  // Get base path for links (works in root and subfolders)
-  const depth = window.location.pathname.split('/').filter(Boolean).length;
-  const repoName = 'villa-volpe-website';
-  const pathParts = window.location.pathname.split('/').filter(Boolean);
-  const repoIndex = pathParts.indexOf(repoName);
-  const levelsDeep = repoIndex >= 0 ? pathParts.length - repoIndex - 1 : 0;
-  const base = levelsDeep > 0 ? '../'.repeat(levelsDeep) : '';
+  // ── Language detection ─────────────────────────────────────
+  var lang = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
+  if (lang !== 'fr' && lang !== 'de') lang = 'en';
 
-  const footerHTML = `
+  // ── Robust base-path calculation ──────────────────────────
+  // Works on the custom domain root (www.villa-volpe.com/…) AND on the
+  // GitHub Pages project path (…/villa-volpe-website/…).
+  var parts = window.location.pathname.split('/').filter(Boolean);
+  var repoIndex = parts.indexOf('villa-volpe-website');
+  var last = parts[parts.length - 1] || '';
+  var fileIsLast = /\.[a-z0-9]+$/i.test(last);
+  var segs = fileIsLast ? parts.slice(0, -1) : parts.slice();
+  if (repoIndex >= 0) segs = segs.slice(repoIndex + 1); // drop repo name and anything above it
+  var depthFromRoot = segs.length;                       // /fr/ -> 1 ; /blog/posts/ -> 2 ; / -> 0
+  var toRoot = depthFromRoot > 0 ? '../'.repeat(depthFromRoot) : '';
+
+  // Localized pages live under toRoot + <lang>/ ; the blog stays English at the site root.
+  var langBase = (lang === 'en') ? toRoot : toRoot + lang + '/';
+  var blogHref = toRoot + 'blog.html';
+
+  // ── Translations ──────────────────────────────────────────
+  var T = {
+    en: {
+      desc: 'A design glass cube on the sunny shore of Lake Orta. Three meters from crystal clear water, with a view of San Giulio Island.',
+      explore: 'Explore', discover: 'Discover', story: 'Our Story', blog: 'Blog', faqs: 'FAQs',
+      contact: 'Contact', address: 'Via Novara 38 - Orta San Giulio 28016 - Italy',
+      book: 'Book', directBooking: 'Direct Booking (-15%)', airbnb: 'Airbnb Listing', crypto: 'Pay with Crypto',
+      rights: '© 2026 Villa Volpe. All rights reserved.'
+    },
+    fr: {
+      desc: 'Un cube de verre design sur la rive ensoleillée du lac d’Orta. À trois mètres d’une eau cristalline, avec vue sur l’île de San Giulio.',
+      explore: 'Explorer', discover: 'Découvrir', story: 'Notre histoire', blog: 'Blog', faqs: 'FAQ',
+      contact: 'Contact', address: 'Via Novara 38 - Orta San Giulio 28016 - Italie',
+      book: 'Réserver', directBooking: 'Réservation directe (-15%)', airbnb: 'Annonce Airbnb', crypto: 'Payer en crypto',
+      rights: '© 2026 Villa Volpe. Tous droits réservés.'
+    },
+    de: {
+      desc: 'Ein Design-Glaswürfel am sonnigen Ufer des Ortasees. Drei Meter vom kristallklaren Wasser entfernt, mit Blick auf die Insel San Giulio.',
+      explore: 'Entdecken', discover: 'Entdecken', story: 'Unsere Geschichte', blog: 'Blog', faqs: 'FAQ',
+      contact: 'Kontakt', address: 'Via Novara 38 - Orta San Giulio 28016 - Italien',
+      book: 'Buchen', directBooking: 'Direktbuchung (-15%)', airbnb: 'Airbnb-Inserat', crypto: 'Mit Krypto zahlen',
+      rights: '© 2026 Villa Volpe. Alle Rechte vorbehalten.'
+    }
+  };
+  var t = T[lang];
+
+  var footerHTML = `
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
         <div>
           <div class="footer__brand">Villa <span>Volpe</span></div>
-          <p class="footer__desc">A design glass cube on the sunny shore of Lake Orta. Three meters from crystal clear water, with a view of San Giulio Island.</p>
+          <p class="footer__desc">${t.desc}</p>
         </div>
         <div>
-          <div class="footer__title">Explore</div>
+          <div class="footer__title">${t.explore}</div>
           <ul class="footer__links">
-            <li><a href="${base}discover.html">Discover</a></li>
-            <li><a href="${base}story.html">Our Story</a></li>
-            <li><a href="${base}blog.html">Blog</a></li>
-            <li><a href="${base}faqs.html">FAQs</a></li>
+            <li><a href="${langBase}discover.html">${t.discover}</a></li>
+            <li><a href="${langBase}story.html">${t.story}</a></li>
+            <li><a href="${blogHref}">${t.blog}</a></li>
+            <li><a href="${langBase}faqs.html">${t.faqs}</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer__title">Contact</div>
+          <div class="footer__title">${t.contact}</div>
           <ul class="footer__links">
             <li><a href="mailto:villavolpeorta@gmail.com">villavolpeorta@gmail.com</a></li>
-            <li><a href="https://maps.app.goo.gl/Sn4s6anH8q2rQJvVA" target="_blank" rel="noopener">Via Novara 38 - Orta San Giulio 28016 - Italy</a></li>
+            <li><a href="https://maps.app.goo.gl/Sn4s6anH8q2rQJvVA" target="_blank" rel="noopener">${t.address}</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer__title">Book</div>
+          <div class="footer__title">${t.book}</div>
           <ul class="footer__links">
-            <li><a href="${base}book.html">Direct Booking (-15%)</a></li>
-            <li><a href="https://airbnb.com/rooms/16759665" target="_blank" rel="noopener">Airbnb Listing</a></li>
-            <li><a href="https://villavolpeortalake.dtravel.com/" target="_blank" rel="noopener">Pay with Crypto</a></li>
+            <li><a href="${langBase}book.html">${t.directBooking}</a></li>
+            <li><a href="https://airbnb.com/rooms/16759665" target="_blank" rel="noopener">${t.airbnb}</a></li>
+            <li><a href="https://villavolpeortalake.dtravel.com/" target="_blank" rel="noopener">${t.crypto}</a></li>
           </ul>
           <div class="footer__social">
             <a href="https://www.instagram.com/villavolpe/" target="_blank" rel="noopener" aria-label="Villa Volpe on Instagram">
@@ -55,7 +93,7 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <span>&copy; 2026 Villa Volpe. All rights reserved.</span>
+        <span>${t.rights}</span>
         <div class="footer__legal">
           <span>CIN: IT003112C2L7M2HAGX</span>
           <span>CIR: 00311200109</span>
@@ -64,7 +102,7 @@
     </div>
   </footer>`;
 
-  const target = document.getElementById('site-footer');
+  var target = document.getElementById('site-footer');
   if (target) {
     target.innerHTML = footerHTML;
   }

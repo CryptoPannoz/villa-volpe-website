@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="head.js"></script>
+  <script defer src="head.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FAQs — Villa Volpe</title>
@@ -11,6 +11,13 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://www.villa-volpe.com/images/villa-volpe-hero-new.jpg">
   <link rel="canonical" href="https://www.villa-volpe.com/faqs.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+  <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/faqs.html">
+  <link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/faqs.html">
+  <link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/faqs.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/faqs.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -29,6 +36,11 @@
         <li><a href="blog.html" class="nav__link">Blog</a></li>
         <li><a href="faqs.html" class="nav__link nav__link--active">FAQs</a></li>
       </ul>
+      <div class="nav__lang" role="group" aria-label="Language">
+        <a href="faqs.html" class="nav__lang-link nav__lang-link--active" hreflang="en" lang="en">EN</a>
+        <a href="fr/faqs.html" class="nav__lang-link" hreflang="fr" lang="fr">FR</a>
+        <a href="de/faqs.html" class="nav__lang-link" hreflang="de" lang="de">DE</a>
+      </div>
       <a href="book.html" class="nav__cta">Book Now</a>
       <button class="nav__toggle" id="navToggle" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -44,6 +56,11 @@
     <a href="blog.html">Blog</a>
     <a href="faqs.html">FAQs</a>
     <a href="book.html" class="btn btn--dark">Book Now</a>
+    <div class="mobile-menu__lang" role="group" aria-label="Language">
+      <a href="faqs.html" class="nav__lang-link nav__lang-link--active" hreflang="en">EN</a>
+      <a href="fr/faqs.html" class="nav__lang-link" hreflang="fr">FR</a>
+      <a href="de/faqs.html" class="nav__lang-link" hreflang="de">DE</a>
+    </div>
   </div>
 
   <!-- Page Header -->
@@ -382,7 +399,7 @@
 
   <!-- Closing image -->
   <section style="padding:0; line-height:0;">
-    <img src="images/villavolpe-exterior-viewfromterrace-web.jpg" alt="View from Villa Volpe terrace overlooking Lake Orta" style="width:100%; height:auto; display:block;">
+    <img src="images/villavolpe-exterior-viewfromterrace-web.jpg" loading="lazy" decoding="async" alt="View from Villa Volpe terrace overlooking Lake Orta" style="width:100%; height:auto; display:block;">
   </section>
 
   <!-- Footer -->

@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-  <script defer src="head.js"></script>
+  <script defer src="../head.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Your Stay — Villa Volpe</title>
-  <meta name="description" content="Book Villa Volpe directly and save 15% compared to Airbnb. Two bedrooms, private beach, Lake Orta.">
-  <meta property="og:title" content="Book Your Stay — Villa Volpe">
-  <meta property="og:description" content="Book directly and save 15%. Two bedrooms, private beach, Lake Orta.">
+  <title>Buchen Sie Ihren Aufenthalt — Villa Volpe</title>
+  <meta name="description" content="Buchen Sie die Villa Volpe direkt und sparen Sie 15 % gegenüber Airbnb. Zwei Schlafzimmer, Privatstrand, Ortasee. Prüfen Sie die Verfügbarkeit in Echtzeit.">
+  <meta property="og:title" content="Buchen Sie Ihren Aufenthalt — Villa Volpe">
+  <meta property="og:description" content="Buchen Sie direkt und sparen Sie 15 %. Zwei Schlafzimmer, Privatstrand, Ortasee.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.villa-volpe.com/de/book.html">
   <meta property="og:image" content="https://www.villa-volpe.com/images/villa-volpe-hero-new.jpg">
-  <link rel="canonical" href="https://www.villa-volpe.com/book.html">
-  <meta property="og:locale" content="en_US">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
-  <meta property="og:locale:alternate" content="de_DE">
+  <link rel="canonical" href="https://www.villa-volpe.com/de/book.html">
   <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/book.html">
   <link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/book.html">
   <link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/book.html">
@@ -21,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="booking-engine/styles.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../booking-engine/styles.css">
   <style>
     /* ── Layout: single column, centrato ── */
     .booking-layout {
@@ -66,49 +67,44 @@
     <div class="nav__inner">
       <a href="index.html" class="nav__logo">Villa <span>Volpe</span></a>
       <ul class="nav__links">
-        <li><a href="index.html" class="nav__link">Home</a></li>
-        <li><a href="discover.html" class="nav__link">Discover</a></li>
-        <li><a href="story.html" class="nav__link">Story</a></li>
-        <li><a href="blog.html" class="nav__link">Blog</a></li>
-        <li><a href="faqs.html" class="nav__link">FAQs</a></li>
+        <li><a href="index.html" class="nav__link">Startseite</a></li>
+        <li><a href="discover.html" class="nav__link">Entdecken</a></li>
+        <li><a href="story.html" class="nav__link">Geschichte</a></li>
+        <li><a href="../blog.html" class="nav__link">Blog</a></li>
+        <li><a href="faqs.html" class="nav__link">FAQ</a></li>
       </ul>
-      <div class="nav__lang" role="group" aria-label="Language">
-        <a href="book.html" class="nav__lang-link nav__lang-link--active" hreflang="en" lang="en">EN</a>
-        <a href="fr/book.html" class="nav__lang-link" hreflang="fr" lang="fr">FR</a>
-        <a href="de/book.html" class="nav__lang-link" hreflang="de" lang="de">DE</a>
+      <div class="nav__lang" role="group" aria-label="Sprache">
+        <a href="../book.html" class="nav__lang-link" hreflang="en" lang="en">EN</a>
+        <a href="../fr/book.html" class="nav__lang-link" hreflang="fr" lang="fr">FR</a>
+        <a href="book.html" class="nav__lang-link nav__lang-link--active" hreflang="de" lang="de">DE</a>
       </div>
-      <a href="book.html" class="nav__cta">Book Now</a>
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <a href="book.html" class="nav__cta">Jetzt buchen</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Menü öffnen">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <button class="mobile-menu__close" id="mobileClose" aria-label="Close menu">&times;</button>
-    <a href="index.html">Home</a>
-    <a href="discover.html">Discover</a>
-    <a href="story.html">Story</a>
-    <a href="blog.html">Blog</a>
-    <a href="faqs.html">FAQs</a>
-    <a href="book.html" class="btn btn--dark">Book Now</a>
-    <div class="mobile-menu__lang" role="group" aria-label="Language">
-      <a href="book.html" class="nav__lang-link nav__lang-link--active" hreflang="en">EN</a>
-      <a href="fr/book.html" class="nav__lang-link" hreflang="fr">FR</a>
-      <a href="de/book.html" class="nav__lang-link" hreflang="de">DE</a>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu__close" id="mobileClose" aria-label="Menü schließen">&times;</button>
+    <a href="index.html">Startseite</a>
+    <a href="discover.html">Entdecken</a>
+    <a href="story.html">Geschichte</a>
+    <a href="../blog.html">Blog</a>
+    <a href="faqs.html">FAQ</a>
+    <a href="book.html" class="btn btn--dark">Jetzt buchen</a>
+    <div class="mobile-menu__lang" role="group" aria-label="Sprache">
+      <a href="../book.html" class="nav__lang-link" hreflang="en">EN</a>
+      <a href="../fr/book.html" class="nav__lang-link" hreflang="fr">FR</a>
+      <a href="book.html" class="nav__lang-link nav__lang-link--active" hreflang="de">DE</a>
     </div>
   </div>
 
   <!-- Page Header -->
   <header class="page-header">
-    <span class="label page-header__label">Book</span>
-    <h1 class="page-header__title">Reserve Your Stay</h1>
-    <p class="page-header__desc">Check availability and book directly — save 15% compared to Airbnb.</p>
-    <div class="booking-trust-strip" aria-label="Guest trust signals">
-      <span>690+ happy guests</span>
-      <span>4.91 Airbnb rating</span>
-      <span>Confirmation within 24 hours</span>
-    </div>
+    <span class="label page-header__label">Buchen</span>
+    <h1 class="page-header__title">Reservieren Sie Ihren Aufenthalt</h1>
+    <p class="page-header__desc">Prüfen Sie die Verfügbarkeit und buchen Sie direkt — sparen Sie 15 % gegenüber Airbnb.</p>
   </header>
 
   <!-- Booking Section -->
@@ -125,7 +121,7 @@
           <div class="progress-bar">
             <div class="progress-step active">
               <span class="step-dot"></span>
-              <span class="step-label">Dates</span>
+              <span class="step-label">Daten</span>
             </div>
             <span class="progress-connector"></span>
             <div class="progress-step">
@@ -135,74 +131,73 @@
             <span class="progress-connector"></span>
             <div class="progress-step">
               <span class="step-dot"></span>
-              <span class="step-label">Confirm</span>
+              <span class="step-label">Bestätigen</span>
             </div>
             <span class="progress-connector"></span>
             <div class="progress-step">
               <span class="step-dot"></span>
-              <span class="step-label">Done</span>
+              <span class="step-label">Fertig</span>
             </div>
           </div>
 
           <!-- STEP 1: CALENDAR -->
           <div id="step-calendar" class="step active">
 
-            <h2>Select Your Dates</h2>
-            <p class="subtitle">Minimum 3 nights stay required</p>
+            <h2>Wählen Sie Ihre Daten</h2>
+            <p class="subtitle">Mindestaufenthalt: 3 Nächte</p>
 
             <!-- Available Periods (sopra il calendario) -->
             <div class="available-gaps-section">
-              <h4>Available Periods</h4>
+              <h4>Verfügbare Zeiträume</h4>
               <div class="available-gaps" id="available-gaps">
                 <div class="calendar-loader" style="padding:8px;">
                   <span class="spinner"></span>
-                  <span style="font-size:13px;">Loading...</span>
+                  <span style="font-size:13px;">Wird geladen...</span>
                 </div>
               </div>
             </div>
 
             <div class="calendar-container">
               <div class="calendar-header">
-                <button class="nav-btn" id="prev-month" aria-label="Previous month">
+                <button class="nav-btn" id="prev-month" aria-label="Vorheriger Monat">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 </button>
                 <h3 id="current-month"></h3>
-                <button class="nav-btn" id="next-month" aria-label="Next month">
+                <button class="nav-btn" id="next-month" aria-label="Nächster Monat">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
               </div>
               <div class="calendar-grid" id="calendar-grid"></div>
               <div class="calendar-legend">
-                <div class="legend-item"><span class="legend-dot available"></span> Available</div>
-                <div class="legend-item"><span class="legend-dot blocked"></span> Booked</div>
-                <div class="legend-item"><span class="legend-dot selected"></span> Selected</div>
+                <div class="legend-item"><span class="legend-dot available"></span> Verfügbar</div>
+                <div class="legend-item"><span class="legend-dot blocked"></span> Belegt</div>
+                <div class="legend-item"><span class="legend-dot selected"></span> Ausgewählt</div>
               </div>
             </div>
 
             <div class="calendar-loader" id="calendar-loader">
-              <span class="spinner"></span> Loading availability...
+              <span class="spinner"></span> Verfügbarkeit wird geladen...
             </div>
 
-            <p class="selection-hint" id="selection-hint">Select your check-in date</p>
-            <p class="booking-reassurance">This is a request only. You will receive the final quote before any payment is due.</p>
+            <p class="selection-hint" id="selection-hint">Wählen Sie Ihr Anreisedatum</p>
             <div class="date-error" id="date-error"></div>
 
             <div class="selected-dates">
               <div class="date-box">
-                <label>Check-in</label>
-                <span id="checkin-display">Select date</span>
+                <label>Anreise</label>
+                <span id="checkin-display">Datum wählen</span>
               </div>
               <div class="nights-display" id="nights-display" style="display:none;">
-                <span id="nights-count"></span> nights
+                <span id="nights-count"></span> Nächte
               </div>
               <div class="date-box">
-                <label>Check-out</label>
-                <span id="checkout-display">Select date</span>
+                <label>Abreise</label>
+                <span id="checkout-display">Datum wählen</span>
               </div>
             </div>
 
             <div style="margin-top:1.5rem;">
-              <button class="btn-primary" id="continue-to-guests" disabled>Continue</button>
+              <button class="btn-primary" id="continue-to-guests" disabled>Weiter</button>
             </div>
           </div>
 
@@ -210,29 +205,29 @@
           <div id="step-guests" class="step">
             <button class="back-btn" onclick="goToStep('calendar')">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-              Back to calendar
+              Zurück zum Kalender
             </button>
-            <h2>Guest Details</h2>
-            <p class="subtitle">Tell us about your group</p>
+            <h2>Angaben zu den Gästen</h2>
+            <p class="subtitle">Erzählen Sie uns von Ihrer Gruppe</p>
             <div class="dates-mini-summary" id="dates-mini-summary"></div>
             <form id="guest-form">
               <div class="form-group">
-                <label for="guest-name">Full Name</label>
-                <input type="text" id="guest-name" placeholder="Your name" required>
+                <label for="guest-name">Vollständiger Name</label>
+                <input type="text" id="guest-name" placeholder="Ihr Name" required>
               </div>
               <div class="form-row">
                 <div class="form-group">
-                  <label for="guest-email">Email</label>
-                  <input type="email" id="guest-email" placeholder="your@email.com" required>
+                  <label for="guest-email">E-Mail</label>
+                  <input type="email" id="guest-email" placeholder="ihre@email.com" required>
                 </div>
                 <div class="form-group">
-                  <label for="guest-phone">Phone</label>
+                  <label for="guest-phone">Telefon</label>
                   <input type="tel" id="guest-phone" placeholder="+39 123 456 7890" required>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group">
-                  <label for="num-adults">Adults</label>
+                  <label for="num-adults">Erwachsene</label>
                   <select id="num-adults">
                     <option value="1">1</option>
                     <option value="2" selected>2</option>
@@ -241,7 +236,7 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="num-children">Children</label>
+                  <label for="num-children">Kinder</label>
                   <select id="num-children">
                     <option value="0" selected>0</option>
                     <option value="1">1</option>
@@ -250,69 +245,68 @@
                 </div>
               </div>
               <div class="warning-message" id="guest-limit-warning">
-                <span>Maximum 4 guests total (adults + children)</span>
+                <span>Maximal 4 Gäste insgesamt (Erwachsene + Kinder)</span>
               </div>
               <div class="form-group">
-                <label for="pets">Traveling with a pet?</label>
+                <label for="pets">Reisen Sie mit einem Haustier?</label>
                 <select id="pets">
-                  <option value="no">No</option>
-                  <option value="yes">Yes (€120 cleaning fee)</option>
+                  <option value="no">Nein</option>
+                  <option value="yes">Ja (120 € Reinigungsgebühr)</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="special-requests">Special Requests</label>
-                <textarea id="special-requests" placeholder="Any special requests or questions... (optional)" rows="3"></textarea>
+                <label for="special-requests">Besondere Wünsche</label>
+                <textarea id="special-requests" placeholder="Besondere Wünsche oder Fragen... (optional)" rows="3"></textarea>
               </div>
             </form>
-            <button class="btn-primary" id="continue-to-policy">Review & Confirm</button>
+            <button class="btn-primary" id="continue-to-policy">Prüfen &amp; bestätigen</button>
           </div>
 
           <!-- STEP 3: SUMMARY + POLICY -->
           <div id="step-policy" class="step">
             <button class="back-btn" onclick="goToStep('guests')">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-              Back to details
+              Zurück zu den Details
             </button>
-            <h2>Review Your Booking</h2>
-            <p class="subtitle">Please review and accept our policies</p>
+            <h2>Überprüfen Sie Ihre Buchung</h2>
+            <p class="subtitle">Bitte prüfen und akzeptieren Sie unsere Bedingungen</p>
             <div class="summary-card">
-              <h3>Booking Summary</h3>
-              <div class="summary-row"><span>Guest</span><strong id="summary-name"></strong></div>
-              <div class="summary-row"><span>Email</span><strong id="summary-email"></strong></div>
-              <div class="summary-row"><span>Check-in</span><strong id="summary-checkin"></strong></div>
-              <div class="summary-row"><span>Check-out</span><strong id="summary-checkout"></strong></div>
-              <div class="summary-row"><span>Duration</span><strong id="summary-nights"></strong></div>
-              <div class="summary-row"><span>Guests</span><strong id="summary-guests"></strong></div>
-              <div class="summary-row"><span>Pets</span><strong id="summary-pets"></strong></div>
-              <div class="summary-row summary-row--note"><span>Pricing</span><strong id="summary-pricing-note">Final quote sent before deposit</strong></div>
+              <h3>Buchungsübersicht</h3>
+              <div class="summary-row"><span>Gast</span><strong id="summary-name"></strong></div>
+              <div class="summary-row"><span>E-Mail</span><strong id="summary-email"></strong></div>
+              <div class="summary-row"><span>Anreise</span><strong id="summary-checkin"></strong></div>
+              <div class="summary-row"><span>Abreise</span><strong id="summary-checkout"></strong></div>
+              <div class="summary-row"><span>Dauer</span><strong id="summary-nights"></strong></div>
+              <div class="summary-row"><span>Gäste</span><strong id="summary-guests"></strong></div>
+              <div class="summary-row"><span>Haustiere</span><strong id="summary-pets"></strong></div>
             </div>
             <div class="policy-section">
-              <h3>Payment</h3>
+              <h3>Zahlung</h3>
               <ul>
-                <li><strong>Deposit:</strong> 30% of total price to confirm your booking</li>
-                <li><strong>Balance:</strong> Due 21 days before check-in</li>
+                <li><strong>Anzahlung:</strong> 30 % des Gesamtpreises zur Bestätigung Ihrer Buchung</li>
+                <li><strong>Restbetrag:</strong> fällig 21 Tage vor Anreise</li>
               </ul>
-              <h3>Cancellation</h3>
+              <h3>Stornierung</h3>
               <ul>
-                <li>Full refund if cancelled 21+ days before arrival</li>
-                <li>After that, the deposit is non-refundable</li>
+                <li>Volle Rückerstattung bei Stornierung 21 Tage oder mehr vor Anreise</li>
+                <li>Danach ist die Anzahlung nicht erstattungsfähig</li>
               </ul>
-              <h3>House Rules</h3>
+              <h3>Hausordnung</h3>
               <ul>
-                <li><strong>Check-in:</strong> from 3:00 PM</li>
-                <li><strong>Check-out:</strong> by 10:00 AM</li>
-                <li><strong>Tourist tax:</strong> €1.00 per night per guest (as required by law)</li>
-                <li><strong>Pets:</strong> Small pets welcome, €120 additional cleaning fee</li>
-                <li><strong>Maximum guests:</strong> 4</li>
+                <li><strong>Anreise:</strong> ab 15:00 Uhr</li>
+                <li><strong>Abreise:</strong> bis 10:00 Uhr</li>
+                <li><strong>Kurtaxe:</strong> 1,00 € pro Nacht und Gast (gesetzlich vorgeschrieben)</li>
+                <li><strong>Haustiere:</strong> kleine Haustiere willkommen, 120 € zusätzliche Reinigungsgebühr</li>
+                <li><strong>Maximale Gästezahl:</strong> 4</li>
               </ul>
             </div>
             <div class="checkbox-group">
               <label class="checkbox-label">
                 <input type="checkbox" id="accept-policy">
-                I have read and accept the booking policies. I understand this is a booking request and I will receive confirmation within 24 hours.
+                Ich habe die Buchungsbedingungen gelesen und akzeptiere sie. Mir ist bewusst, dass dies eine Buchungsanfrage ist und ich innerhalb von 24 Stunden eine Bestätigung erhalte.
               </label>
             </div>
-            <button class="btn-primary" id="send-request" disabled>Send Booking Request</button>
+            <button class="btn-primary" id="send-request" disabled>Buchungsanfrage senden</button>
           </div>
 
           <!-- STEP 4: CONFIRMATION -->
@@ -324,10 +318,10 @@
                   <polyline points="22 4 12 14.01 9 11.01"></polyline>
                 </svg>
               </div>
-              <h2>Request Sent!</h2>
-              <p>Thank you for your interest in Villa Volpe. We will review your request and send you a confirmation at <strong id="confirmation-email"></strong> within 24 hours.</p>
-              <p class="confirmation-note">Please check your spam folder if you don't hear from us.</p>
-              <button class="btn-secondary" onclick="resetWidget()">Make Another Booking</button>
+              <h2>Anfrage gesendet!</h2>
+              <p>Vielen Dank für Ihr Interesse an der Villa Volpe. Wir prüfen Ihre Anfrage und senden Ihnen innerhalb von 24 Stunden eine Bestätigung an <strong id="confirmation-email"></strong>.</p>
+              <p class="confirmation-note">Bitte prüfen Sie Ihren Spam-Ordner, falls Sie nichts von uns hören.</p>
+              <button class="btn-secondary" onclick="resetWidget()">Weitere Buchung vornehmen</button>
             </div>
           </div>
 
@@ -339,32 +333,32 @@
         <div class="booking-info-blocks">
 
           <div class="booking-card reveal">
-            <h3 class="booking-card__title">How to Book</h3>
+            <h3 class="booking-card__title">So buchen Sie</h3>
 
             <div class="booking-highlight">
-              <div class="booking-highlight__title">Direct Booking &mdash; Save 15%</div>
+              <div class="booking-highlight__title">Direktbuchung &mdash; sparen Sie 15 %</div>
               <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.7;">
-                For the best rates, book directly with us via this form or by emailing
+                Für die besten Preise buchen Sie direkt bei uns über dieses Formular oder per E-Mail an
                 <a href="mailto:villavolpeorta@gmail.com" style="color:var(--color-accent);font-weight:600;">villavolpeorta@gmail.com</a>.
-                You'll enjoy a special 15% discount off the Airbnb price.
+                Sie erhalten einen Sonderrabatt von 15 % auf den Airbnb-Preis.
               </p>
             </div>
 
             <div class="booking-highlight">
-              <div class="booking-highlight__title">Via Airbnb</div>
+              <div class="booking-highlight__title">Über Airbnb</div>
               <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.7;">
-                Prefer Airbnb's platform support? You can
-                <a href="https://airbnb.com/rooms/16759665" target="_blank" rel="noopener" style="color:var(--color-accent);font-weight:600;">book on Airbnb</a>
-                too. Direct booking simply gives you the same villa, same lake, and same hosts with a 15% saving.
+                Zahlen Sie lieber Plattformgebühren, als einem freundlichen italienischen Gastgeber zu vertrauen?
+                Verstehen wir — <a href="https://airbnb.com/rooms/16759665" target="_blank" rel="noopener" style="color:var(--color-accent);font-weight:600;">buchen Sie auf Airbnb</a>.
+                Beachten Sie nur, dass Sie 15 % mehr für dieselbe Villa, denselben See und dieselben Gastgeber zahlen.
               </p>
             </div>
 
             <div class="booking-highlight">
-              <div class="booking-highlight__title">Pay with Crypto</div>
+              <div class="booking-highlight__title">Mit Krypto zahlen</div>
               <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.7;">
-                Want to pay with cryptocurrency?
-                <a href="https://villavolpeortalake.dtravel.com/" target="_blank" rel="noopener" style="color:var(--color-accent);font-weight:600;">Book on Dtravel</a>
-                and pay with USDT, USDC, ETH or BTC.
+                Möchten Sie mit Kryptowährung zahlen?
+                <a href="https://villavolpeortalake.dtravel.com/" target="_blank" rel="noopener" style="color:var(--color-accent);font-weight:600;">Buchen Sie auf Dtravel</a>
+                und zahlen Sie mit USDT, USDC, ETH oder BTC.
               </p>
             </div>
           </div>
@@ -373,19 +367,19 @@
           <!-- POLICIES                                       -->
           <!-- ══════════════════════════════════════════════ -->
           <div class="booking-card reveal">
-            <h3 class="booking-card__title">Policies</h3>
+            <h3 class="booking-card__title">Bedingungen</h3>
             <ul class="policy-list" style="margin-top:1rem;">
-              <li><strong>Deposit:</strong> 30% of total price to confirm booking.</li>
-              <li><strong>Balance:</strong> Due 21 days before check-in.</li>
-              <li><strong>Cancellation:</strong> Full refund if cancelled 21+ days before arrival. After that, deposit is non-refundable.</li>
-              <li><strong>Tourist Tax:</strong> &euro;1.00 per night per guest, as required by law.</li>
-              <li><strong>Pets:</strong> Small pets welcome. &euro;120 additional cleaning fee per stay.</li>
-              <li><strong>ID Required:</strong> Valid identification for registration with local authorities.</li>
-              <li><strong>No Parties:</strong> Villa Volpe is an oasis of relaxation. No parties or events.</li>
+              <li><strong>Anzahlung:</strong> 30 % des Gesamtpreises zur Bestätigung der Buchung.</li>
+              <li><strong>Restbetrag:</strong> fällig 21 Tage vor Anreise.</li>
+              <li><strong>Stornierung:</strong> volle Rückerstattung bei Stornierung 21 Tage oder mehr vor Anreise. Danach ist die Anzahlung nicht erstattungsfähig.</li>
+              <li><strong>Kurtaxe:</strong> 1,00 € pro Nacht und Gast, gesetzlich vorgeschrieben.</li>
+              <li><strong>Haustiere:</strong> kleine Haustiere willkommen. 120 € zusätzliche Reinigungsgebühr pro Aufenthalt.</li>
+              <li><strong>Ausweis erforderlich:</strong> gültiger Ausweis zur Anmeldung bei den örtlichen Behörden.</li>
+              <li><strong>Keine Partys:</strong> Die Villa Volpe ist eine Oase der Entspannung. Keine Partys oder Veranstaltungen.</li>
             </ul>
           </div>
 
-        
+
 
         </div><!-- .booking-info-blocks -->
 
@@ -395,10 +389,10 @@
 
   <!-- Footer -->
   <div id="site-footer"></div>
-  <script src="footer.js"></script>
+  <script src="../footer.js"></script>
 
-  <script src="main.js"></script>
-  <script src="booking-engine/calendar.js"></script>
+  <script src="../main.js"></script>
+  <script src="../booking-engine/calendar.js"></script>
   <script>
     // Hook: popola mini-summary quando si passa allo step guests
     var _originalGoToStep = goToStep;
@@ -411,7 +405,7 @@
           el.innerHTML = '<strong>' + formatDateDisplay(state.checkInDate) + '</strong>'
             + ' &nbsp;&rarr;&nbsp; '
             + '<strong>' + formatDateDisplay(state.checkOutDate) + '</strong>'
-            + ' &nbsp;&middot;&nbsp; ' + nights + ' night' + (nights > 1 ? 's' : '');
+            + ' &nbsp;&middot;&nbsp; ' + nights + (nights > 1 ? ' Nächte' : ' Nacht');
         }
       }
     };

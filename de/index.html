@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-  <script defer src="head.js"></script>
+  <script defer src="../head.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Villa Volpe — Lake Orta, Italy</title>
-  <meta name="description" content="Villa Volpe: a design glass cube on the sunny shore of Lake Orta. Private beach, wheelchair accessible, 3 meters from crystal clear water. Direct booking -15%.">
-  <meta property="og:title" content="Villa Volpe — Lake Orta, Italy">
-  <meta property="og:description" content="Everything you need, on the sunny side of Lake Orta.">
+  <title>Villa Volpe — Ortasee, Italien</title>
+  <meta name="description" content="Villa Volpe: ein Design-Glaswürfel am sonnigen Ufer des Ortasees. Privatstrand, rollstuhlgerecht, 3 Meter vom kristallklaren Wasser. Direktbuchung −15 %.">
+  <meta property="og:title" content="Villa Volpe — Ortasee, Italien">
+  <meta property="og:description" content="Alles, was Sie brauchen, auf der Sonnenseite des Ortasees.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.villa-volpe.com">
+  <meta property="og:url" content="https://www.villa-volpe.com/de/">
   <meta property="og:image" content="https://www.villa-volpe.com/images/villa-volpe-hero-new.jpg">
-  <link rel="canonical" href="https://www.villa-volpe.com/">
-  <meta property="og:locale" content="en_US">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
-  <meta property="og:locale:alternate" content="de_DE">
+  <link rel="canonical" href="https://www.villa-volpe.com/de/">
   <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/">
   <link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/">
   <link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/">
@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
   <!-- Leaflet CSS viene caricato on-demand allo scroll (vedi script in fondo) -->
 </head>
 <body>
@@ -32,37 +32,37 @@
     <div class="nav__inner">
       <a href="index.html" class="nav__logo">Villa <span>Volpe</span></a>
       <ul class="nav__links">
-        <li><a href="index.html" class="nav__link nav__link--active">Home</a></li>
-        <li><a href="discover.html" class="nav__link">Discover</a></li>
-        <li><a href="story.html" class="nav__link">Story</a></li>
-        <li><a href="blog.html" class="nav__link">Blog</a></li>
-        <li><a href="faqs.html" class="nav__link">FAQs</a></li>
+        <li><a href="index.html" class="nav__link nav__link--active">Startseite</a></li>
+        <li><a href="discover.html" class="nav__link">Entdecken</a></li>
+        <li><a href="story.html" class="nav__link">Geschichte</a></li>
+        <li><a href="../blog.html" class="nav__link">Blog</a></li>
+        <li><a href="faqs.html" class="nav__link">FAQ</a></li>
       </ul>
-      <div class="nav__lang" role="group" aria-label="Language">
-        <a href="index.html" class="nav__lang-link nav__lang-link--active" hreflang="en" lang="en">EN</a>
-        <a href="fr/index.html" class="nav__lang-link" hreflang="fr" lang="fr">FR</a>
-        <a href="de/index.html" class="nav__lang-link" hreflang="de" lang="de">DE</a>
+      <div class="nav__lang" role="group" aria-label="Sprache">
+        <a href="../index.html" class="nav__lang-link" hreflang="en" lang="en">EN</a>
+        <a href="../fr/index.html" class="nav__lang-link" hreflang="fr" lang="fr">FR</a>
+        <a href="index.html" class="nav__lang-link nav__lang-link--active" hreflang="de" lang="de">DE</a>
       </div>
-      <a href="book.html" class="nav__cta">Book Now</a>
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <a href="book.html" class="nav__cta">Jetzt buchen</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Menü öffnen">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <button class="mobile-menu__close" id="mobileClose" aria-label="Close menu">&times;</button>
-    <a href="index.html">Home</a>
-    <a href="discover.html">Discover</a>
-    <a href="story.html">Story</a>
-    <a href="blog.html">Blog</a>
-    <a href="faqs.html">FAQs</a>
-    <a href="book.html" class="btn btn--dark">Book Now</a>
-    <div class="mobile-menu__lang" role="group" aria-label="Language">
-      <a href="index.html" class="nav__lang-link nav__lang-link--active" hreflang="en">EN</a>
-      <a href="fr/index.html" class="nav__lang-link" hreflang="fr">FR</a>
-      <a href="de/index.html" class="nav__lang-link" hreflang="de">DE</a>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu__close" id="mobileClose" aria-label="Menü schließen">&times;</button>
+    <a href="index.html">Startseite</a>
+    <a href="discover.html">Entdecken</a>
+    <a href="story.html">Geschichte</a>
+    <a href="../blog.html">Blog</a>
+    <a href="faqs.html">FAQ</a>
+    <a href="book.html" class="btn btn--dark">Jetzt buchen</a>
+    <div class="mobile-menu__lang" role="group" aria-label="Sprache">
+      <a href="../index.html" class="nav__lang-link" hreflang="en">EN</a>
+      <a href="../fr/index.html" class="nav__lang-link" hreflang="fr">FR</a>
+      <a href="index.html" class="nav__lang-link nav__lang-link--active" hreflang="de">DE</a>
     </div>
   </div>
 
@@ -70,20 +70,19 @@
   <section class="hero hero--video" id="hero">
     <div class="hero__bg">
       <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto"
-             poster="images/hero-drone-poster.jpg">
-        <source src="images/hero-drone.mp4" type="video/mp4">
-        <img src="images/villa-volpe-hero-new.jpg" alt="Villa Volpe — Lake Orta view">
+             poster="../images/hero-drone-poster.jpg">
+        <source src="../images/hero-drone.mp4" type="video/mp4">
+        <img src="../images/villa-volpe-hero-new.jpg" alt="Villa Volpe — Blick auf den Ortasee">
       </video>
     </div>
     <div class="hero__overlay"></div>
     <div class="hero__content">
-      <span class="hero__label" data-cms="hero.label">Lake Orta, Piedmont &mdash; Italy</span>
-      <h1 class="hero__title" data-cms="hero.title">Villa Volpe</h1>
-      <p class="hero__subtitle" data-cms="hero.subtitle">Everything you need, on the sunny side of Lake Orta. Three meters from crystal clear water.</p>
-      <p class="hero__mobile-proof">Private beach · fully accessible · direct booking saves 15%</p>
+      <span class="hero__label">Ortasee, Piemont &mdash; Italien</span>
+      <h1 class="hero__title">Villa Volpe</h1>
+      <p class="hero__subtitle">Alles, was Sie brauchen, auf der Sonnenseite des Ortasees. Drei Meter vom kristallklaren Wasser entfernt.</p>
       <div class="hero__actions">
-        <a href="book.html" class="btn btn--primary">Direct Booking &minus;15%</a>
-        <a href="discover.html" class="btn btn--outline">Discover the Villa</a>
+        <a href="book.html" class="btn btn--primary">Direktbuchung &minus;15 %</a>
+        <a href="discover.html" class="btn btn--outline">Die Villa entdecken</a>
       </div>
     </div>
   </section>
@@ -93,24 +92,24 @@
     <div class="container">
       <div class="features reveal-stagger" id="features">
         <div class="feature-card">
-          <div class="feature-card__img" style="width:100%;height:100%;"><img src="images/uploads/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-opt.jpg" alt="Lake access at Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="feature-card__img" style="width:100%;height:100%;"><img src="../images/uploads/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-opt.jpg" alt="Seezugang der Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
           <div class="feature-card__content">
-            <h3 class="feature-card__title" data-cms="features.0.title">By the Lake</h3>
-            <p class="feature-card__text" data-cms="features.0.text">Where morning light meets water. Your private beach, just steps away.</p>
+            <h3 class="feature-card__title">Am See</h3>
+            <p class="feature-card__text">Wo das Morgenlicht auf das Wasser trifft. Ihr Privatstrand, nur wenige Schritte entfernt.</p>
           </div>
         </div>
         <div class="feature-card">
-         <div class="feature-card__img" style="width:100%;height:100%;"><img src="images/uploads/villavolpeorta-exterior-terrace-sliding-doors-lake-view-opt.jpg" alt="Garden at Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+         <div class="feature-card__img" style="width:100%;height:100%;"><img src="../images/uploads/villavolpeorta-exterior-terrace-sliding-doors-lake-view-opt.jpg" alt="Garten der Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
           <div class="feature-card__content">
-            <h3 class="feature-card__title" data-cms="features.1.title">Sunlit Garden</h3>
-            <p class="feature-card__text" data-cms="features.1.text">A private space for reading, resting, and watching the light change over the water.</p>
+            <h3 class="feature-card__title">Sonniger Garten</h3>
+            <p class="feature-card__text">Ein privater Ort zum Lesen, Ausruhen und Beobachten, wie sich das Licht über dem Wasser verändert.</p>
           </div>
         </div>
         <div class="feature-card">
-         <div class="feature-card__img" style="width:100%;height:100%;"><img src="images/uploads/villavolpeorta-drone-aerial-garden-jacuzzi-chapel-opt.jpg" alt="Private Parking at Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+         <div class="feature-card__img" style="width:100%;height:100%;"><img src="../images/uploads/villavolpeorta-drone-aerial-garden-jacuzzi-chapel-opt.jpg" alt="Privatparkplatz der Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
           <div class="feature-card__content">
-            <h3 class="feature-card__title" data-cms="features.2.title">Private Parking</h3>
-            <p class="feature-card__text" data-cms="features.2.text">Perhaps the coolest parking spot in the world. Spacious and right above the villa.</p>
+            <h3 class="feature-card__title">Privatparkplatz</h3>
+            <p class="feature-card__text">Vielleicht der schönste Parkplatz der Welt. Großzügig und direkt oberhalb der Villa.</p>
           </div>
         </div>
       </div>
@@ -122,35 +121,35 @@
     <div class="container">
       <div class="two-col reveal">
         <div class="two-col__content">
-          <span class="label" data-cms="introduction.label">About the Property</span>
+          <span class="label">Über die Unterkunft</span>
           <div class="divider"></div>
-          <h2 data-cms="introduction.title">A Design Glass Cube on Lake Orta</h2>
-          <p style="margin-top:1.5rem;" data-cms="introduction.paragraphs.0">
-            Nestled on the picturesque east shore of Lake Orta, Villa Volpe is a truly unique property. The villa, a design glass cube surrounded by a breathtakingly landscaped garden, is situated just three meters from the crystal clear waters of the lake, with a view of the illuminated island of San Giulio at night.
+          <h2>Ein Design-Glaswürfel am Ortasee</h2>
+          <p style="margin-top:1.5rem;">
+            Eingebettet in das malerische Ostufer des Ortasees ist die Villa Volpe eine wahrhaft einzigartige Unterkunft. Die Villa, ein Design-Glaswürfel umgeben von einem atemberaubend angelegten Garten, liegt nur drei Meter vom kristallklaren Wasser des Sees entfernt, mit Blick auf die nachts beleuchtete Insel San Giulio.
           </p>
-          <p style="margin-top:1rem;" data-cms="introduction.paragraphs.1">
-            65 square meters of beautifully appointed living space. Two king-size bedrooms. A fully equipped kitchen. And outside, your private oasis: a lush garden that leads to your own beach.
+          <p style="margin-top:1rem;">
+            65 Quadratmeter wunderschön eingerichteter Wohnraum. Zwei Schlafzimmer mit Kingsize-Betten. Eine voll ausgestattete Küche. Und draußen Ihre private Oase: ein üppiger Garten, der zu Ihrem eigenen Strand führt.
           </p>
           <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
             <a href="accessibility.html" class="a11y-badge" style="text-decoration:none;color:inherit;">
               <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="2.5"/><path d="M12 7v5m-4 7 4-5 4 5M8 12h8"/></svg>
-              Fully Wheelchair Accessible
+              Vollständig rollstuhlgerecht
             </a>
             <span class="a11y-badge">
               <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              Pet Friendly
+              Haustierfreundlich
             </span>
           </div>
-          <a href="discover.html" class="btn btn--ghost" style="margin-top:2rem;">Explore the Villa</a>
+          <a href="discover.html" class="btn btn--ghost" style="margin-top:2rem;">Die Villa erkunden</a>
         </div>
        <div class="two-col__img" style="aspect-ratio:4/5;">
   <video class="two-col__video" data-inview muted loop playsinline preload="metadata"
-         poster="images/uploads/villavolpe-about-bedroom-poster.jpg"
+         poster="../images/uploads/villavolpe-about-bedroom-poster.jpg"
          style="width:100%;height:100%;object-fit:cover;display:block;"
-         aria-label="Villa Volpe bedroom with Lake Orta view">
-    <source src="images/uploads/villavolpe-about-bedroom.webm" type="video/webm">
-    <source src="images/uploads/villavolpe-about-bedroom.mp4" type="video/mp4">
-    <img src="images/uploads/camera zio.jpg" alt="Villa Volpe Orta Lake from bed" style="width:100%;height:100%;object-fit:cover;">
+         aria-label="Schlafzimmer der Villa Volpe mit Blick auf den Ortasee">
+    <source src="../images/uploads/villavolpe-about-bedroom.webm" type="video/webm">
+    <source src="../images/uploads/villavolpe-about-bedroom.mp4" type="video/mp4">
+    <img src="../images/uploads/camera zio.jpg" alt="Der Ortasee vom Bett der Villa Volpe aus" style="width:100%;height:100%;object-fit:cover;">
   </video>
         </div>
       </div>
@@ -161,22 +160,20 @@
   <section class="section">
     <div class="container">
       <div style="text-align:center;margin-bottom:3rem;">
-        <span class="label">Gallery</span>
+        <span class="label">Galerie</span>
         <div class="divider divider--center"></div>
-        <h2>Explore the Villa</h2>
+        <h2>Die Villa entdecken</h2>
       </div>
-      <div class="gallery reveal-stagger" id="gallery" data-cms-gallery="gallery">
-        <!-- Gallery items are populated by content-loader.js from JSON -->
-        <!-- Fallback if no gallery items in JSON -->
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="images/uploads/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview.jpg" alt="Open space kitchen with lake view" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="images/uploads/5.villavolpeorta-interior-livingroom-kitchen-dining-lakeview.jpg" alt="Living room and kitchen with lake view" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="images/uploads/6.villavolpeorta-interior-livingroom-dining-sofa-entrance.jpg" alt="Living room dining area and entrance" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="images/uploads/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom.jpg" alt="Master bedroom with king bed" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="images/uploads/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide.jpg" alt="Second bedroom with king bed" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="images/uploads/3.villavolpeorta-interior-bathroom-walkinshower-accessible.jpg" alt="Accessible walk-in shower bathroom" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>      
+      <div class="gallery reveal-stagger" id="gallery">
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview.jpg" alt="Offener Wohnraum mit Küche und Seeblick" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/5.villavolpeorta-interior-livingroom-kitchen-dining-lakeview.jpg" alt="Wohn- und Küchenbereich mit Seeblick" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/6.villavolpeorta-interior-livingroom-dining-sofa-entrance.jpg" alt="Wohnzimmer, Essbereich und Eingang" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom.jpg" alt="Hauptschlafzimmer mit Kingsize-Bett" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide.jpg" alt="Zweites Schlafzimmer mit Kingsize-Bett" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/3.villavolpeorta-interior-bathroom-walkinshower-accessible.jpg" alt="Barrierefreies Badezimmer mit ebenerdiger Dusche" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
       </div>
       <div style="text-align:center;margin-top:2.5rem;">
-        <a href="discover.html" class="btn btn--ghost">Discover More</a>
+        <a href="discover.html" class="btn btn--ghost">Mehr entdecken</a>
       </div>
     </div>
   </section>
@@ -186,20 +183,20 @@
     <div class="container">
       <div class="stats reveal-stagger" id="stats">
         <div class="stat">
-          <div class="stat__number" data-cms="stats.0.number">690+</div>
-          <div class="stat__label" data-cms="stats.0.label">Happy Guests</div>
+          <div class="stat__number">690+</div>
+          <div class="stat__label">Zufriedene Gäste</div>
         </div>
         <div class="stat">
-          <div class="stat__number" data-cms="stats.1.number">1,748</div>
-          <div class="stat__label" data-cms="stats.1.label">Nights Booked</div>
+          <div class="stat__number">1,748</div>
+          <div class="stat__label">Gebuchte Nächte</div>
         </div>
         <div class="stat">
-          <div class="stat__number" data-cms="stats.2.number">4.91</div>
-          <div class="stat__label" data-cms="stats.2.label">Airbnb Rating</div>
+          <div class="stat__number">4.91</div>
+          <div class="stat__label">Airbnb-Bewertung</div>
         </div>
         <div class="stat">
-          <div class="stat__number" data-cms="stats.3.number">4.8</div>
-          <div class="stat__label" data-cms="stats.3.label">Google Rating</div>
+          <div class="stat__number">4.8</div>
+          <div class="stat__label">Google-Bewertung</div>
         </div>
       </div>
     </div>
@@ -208,23 +205,23 @@
   <!-- Location + Map -->
   <section class="section">
     <div class="container" style="text-align:center;">
-      <span class="label">Location</span>
+      <span class="label">Lage</span>
       <div class="divider divider--center"></div>
-      <h2 class="reveal" data-cms="location.title">Where Piedmont Meets the Lake</h2>
-      <p class="reveal" style="margin:1.5rem auto 0;text-align:center;" data-cms="location.subtitle">
-        Conveniently located 80 km from Milan, 45 km from Milano Malpensa Airport, and 120 km from Turin. Via Novara 38, Orta San Giulio 28016, Italy.
+      <h2 class="reveal">Wo das Piemont auf den See trifft</h2>
+      <p class="reveal" style="margin:1.5rem auto 0;text-align:center;">
+        Günstig gelegen: 80 km von Mailand, 45 km vom Flughafen Mailand-Malpensa und 120 km von Turin. Via Novara 38, Orta San Giulio 28016, Italien.
       </p>
       <div class="contact-block reveal" style="margin-top:3rem;max-width:800px;margin-left:auto;margin-right:auto;">
         <div class="contact-item">
-          <div class="contact-item__label">From Milan</div>
+          <div class="contact-item__label">Von Mailand</div>
           <div class="contact-item__value">80 km</div>
         </div>
         <div class="contact-item">
-          <div class="contact-item__label">From Malpensa</div>
+          <div class="contact-item__label">Von Malpensa</div>
           <div class="contact-item__value">45 km</div>
         </div>
         <div class="contact-item">
-          <div class="contact-item__label">From Turin</div>
+          <div class="contact-item__label">Von Turin</div>
           <div class="contact-item__value">120 km</div>
         </div>
       </div>
@@ -237,25 +234,25 @@
 
   <!-- CTA Banner -->
   <section class="cta-banner">
-    <h2 data-cms="cta.title">Ready to Escape?</h2>
-    <p data-cms="cta.subtitle">Book directly and save 15% compared to Airbnb.</p>
-    <a href="book.html" class="btn btn--accent">Book Your Stay</a>
+    <h2>Bereit für eine Auszeit?</h2>
+    <p>Buchen Sie direkt und sparen Sie 15 % gegenüber Airbnb.</p>
+    <a href="book.html" class="btn btn--accent">Buchen Sie Ihren Aufenthalt</a>
   </section>
 
   <!-- Footer -->
 <div id="site-footer"></div>
-<script src="footer.js"></script>
+<script src="../footer.js"></script>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
-    <button class="lightbox__close" aria-label="Close">&times;</button>
-    <button class="lightbox__btn lightbox__btn--prev" aria-label="Previous">&#8249;</button>
+    <button class="lightbox__close" aria-label="Schließen">&times;</button>
+    <button class="lightbox__btn lightbox__btn--prev" aria-label="Zurück">&#8249;</button>
     <img class="lightbox__img" src="" alt="">
-    <button class="lightbox__btn lightbox__btn--next" aria-label="Next">&#8250;</button>
+    <button class="lightbox__btn lightbox__btn--next" aria-label="Weiter">&#8250;</button>
     <div class="lightbox__counter"></div>
   </div>
 
-  <script src="main.js"></script>
+  <script src="../main.js"></script>
   <!-- Hero video: force autoplay (mobile) + pause when offscreen (battery friendly) -->
   <script>
   (function(){
@@ -288,7 +285,6 @@
     vids.forEach(function(v){ io.observe(v); });
   })();
   </script>
-  <script src="js/content-loader.js"></script>
   <!-- Mappa: Leaflet (CSS+JS) caricato on-demand solo quando #map entra in vista -->
   <script>
   (function(){

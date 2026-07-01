@@ -29,6 +29,100 @@ const BOOKING_CONFIG = {
 };
 
 
+// ── I18N (booking widget) ───────────────────────────────────
+var BOOKING_LANG = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
+if (['en', 'fr', 'de'].indexOf(BOOKING_LANG) === -1) BOOKING_LANG = 'en';
+var BOOKING_LOCALE = { en: 'en-US', fr: 'fr-FR', de: 'de-DE' }[BOOKING_LANG];
+
+var I18N = {
+  en: {
+    noGaps: 'No available periods found. Please contact us directly.',
+    dayHeaders: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    rangeUnavailable: 'Your selection includes unavailable dates. Please choose dates within the same available period.',
+    selectDate: 'Select date',
+    selectCheckout: 'Select checkout',
+    hintCheckin: 'Select your check-in date',
+    hintCheckout: 'Now select your check-out date',
+    loadError: 'Unable to load availability. Please try again later.',
+    connError: 'Connection error. Please refresh the page.',
+    sending: 'Sending...',
+    sendError: function(email) { return 'Error sending request. Please contact us at ' + email; },
+    minStay: function(min, sel) { return 'Minimum stay: ' + min + ' nights. You selected ' + sel + '.'; },
+    nightsAvailable: function(n) { return n + ' nights available'; },
+    nights: function(n) { return n + ' night' + (n > 1 ? 's' : ''); },
+    guests: function(a, c) {
+      var s = a + ' adult' + (a > 1 ? 's' : '');
+      if (c > 0) s += ', ' + c + ' child' + (c > 1 ? 'ren' : '');
+      return s;
+    },
+    petsYes: 'Yes (€120 cleaning fee applies)',
+    petsNo: 'No',
+    ariaUnavailable: 'unavailable',
+    ariaAvailable: 'available',
+    ariaCheckin: 'selected as check-in',
+    ariaCheckout: 'selected as check-out',
+    ariaGapSelect: function(from, to) { return 'Select availability from ' + from + ' to ' + to; }
+  },
+  fr: {
+    noGaps: 'Aucune période disponible trouvée. Merci de nous contacter directement.',
+    dayHeaders: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+    rangeUnavailable: 'Votre sélection inclut des dates indisponibles. Veuillez choisir des dates au sein d’une même période disponible.',
+    selectDate: 'Choisir une date',
+    selectCheckout: 'Choisir le départ',
+    hintCheckin: 'Sélectionnez votre date d’arrivée',
+    hintCheckout: 'Sélectionnez maintenant votre date de départ',
+    loadError: 'Impossible de charger les disponibilités. Veuillez réessayer plus tard.',
+    connError: 'Erreur de connexion. Veuillez actualiser la page.',
+    sending: 'Envoi en cours...',
+    sendError: function(email) { return 'Erreur lors de l’envoi de la demande. Merci de nous contacter à ' + email; },
+    minStay: function(min, sel) { return 'Séjour minimum : ' + min + ' nuits. Vous avez sélectionné ' + sel + '.'; },
+    nightsAvailable: function(n) { return n + ' nuits disponibles'; },
+    nights: function(n) { return n + ' nuit' + (n > 1 ? 's' : ''); },
+    guests: function(a, c) {
+      var s = a + ' adulte' + (a > 1 ? 's' : '');
+      if (c > 0) s += ', ' + c + ' enfant' + (c > 1 ? 's' : '');
+      return s;
+    },
+    petsYes: 'Oui (frais de ménage de 120 €)',
+    petsNo: 'Non',
+    ariaUnavailable: 'indisponible',
+    ariaAvailable: 'disponible',
+    ariaCheckin: 'sélectionné comme arrivée',
+    ariaCheckout: 'sélectionné comme départ',
+    ariaGapSelect: function(from, to) { return 'Sélectionner la disponibilité du ' + from + ' au ' + to; }
+  },
+  de: {
+    noGaps: 'Keine verfügbaren Zeiträume gefunden. Bitte kontaktieren Sie uns direkt.',
+    dayHeaders: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+    rangeUnavailable: 'Ihre Auswahl enthält nicht verfügbare Daten. Bitte wählen Sie Daten innerhalb desselben verfügbaren Zeitraums.',
+    selectDate: 'Datum wählen',
+    selectCheckout: 'Abreise wählen',
+    hintCheckin: 'Wählen Sie Ihr Anreisedatum',
+    hintCheckout: 'Wählen Sie nun Ihr Abreisedatum',
+    loadError: 'Verfügbarkeit konnte nicht geladen werden. Bitte versuchen Sie es später erneut.',
+    connError: 'Verbindungsfehler. Bitte laden Sie die Seite neu.',
+    sending: 'Wird gesendet...',
+    sendError: function(email) { return 'Fehler beim Senden der Anfrage. Bitte kontaktieren Sie uns unter ' + email; },
+    minStay: function(min, sel) { return 'Mindestaufenthalt: ' + min + ' Nächte. Sie haben ' + sel + ' gewählt.'; },
+    nightsAvailable: function(n) { return n + ' Nächte verfügbar'; },
+    nights: function(n) { return n + (n > 1 ? ' Nächte' : ' Nacht'); },
+    guests: function(a, c) {
+      var s = a + (a > 1 ? ' Erwachsene' : ' Erwachsener');
+      if (c > 0) s += ', ' + c + (c > 1 ? ' Kinder' : ' Kind');
+      return s;
+    },
+    petsYes: 'Ja (120 € Reinigungsgebühr)',
+    petsNo: 'Nein',
+    ariaUnavailable: 'nicht verfügbar',
+    ariaAvailable: 'verfügbar',
+    ariaCheckin: 'als Anreise ausgewählt',
+    ariaCheckout: 'als Abreise ausgewählt',
+    ariaGapSelect: function(from, to) { return 'Verfügbarkeit vom ' + from + ' bis ' + to + ' auswählen'; }
+  }
+};
+var T = I18N[BOOKING_LANG];
+
+
 // ── STATE ───────────────────────────────────────────────────
 
 var state = {
@@ -144,7 +238,7 @@ function renderAvailableGapsList() {
   if (!container) return;
 
   if (state.availableGaps.length === 0) {
-    container.innerHTML = '<p class="no-gaps">No available periods found. Please contact us directly.</p>';
+    container.innerHTML = '<p class="no-gaps">' + T.noGaps + '</p>';
     return;
   }
 
@@ -183,11 +277,11 @@ function renderAvailableGapsList() {
   var html = '';
   for (var b = 0; b < blocks.length; b++) {
     var block = blocks[b];
-    html += '<button type="button" class="gap-chip" data-gap-index="' + block.gapIndex + '" data-start="' + block.start.toISOString() + '" data-end="' + block.end.toISOString() + '" aria-label="Select availability from ' + formatDateDisplay(block.start) + ' to ' + formatDateDisplay(block.end) + '">'
+    html += '<button type="button" class="gap-chip" data-gap-index="' + block.gapIndex + '" data-start="' + block.start.toISOString() + '" data-end="' + block.end.toISOString() + '" aria-label="' + T.ariaGapSelect(formatDateDisplay(block.start), formatDateDisplay(block.end)) + '">'
       + '<span class="gap-dates">'
       + formatDateShort(block.start) + ' → ' + formatDateShort(block.end)
       + '</span>'
-      + '<span class="gap-nights">' + block.nights + ' nights available</span>'
+      + '<span class="gap-nights">' + T.nightsAvailable(block.nights) + '</span>'
       + '</button>';
   }
 
@@ -219,7 +313,7 @@ function renderCalendar() {
   var year = state.currentMonth.getFullYear();
   var month = state.currentMonth.getMonth();
 
-  monthDisplay.textContent = state.currentMonth.toLocaleDateString('en-US', {
+  monthDisplay.textContent = state.currentMonth.toLocaleDateString(BOOKING_LOCALE, {
     month: 'long',
     year: 'numeric'
   });
@@ -227,7 +321,7 @@ function renderCalendar() {
   grid.innerHTML = '';
 
   // Day headers
-  var dayHeaders = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  var dayHeaders = T.dayHeaders;
   dayHeaders.forEach(function(day) {
     var header = document.createElement('div');
     header.className = 'calendar-day header';
@@ -263,10 +357,10 @@ function renderCalendar() {
     if (isPast || isBlocked) {
       dayCell.classList.add('blocked');
       dayCell.disabled = true;
-      dayCell.setAttribute('aria-label', formatDateDisplay(date) + ' unavailable');
+      dayCell.setAttribute('aria-label', formatDateDisplay(date) + ' ' + T.ariaUnavailable);
     } else {
       dayCell.classList.add('available');
-      dayCell.setAttribute('aria-label', formatDateDisplay(date) + ' available');
+      dayCell.setAttribute('aria-label', formatDateDisplay(date) + ' ' + T.ariaAvailable);
 
       // Evidenzia se il giorno fa parte di un gap valido (≥ minNights)
       if (state.calendarLoaded && isInAvailableGap(date)) {
@@ -286,12 +380,12 @@ function renderCalendar() {
     if (state.checkInDate && date.toDateString() === state.checkInDate.toDateString()) {
       dayCell.classList.add('selected', 'checkin-selected');
       dayCell.setAttribute('aria-pressed', 'true');
-      dayCell.setAttribute('aria-label', formatDateDisplay(date) + ' selected as check-in');
+      dayCell.setAttribute('aria-label', formatDateDisplay(date) + ' ' + T.ariaCheckin);
     }
     if (state.checkOutDate && date.toDateString() === state.checkOutDate.toDateString()) {
       dayCell.classList.add('selected', 'checkout-selected');
       dayCell.setAttribute('aria-pressed', 'true');
-      dayCell.setAttribute('aria-label', formatDateDisplay(date) + ' selected as check-out');
+      dayCell.setAttribute('aria-label', formatDateDisplay(date) + ' ' + T.ariaCheckout);
     }
 
     // Range between check-in and check-out
@@ -342,13 +436,13 @@ function selectDate(date) {
     // Validazione: minimo notti
     var nights = calculateNights(state.checkInDate, state.checkOutDate);
     if (nights < BOOKING_CONFIG.minNights) {
-      showDateError('Minimum stay: ' + BOOKING_CONFIG.minNights + ' nights. You selected ' + nights + '.');
+      showDateError(T.minStay(BOOKING_CONFIG.minNights, nights));
       state.checkOutDate = null;
     }
 
     // Validazione: nessuna data bloccata nel range
     if (state.checkOutDate && hasBlockedDatesInRange(state.checkInDate, state.checkOutDate)) {
-      showDateError('Your selection includes unavailable dates. Please choose dates within the same available period.');
+      showDateError(T.rangeUnavailable);
       state.checkInDate = null;
       state.checkOutDate = null;
     }
@@ -376,7 +470,7 @@ function updateDateDisplay() {
 
   checkInDisplay.textContent = state.checkInDate
     ? formatDateDisplay(state.checkInDate)
-    : 'Select date';
+    : T.selectDate;
 
   if (state.checkOutDate) {
     checkOutDisplay.textContent = formatDateDisplay(state.checkOutDate);
@@ -384,7 +478,7 @@ function updateDateDisplay() {
     nightsDisplay.style.display = 'block';
     continueBtn.disabled = false;
   } else {
-    checkOutDisplay.textContent = state.checkInDate ? 'Select checkout' : 'Select date';
+    checkOutDisplay.textContent = state.checkInDate ? T.selectCheckout : T.selectDate;
     nightsDisplay.style.display = 'none';
     continueBtn.disabled = true;
   }
@@ -393,9 +487,9 @@ function updateDateDisplay() {
   var hint = document.getElementById('selection-hint');
   if (hint) {
     if (!state.checkInDate) {
-      hint.textContent = 'Select your check-in date';
+      hint.textContent = T.hintCheckin;
     } else if (!state.checkOutDate) {
-      hint.textContent = 'Now select your check-out date';
+      hint.textContent = T.hintCheckout;
     } else {
       hint.textContent = '';
     }
@@ -429,7 +523,7 @@ function loadBlockedDates() {
     .then(function(data) {
       if (data.error) {
         console.error('Calendar API Error:', data.error);
-        showCalendarError('Unable to load availability. Please try again later.');
+        showCalendarError(T.loadError);
         return;
       }
 
@@ -470,7 +564,7 @@ function loadBlockedDates() {
     })
     .catch(function(error) {
       console.error('Error loading availability:', error);
-      showCalendarError('Connection error. Please refresh the page.');
+      showCalendarError(T.connError);
     });
 }
 
@@ -505,7 +599,7 @@ function sendBookingRequest() {
 
   var sendButton = document.getElementById('send-request');
   var originalText = sendButton.textContent;
-  sendButton.textContent = 'Sending...';
+  sendButton.textContent = T.sending;
   sendButton.disabled = true;
 
   var bookingData = {
@@ -534,7 +628,7 @@ function sendBookingRequest() {
   })
   .catch(function(error) {
     console.error('Error:', error);
-    alert('Error sending request. Please contact us at ' + BOOKING_CONFIG.email);
+    alert(T.sendError(BOOKING_CONFIG.email));
     sendButton.textContent = originalText;
     sendButton.disabled = false;
   });
@@ -637,17 +731,13 @@ function updateSummary() {
   document.getElementById('summary-checkout').textContent = formatDateDisplay(state.checkOutDate);
 
   var nights = calculateNights(state.checkInDate, state.checkOutDate);
-  document.getElementById('summary-nights').textContent = nights + ' night' + (nights > 1 ? 's' : '');
+  document.getElementById('summary-nights').textContent = T.nights(nights);
 
-  var guestText = state.guestData.adults + ' adult' + (state.guestData.adults > 1 ? 's' : '');
-  if (state.guestData.children > 0) {
-    guestText += ', ' + state.guestData.children + ' child' + (state.guestData.children > 1 ? 'ren' : '');
-  }
-  document.getElementById('summary-guests').textContent = guestText;
+  document.getElementById('summary-guests').textContent = T.guests(state.guestData.adults, state.guestData.children);
   document.getElementById('summary-name').textContent = state.guestData.name;
   document.getElementById('summary-email').textContent = state.guestData.email;
   document.getElementById('summary-pets').textContent =
-    state.guestData.pets === 'yes' ? 'Yes (€120 cleaning fee applies)' : 'No';
+    state.guestData.pets === 'yes' ? T.petsYes : T.petsNo;
 }
 
 function resetWidget() {
@@ -668,11 +758,11 @@ function resetWidget() {
 // ═══════════════════════════════════════════════════════════
 
 function formatDateDisplay(date) {
-  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  return date.toLocaleDateString(BOOKING_LOCALE, { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
 function formatDateShort(date) {
-  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  return date.toLocaleDateString(BOOKING_LOCALE, { month: 'short', day: 'numeric' });
 }
 
 function formatDateForSheet(date) {
