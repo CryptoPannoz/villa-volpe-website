@@ -1,7 +1,7 @@
 (function() {
   // ── Language detection ─────────────────────────────────────
   var lang = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
-  if (lang !== 'fr' && lang !== 'de') lang = 'en';
+  if (lang !== 'fr' && lang !== 'de' && lang !== 'it') lang = 'en';
 
   // ── Robust base-path calculation ──────────────────────────
   // Works on the custom domain root (www.villa-volpe.com/…) AND on the
@@ -41,6 +41,13 @@
       contact: 'Kontakt', address: 'Via Novara 38 - Orta San Giulio 28016 - Italien',
       book: 'Buchen', directBooking: 'Direktbuchung (-15%)', airbnb: 'Airbnb-Inserat', crypto: 'Mit Krypto zahlen',
       rights: '© 2026 Villa Volpe. Alle Rechte vorbehalten.'
+    },
+    it: {
+      desc: 'Un cubo di vetro di design sulla riva soleggiata del Lago d’Orta. A tre metri dall’acqua cristallina, con vista sull’Isola di San Giulio.',
+      explore: 'Esplora', discover: 'Scopri', story: 'La nostra storia', blog: 'Blog', faqs: 'FAQ',
+      contact: 'Contatti', address: 'Via Novara 38 - Orta San Giulio 28016 - Italia',
+      book: 'Prenota', directBooking: 'Prenotazione diretta (-15%)', airbnb: 'Annuncio Airbnb', crypto: 'Paga in crypto',
+      rights: '© 2026 Villa Volpe. Tutti i diritti riservati.'
     }
   };
   var t = T[lang];

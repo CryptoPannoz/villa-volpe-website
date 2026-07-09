@@ -31,12 +31,13 @@ const BOOKING_CONFIG = {
 
 // ── I18N (booking widget) ───────────────────────────────────
 var BOOKING_LANG = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
-if (['en', 'fr', 'de'].indexOf(BOOKING_LANG) === -1) BOOKING_LANG = 'en';
-var BOOKING_LOCALE = { en: 'en-US', fr: 'fr-FR', de: 'de-DE' }[BOOKING_LANG];
+if (['en', 'fr', 'de', 'it'].indexOf(BOOKING_LANG) === -1) BOOKING_LANG = 'en';
+var BOOKING_LOCALE = { en: 'en-US', fr: 'fr-FR', de: 'de-DE', it: 'it-IT' }[BOOKING_LANG];
 
 var I18N = {
   en: {
     noGaps: 'No available periods found. Please contact us directly.',
+    gapsLoadError: 'Availability could not be loaded. Please email us directly at',
     dayHeaders: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     rangeUnavailable: 'Your selection includes unavailable dates. Please choose dates within the same available period.',
     selectDate: 'Select date',
@@ -65,6 +66,7 @@ var I18N = {
   },
   fr: {
     noGaps: 'Aucune période disponible trouvée. Merci de nous contacter directement.',
+    gapsLoadError: 'Impossible de charger les disponibilités. Écrivez-nous directement à',
     dayHeaders: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
     rangeUnavailable: 'Votre sélection inclut des dates indisponibles. Veuillez choisir des dates au sein d’une même période disponible.',
     selectDate: 'Choisir une date',
@@ -93,6 +95,7 @@ var I18N = {
   },
   de: {
     noGaps: 'Keine verfügbaren Zeiträume gefunden. Bitte kontaktieren Sie uns direkt.',
+    gapsLoadError: 'Verfügbarkeit konnte nicht geladen werden. Schreiben Sie uns direkt an',
     dayHeaders: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
     rangeUnavailable: 'Ihre Auswahl enthält nicht verfügbare Daten. Bitte wählen Sie Daten innerhalb desselben verfügbaren Zeitraums.',
     selectDate: 'Datum wählen',
@@ -118,6 +121,35 @@ var I18N = {
     ariaCheckin: 'als Anreise ausgewählt',
     ariaCheckout: 'als Abreise ausgewählt',
     ariaGapSelect: function(from, to) { return 'Verfügbarkeit vom ' + from + ' bis ' + to + ' auswählen'; }
+  },
+  it: {
+    noGaps: 'Nessun periodo disponibile trovato. Contattaci direttamente.',
+    gapsLoadError: 'Impossibile caricare le disponibilità. Scrivici direttamente a',
+    dayHeaders: ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'],
+    rangeUnavailable: 'La tua selezione include date non disponibili. Scegli date all\u2019interno dello stesso periodo disponibile.',
+    selectDate: 'Seleziona la data',
+    selectCheckout: 'Seleziona il check-out',
+    hintCheckin: 'Seleziona la data di check-in',
+    hintCheckout: 'Ora seleziona la data di check-out',
+    loadError: 'Impossibile caricare le disponibilit\u00e0. Riprova pi\u00f9 tardi.',
+    connError: 'Errore di connessione. Ricarica la pagina.',
+    sending: 'Invio in corso...',
+    sendError: function(email) { return 'Errore nell\u2019invio della richiesta. Contattaci a ' + email; },
+    minStay: function(min, sel) { return 'Soggiorno minimo: ' + min + ' notti. Ne hai selezionate ' + sel + '.'; },
+    nightsAvailable: function(n) { return n + ' notti disponibili'; },
+    nights: function(n) { return n + (n > 1 ? ' notti' : ' notte'); },
+    guests: function(a, c) {
+      var s = a + (a > 1 ? ' adulti' : ' adulto');
+      if (c > 0) s += ', ' + c + (c > 1 ? ' bambini' : ' bambino');
+      return s;
+    },
+    petsYes: 'S\u00ec (supplemento pulizie di 120 \u20ac)',
+    petsNo: 'No',
+    ariaUnavailable: 'non disponibile',
+    ariaAvailable: 'disponibile',
+    ariaCheckin: 'selezionato come check-in',
+    ariaCheckout: 'selezionato come check-out',
+    ariaGapSelect: function(from, to) { return 'Seleziona la disponibilit\u00e0 dal ' + from + ' al ' + to; }
   }
 };
 var T = I18N[BOOKING_LANG];
@@ -576,7 +608,7 @@ function showCalendarError(message) {
 
   var gaps = document.getElementById('available-gaps');
   if (gaps) {
-    gaps.innerHTML = '<p class="no-gaps">Availability could not be loaded. Please email us directly at <a href="mailto:' + BOOKING_CONFIG.email + '">' + BOOKING_CONFIG.email + '</a>.</p>';
+    gaps.innerHTML = '<p class="no-gaps">' + T.gapsLoadError + ' <a href="mailto:' + BOOKING_CONFIG.email + '">' + BOOKING_CONFIG.email + '</a>.</p>';
   }
 }
 

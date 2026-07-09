@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <script defer src="../head.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Villa Volpe — Casa vacanze sul Lago d'Orta</title>
+  <meta name="description" content="Villa Volpe: casa vacanze di design sul Lago d'Orta con spiaggia privata, accessibile in carrozzina, a 3 metri dall'acqua cristallina. Prenoti diretto? −15%.">
+  <meta property="og:title" content="Villa Volpe — Casa vacanze sul Lago d'Orta">
+  <meta property="og:description" content="Tutto quello che ti serve, sulla sponda soleggiata del Lago d'Orta.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.villa-volpe.com/it/">
+  <meta property="og:image" content="https://www.villa-volpe.com/images/villa-volpe-hero-new.jpg">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+  <link rel="canonical" href="https://www.villa-volpe.com/it/">
+  <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/">
+  <link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/">
+  <link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/">
+  <link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/">
+  <link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <!-- Leaflet CSS viene caricato on-demand allo scroll (vedi script in fondo) -->
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Villa <span>Volpe</span></a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link nav__link--active">Home</a></li>
+        <li><a href="discover.html" class="nav__link">Scopri</a></li>
+        <li><a href="story.html" class="nav__link">Storia</a></li>
+        <li><a href="blog.html" class="nav__link">Blog</a></li>
+        <li><a href="faqs.html" class="nav__link">FAQ</a></li>
+      </ul>
+      <div class="nav__lang" role="group" aria-label="Lingua">
+        <a href="../index.html" class="nav__lang-link" hreflang="en" lang="en">EN</a>
+        <a href="../fr/index.html" class="nav__lang-link" hreflang="fr" lang="fr">FR</a>
+        <a href="../de/index.html" class="nav__lang-link" hreflang="de" lang="de">DE</a>
+        <a href="index.html" class="nav__lang-link nav__lang-link--active" hreflang="it" lang="it">IT</a>
+      </div>
+      <a href="book.html" class="nav__cta">Prenota ora</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <button class="mobile-menu__close" id="mobileClose" aria-label="Chiudi il menu">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="discover.html">Scopri</a>
+    <a href="story.html">Storia</a>
+    <a href="blog.html">Blog</a>
+    <a href="faqs.html">FAQ</a>
+    <a href="book.html" class="btn btn--dark">Prenota ora</a>
+    <div class="mobile-menu__lang" role="group" aria-label="Lingua">
+      <a href="../index.html" class="nav__lang-link" hreflang="en">EN</a>
+      <a href="../fr/index.html" class="nav__lang-link" hreflang="fr">FR</a>
+      <a href="../de/index.html" class="nav__lang-link" hreflang="de">DE</a>
+      <a href="index.html" class="nav__lang-link nav__lang-link--active" hreflang="it">IT</a>
+    </div>
+  </div>
+
+  <!-- Hero (autoplay video) -->
+  <section class="hero hero--video" id="hero">
+    <div class="hero__bg">
+      <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto"
+             poster="../images/hero-drone-poster.jpg">
+        <source src="../images/hero-drone.mp4" type="video/mp4">
+        <img src="../images/villa-volpe-hero-new.jpg" alt="Villa Volpe — vista sul Lago d'Orta">
+      </video>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <span class="hero__label">Lago d'Orta, Piemonte &mdash; Italia</span>
+      <h1 class="hero__title">Villa Volpe</h1>
+      <p class="hero__subtitle">Tutto quello che ti serve, sulla sponda soleggiata del Lago d'Orta. A tre metri da un'acqua cristallina.</p>
+      <p class="hero__mobile-proof">Spiaggia privata · completamente accessibile · prenotando in diretta risparmi il 15%</p>
+      <div class="hero__actions">
+        <a href="book.html" class="btn btn--primary">Prenotazione diretta &minus;15%</a>
+        <a href="discover.html" class="btn btn--outline">Scopri la villa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Cards -->
+  <section class="section">
+    <div class="container">
+      <div class="features reveal-stagger" id="features">
+        <div class="feature-card">
+          <div class="feature-card__img" style="width:100%;height:100%;"><img src="../images/uploads/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-opt.jpg" alt="Accesso al lago a Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">In riva al lago</h3>
+            <p class="feature-card__text">Dove la luce del mattino incontra l'acqua. La tua spiaggia privata, a pochi passi.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+         <div class="feature-card__img" style="width:100%;height:100%;"><img src="../images/uploads/villavolpeorta-exterior-terrace-sliding-doors-lake-view-opt.jpg" alt="Giardino di Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Giardino soleggiato</h3>
+            <p class="feature-card__text">Uno spazio privato per leggere, riposare e guardare la luce che cambia sull'acqua.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+         <div class="feature-card__img" style="width:100%;height:100%;"><img src="../images/uploads/villavolpeorta-drone-aerial-garden-jacuzzi-chapel-opt.jpg" alt="Parcheggio privato a Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Parcheggio privato</h3>
+            <p class="feature-card__text">Forse il parcheggio più bello del mondo. Spazioso e proprio sopra la villa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="two-col reveal">
+        <div class="two-col__content">
+          <span class="label">La casa</span>
+          <div class="divider"></div>
+          <h2>Un cubo di vetro di design sul Lago d'Orta</h2>
+          <p style="margin-top:1.5rem;">
+            Adagiata sulla pittoresca sponda est del Lago d'Orta, Villa Volpe è una casa davvero unica. La villa, un cubo di vetro di design immerso in un giardino curato che toglie il fiato, si trova a soli tre metri dalle acque cristalline del lago, con vista sull'Isola di San Giulio illuminata di notte.
+          </p>
+          <p style="margin-top:1rem;">
+            65 metri quadrati di spazi curati in ogni dettaglio. Due camere con letto king-size. Una cucina completamente attrezzata. E fuori, la tua oasi privata: un giardino rigoglioso che scende fino alla tua spiaggia.
+          </p>
+          <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="accessibility.html" class="a11y-badge" style="text-decoration:none;color:inherit;">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="2.5"/><path d="M12 7v5m-4 7 4-5 4 5M8 12h8"/></svg>
+              Completamente accessibile in carrozzina
+            </a>
+            <span class="a11y-badge">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              Animali benvenuti
+            </span>
+          </div>
+          <a href="discover.html" class="btn btn--ghost" style="margin-top:2rem;">Esplora la villa</a>
+        </div>
+       <div class="two-col__img" style="aspect-ratio:4/5;">
+  <video class="two-col__video" data-inview muted loop playsinline preload="metadata"
+         poster="../images/uploads/villavolpe-about-bedroom-poster.jpg"
+         style="width:100%;height:100%;object-fit:cover;display:block;"
+         aria-label="Camera da letto di Villa Volpe con vista sul Lago d'Orta">
+    <source src="../images/uploads/villavolpe-about-bedroom.webm" type="video/webm">
+    <source src="../images/uploads/villavolpe-about-bedroom.mp4" type="video/mp4">
+    <img src="../images/uploads/camera zio.jpg" alt="Il Lago d'Orta visto dal letto di Villa Volpe" style="width:100%;height:100%;object-fit:cover;">
+  </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <span class="label">Galleria</span>
+        <div class="divider divider--center"></div>
+        <h2>Esplora la villa</h2>
+      </div>
+      <div class="gallery reveal-stagger" id="gallery">
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview.jpg" alt="Open space con cucina e vista lago" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/5.villavolpeorta-interior-livingroom-kitchen-dining-lakeview.jpg" alt="Soggiorno e cucina con vista lago" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/6.villavolpeorta-interior-livingroom-dining-sofa-entrance.jpg" alt="Soggiorno con zona pranzo e ingresso" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom.jpg" alt="Camera principale con letto king-size" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide.jpg" alt="Seconda camera con letto king-size" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/3.villavolpeorta-interior-bathroom-walkinshower-accessible.jpg" alt="Bagno accessibile con doccia a filo pavimento" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem;">
+        <a href="discover.html" class="btn btn--ghost">Scopri di più</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="stats reveal-stagger" id="stats">
+        <div class="stat">
+          <div class="stat__number">690+</div>
+          <div class="stat__label">Ospiti felici</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number">1.748</div>
+          <div class="stat__label">Notti prenotate</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number">4,91</div>
+          <div class="stat__label">Valutazione Airbnb</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number">4,8</div>
+          <div class="stat__label">Valutazione Google</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location + Map -->
+  <section class="section">
+    <div class="container" style="text-align:center;">
+      <span class="label">Posizione</span>
+      <div class="divider divider--center"></div>
+      <h2 class="reveal">Dove il Piemonte incontra il lago</h2>
+      <p class="reveal" style="margin:1.5rem auto 0;text-align:center;">
+        In posizione comoda: 80 km da Milano, 45 km dall'aeroporto di Milano Malpensa e 120 km da Torino. Via Novara 38, Orta San Giulio 28016, Italia.
+      </p>
+      <div class="contact-block reveal" style="margin-top:3rem;max-width:800px;margin-left:auto;margin-right:auto;">
+        <div class="contact-item">
+          <div class="contact-item__label">Da Milano</div>
+          <div class="contact-item__value">80 km</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item__label">Da Malpensa</div>
+          <div class="contact-item__value">45 km</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item__label">Da Torino</div>
+          <div class="contact-item__value">120 km</div>
+        </div>
+      </div>
+      <!-- Interactive Map -->
+      <div class="map-container reveal" style="margin-top:3rem;">
+        <div id="map" style="width:100%;height:450px;border-radius:0;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <h2>Pronto a staccare?</h2>
+    <p>Prenota in diretta e risparmia il 15% rispetto ad Airbnb.</p>
+    <a href="book.html" class="btn btn--accent">Prenota il tuo soggiorno</a>
+  </section>
+
+  <!-- Footer -->
+<div id="site-footer"></div>
+<script src="../footer.js"></script>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" aria-label="Chiudi">&times;</button>
+    <button class="lightbox__btn lightbox__btn--prev" aria-label="Precedente">&#8249;</button>
+    <img class="lightbox__img" src="" alt="">
+    <button class="lightbox__btn lightbox__btn--next" aria-label="Successiva">&#8250;</button>
+    <div class="lightbox__counter"></div>
+  </div>
+
+  <script src="../main.js"></script>
+  <!-- Hero video: force autoplay (mobile) + pause when offscreen (battery friendly) -->
+  <script>
+  (function(){
+    var v = document.getElementById('heroVideo');
+    if(!v) return;
+    function tryPlay(){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
+    if(v.readyState >= 2) tryPlay(); else v.addEventListener('loadeddata', tryPlay);
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){
+        if(es[0].isIntersecting) tryPlay(); else { try{ v.pause(); }catch(e){} }
+      }, { threshold: 0.05 }).observe(v);
+    }
+  })();
+  </script>
+  <!-- Play inline videos only while in view (lightweight, mobile-friendly) -->
+  <script>
+  (function(){
+    var vids = document.querySelectorAll('video[data-inview]');
+    if(!vids.length) return;
+    if(!('IntersectionObserver' in window)){
+      vids.forEach(function(v){ v.play().catch(function(){}); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.play().catch(function(){}); }
+        else { e.target.pause(); }
+      });
+    }, { threshold: 0.25 });
+    vids.forEach(function(v){ io.observe(v); });
+  })();
+  </script>
+  <!-- Mappa: Leaflet (CSS+JS) caricato on-demand solo quando #map entra in vista -->
+  <script>
+  (function(){
+    var mapEl = document.getElementById('map');
+    if(!mapEl) return;
+    var loaded = false;
+    function initMap(){
+      if (typeof L === 'undefined') return;
+      var lat = 45.7903779, lng = 8.4188104;
+      var map = L.map('map', { scrollWheelZoom: false }).setView([lat, lng], 13);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
+        maxZoom: 20,
+        subdomains: 'abcd'
+      }).addTo(map);
+      L.marker([lat, lng]).addTo(map)
+        .bindPopup('<strong>Villa Volpe</strong><br>Via Novara 38<br>Orta San Giulio 28016')
+        .openPopup();
+    }
+    function loadMap(){
+      if(loaded) return; loaded = true;
+      var css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+      document.head.appendChild(css);
+      var js = document.createElement('script');
+      js.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+      js.onload = initMap;
+      document.body.appendChild(js);
+    }
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(es){
+        if(es[0].isIntersecting){ loadMap(); io.disconnect(); }
+      }, { rootMargin: '300px' });
+      io.observe(mapEl);
+    } else {
+      loadMap();
+    }
+  })();
+  </script>
+  <!-- Lightbox logic -->
+  <script>
+  (function() {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+    const lbImg = lightbox.querySelector('.lightbox__img');
+    const lbCounter = lightbox.querySelector('.lightbox__counter');
+    const gallery = document.getElementById('gallery');
+    if (!gallery) return;
+
+    let images = [];
+    let current = 0;
+
+    function collectImages() {
+      images = Array.from(gallery.querySelectorAll('.gallery__item img'));
+    }
+
+    function open(index) {
+      collectImages();
+      current = index;
+      update();
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function update() {
+      if (!images[current]) return;
+      lbImg.src = images[current].src;
+      lbImg.alt = images[current].alt;
+      lbCounter.textContent = (current + 1) + ' / ' + images.length;
+    }
+
+    function next() { current = (current + 1) % images.length; update(); }
+    function prev() { current = (current - 1 + images.length) % images.length; update(); }
+
+    gallery.addEventListener('click', function(e) {
+      const item = e.target.closest('.gallery__item');
+      if (!item) return;
+      collectImages();
+      const img = item.querySelector('img');
+      const idx = images.indexOf(img);
+      if (idx !== -1) open(idx);
+    });
+
+    lightbox.querySelector('.lightbox__close').addEventListener('click', close);
+    lightbox.querySelector('.lightbox__btn--prev').addEventListener('click', prev);
+    lightbox.querySelector('.lightbox__btn--next').addEventListener('click', next);
+
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) close();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    });
+
+    // Touch/swipe support
+    let startX = 0;
+    lbImg.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; });
+    lbImg.addEventListener('touchend', function(e) {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
+    });
+  })();
+  </script>
+
+</body>
+</html>
