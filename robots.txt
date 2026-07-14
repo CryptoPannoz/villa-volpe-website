@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /email-signature.html
+
+Sitemap: https://www.villa-volpe.com/sitemap.xml
