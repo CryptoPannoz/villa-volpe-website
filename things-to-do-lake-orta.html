@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script defer src="head.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Things to Do on Lake Orta — Interactive Map &amp; Local Guide | Villa Volpe</title>
+  <meta name="description" content="An interactive map of the best things to do on Lake Orta: Orta San Giulio, San Giulio Island, waterfalls, hikes, watersports and where to eat — hand-picked by the hosts of Villa Volpe.">
+  <meta property="og:title" content="Things to Do on Lake Orta — Interactive Map &amp; Local Guide">
+  <meta property="og:description" content="Villages, islands, waterfalls, hikes, watersports and restaurants around Lake Orta, mapped and hand-picked by the hosts of Villa Volpe.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.villa-volpe.com/images/villa-volpe-hero-new.jpg">
+  <meta property="og:url" content="https://www.villa-volpe.com/things-to-do-lake-orta.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="it_IT">
+  <link rel="canonical" href="https://www.villa-volpe.com/things-to-do-lake-orta.html">
+  <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/things-to-do-lake-orta.html">
+  <link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/things-to-do-lake-orta.html">
+  <link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/things-to-do-lake-orta.html">
+  <link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/things-to-do-lake-orta.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/things-to-do-lake-orta.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Villa <span>Volpe</span></a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="discover.html" class="nav__link">Discover</a></li>
+        <li><a href="story.html" class="nav__link">Story</a></li>
+        <li><a href="blog.html" class="nav__link">Blog</a></li>
+        <li><a href="faqs.html" class="nav__link">FAQs</a></li>
+      </ul>
+      <div class="nav__lang" role="group" aria-label="Language">
+        <a href="things-to-do-lake-orta.html" class="nav__lang-link nav__lang-link--active" hreflang="en" lang="en">EN</a>
+        <a href="fr/things-to-do-lake-orta.html" class="nav__lang-link" hreflang="fr" lang="fr">FR</a>
+        <a href="de/things-to-do-lake-orta.html" class="nav__lang-link" hreflang="de" lang="de">DE</a>
+        <a href="it/things-to-do-lake-orta.html" class="nav__lang-link" hreflang="it" lang="it">IT</a>
+      </div>
+      <a href="book.html" class="nav__cta">Book Now</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu__close" id="mobileClose" aria-label="Close menu">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="discover.html">Discover</a>
+    <a href="story.html">Story</a>
+    <a href="blog.html">Blog</a>
+    <a href="faqs.html">FAQs</a>
+    <a href="book.html" class="btn btn--dark">Book Now</a>
+    <div class="mobile-menu__lang" role="group" aria-label="Language">
+      <a href="things-to-do-lake-orta.html" class="nav__lang-link nav__lang-link--active" hreflang="en">EN</a>
+      <a href="fr/things-to-do-lake-orta.html" class="nav__lang-link" hreflang="fr">FR</a>
+      <a href="de/things-to-do-lake-orta.html" class="nav__lang-link" hreflang="de">DE</a>
+      <a href="it/things-to-do-lake-orta.html" class="nav__lang-link" hreflang="it">IT</a>
+    </div>
+  </div>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <span class="label page-header__label">Explore Lake Orta</span>
+    <h1 class="page-header__title">Things to Do on Lake Orta</h1>
+    <p class="page-header__desc">An interactive map of our favourite places around the lake — from Orta San Giulio and its island to waterfalls, hikes, watersports and the best tables. Hand-picked by the hosts of Villa Volpe.</p>
+  </header>
+
+  <!-- Intro -->
+  <section class="section" style="padding-top:0;">
+    <div class="container container--narrow" style="text-align:center;">
+      <p style="opacity:0.85;">Lake Orta is the quiet, romantic little sister of the bigger Italian lakes: a UNESCO-listed sacred mountain, a car-free medieval village, a monastery on an island, and green hills laced with trails and waterfalls. Everything below is within an easy drive of Villa Volpe. Use the category filters to plan your days, and tap any place on the map or card to learn more.</p>
+    </div>
+  </section>
+
+  <!-- Map + POIs -->
+  <section class="section section--alt" style="padding-top:var(--space-lg);">
+    <div class="container">
+
+      <div style="text-align:center;margin-bottom:var(--space-lg);">
+        <span class="label">The Map</span>
+        <div class="divider divider--center"></div>
+        <h2>Your Lake Orta, mapped</h2>
+      </div>
+
+      <!-- Category filters -->
+      <div class="ttd-filters" role="group" aria-label="Filter places by category">
+        <button class="ttd-chip is-active" data-filter="all">All</button>
+        <button class="ttd-chip" data-filter="culture">🏛️ Villages &amp; landmarks</button>
+        <button class="ttd-chip" data-filter="nature">🌿 Nature &amp; viewpoints</button>
+        <button class="ttd-chip" data-filter="sport">🚴 Outdoor &amp; watersports</button>
+        <button class="ttd-chip" data-filter="food">🍽️ Food &amp; drink</button>
+        <button class="ttd-chip" data-filter="practical">🛒 Practical</button>
+      </div>
+
+      <!-- Leaflet map -->
+      <div id="ttd-map" class="ttd-map" role="application" aria-label="Interactive map of things to do on Lake Orta"></div>
+      <p style="text-align:center;font-size:0.85rem;color:var(--color-text-muted);margin:-1rem 0 var(--space-lg);">Tap a pin or a card to see details. Villa Volpe is the black marker.</p>
+
+      <!-- POI cards (also the source of truth for the map markers) -->
+      <div class="ttd-grid">
+
+        <article class="ttd-card" data-poi id="villa-volpe" data-lat="45.7903779" data-lng="8.4188104" data-cat="villa" data-emoji="🦊">
+          <div class="ttd-card__cat">🦊 Your base</div>
+          <h3 class="ttd-card__title">Villa Volpe</h3>
+          <p class="ttd-card__desc">Your design home on the sunny shore of Lake Orta, three metres from the water in Orta San Giulio — the perfect base for everything on this map.</p>
+          <a class="ttd-card__link" href="book.html">Check availability</a>
+        </article>
+
+        <h2 class="ttd-grouptitle" data-group="culture">🏛️ Villages, islands &amp; landmarks</h2>
+
+        <article class="ttd-card" data-poi id="orta-san-giulio" data-lat="45.7975" data-lng="8.4165" data-cat="culture" data-emoji="🏛️">
+          <div class="ttd-card__cat">🏛️ Village</div>
+          <h3 class="ttd-card__title">Orta San Giulio</h3>
+          <p class="ttd-card__desc">The car-free medieval heart of the lake: cobbled lanes, frescoed houses and Piazza Motta opening straight onto the water.</p>
+          <a class="ttd-card__link" href="blog/posts/lake-orta-italys-quiet-gem.html">Read the guide</a>
+        </article>
+
+        <article class="ttd-card" data-poi id="isola-san-giulio" data-lat="45.7955" data-lng="8.4045" data-cat="culture" data-emoji="🏛️">
+          <div class="ttd-card__cat">🏛️ Island</div>
+          <h3 class="ttd-card__title">San Giulio Island</h3>
+          <p class="ttd-card__desc">A tiny island crowned by a Romanesque basilica and a silent monastery, a two-minute boat ride from Orta's jetty.</p>
+          <a class="ttd-card__link" href="blog/posts/legend-of-san-giulio.html">The legend of San Giulio</a>
+        </article>
+
+        <article class="ttd-card" data-poi id="sacro-monte" data-lat="45.7986" data-lng="8.4155" data-cat="culture" data-emoji="🏛️">
+          <div class="ttd-card__cat">🏛️ UNESCO site</div>
+          <h3 class="ttd-card__title">Sacro Monte di Orta</h3>
+          <p class="ttd-card__desc">A UNESCO World Heritage hill above the village, with twenty frescoed chapels dedicated to St Francis and sweeping lake views.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="madonna-del-sasso" data-lat="45.8355" data-lng="8.3843" data-cat="culture" data-emoji="🏛️">
+          <div class="ttd-card__cat">🏛️ Sanctuary</div>
+          <h3 class="ttd-card__title">Madonna del Sasso</h3>
+          <p class="ttd-card__desc">A baroque sanctuary perched on a granite spur, offering arguably the finest panorama over the whole of Lake Orta.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="museo-ombrello" data-lat="45.8618564" data-lng="8.5104065" data-cat="culture" data-emoji="🏛️">
+          <div class="ttd-card__cat">🏛️ Museum</div>
+          <h3 class="ttd-card__title">Umbrella &amp; Parasol Museum</h3>
+          <p class="ttd-card__desc">In hillside Gignese, the only museum in the world devoted to umbrellas and parasols — quirky, charming and rain-proof.</p>
+        </article>
+
+        <h2 class="ttd-grouptitle" data-group="nature">🌿 Nature, waterfalls &amp; viewpoints</h2>
+
+        <article class="ttd-card" data-poi id="cascata-qualba" data-lat="45.8423516" data-lng="8.3843819" data-cat="nature" data-emoji="🌿">
+          <div class="ttd-card__cat">🌿 Waterfall</div>
+          <h3 class="ttd-card__title">Cascata della Qualba</h3>
+          <p class="ttd-card__desc">A hidden waterfall with an ice-cold natural plunge pool near Boleto — a refreshing reward after a short forest walk.</p>
+          <a class="ttd-card__link" href="blog/posts/cold-plunge-waterfall-lake-orta.html">Cold plunge guide</a>
+        </article>
+
+        <article class="ttd-card" data-poi id="cascata-pescone" data-lat="45.8404749" data-lng="8.4254388" data-cat="nature" data-emoji="🌿">
+          <div class="ttd-card__cat">🌿 Waterfall</div>
+          <h3 class="ttd-card__title">Cascata del Pescone</h3>
+          <p class="ttd-card__desc">Cascades and green pools along the Pescone stream near Ameno — a lovely spot to cool off on a hot day.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="torre-buccione" data-lat="45.7706754" data-lng="8.4316302" data-cat="nature" data-emoji="🌿">
+          <div class="ttd-card__cat">🌿 Viewpoint</div>
+          <h3 class="ttd-card__title">Torre di Buccione</h3>
+          <p class="ttd-card__desc">A 23-metre medieval watchtower on a wooded knoll, reached by a short walk and rewarding you with a wide view over the southern lake.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="monte-mesma" data-lat="45.7758166" data-lng="8.4417889" data-cat="nature" data-emoji="🌿">
+          <div class="ttd-card__cat">🌿 Walk</div>
+          <h3 class="ttd-card__title">Monte Mesma Convent</h3>
+          <p class="ttd-card__desc">A 15th-century Franciscan convent crowning a quiet, chestnut-covered hill — an easy walk to peace and panorama.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="monte-falo" data-lat="45.8470975" data-lng="8.487309" data-cat="nature" data-emoji="🌿">
+          <div class="ttd-card__cat">🌿 Hike</div>
+          <h3 class="ttd-card__title">Monte Falò &amp; Tre Montagnette</h3>
+          <p class="ttd-card__desc">An easy ridge hike above the eastern shore with a string of panoramic viewpoints over lake and Alps.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="anello-indaco" data-lat="45.7885718" data-lng="8.4562309" data-cat="nature" data-emoji="🌿">
+          <div class="ttd-card__cat">🌿 Trail</div>
+          <h3 class="ttd-card__title">Indigo Ring — WWF Oasis of Ameno</h3>
+          <p class="ttd-card__desc">A circular nature trail through the WWF oasis, woodland and evocative abandoned hamlets in the hills of Ameno.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="cappella-vago" data-lat="45.7917339" data-lng="8.4723161" data-cat="nature" data-emoji="🌿">
+          <div class="ttd-card__cat">🌿 Viewpoint</div>
+          <h3 class="ttd-card__title">Cappella del Vago</h3>
+          <p class="ttd-card__desc">A tiny hilltop chapel and one of the loveliest, least-crowded sunset viewpoints over the lake.</p>
+        </article>
+
+        <h2 class="ttd-grouptitle" data-group="sport">🚴 Outdoor activities &amp; watersports</h2>
+
+        <article class="ttd-card" data-poi id="canoe-kayak" data-lat="45.8050805" data-lng="8.4042071" data-cat="sport" data-emoji="🚴">
+          <div class="ttd-card__cat">🚴 On the water</div>
+          <h3 class="ttd-card__title">Kayak, Canoe &amp; SUP</h3>
+          <p class="ttd-card__desc">Rent a kayak, canoe or stand-up paddleboard on the Orta lakefront and glide out to the island under your own steam.</p>
+          <a class="ttd-card__link" href="blog/posts/outdoor-activities-lake-orta.html">Outdoor activities</a>
+        </article>
+
+        <article class="ttd-card" data-poi id="sailing" data-lat="45.7986" data-lng="8.4110" data-cat="sport" data-emoji="🚴">
+          <div class="ttd-card__cat">🚴 On the water</div>
+          <h3 class="ttd-card__title">Sailing on Lake Orta</h3>
+          <p class="ttd-card__desc">Learn to sail or head out on a skippered cruise across the calm, sheltered waters of the lake.</p>
+          <a class="ttd-card__link" href="blog/posts/dodo-gorla-sailing-lake-orta.html">Sailing with Dodo Gorla</a>
+        </article>
+
+        <article class="ttd-card" data-poi id="wakeboard" data-lat="45.7653496" data-lng="8.4290188" data-cat="sport" data-emoji="🚴">
+          <div class="ttd-card__cat">🚴 Adrenaline</div>
+          <h3 class="ttd-card__title">Wakeboard &amp; Wakesurf</h3>
+          <p class="ttd-card__desc">Wake&amp;More runs wakeboard and wakesurf sessions for all levels on the quieter southern reach of the lake.</p>
+          <a class="ttd-card__link" href="blog/posts/wakeboarding-wakesurfing-lake-orta.html">Wakeboarding guide</a>
+        </article>
+
+        <article class="ttd-card" data-poi id="ebike" data-lat="45.7969036" data-lng="8.4170294" data-cat="sport" data-emoji="🚴">
+          <div class="ttd-card__cat">🚴 On two wheels</div>
+          <h3 class="ttd-card__title">E-Bike Rental &amp; Tours</h3>
+          <p class="ttd-card__desc">Hire an e-bike and let the motor flatten the hills as you loop the lake or climb to a viewpoint.</p>
+          <a class="ttd-card__link" href="blog/posts/outdoor-activities-lake-orta.html">Outdoor activities</a>
+        </article>
+
+        <article class="ttd-card" data-poi id="adventure-park-pigne" data-lat="45.7966539" data-lng="8.4421979" data-cat="sport" data-emoji="🚴">
+          <div class="ttd-card__cat">🚴 Family fun</div>
+          <h3 class="ttd-card__title">Adventure Park Le Pigne</h3>
+          <p class="ttd-card__desc">Treetop rope courses and zip-lines in the woods above the lake — a great half-day for families and thrill-seekers.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="mottarone" data-lat="45.8777809" data-lng="8.4778881" data-cat="sport" data-emoji="🚴">
+          <div class="ttd-card__cat">🚴 Mountain</div>
+          <h3 class="ttd-card__title">Mottarone &amp; Alpyland</h3>
+          <p class="ttd-card__desc">The 1,491 m peak between Orta and Maggiore, with an alpine coaster, adventure park and a 360° view of seven lakes.</p>
+        </article>
+
+        <h2 class="ttd-grouptitle" data-group="food">🍽️ Where to eat &amp; drink</h2>
+
+        <article class="ttd-card" data-poi id="villa-crespi" data-lat="45.7967" data-lng="8.4176" data-cat="food" data-emoji="🍽️">
+          <div class="ttd-card__cat">🍽️ Fine dining ★★</div>
+          <h3 class="ttd-card__title">Villa Crespi</h3>
+          <p class="ttd-card__desc">Antonino Cannavacciuolo's two-Michelin-star restaurant in a fairy-tale Moorish villa — the lake's flagship gastronomic experience.</p>
+          <a class="ttd-card__link" href="blog/posts/villa-crespi-michelin-experience.html">The Villa Crespi experience</a>
+        </article>
+
+        <article class="ttd-card" data-poi id="al-sorriso" data-lat="45.7408178" data-lng="8.4113571" data-cat="food" data-emoji="🍽️">
+          <div class="ttd-card__cat">🍽️ Fine dining ★</div>
+          <h3 class="ttd-card__title">Al Sorriso</h3>
+          <p class="ttd-card__desc">A historic Michelin-starred kitchen in nearby Soriso, a serene 15-minute drive from the lake.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="laqua" data-lat="45.8194539" data-lng="8.4050625" data-cat="food" data-emoji="🍽️">
+          <div class="ttd-card__cat">🍽️ Lakeside</div>
+          <h3 class="ttd-card__title">Laqua by the Lake</h3>
+          <p class="ttd-card__desc">Cannavacciuolo's relaxed lakeside restaurant and resort at Pettenasco, right on the water.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="san-rocco" data-lat="45.8007538" data-lng="8.4047449" data-cat="food" data-emoji="🍽️">
+          <div class="ttd-card__cat">🍽️ Lakefront</div>
+          <h3 class="ttd-card__title">Hotel San Rocco</h3>
+          <p class="ttd-card__desc">A refined lakefront restaurant with a pool terrace in the heart of Orta — lovely for a special dinner over the water.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="la-darbia" data-lat="45.7936444" data-lng="8.4256952" data-cat="food" data-emoji="🍽️">
+          <div class="ttd-card__cat">🍽️ Agriturismo</div>
+          <h3 class="ttd-card__title">La Darbia</h3>
+          <p class="ttd-card__desc">A hillside agriturismo with its own vineyard, seasonal cooking and a memorable view down to the lake.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="antico-agnello" data-lat="45.8023338" data-lng="8.4296922" data-cat="food" data-emoji="🍽️">
+          <div class="ttd-card__cat">🍽️ Trattoria</div>
+          <h3 class="ttd-card__title">Taverna Antico Agnello</h3>
+          <p class="ttd-card__desc">A cosy trattoria in Orta's old town serving generous Piedmontese classics.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="ca-dal-rat" data-lat="45.7854473" data-lng="8.422997" data-cat="food" data-emoji="🍽️">
+          <div class="ttd-card__cat">🍽️ Osteria</div>
+          <h3 class="ttd-card__title">L'Ustaria Cà dal Rat</h3>
+          <p class="ttd-card__desc">A rustic osteria in the hills above the lake, strong on local dishes and a warm welcome.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="bocciolo" data-lat="45.8007869" data-lng="8.4221172" data-cat="food" data-emoji="🍽️">
+          <div class="ttd-card__cat">🍽️ Restaurant</div>
+          <h3 class="ttd-card__title">Hotel Bocciolo</h3>
+          <p class="ttd-card__desc">A friendly hotel restaurant in the centre of Orta San Giulio, handy for lunch between sights.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="imbarcadero" data-lat="45.8015497" data-lng="8.3885799" data-cat="food" data-emoji="🍽️">
+          <div class="ttd-card__cat">🍽️ Lakeside</div>
+          <h3 class="ttd-card__title">Ristorante Imbarcadero</h3>
+          <p class="ttd-card__desc">Lake fish and a waterside terrace by the jetty at Pella, on the sunnier western shore.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="rampolina" data-lat="45.8937492" data-lng="8.5082254" data-cat="food" data-emoji="🍽️">
+          <div class="ttd-card__cat">🍽️ Panoramic</div>
+          <h3 class="ttd-card__title">La Rampolina</h3>
+          <p class="ttd-card__desc">A panoramic restaurant on the hills above the lake, worth the drive for the view alone.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="gelateria-antica-torre" data-lat="45.8009444" data-lng="8.3874639" data-cat="food" data-emoji="🍽️">
+          <div class="ttd-card__cat">🍽️ Gelato</div>
+          <h3 class="ttd-card__title">Gelateria Antica Torre</h3>
+          <p class="ttd-card__desc">Artisan gelato on the western shore at Pella — the perfect excuse for a lakeside stroll.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="arianna" data-lat="45.7975" data-lng="8.4183333" data-cat="food" data-emoji="🍽️">
+          <div class="ttd-card__cat">🍽️ Café &amp; pastry</div>
+          <h3 class="ttd-card__title">Pasticceria Arianna</h3>
+          <p class="ttd-card__desc">A neighbourhood pastry shop and café for a proper Italian breakfast a short stroll from the villa.</p>
+        </article>
+
+        <h2 class="ttd-grouptitle" data-group="practical">🛒 Practical: shops &amp; supermarkets</h2>
+
+        <article class="ttd-card" data-poi id="conad" data-lat="45.8143793" data-lng="8.4095085" data-cat="practical" data-emoji="🛒">
+          <div class="ttd-card__cat">🛒 Supermarket</div>
+          <h3 class="ttd-card__title">Conad City — Pettenasco</h3>
+          <p class="ttd-card__desc">The handiest supermarket for the villa, a few minutes north along the lake.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="savoini" data-lat="45.8190421" data-lng="8.4428879" data-cat="practical" data-emoji="🛒">
+          <div class="ttd-card__cat">🛒 Grocery</div>
+          <h3 class="ttd-card__title">Savoini</h3>
+          <p class="ttd-card__desc">A local grocery for everyday supplies in the hills east of the lake.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="md-market" data-lat="45.7441617" data-lng="8.4332331" data-cat="practical" data-emoji="🛒">
+          <div class="ttd-card__cat">🛒 Supermarket</div>
+          <h3 class="ttd-card__title">MD Market — Gozzano</h3>
+          <p class="ttd-card__desc">A budget-friendly supermarket a short drive south, towards Gozzano.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="tigros" data-lat="45.7345359" data-lng="8.4401878" data-cat="practical" data-emoji="🛒">
+          <div class="ttd-card__cat">🛒 Supermarket</div>
+          <h3 class="ttd-card__title">Tigros — Gozzano</h3>
+          <p class="ttd-card__desc">A larger supermarket for a full shop, at the southern end of the lake.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-link to blog -->
+  <section class="section">
+    <div class="container container--narrow" style="text-align:center;">
+      <span class="label">Go Deeper</span>
+      <div class="divider divider--center"></div>
+      <h2>More Lake Orta stories &amp; guides</h2>
+      <p style="margin:1rem auto 2rem;opacity:0.85;">We write in depth about swimming spots, the island's legends, shoulder-season travel, dog-friendly days out and accessible itineraries around the lake.</p>
+      <a href="blog.html" class="btn btn--ghost">Read the Villa Volpe blog</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <h2>Make Lake Orta your home base</h2>
+    <p>Stay three metres from the water in Orta San Giulio and have all of this on your doorstep.</p>
+    <a href="book.html" class="btn btn--accent">Book Your Stay</a>
+  </section>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+  <script src="footer.js"></script>
+
+  <script src="main.js"></script>
+  <script src="js/things-to-do.js"></script>
+</body>
+</html>
