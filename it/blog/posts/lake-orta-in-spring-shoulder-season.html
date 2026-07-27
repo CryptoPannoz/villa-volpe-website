@@ -16,6 +16,10 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="de_DE">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Il Lago d'Orta in Primavera: la Magia della Bassa Stagione">
+  <meta name="twitter:description" content="Aprile e maggio sono il segreto meglio custodito del Lago d'Orta. Acqua a specchio, giardini in fiore e il borgo quasi tutto per te.">
+  <meta name="twitter:image" content="https://www.villa-volpe.com/images/blog/lake-orta-april-shoulder-season-hero.jpg">
   <link rel="canonical" href="https://www.villa-volpe.com/it/blog/posts/lake-orta-in-spring-shoulder-season.html">
   <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-in-spring-shoulder-season.html">
   <link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-in-spring-shoulder-season.html">
@@ -125,7 +129,7 @@
   </header>
 
   <!-- Hero Image -->
-  <div style="max-width:900px;margin:0 auto 2rem;border-radius:var(--radius);overflow:hidden;"><img src="../../../images/blog/lake-orta-april-shoulder-season-hero.jpg" alt="Il Lago d'Orta all'alba in aprile, con le montagne che si specchiano perfettamente nell'acqua liscia come vetro" style="width:100%;display:block;" loading="lazy"></div>
+  <div style="max-width:900px;margin:0 auto 2rem;border-radius:var(--radius);overflow:hidden;"><img src="../../../images/blog/lake-orta-april-shoulder-season-hero.jpg" alt="Il Lago d'Orta all'alba in aprile, con le montagne che si specchiano perfettamente nell'acqua liscia come vetro" style="width:100%;display:block;" loading="lazy" width="1080" height="607"></div>
 
   <!-- Post Content -->
   <article class="post-content">
@@ -136,7 +140,7 @@
 
     <!-- Video -->
     <div style="max-width:400px;margin:2rem auto;border-radius:var(--radius);overflow:hidden;">
-      <video autoplay muted loop playsinline style="width:100%;display:block;">
+      <video poster="../../../images/blog/lake-orta-april-dawn-poster.jpg" data-inview preload="none" muted loop playsinline style="width:100%;display:block;">
         <source src="../../../images/blog/lake-orta-april-dawn.mp4" type="video/mp4">
       </video>
     </div>
@@ -219,5 +223,29 @@
 <script src="../../../footer.js"></script>
 
   <script src="../../../main.js"></script>
+  <!-- Play inline videos only while in view (lightweight, mobile-friendly) -->
+  <script>
+  (function(){
+    var vids = document.querySelectorAll('video[data-inview]');
+    if(!vids.length) return;
+    function load(v){
+      if(v.dataset.loaded) return;
+      v.dataset.loaded = '1';
+      v.setAttribute('preload','auto');
+      v.load();
+    }
+    if(!('IntersectionObserver' in window)){
+      vids.forEach(function(v){ load(v); v.play().catch(function(){}); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ load(e.target); e.target.play().catch(function(){}); }
+        else { e.target.pause(); }
+      });
+    }, { threshold: 0.25 });
+    vids.forEach(function(v){ io.observe(v); });
+  })();
+  </script>
 </body>
 </html>

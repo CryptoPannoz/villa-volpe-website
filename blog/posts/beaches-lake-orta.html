@@ -4,15 +4,15 @@
   <script src="../../head.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Best Beaches on Lake Orta: Where to Swim — Villa Volpe Blog</title>
-  <meta name="description" content="A local's guide to Lake Orta's beaches: free and equipped spots from Omegna to Gozzano, water temperature month by month, and tips for families — plus one private beach.">
+  <title>The Best Beaches on Lake Orta: Where to Swim | Villa Volpe</title>
+  <meta name="description" content="A local's guide to Lake Orta's beaches: free and equipped spots from Omegna to Gozzano, water temperatures month by month, and tips for families.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../style.css">
   <link rel="canonical" href="https://www.villa-volpe.com/blog/posts/beaches-lake-orta.html">
-  <meta property="og:title" content="The Best Beaches on Lake Orta: Where to Swim">
-  <meta property="og:description" content="Free and equipped beaches from Omegna to Gozzano, water temperatures month by month, and tips for families and dogs.">
+  <meta property="og:title" content="The Best Beaches on Lake Orta: Where to Swim | Villa Volpe">
+  <meta property="og:description" content="A local's guide to Lake Orta's beaches: free and equipped spots from Omegna to Gozzano, water temperatures month by month, and tips for families.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.villa-volpe.com/blog/posts/beaches-lake-orta.html">
   <meta property="og:image" content="https://www.villa-volpe.com/images/gallery/villavolpeorta-drone-aerial-overview-lakefront-wide.jpg">
@@ -20,6 +20,10 @@
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:locale:alternate" content="it_IT">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Best Beaches on Lake Orta: Where to Swim | Villa Volpe">
+  <meta name="twitter:description" content="A local's guide to Lake Orta's beaches: free and equipped spots from Omegna to Gozzano, water temperatures month by month, and tips for families.">
+  <meta name="twitter:image" content="https://www.villa-volpe.com/images/gallery/villavolpeorta-drone-aerial-overview-lakefront-wide.jpg">
   <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/beaches-lake-orta.html">
   <link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/beaches-lake-orta.html">
   <link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/beaches-lake-orta.html">
@@ -119,7 +123,7 @@
   </header>
 
   <div style="max-width:900px;margin:0 auto 2rem;border-radius:var(--radius);overflow:hidden;">
-    <video autoplay muted loop playsinline style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
+    <video poster="../../images/blog/beaches-lake-orta-poster.jpg" data-inview preload="none" muted loop playsinline style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
       <source src="../../images/blog/beaches-lake-orta.mp4" type="video/mp4">
     </video>
   </div>
@@ -146,7 +150,7 @@
     <h2>Lido di Gozzano</h2>
     <p>At the southern end of the lake, the Lido di Gozzano is the closest thing Orta has to a classic beach resort: sunbeds and umbrellas for rent, a bar and a restaurant. If you want a full-service beach day without driving to Lake Maggiore, this is it.</p>
 
-    <figure><img src="../../images/gallery/villavolpeorta-exterior-sunloungers-sunset-lake-reflection.jpg" alt="Sun loungers at sunset on Lake Orta's shore" loading="lazy"><figcaption>Evening light on the lake — the water holds its warmth well into September</figcaption></figure>
+    <figure><img src="../../images/gallery/villavolpeorta-exterior-sunloungers-sunset-lake-reflection.jpg" alt="Sun loungers at sunset on Lake Orta's shore" loading="lazy" width="1600" height="1067"><figcaption>Evening light on the lake — the water holds its warmth well into September</figcaption></figure>
 
     <h2>Water temperature, month by month</h2>
     <p>Lake Orta is an alpine lake, but a forgiving one. Indicatively: in May the water is still fresh at around 15–17&nbsp;°C, June rises to a swimmable 19–21&nbsp;°C, July and August are the sweet spot at 22–24&nbsp;°C, and September often stays around 19–20&nbsp;°C — some of the best swimming of the year, with the crowds gone. From October to April the lake is for <a href="cold-plunge-waterfall-lake-orta.html">cold-plunge enthusiasts</a> only.</p>
@@ -178,5 +182,29 @@
 <script src="../../footer.js"></script>
 
   <script src="../../main.js"></script>
+  <!-- Play inline videos only while in view (lightweight, mobile-friendly) -->
+  <script>
+  (function(){
+    var vids = document.querySelectorAll('video[data-inview]');
+    if(!vids.length) return;
+    function load(v){
+      if(v.dataset.loaded) return;
+      v.dataset.loaded = '1';
+      v.setAttribute('preload','auto');
+      v.load();
+    }
+    if(!('IntersectionObserver' in window)){
+      vids.forEach(function(v){ load(v); v.play().catch(function(){}); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ load(e.target); e.target.play().catch(function(){}); }
+        else { e.target.pause(); }
+      });
+    }, { threshold: 0.25 });
+    vids.forEach(function(v){ io.observe(v); });
+  })();
+  </script>
 </body>
 </html>

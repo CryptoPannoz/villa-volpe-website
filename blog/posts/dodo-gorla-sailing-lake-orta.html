@@ -4,11 +4,11 @@
   <script src="../../head.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dodo Gorla and the Sailing Soul of Lake Orta — Villa Volpe Blog</title>
-  <meta name="description" content="How a boy from Orta San Giulio became one of Italy's greatest sailors ever. The story of Dodo Gorla — two Olympic medals, a Star World title, and the small lake that shaped him.">
+  <title>Dodo Gorla and the Sailing Soul of Lake Orta | Villa Volpe</title>
+  <meta name="description" content="How a boy from Orta San Giulio became one of Italy's greatest sailors: two Olympic medals, a Star World title, and the small lake that shaped him.">
   <meta name="keywords" content="Dodo Gorla, Giorgio Gorla, sailing Lake Orta, Circolo Vela Orta, Star class Olympic medals, Italian sailing champion, Orta San Giulio sailing, Moscow 1980 Los Angeles 1984, sailing history Italy">
-  <meta property="og:title" content="Dodo Gorla and the Sailing Soul of Lake Orta">
-  <meta property="og:description" content="Two Olympic medals, a World Championship, and a lake the size of a coin. The story of Lake Orta's greatest sailor.">
+  <meta property="og:title" content="Dodo Gorla and the Sailing Soul of Lake Orta | Villa Volpe">
+  <meta property="og:description" content="How a boy from Orta San Giulio became one of Italy's greatest sailors: two Olympic medals, a Star World title, and the small lake that shaped him.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.villa-volpe.com/blog/posts/dodo-gorla-sailing-lake-orta.html">
   <meta property="og:image" content="https://www.villa-volpe.com/images/blog/dodo-gorla-sailing-hero.jpg">
@@ -17,6 +17,10 @@
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:locale:alternate" content="it_IT">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dodo Gorla and the Sailing Soul of Lake Orta | Villa Volpe">
+  <meta name="twitter:description" content="How a boy from Orta San Giulio became one of Italy's greatest sailors: two Olympic medals, a Star World title, and the small lake that shaped him.">
+  <meta name="twitter:image" content="https://www.villa-volpe.com/images/blog/dodo-gorla-sailing-hero.jpg">
   <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/dodo-gorla-sailing-lake-orta.html">
   <link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/dodo-gorla-sailing-lake-orta.html">
   <link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/dodo-gorla-sailing-lake-orta.html">
@@ -126,7 +130,7 @@
 
   <!-- Hero Video -->
   <div style="max-width:900px;margin:0 auto 2rem;border-radius:var(--radius);overflow:hidden;">
-    <video autoplay muted loop playsinline style="width:100%;display:block;">
+    <video poster="../../images/blog/dodo-gorla-sailing-lake-orta-poster.jpg" data-inview preload="none" muted loop playsinline style="width:100%;display:block;">
       <source src="../../images/blog/dodo-gorla-sailing-lake-orta.mp4" type="video/mp4">
     </video>
   </div>
@@ -222,5 +226,29 @@
 <script src="../../footer.js"></script>
 
   <script src="../../main.js"></script>
+  <!-- Play inline videos only while in view (lightweight, mobile-friendly) -->
+  <script>
+  (function(){
+    var vids = document.querySelectorAll('video[data-inview]');
+    if(!vids.length) return;
+    function load(v){
+      if(v.dataset.loaded) return;
+      v.dataset.loaded = '1';
+      v.setAttribute('preload','auto');
+      v.load();
+    }
+    if(!('IntersectionObserver' in window)){
+      vids.forEach(function(v){ load(v); v.play().catch(function(){}); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ load(e.target); e.target.play().catch(function(){}); }
+        else { e.target.pause(); }
+      });
+    }, { threshold: 0.25 });
+    vids.forEach(function(v){ io.observe(v); });
+  })();
+  </script>
 </body>
 </html>

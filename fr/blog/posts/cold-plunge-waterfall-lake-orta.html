@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bain froid à la cascade de Qualba, lac d'Orta — Villa Volpe</title>
-  <meta name="description" content="La Cascata della Qualba, près d'Orta San Giulio, est une cascade cachée avec un bassin naturel pour le bain froid. À quelques minutes de la Villa Volpe, c'est l'endroit idéal pour la baignade sauvage et la thérapie par le froid, en pleine nature.">
+  <meta name="description" content="La Cascata della Qualba, près d'Orta San Giulio : une cascade cachée avec bassin naturel pour le bain froid, à quelques minutes de la Villa Volpe.">
   <meta name="keywords" content="cold plunge Lake Orta, Cascata della Qualba, waterfall Orta San Giulio, cold water therapy Italy, wild swimming Italian lakes, cold water immersion benefits, natural pool Lake Orta, hidden waterfall Piedmont, cold plunge near me, outdoor cold bath Italy">
   <meta property="og:title" content="Bain froid à la Cascata della Qualba : la cascade secrète du lac d'Orta">
-  <meta property="og:description" content="Une cascade cachée avec un bassin naturel pour le bain froid, à quelques minutes de la Villa Volpe. La thérapie par le froid dans l'un des plus beaux décors d'Italie.">
+  <meta property="og:description" content="La Cascata della Qualba, près d'Orta San Giulio : une cascade cachée avec bassin naturel pour le bain froid, à quelques minutes de la Villa Volpe.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.villa-volpe.com/fr/blog/posts/cold-plunge-waterfall-lake-orta.html">
   <meta property="og:image" content="https://www.villa-volpe.com/images/blog/cascata-qualba-waterfall.jpg">
@@ -16,6 +16,10 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:locale:alternate" content="it_IT">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bain froid à la Cascata della Qualba : la cascade secrète du lac d'Orta">
+  <meta name="twitter:description" content="La Cascata della Qualba, près d'Orta San Giulio : une cascade cachée avec bassin naturel pour le bain froid, à quelques minutes de la Villa Volpe.">
+  <meta name="twitter:image" content="https://www.villa-volpe.com/images/blog/cascata-qualba-waterfall.jpg">
   <link rel="canonical" href="https://www.villa-volpe.com/fr/blog/posts/cold-plunge-waterfall-lake-orta.html">
   <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/cold-plunge-waterfall-lake-orta.html">
   <link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/cold-plunge-waterfall-lake-orta.html">
@@ -125,7 +129,7 @@
   </header>
 
   <!-- Hero Image -->
-  <div style="max-width:500px;margin:0 auto 2rem;border-radius:var(--radius);overflow:hidden;"><img src="../../../images/blog/cascata-qualba-waterfall.jpg" alt="Bain froid à la Cascata della Qualba près d'Orta San Giulio, baignade dans le bassin naturel sous la cascade" style="width:100%;display:block;" loading="lazy"></div>
+  <div style="max-width:500px;margin:0 auto 2rem;border-radius:var(--radius);overflow:hidden;"><img src="../../../images/blog/cascata-qualba-waterfall.jpg" alt="Bain froid à la Cascata della Qualba près d'Orta San Giulio, baignade dans le bassin naturel sous la cascade" style="width:100%;display:block;" loading="lazy" width="1200" height="1600"></div>
 
   <!-- Post Content -->
   <article class="post-content">
@@ -150,7 +154,7 @@
 
     <!-- Video -->
     <div style="max-width:400px;margin:2rem auto;border-radius:var(--radius);overflow:hidden;">
-      <video autoplay muted loop playsinline style="width:100%;display:block;">
+      <video poster="../../../images/blog/cascata-qualba-cold-plunge-poster.jpg" data-inview preload="none" muted loop playsinline style="width:100%;display:block;">
         <source src="../../../images/blog/cascata-qualba-cold-plunge.mp4" type="video/mp4">
       </video>
     </div>
@@ -211,5 +215,29 @@
 <script src="../../../footer.js"></script>
 
   <script src="../../../main.js"></script>
+  <!-- Play inline videos only while in view (lightweight, mobile-friendly) -->
+  <script>
+  (function(){
+    var vids = document.querySelectorAll('video[data-inview]');
+    if(!vids.length) return;
+    function load(v){
+      if(v.dataset.loaded) return;
+      v.dataset.loaded = '1';
+      v.setAttribute('preload','auto');
+      v.load();
+    }
+    if(!('IntersectionObserver' in window)){
+      vids.forEach(function(v){ load(v); v.play().catch(function(){}); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ load(e.target); e.target.play().catch(function(){}); }
+        else { e.target.pause(); }
+      });
+    }, { threshold: 0.25 });
+    vids.forEach(function(v){ io.observe(v); });
+  })();
+  </script>
 </body>
 </html>

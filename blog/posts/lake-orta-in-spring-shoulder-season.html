@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lake Orta in Spring: the Best Time to Visit — Villa Volpe</title>
-  <meta name="description" content="April and May are Lake Orta's best-kept secret. Mild weather, mirror-flat water, blooming gardens, empty trails, and lower prices. Here's why the shoulder season beats summer.">
+  <meta name="description" content="April and May are Lake Orta's best-kept secret: mild weather, mirror-flat water, blooming gardens, empty trails and lower prices than summer.">
   <meta name="keywords" content="Lake Orta spring, best time to visit Lake Orta, Lake Orta April, Lake Orta May, shoulder season Italian lakes, Lake Orta weather spring, quiet Italian lake, off season Lake Orta, Orta San Giulio spring, Lake Orta fewer crowds">
   <meta property="og:title" content="Lake Orta in Spring: Why the Shoulder Season Is the Best Time to Visit">
-  <meta property="og:description" content="April and May are Lake Orta's best-kept secret. Mirror-flat water, blooming gardens, and the village almost to yourself.">
+  <meta property="og:description" content="April and May are Lake Orta's best-kept secret: mild weather, mirror-flat water, blooming gardens, empty trails and lower prices than summer.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.villa-volpe.com/blog/posts/lake-orta-in-spring-shoulder-season.html">
   <meta property="og:image" content="https://www.villa-volpe.com/images/blog/lake-orta-april-shoulder-season-hero.jpg">
@@ -17,6 +17,10 @@
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:locale:alternate" content="it_IT">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lake Orta in Spring: Why the Shoulder Season Is the Best Time to Visit">
+  <meta name="twitter:description" content="April and May are Lake Orta's best-kept secret: mild weather, mirror-flat water, blooming gardens, empty trails and lower prices than summer.">
+  <meta name="twitter:image" content="https://www.villa-volpe.com/images/blog/lake-orta-april-shoulder-season-hero.jpg">
   <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-in-spring-shoulder-season.html">
   <link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-in-spring-shoulder-season.html">
   <link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-in-spring-shoulder-season.html">
@@ -125,7 +129,7 @@
   </header>
 
   <!-- Hero Image -->
-  <div style="max-width:900px;margin:0 auto 2rem;border-radius:var(--radius);overflow:hidden;"><img src="../../images/blog/lake-orta-april-shoulder-season-hero.jpg" alt="Lake Orta at dawn in April, mountains perfectly reflected in the glass-flat water" style="width:100%;display:block;" loading="lazy"></div>
+  <div style="max-width:900px;margin:0 auto 2rem;border-radius:var(--radius);overflow:hidden;"><img src="../../images/blog/lake-orta-april-shoulder-season-hero.jpg" alt="Lake Orta at dawn in April, mountains perfectly reflected in the glass-flat water" style="width:100%;display:block;" loading="lazy" width="1080" height="607"></div>
 
   <!-- Post Content -->
   <article class="post-content">
@@ -136,7 +140,7 @@
 
     <!-- Video -->
     <div style="max-width:400px;margin:2rem auto;border-radius:var(--radius);overflow:hidden;">
-      <video autoplay muted loop playsinline style="width:100%;display:block;">
+      <video poster="../../images/blog/lake-orta-april-dawn-poster.jpg" data-inview preload="none" muted loop playsinline style="width:100%;display:block;">
         <source src="../../images/blog/lake-orta-april-dawn.mp4" type="video/mp4">
       </video>
     </div>
@@ -219,5 +223,29 @@
 <script src="../../footer.js"></script>
 
   <script src="../../main.js"></script>
+  <!-- Play inline videos only while in view (lightweight, mobile-friendly) -->
+  <script>
+  (function(){
+    var vids = document.querySelectorAll('video[data-inview]');
+    if(!vids.length) return;
+    function load(v){
+      if(v.dataset.loaded) return;
+      v.dataset.loaded = '1';
+      v.setAttribute('preload','auto');
+      v.load();
+    }
+    if(!('IntersectionObserver' in window)){
+      vids.forEach(function(v){ load(v); v.play().catch(function(){}); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ load(e.target); e.target.play().catch(function(){}); }
+        else { e.target.pause(); }
+      });
+    }, { threshold: 0.25 });
+    vids.forEach(function(v){ io.observe(v); });
+  })();
+  </script>
 </body>
 </html>

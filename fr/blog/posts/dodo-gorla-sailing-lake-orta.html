@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dodo Gorla et l'âme voile du lac d'Orta — Villa Volpe Blog</title>
-  <meta name="description" content="Comment un garçon d'Orta San Giulio est devenu l'un des plus grands marins que l'Italie ait jamais connus. L'histoire de Dodo Gorla — deux médailles olympiques, un titre de champion du monde en Star et le petit lac qui l'a façonné.">
+  <meta name="description" content="Comment un garçon d'Orta San Giulio est devenu l'un des plus grands marins d'Italie : deux médailles olympiques, un titre mondial et un petit lac.">
   <meta name="keywords" content="Dodo Gorla, Giorgio Gorla, sailing Lake Orta, Circolo Vela Orta, Star class Olympic medals, Italian sailing champion, Orta San Giulio sailing, Moscow 1980 Los Angeles 1984, sailing history Italy">
   <meta property="og:title" content="Dodo Gorla et l'âme voile du lac d'Orta">
-  <meta property="og:description" content="Deux médailles olympiques, un championnat du monde et un lac de la taille d'une pièce de monnaie. L'histoire du plus grand marin du lac d'Orta.">
+  <meta property="og:description" content="Comment un garçon d'Orta San Giulio est devenu l'un des plus grands marins d'Italie : deux médailles olympiques, un titre mondial et un petit lac.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.villa-volpe.com/fr/blog/posts/dodo-gorla-sailing-lake-orta.html">
   <meta property="og:image" content="https://www.villa-volpe.com/images/blog/dodo-gorla-sailing-hero.jpg">
@@ -16,6 +16,10 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:locale:alternate" content="it_IT">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dodo Gorla et l'âme voile du lac d'Orta">
+  <meta name="twitter:description" content="Comment un garçon d'Orta San Giulio est devenu l'un des plus grands marins d'Italie : deux médailles olympiques, un titre mondial et un petit lac.">
+  <meta name="twitter:image" content="https://www.villa-volpe.com/images/blog/dodo-gorla-sailing-hero.jpg">
   <link rel="canonical" href="https://www.villa-volpe.com/fr/blog/posts/dodo-gorla-sailing-lake-orta.html">
   <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/dodo-gorla-sailing-lake-orta.html">
   <link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/dodo-gorla-sailing-lake-orta.html">
@@ -126,7 +130,7 @@
 
   <!-- Hero Video -->
   <div style="max-width:900px;margin:0 auto 2rem;border-radius:var(--radius);overflow:hidden;">
-    <video autoplay muted loop playsinline style="width:100%;display:block;">
+    <video poster="../../../images/blog/dodo-gorla-sailing-lake-orta-poster.jpg" data-inview preload="none" muted loop playsinline style="width:100%;display:block;">
       <source src="../../../images/blog/dodo-gorla-sailing-lake-orta.mp4" type="video/mp4">
     </video>
   </div>
@@ -222,5 +226,29 @@
 <script src="../../../footer.js"></script>
 
   <script src="../../../main.js"></script>
+  <!-- Play inline videos only while in view (lightweight, mobile-friendly) -->
+  <script>
+  (function(){
+    var vids = document.querySelectorAll('video[data-inview]');
+    if(!vids.length) return;
+    function load(v){
+      if(v.dataset.loaded) return;
+      v.dataset.loaded = '1';
+      v.setAttribute('preload','auto');
+      v.load();
+    }
+    if(!('IntersectionObserver' in window)){
+      vids.forEach(function(v){ load(v); v.play().catch(function(){}); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ load(e.target); e.target.play().catch(function(){}); }
+        else { e.target.pause(); }
+      });
+    }, { threshold: 0.25 });
+    vids.forEach(function(v){ io.observe(v); });
+  })();
+  </script>
 </body>
 </html>

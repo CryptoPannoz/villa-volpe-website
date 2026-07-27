@@ -15,6 +15,10 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="de_DE">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Villa Volpe — Casa vacanze sul Lago d'Orta">
+  <meta name="twitter:description" content="Tutto quello che ti serve, sulla sponda soleggiata del Lago d'Orta.">
+  <meta name="twitter:image" content="https://www.villa-volpe.com/images/villa-volpe-hero-new.jpg">
   <link rel="canonical" href="https://www.villa-volpe.com/it/">
   <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/">
   <link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/">
@@ -24,6 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="../images/hero-drone-poster.jpg" fetchpriority="high">
   <link rel="stylesheet" href="../style.css">
   <!-- Leaflet CSS viene caricato on-demand allo scroll (vedi script in fondo) -->
   <script type="application/ld+json">
@@ -136,9 +141,9 @@
   <section class="hero hero--video" id="hero">
     <div class="hero__bg">
       <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto"
-             poster="../images/hero-drone-poster.jpg">
+             poster="../images/hero-drone-poster.jpg"
+         aria-label="Villa Volpe — vista sul Lago d'Orta">
         <source src="../images/hero-drone.mp4" type="video/mp4">
-        <img src="../images/villa-volpe-hero-new.jpg" alt="Villa Volpe — vista sul Lago d'Orta">
       </video>
     </div>
     <div class="hero__overlay"></div>
@@ -159,21 +164,21 @@
     <div class="container">
       <div class="features reveal-stagger" id="features">
         <div class="feature-card">
-          <div class="feature-card__img" style="width:100%;height:100%;"><img src="../images/uploads/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-opt.jpg" alt="Accesso al lago a Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="feature-card__img" style="width:100%;height:100%;"><img src="../images/uploads/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-opt.jpg" alt="Accesso al lago a Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="800" height="533"></div>
           <div class="feature-card__content">
             <h3 class="feature-card__title">In riva al lago</h3>
             <p class="feature-card__text">Dove la luce del mattino incontra l'acqua. La tua spiaggia privata, a pochi passi.</p>
           </div>
         </div>
         <div class="feature-card">
-         <div class="feature-card__img" style="width:100%;height:100%;"><img src="../images/uploads/villavolpeorta-exterior-terrace-sliding-doors-lake-view-opt.jpg" alt="Giardino di Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+         <div class="feature-card__img" style="width:100%;height:100%;"><img src="../images/uploads/villavolpeorta-exterior-terrace-sliding-doors-lake-view-opt.jpg" alt="Giardino di Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="800" height="533"></div>
           <div class="feature-card__content">
             <h3 class="feature-card__title">Giardino soleggiato</h3>
             <p class="feature-card__text">Uno spazio privato per leggere, riposare e guardare la luce che cambia sull'acqua.</p>
           </div>
         </div>
         <div class="feature-card">
-         <div class="feature-card__img" style="width:100%;height:100%;"><img src="../images/uploads/villavolpeorta-drone-aerial-garden-jacuzzi-chapel-opt.jpg" alt="Parcheggio privato a Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+         <div class="feature-card__img" style="width:100%;height:100%;"><img src="../images/uploads/villavolpeorta-drone-aerial-garden-jacuzzi-chapel-opt.jpg" alt="Parcheggio privato a Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="800" height="449"></div>
           <div class="feature-card__content">
             <h3 class="feature-card__title">Parcheggio privato</h3>
             <p class="feature-card__text">Forse il parcheggio più bello del mondo. Spazioso e proprio sopra la villa.</p>
@@ -216,7 +221,6 @@
          aria-label="Camera da letto di Villa Volpe con vista sul Lago d'Orta">
     <source src="../images/uploads/villavolpe-about-bedroom.webm" type="video/webm">
     <source src="../images/uploads/villavolpe-about-bedroom.mp4" type="video/mp4">
-    <img src="../images/uploads/camera zio.jpg" alt="Il Lago d'Orta visto dal letto di Villa Volpe" style="width:100%;height:100%;object-fit:cover;">
   </video>
         </div>
       </div>
@@ -232,12 +236,12 @@
         <h2>Esplora la villa</h2>
       </div>
       <div class="gallery reveal-stagger" id="gallery">
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview.jpg" alt="Open space con cucina e vista lago" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/5.villavolpeorta-interior-livingroom-kitchen-dining-lakeview.jpg" alt="Soggiorno e cucina con vista lago" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/6.villavolpeorta-interior-livingroom-dining-sofa-entrance.jpg" alt="Soggiorno con zona pranzo e ingresso" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom.jpg" alt="Camera principale con letto king-size" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide.jpg" alt="Seconda camera con letto king-size" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/3.villavolpeorta-interior-bathroom-walkinshower-accessible.jpg" alt="Bagno accessibile con doccia a filo pavimento" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview.jpg" alt="Open space con cucina e vista lago" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/5.villavolpeorta-interior-livingroom-kitchen-dining-lakeview.jpg" alt="Soggiorno e cucina con vista lago" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/6.villavolpeorta-interior-livingroom-dining-sofa-entrance.jpg" alt="Soggiorno con zona pranzo e ingresso" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom.jpg" alt="Camera principale con letto king-size" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide.jpg" alt="Seconda camera con letto king-size" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><img src="../images/uploads/3.villavolpeorta-interior-bathroom-walkinshower-accessible.jpg" alt="Bagno accessibile con doccia a filo pavimento" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></div>
       </div>
       <div style="text-align:center;margin-top:2.5rem;">
         <a href="discover.html" class="btn btn--ghost">Scopri di più</a>

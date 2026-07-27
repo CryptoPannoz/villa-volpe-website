@@ -20,6 +20,10 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="it_IT">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Baden am Ortasee: die schönsten Strände und Badeplätze">
+  <meta name="twitter:description" content="Freie und ausgestattete Ortasee-Strände von Omegna bis Gozzano, Wassertemperaturen Monat für Monat und Tipps für Familien und Hunde.">
+  <meta name="twitter:image" content="https://www.villa-volpe.com/images/gallery/villavolpeorta-drone-aerial-overview-lakefront-wide.jpg">
   <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/beaches-lake-orta.html">
   <link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/beaches-lake-orta.html">
   <link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/beaches-lake-orta.html">
@@ -119,7 +123,7 @@
   </header>
 
   <div style="max-width:900px;margin:0 auto 2rem;border-radius:var(--radius);overflow:hidden;">
-    <video autoplay muted loop playsinline style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
+    <video poster="../../../images/blog/beaches-lake-orta-poster.jpg" data-inview preload="none" muted loop playsinline style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
       <source src="../../../images/blog/beaches-lake-orta.mp4" type="video/mp4">
     </video>
   </div>
@@ -146,7 +150,7 @@
     <h2>Lido di Gozzano</h2>
     <p>Am Südende des Sees ist das Lido di Gozzano das, was am Ortasee einem klassischen Strandbad am nächsten kommt: Liegen und Sonnenschirme zum Mieten, eine Bar und ein Restaurant. Wenn Sie einen Strandtag mit Rundum-Service möchten, ohne zum Lago Maggiore zu fahren, sind Sie hier richtig.</p>
 
-    <figure><img src="../../../images/gallery/villavolpeorta-exterior-sunloungers-sunset-lake-reflection.jpg" alt="Sonnenliegen bei Sonnenuntergang am Ufer des Ortasees" loading="lazy"><figcaption>Abendlicht über dem See — das Wasser hält seine Wärme bis weit in den September</figcaption></figure>
+    <figure><img src="../../../images/gallery/villavolpeorta-exterior-sunloungers-sunset-lake-reflection.jpg" alt="Sonnenliegen bei Sonnenuntergang am Ufer des Ortasees" loading="lazy" width="1600" height="1067"><figcaption>Abendlicht über dem See — das Wasser hält seine Wärme bis weit in den September</figcaption></figure>
 
     <h2>Wassertemperatur am Ortasee: Monat für Monat</h2>
     <p>Der Ortasee ist ein Alpensee, aber ein gnädiger. Als Richtwerte: Im Mai ist das Wasser mit etwa 15–17&nbsp;°C noch frisch, im Juni steigt die Wassertemperatur auf badetaugliche 19–21&nbsp;°C, Juli und August sind mit 22–24&nbsp;°C die beste Zeit zum Baden am Ortasee, und im September hält sich der See oft noch bei 19–20&nbsp;°C — einige der schönsten Badetage des Jahres, ganz ohne Trubel. Von Oktober bis April gehört der See nur noch den <a href="cold-plunge-waterfall-lake-orta.html">Kaltbade-Enthusiasten</a>.</p>
@@ -178,5 +182,29 @@
 <script src="../../../footer.js"></script>
 
   <script src="../../../main.js"></script>
+  <!-- Play inline videos only while in view (lightweight, mobile-friendly) -->
+  <script>
+  (function(){
+    var vids = document.querySelectorAll('video[data-inview]');
+    if(!vids.length) return;
+    function load(v){
+      if(v.dataset.loaded) return;
+      v.dataset.loaded = '1';
+      v.setAttribute('preload','auto');
+      v.load();
+    }
+    if(!('IntersectionObserver' in window)){
+      vids.forEach(function(v){ load(v); v.play().catch(function(){}); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ load(e.target); e.target.play().catch(function(){}); }
+        else { e.target.pause(); }
+      });
+    }, { threshold: 0.25 });
+    vids.forEach(function(v){ io.observe(v); });
+  })();
+  </script>
 </body>
 </html>

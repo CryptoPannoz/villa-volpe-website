@@ -5,1052 +5,948 @@
   <!-- Pagine principali (EN / FR / DE) -->
   <url>
     <loc>https://www.villa-volpe.com/</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
 
   <!-- Cosa fare sul Lago d'Orta (EN / FR / DE / IT) -->
   <url>
     <loc>https://www.villa-volpe.com/things-to-do-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/things-to-do-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/things-to-do-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/things-to-do-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/things-to-do-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/things-to-do-lake-orta.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/things-to-do-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/things-to-do-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/things-to-do-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/things-to-do-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/things-to-do-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/things-to-do-lake-orta.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/things-to-do-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/things-to-do-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/things-to-do-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/things-to-do-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/things-to-do-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/things-to-do-lake-orta.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/things-to-do-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/things-to-do-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/things-to-do-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/things-to-do-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/things-to-do-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/things-to-do-lake-orta.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.villa-volpe.com/discover.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/discover.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/discover.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/discover.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/discover.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/discover.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/discover.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/discover.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/discover.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/discover.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/discover.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/discover.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/discover.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/discover.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/discover.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/discover.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/discover.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/discover.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/discover.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/discover.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/discover.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/discover.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/discover.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/discover.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/story.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/story.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/story.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/story.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/story.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/story.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/story.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/story.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/story.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/story.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/story.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/story.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/story.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/story.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/story.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/story.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/story.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/story.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/story.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/story.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/story.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/story.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/story.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/story.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/book.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/book.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/book.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/book.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/book.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/book.html"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/book.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/book.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/book.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/book.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/book.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/book.html"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/book.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/book.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/book.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/book.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/book.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/book.html"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/book.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/book.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/book.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/book.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/book.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/book.html"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/faqs.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/faqs.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/faqs.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/faqs.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/faqs.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/faqs.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/faqs.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/faqs.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/faqs.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/faqs.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/faqs.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/faqs.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/faqs.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/faqs.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/faqs.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/faqs.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/faqs.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/faqs.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/faqs.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/faqs.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/faqs.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/faqs.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/faqs.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/faqs.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/accessibility.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/accessibility.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/accessibility.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/accessibility.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/accessibility.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/accessibility.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/accessibility.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/accessibility.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/accessibility.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/accessibility.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/accessibility.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/accessibility.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/accessibility.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/accessibility.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/accessibility.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/accessibility.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/accessibility.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/accessibility.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/accessibility.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/accessibility.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/accessibility.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/accessibility.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/accessibility.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/accessibility.html"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
   <!-- Blog: indice (EN / FR / DE) -->
   <url>
     <loc>https://www.villa-volpe.com/blog.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog.html"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog.html"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog.html"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog.html"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <!-- Blog: articoli (EN / FR / DE) -->
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/dodo-gorla-sailing-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/dodo-gorla-sailing-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/dodo-gorla-sailing-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/dodo-gorla-sailing-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/dodo-gorla-sailing-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/cold-plunge-waterfall-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/cold-plunge-waterfall-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/cold-plunge-waterfall-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/cold-plunge-waterfall-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/cold-plunge-waterfall-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/lake-orta-in-spring-shoulder-season.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/lake-orta-in-spring-shoulder-season.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/lake-orta-in-spring-shoulder-season.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/lake-orta-in-spring-shoulder-season.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-orta-in-spring-shoulder-season.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/wakeboarding-wakesurfing-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/wakeboarding-wakesurfing-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/wakeboarding-wakesurfing-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/wakeboarding-wakesurfing-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/wakeboarding-wakesurfing-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/lake-orta-the-miracle-of-liming.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-the-miracle-of-liming.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-the-miracle-of-liming.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-the-miracle-of-liming.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-orta-the-miracle-of-liming.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-orta-the-miracle-of-liming.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/lake-orta-the-miracle-of-liming.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-the-miracle-of-liming.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-the-miracle-of-liming.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-the-miracle-of-liming.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-orta-the-miracle-of-liming.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-orta-the-miracle-of-liming.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/lake-orta-the-miracle-of-liming.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-the-miracle-of-liming.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-the-miracle-of-liming.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-the-miracle-of-liming.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-orta-the-miracle-of-liming.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-orta-the-miracle-of-liming.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/lake-orta-the-miracle-of-liming.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-the-miracle-of-liming.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-the-miracle-of-liming.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-the-miracle-of-liming.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-orta-the-miracle-of-liming.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-orta-the-miracle-of-liming.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/lake-orta-italys-quiet-gem.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-italys-quiet-gem.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-italys-quiet-gem.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-italys-quiet-gem.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-orta-italys-quiet-gem.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-orta-italys-quiet-gem.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/lake-orta-italys-quiet-gem.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-italys-quiet-gem.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-italys-quiet-gem.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-italys-quiet-gem.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-orta-italys-quiet-gem.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-orta-italys-quiet-gem.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/lake-orta-italys-quiet-gem.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-italys-quiet-gem.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-italys-quiet-gem.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-italys-quiet-gem.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-orta-italys-quiet-gem.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-orta-italys-quiet-gem.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/lake-orta-italys-quiet-gem.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-italys-quiet-gem.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-italys-quiet-gem.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-italys-quiet-gem.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-orta-italys-quiet-gem.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-orta-italys-quiet-gem.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/wheelchair-friendly-guide-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/wheelchair-friendly-guide-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/wheelchair-friendly-guide-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/wheelchair-friendly-guide-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/wheelchair-friendly-guide-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/swimming-in-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/swimming-in-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/swimming-in-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/swimming-in-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/swimming-in-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/swimming-in-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/swimming-in-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/swimming-in-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/swimming-in-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/swimming-in-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/swimming-in-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/swimming-in-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/swimming-in-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/swimming-in-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/swimming-in-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/swimming-in-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/swimming-in-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/swimming-in-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/swimming-in-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/swimming-in-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/swimming-in-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/swimming-in-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/swimming-in-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/swimming-in-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/baron-lamberto-san-giulio-island.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/baron-lamberto-san-giulio-island.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/baron-lamberto-san-giulio-island.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/baron-lamberto-san-giulio-island.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/baron-lamberto-san-giulio-island.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/baron-lamberto-san-giulio-island.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/baron-lamberto-san-giulio-island.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/baron-lamberto-san-giulio-island.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/baron-lamberto-san-giulio-island.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/baron-lamberto-san-giulio-island.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/baron-lamberto-san-giulio-island.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/baron-lamberto-san-giulio-island.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/baron-lamberto-san-giulio-island.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/baron-lamberto-san-giulio-island.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/baron-lamberto-san-giulio-island.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/baron-lamberto-san-giulio-island.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/baron-lamberto-san-giulio-island.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/baron-lamberto-san-giulio-island.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/baron-lamberto-san-giulio-island.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/baron-lamberto-san-giulio-island.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/baron-lamberto-san-giulio-island.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/baron-lamberto-san-giulio-island.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/baron-lamberto-san-giulio-island.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/baron-lamberto-san-giulio-island.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/villa-crespi-michelin-experience.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/villa-crespi-michelin-experience.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/villa-crespi-michelin-experience.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/villa-crespi-michelin-experience.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/villa-crespi-michelin-experience.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/villa-crespi-michelin-experience.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/villa-crespi-michelin-experience.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/villa-crespi-michelin-experience.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/villa-crespi-michelin-experience.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/villa-crespi-michelin-experience.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/villa-crespi-michelin-experience.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/villa-crespi-michelin-experience.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/villa-crespi-michelin-experience.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/villa-crespi-michelin-experience.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/villa-crespi-michelin-experience.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/villa-crespi-michelin-experience.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/villa-crespi-michelin-experience.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/villa-crespi-michelin-experience.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/villa-crespi-michelin-experience.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/villa-crespi-michelin-experience.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/villa-crespi-michelin-experience.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/villa-crespi-michelin-experience.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/villa-crespi-michelin-experience.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/villa-crespi-michelin-experience.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/outdoor-activities-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/outdoor-activities-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/outdoor-activities-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/outdoor-activities-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/outdoor-activities-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/outdoor-activities-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/outdoor-activities-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/outdoor-activities-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/outdoor-activities-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/outdoor-activities-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/outdoor-activities-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/outdoor-activities-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/outdoor-activities-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/outdoor-activities-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/outdoor-activities-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/outdoor-activities-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/outdoor-activities-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/outdoor-activities-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/outdoor-activities-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/outdoor-activities-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/outdoor-activities-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/outdoor-activities-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/outdoor-activities-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/outdoor-activities-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/legend-of-san-giulio.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/legend-of-san-giulio.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/legend-of-san-giulio.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/legend-of-san-giulio.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/legend-of-san-giulio.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/legend-of-san-giulio.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/legend-of-san-giulio.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/legend-of-san-giulio.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/legend-of-san-giulio.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/legend-of-san-giulio.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/legend-of-san-giulio.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/legend-of-san-giulio.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/legend-of-san-giulio.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/legend-of-san-giulio.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/legend-of-san-giulio.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/legend-of-san-giulio.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/legend-of-san-giulio.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/legend-of-san-giulio.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/legend-of-san-giulio.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/legend-of-san-giulio.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/legend-of-san-giulio.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/legend-of-san-giulio.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/legend-of-san-giulio.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/legend-of-san-giulio.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/lake-maggiore-vs-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-maggiore-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-maggiore-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-maggiore-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-maggiore-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-maggiore-vs-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/lake-maggiore-vs-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-maggiore-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-maggiore-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-maggiore-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-maggiore-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-maggiore-vs-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/lake-maggiore-vs-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-maggiore-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-maggiore-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-maggiore-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-maggiore-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-maggiore-vs-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/lake-maggiore-vs-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-maggiore-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-maggiore-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-maggiore-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-maggiore-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-maggiore-vs-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/lake-garda-vs-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-garda-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-garda-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-garda-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-garda-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-garda-vs-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/lake-garda-vs-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-garda-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-garda-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-garda-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-garda-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-garda-vs-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/lake-garda-vs-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-garda-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-garda-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-garda-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-garda-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-garda-vs-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/lake-garda-vs-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-garda-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-garda-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-garda-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-garda-vs-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-garda-vs-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/spring-summer-events-lake-orta-2026.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/spring-summer-events-lake-orta-2026.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/spring-summer-events-lake-orta-2026.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/spring-summer-events-lake-orta-2026.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/spring-summer-events-lake-orta-2026.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/spring-summer-events-lake-orta-2026.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/spring-summer-events-lake-orta-2026.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/spring-summer-events-lake-orta-2026.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/spring-summer-events-lake-orta-2026.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/spring-summer-events-lake-orta-2026.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/spring-summer-events-lake-orta-2026.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/spring-summer-events-lake-orta-2026.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/spring-summer-events-lake-orta-2026.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/spring-summer-events-lake-orta-2026.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/spring-summer-events-lake-orta-2026.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/spring-summer-events-lake-orta-2026.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/spring-summer-events-lake-orta-2026.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/spring-summer-events-lake-orta-2026.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/spring-summer-events-lake-orta-2026.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/spring-summer-events-lake-orta-2026.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/spring-summer-events-lake-orta-2026.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/spring-summer-events-lake-orta-2026.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/spring-summer-events-lake-orta-2026.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/spring-summer-events-lake-orta-2026.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
 
 
   <!-- Nuovi articoli (giugno-luglio 2026) -->
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/beaches-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/beaches-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/beaches-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/beaches-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/beaches-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/beaches-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/beaches-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/beaches-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/beaches-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/beaches-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/beaches-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/beaches-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/beaches-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/beaches-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/beaches-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/beaches-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/beaches-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/beaches-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/beaches-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/beaches-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/beaches-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/beaches-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/beaches-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/beaches-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/dog-friendly-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/dog-friendly-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/dog-friendly-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/dog-friendly-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/dog-friendly-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/dog-friendly-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/dog-friendly-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/dog-friendly-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/dog-friendly-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/dog-friendly-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/dog-friendly-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/dog-friendly-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/dog-friendly-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/dog-friendly-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/dog-friendly-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/dog-friendly-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/dog-friendly-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/dog-friendly-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/dog-friendly-lake-orta.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/dog-friendly-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/dog-friendly-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/dog-friendly-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/dog-friendly-lake-orta.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/dog-friendly-lake-orta.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/blog/posts/lake-orta-with-kids-family-guide.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-with-kids-family-guide.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-with-kids-family-guide.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-with-kids-family-guide.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-orta-with-kids-family-guide.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-orta-with-kids-family-guide.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/fr/blog/posts/lake-orta-with-kids-family-guide.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-with-kids-family-guide.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-with-kids-family-guide.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-with-kids-family-guide.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-orta-with-kids-family-guide.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-orta-with-kids-family-guide.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/de/blog/posts/lake-orta-with-kids-family-guide.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-with-kids-family-guide.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-with-kids-family-guide.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-with-kids-family-guide.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-orta-with-kids-family-guide.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-orta-with-kids-family-guide.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.villa-volpe.com/it/blog/posts/lake-orta-with-kids-family-guide.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/lake-orta-with-kids-family-guide.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/lake-orta-with-kids-family-guide.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-with-kids-family-guide.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/lake-orta-with-kids-family-guide.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/lake-orta-with-kids-family-guide.html"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
   </url>
 </urlset>

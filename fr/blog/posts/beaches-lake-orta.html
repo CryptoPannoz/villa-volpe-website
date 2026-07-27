@@ -20,6 +20,10 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:locale:alternate" content="it_IT">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Les plus belles plages du lac d'Orta : où se baigner">
+  <meta name="twitter:description" content="Plages libres et aménagées d'Omegna à Gozzano, température de l'eau mois par mois, conseils pour les familles et les chiens.">
+  <meta name="twitter:image" content="https://www.villa-volpe.com/images/gallery/villavolpeorta-drone-aerial-overview-lakefront-wide.jpg">
   <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/beaches-lake-orta.html">
   <link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/beaches-lake-orta.html">
   <link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/beaches-lake-orta.html">
@@ -119,7 +123,7 @@
   </header>
 
   <div style="max-width:900px;margin:0 auto 2rem;border-radius:var(--radius);overflow:hidden;">
-    <video autoplay muted loop playsinline style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
+    <video poster="../../../images/blog/beaches-lake-orta-poster.jpg" data-inview preload="none" muted loop playsinline style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
       <source src="../../../images/blog/beaches-lake-orta.mp4" type="video/mp4">
     </video>
   </div>
@@ -146,7 +150,7 @@
     <h2>Lido di Gozzano</h2>
     <p>À l'extrémité sud du lac, le Lido di Gozzano est ce qu'Orta offre de plus proche d'un établissement balnéaire classique : transats et parasols à louer, un bar et un restaurant. Si vous voulez une journée de plage tout confort sans conduire jusqu'au lac Majeur, c'est ici.</p>
 
-    <figure><img src="../../../images/gallery/villavolpeorta-exterior-sunloungers-sunset-lake-reflection.jpg" alt="Transats au coucher du soleil sur la rive du lac d'Orta" loading="lazy"><figcaption>Lumière du soir sur le lac — l'eau garde sa chaleur jusque tard en septembre</figcaption></figure>
+    <figure><img src="../../../images/gallery/villavolpeorta-exterior-sunloungers-sunset-lake-reflection.jpg" alt="Transats au coucher du soleil sur la rive du lac d'Orta" loading="lazy" width="1600" height="1067"><figcaption>Lumière du soir sur le lac — l'eau garde sa chaleur jusque tard en septembre</figcaption></figure>
 
     <h2>Température de l'eau, mois par mois</h2>
     <p>Le lac d'Orta est un lac alpin, mais un lac clément. À titre indicatif : en mai, l'eau est encore fraîche, autour de 15–17&nbsp;°C ; en juin, elle monte à 19–21&nbsp;°C, de quoi nager volontiers ; juillet et août sont la période idéale, à 22–24&nbsp;°C ; et septembre reste souvent autour de 19–20&nbsp;°C — parmi les plus belles baignades de l'année, sans la foule. D'octobre à avril, le lac est réservé aux <a href="cold-plunge-waterfall-lake-orta.html">adeptes du bain froid</a>.</p>
@@ -178,5 +182,29 @@
 <script src="../../../footer.js"></script>
 
   <script src="../../../main.js"></script>
+  <!-- Play inline videos only while in view (lightweight, mobile-friendly) -->
+  <script>
+  (function(){
+    var vids = document.querySelectorAll('video[data-inview]');
+    if(!vids.length) return;
+    function load(v){
+      if(v.dataset.loaded) return;
+      v.dataset.loaded = '1';
+      v.setAttribute('preload','auto');
+      v.load();
+    }
+    if(!('IntersectionObserver' in window)){
+      vids.forEach(function(v){ load(v); v.play().catch(function(){}); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ load(e.target); e.target.play().catch(function(){}); }
+        else { e.target.pause(); }
+      });
+    }, { threshold: 0.25 });
+    vids.forEach(function(v){ io.observe(v); });
+  })();
+  </script>
 </body>
 </html>

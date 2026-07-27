@@ -16,6 +16,10 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="de_DE">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cold Plunge alla Cascata: Bagno Ghiacciato al Lago d'Orta">
+  <meta name="twitter:description" content="Una cascata nascosta con una pozza naturale per il bagno ghiacciato, a pochi minuti da Villa Volpe. La terapia del freddo in uno degli angoli più belli d'Italia.">
+  <meta name="twitter:image" content="https://www.villa-volpe.com/images/blog/cascata-qualba-waterfall.jpg">
   <link rel="canonical" href="https://www.villa-volpe.com/it/blog/posts/cold-plunge-waterfall-lake-orta.html">
   <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/cold-plunge-waterfall-lake-orta.html">
   <link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/blog/posts/cold-plunge-waterfall-lake-orta.html">
@@ -125,7 +129,7 @@
   </header>
 
   <!-- Hero Image -->
-  <div style="max-width:500px;margin:0 auto 2rem;border-radius:var(--radius);overflow:hidden;"><img src="../../../images/blog/cascata-qualba-waterfall.jpg" alt="Cold plunge alla Cascata della Qualba vicino a Orta San Giulio, bagno nella pozza naturale sotto la cascata" style="width:100%;display:block;" loading="lazy"></div>
+  <div style="max-width:500px;margin:0 auto 2rem;border-radius:var(--radius);overflow:hidden;"><img src="../../../images/blog/cascata-qualba-waterfall.jpg" alt="Cold plunge alla Cascata della Qualba vicino a Orta San Giulio, bagno nella pozza naturale sotto la cascata" style="width:100%;display:block;" loading="lazy" width="1200" height="1600"></div>
 
   <!-- Post Content -->
   <article class="post-content">
@@ -150,7 +154,7 @@
 
     <!-- Video -->
     <div style="max-width:400px;margin:2rem auto;border-radius:var(--radius);overflow:hidden;">
-      <video autoplay muted loop playsinline style="width:100%;display:block;">
+      <video poster="../../../images/blog/cascata-qualba-cold-plunge-poster.jpg" data-inview preload="none" muted loop playsinline style="width:100%;display:block;">
         <source src="../../../images/blog/cascata-qualba-cold-plunge.mp4" type="video/mp4">
       </video>
     </div>
@@ -211,5 +215,29 @@
 <script src="../../../footer.js"></script>
 
   <script src="../../../main.js"></script>
+  <!-- Play inline videos only while in view (lightweight, mobile-friendly) -->
+  <script>
+  (function(){
+    var vids = document.querySelectorAll('video[data-inview]');
+    if(!vids.length) return;
+    function load(v){
+      if(v.dataset.loaded) return;
+      v.dataset.loaded = '1';
+      v.setAttribute('preload','auto');
+      v.load();
+    }
+    if(!('IntersectionObserver' in window)){
+      vids.forEach(function(v){ load(v); v.play().catch(function(){}); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ load(e.target); e.target.play().catch(function(){}); }
+        else { e.target.pause(); }
+      });
+    }, { threshold: 0.25 });
+    vids.forEach(function(v){ io.observe(v); });
+  })();
+  </script>
 </body>
 </html>
