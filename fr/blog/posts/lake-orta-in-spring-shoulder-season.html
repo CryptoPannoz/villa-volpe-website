@@ -76,6 +76,59 @@
   ]
 }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "@id": "https://www.villa-volpe.com/#business",
+    "name": "Villa Volpe",
+    "description": "La Villa Volpe est une maison de vacances design sur la rive ensoleillée du lac d'Orta : plage privée, accessible en fauteuil roulant, à trois mètres de l'eau.",
+    "url": "https://www.villa-volpe.com/",
+    "image": "https://www.villa-volpe.com/images/villa-volpe-hero-new.jpg",
+    "email": "villavolpeorta@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Novara 38",
+      "addressLocality": "Orta San Giulio",
+      "postalCode": "28016",
+      "addressRegion": "Piémont",
+      "addressCountry": "IT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 45.7903779,
+      "longitude": 8.4188104
+    },
+    "petsAllowed": true,
+    "amenityFeature": [
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Plage privée",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Bord du lac",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Accessible en fauteuil roulant",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Animaux acceptés",
+        "value": true
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/villavolpe/",
+      "https://www.facebook.com/villavolpe/",
+      "https://airbnb.com/rooms/16759665"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -129,7 +182,7 @@
   </header>
 
   <!-- Hero Image -->
-  <div style="max-width:900px;margin:0 auto 2rem;border-radius:var(--radius);overflow:hidden;"><img src="../../../images/blog/lake-orta-april-shoulder-season-hero.jpg" alt="Le lac d'Orta à l'aube en avril, les montagnes parfaitement reflétées dans l'eau lisse comme un miroir" style="width:100%;display:block;" loading="lazy" width="1080" height="607"></div>
+  <div style="max-width:900px;margin:0 auto 2rem;border-radius:var(--radius);overflow:hidden;"><picture><source srcset="../../../images/blog/lake-orta-april-shoulder-season-hero.avif" type="image/avif"><img src="../../../images/blog/lake-orta-april-shoulder-season-hero.jpg" alt="Le lac d'Orta à l'aube en avril, les montagnes parfaitement reflétées dans l'eau lisse comme un miroir" style="width:100%;display:block;" loading="lazy" width="1080" height="607"></picture></div>
 
   <!-- Post Content -->
   <article class="post-content">

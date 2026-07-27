@@ -76,6 +76,59 @@
   ]
 }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "@id": "https://www.villa-volpe.com/#business",
+    "name": "Villa Volpe",
+    "description": "Villa Volpe è una casa vacanze di design sulla riva soleggiata del Lago d'Orta: spiaggia privata, piena accessibilità in carrozzina, a tre metri dall'acqua.",
+    "url": "https://www.villa-volpe.com/",
+    "image": "https://www.villa-volpe.com/images/villa-volpe-hero-new.jpg",
+    "email": "villavolpeorta@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Novara 38",
+      "addressLocality": "Orta San Giulio",
+      "postalCode": "28016",
+      "addressRegion": "Piemonte",
+      "addressCountry": "IT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 45.7903779,
+      "longitude": 8.4188104
+    },
+    "petsAllowed": true,
+    "amenityFeature": [
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Spiaggia privata",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Fronte lago",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Accessibile in carrozzina",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Animali ammessi",
+        "value": true
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/villavolpe/",
+      "https://www.facebook.com/villavolpe/",
+      "https://airbnb.com/rooms/16759665"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -129,7 +182,7 @@
   </header>
 
   <!-- Hero Image -->
-  <div style="max-width:500px;margin:0 auto 2rem;border-radius:var(--radius);overflow:hidden;"><img src="../../../images/blog/cascata-qualba-waterfall.jpg" alt="Cold plunge alla Cascata della Qualba vicino a Orta San Giulio, bagno nella pozza naturale sotto la cascata" style="width:100%;display:block;" loading="lazy" width="1200" height="1600"></div>
+  <div style="max-width:500px;margin:0 auto 2rem;border-radius:var(--radius);overflow:hidden;"><picture><source srcset="../../../images/blog/cascata-qualba-waterfall.avif" type="image/avif"><img src="../../../images/blog/cascata-qualba-waterfall.jpg" alt="Cold plunge alla Cascata della Qualba vicino a Orta San Giulio, bagno nella pozza naturale sotto la cascata" style="width:100%;display:block;" loading="lazy" width="1200" height="1600"></picture></div>
 
   <!-- Post Content -->
   <article class="post-content">

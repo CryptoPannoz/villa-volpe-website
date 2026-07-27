@@ -154,6 +154,12 @@ img {
   display: block;
 }
 
+/* <picture> avvolge le <img> per servire AVIF con fallback JPG:
+   display:contents evita che il wrapper crei un box e alteri il layout. */
+picture {
+  display: contents;
+}
+
 a {
   color: inherit;
   text-decoration: none;

@@ -72,6 +72,59 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "@id": "https://www.villa-volpe.com/#business",
+    "name": "Villa Volpe",
+    "description": "Villa Volpe is a design holiday home on the sunny shore of Lake Orta: private beach, fully wheelchair accessible, three metres from the water.",
+    "url": "https://www.villa-volpe.com/",
+    "image": "https://www.villa-volpe.com/images/villa-volpe-hero-new.jpg",
+    "email": "villavolpeorta@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Novara 38",
+      "addressLocality": "Orta San Giulio",
+      "postalCode": "28016",
+      "addressRegion": "Piedmont",
+      "addressCountry": "IT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 45.7903779,
+      "longitude": 8.4188104
+    },
+    "petsAllowed": true,
+    "amenityFeature": [
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Private beach",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Lakefront",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Wheelchair accessible",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Pet friendly",
+        "value": true
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/villavolpe/",
+      "https://www.facebook.com/villavolpe/",
+      "https://airbnb.com/rooms/16759665"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -138,7 +191,7 @@
           </p>
         </div>
         <div class="two-col__img" style="aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;">
-          <img src="images/gallery/accessibility.jpg" alt="Villa Volpe — wheelchair accessible ramp and entrance" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="1067">
+          <picture><source srcset="images/gallery/accessibility.avif" type="image/avif"><img src="images/gallery/accessibility.jpg" alt="Villa Volpe — wheelchair accessible ramp and entrance" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="1067"></picture>
         </div>
       </div>
     </div>
@@ -209,10 +262,10 @@
       </div>
       <div class="mosaic--duo reveal">
         <div class="mosaic__thumb">
-          <img src="images/gallery/villavolpeorta-interior-bathroom.jpg" alt="Accessible bathroom overview" loading="lazy" width="1600" height="1067">
+          <picture><source srcset="images/gallery/villavolpeorta-interior-bathroom.avif" type="image/avif"><img src="images/gallery/villavolpeorta-interior-bathroom.jpg" alt="Accessible bathroom overview" loading="lazy" width="1600" height="1067"></picture>
         </div>
         <div class="mosaic__thumb">
-          <img src="images/gallery/villavolpeorta-interior-bathroom-walk-in-shower-sink.jpg" alt="Walk-in shower with grab handles and movable seat" loading="lazy" width="1600" height="1067">
+          <picture><source srcset="images/gallery/villavolpeorta-interior-bathroom-walk-in-shower-sink.avif" type="image/avif"><img src="images/gallery/villavolpeorta-interior-bathroom-walk-in-shower-sink.jpg" alt="Walk-in shower with grab handles and movable seat" loading="lazy" width="1600" height="1067"></picture>
         </div>
       </div>
     </div>
