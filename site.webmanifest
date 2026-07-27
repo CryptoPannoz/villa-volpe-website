@@ -1,0 +1,14 @@
+{
+  "name": "Villa Volpe — Lake Orta",
+  "short_name": "Villa Volpe",
+  "description": "Design holiday home on the sunny shore of Lake Orta: private beach, fully wheelchair accessible, three metres from the water.",
+  "icons": [
+    { "src": "/favicon-96x96.png", "sizes": "96x96", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/web-app-manifest-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#8B7355",
+  "background_color": "#FAFAF8",
+  "display": "standalone",
+  "start_url": "/"
+}
