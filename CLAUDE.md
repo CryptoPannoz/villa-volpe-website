@@ -7,6 +7,7 @@ Sito di villa-volpe.com.
 - **Foto/video:** auto-ospitati nel repo in `images/` (`images/uploads/`, `images/blog/`). Nessun CDN esterno.
 - **Sitemap: non si modifica a mano.** La genera `tools/build-sitemap.py`, che gira dentro `deploy.yml` a ogni push e prende `<lastmod>` dall'ultimo commit di ogni file. Include tutte le `.html` tranne gli stub `<meta http-equiv="refresh">`, le pagine `noindex` e la lista `EXCLUDE` nello script; gli hreflang li legge dal `<head>` della pagina stessa. In locale: `python3 tools/build-sitemap.py` (oppure `--check`, che esce 1 se e' da rigenerare). Il checkout in CI usa `fetch-depth: 0` perche' altrimenti `git log` vedrebbe un solo commit.
   - Per rilanciare a Google **non esiste piu' il ping**: `google.com/ping?sitemap=` risponde 404 dal 2023-24, e l'Indexing API e' riservata a `JobPosting`/`BroadcastEvent`. L'unica leva vera e' il `lastmod` corretto; la sitemap e' dichiarata in `robots.txt` e registrata in Search Console.
+- **IndexNow:** `tools/indexnow.py`, lanciato da `deploy.yml` dopo il deploy, notifica le pagine cambiate a Bing/Yandex/Naver/Seznam/Yep (**Google non aderisce**). Manda solo URL presenti in `sitemap.xml`, quindi le esclusioni valgono in automatico. La chiave e' il file `<chiave>.txt` nella root: **non e' un segreto**, il protocollo pretende che sia pubblico — non spostarlo e non rinominarlo o le notifiche tornano 403.
 - **Clasp:** no (script in villa-volpe-scripts).
 ---
 *Workspace multi-progetto — vedi `PROJECTS.md` nella radice. GitHub: gh=CryptoPannoz. 🔒 Niente credenziali nei file.*

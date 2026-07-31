@@ -42,3 +42,22 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Avvisa Bing, Yandex, Naver, Seznam e Yep delle pagine cambiate.
+      # Google non aderisce a IndexNow: per lui contano sitemap e <lastmod>.
+      # Gira dopo il deploy, altrimenti i motori leggono la versione vecchia.
+      # continue-on-error: una notifica fallita non deve far fallire il deploy.
+      - name: Notifica IndexNow
+        if: github.event_name == 'push'
+        continue-on-error: true
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            RANGE="HEAD~1..HEAD"   # primo push del branch o force-push
+          else
+            RANGE="$BEFORE..$AFTER"
+          fi
+          echo "range: $RANGE"
+          python3 tools/indexnow.py --range "$RANGE"
