@@ -47,7 +47,21 @@ def token():
     except ImportError:
         sys.exit("!! manca google-auth — installa con: pip install google-auth")
     creds = service_account.Credentials.from_service_account_info(info, scopes=[SCOPE])
-    creds.refresh(Request())
+    try:
+        creds.refresh(Request())
+    except Exception as e:
+        msg = str(e)
+        if "Invalid JWT Signature" in msg or "invalid_grant" in msg:
+            sys.exit(
+                "!! Google rifiuta la chiave (invalid_grant / Invalid JWT Signature).\n"
+                f"   La chiave nel JSON ha id {info.get('private_key_id', '?')[:12]}…\n"
+                "   Vuol dire che quella chiave non esiste piu' sull'account di servizio:\n"
+                "   quasi sempre e' stata cancellata dopo essere finita qui dentro.\n"
+                "   Rimedio: Google Cloud -> IAM -> Account di servizio -> Chiavi ->\n"
+                "   crea una chiave nuova e usa QUELLA, senza cancellarla prima di\n"
+                "   averla verificata con --dry-run."
+            )
+        sys.exit(f"!! autenticazione fallita: {msg}")
     print(f"autenticato come {info.get('client_email')}")
     return creds.token
 
