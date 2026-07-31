@@ -77,5 +77,7 @@ jobs:
             echo "secret GSC_SERVICE_ACCOUNT_JSON non configurato: salto"
             exit 0
           fi
-          pip install --quiet google-auth
+          # [requests] non e' opzionale: google.auth.transport.requests ne ha
+          # bisogno. Sul runner requests c'e' gia', ma non ci si puo' contare.
+          pip install --quiet "google-auth[requests]"
           python3 tools/gsc-submit-sitemap.py

@@ -44,8 +44,10 @@ def token():
     try:
         from google.oauth2 import service_account
         from google.auth.transport.requests import Request
-    except ImportError:
-        sys.exit("!! manca google-auth — installa con: pip install google-auth")
+    except ImportError as e:
+        # google-auth da solo non basta: il transport vuole anche requests.
+        sys.exit(f"!! dipendenza mancante ({e.name}) — installa con:\n"
+                 f"   pip3 install --user 'google-auth[requests]'")
     creds = service_account.Credentials.from_service_account_info(info, scopes=[SCOPE])
     try:
         creds.refresh(Request())
