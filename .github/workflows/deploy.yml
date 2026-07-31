@@ -23,6 +23,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # storia completa: build-sitemap.py legge <lastmod> da `git log`,
+          # con il checkout shallow di default vedrebbe un solo commit
+          fetch-depth: 0
+
+      - name: Rigenera sitemap.xml
+        run: python3 tools/build-sitemap.py
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
