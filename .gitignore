@@ -1,0 +1,21 @@
+.DS_Store
+netlify.toml
+admin/
+CMS_IMPLEMENTATION.md
+QUICK_START.md
+DEPLOY-GUIDE.md
+
+# Credenziali — non devono MAI finire nel repo.
+# Le chiavi degli account di servizio Google si scaricano col nome
+# <progetto>-<idchiave>.json: basta un "git add ." distratto nella cartella
+# sbagliata. Il posto giusto e' un secret di GitHub Actions.
+*-service-account*.json
+*serviceaccount*.json
+villa-volpe-*-*.json
+client_secret*.json
+credentials.json
+.clasprc.json
+*.pem
+*.key
+.env
+.env.*

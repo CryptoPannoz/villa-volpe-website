@@ -61,3 +61,20 @@ jobs:
           fi
           echo "range: $RANGE"
           python3 tools/indexnow.py --range "$RANGE"
+
+      # Reinvia la sitemap a Search Console. Non forza una scansione: e' il
+      # pulsante "Invia" della UI, niente di piu'. La leva vera resta il
+      # <lastmod> corretto che scrive build-sitemap.py.
+      # Salta da solo finche' il secret non e' configurato.
+      - name: Reinvia sitemap a Search Console
+        if: github.event_name == 'push'
+        continue-on-error: true
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$GSC_SERVICE_ACCOUNT_JSON" ]; then
+            echo "secret GSC_SERVICE_ACCOUNT_JSON non configurato: salto"
+            exit 0
+          fi
+          pip install --quiet google-auth
+          python3 tools/gsc-submit-sitemap.py
