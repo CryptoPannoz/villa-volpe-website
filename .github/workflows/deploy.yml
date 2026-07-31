@@ -66,8 +66,9 @@ jobs:
       # pulsante "Invia" della UI, niente di piu'. La leva vera resta il
       # <lastmod> corretto che scrive build-sitemap.py.
       # Salta da solo finche' il secret non e' configurato.
+      # Gira anche su avvio manuale: non dipende da un range git, quindi e'
+      # utile poterlo rilanciare a mano senza fabbricare un commit.
       - name: Reinvia sitemap a Search Console
-        if: github.event_name == 'push'
         continue-on-error: true
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
