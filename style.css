@@ -540,6 +540,8 @@ p {
 }
 .hero--video .hero__video {
   object-position: center center;
+  will-change: transform;
+  transform-origin: center 30%;
 }
 /* Cool staggered entrance: label/subtitle/actions rise + fade */
 .hero--video .hero__content > * {

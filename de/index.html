@@ -34,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="../images/hero-drone-poster.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="../images/hero-villa-2026-poster.jpg" fetchpriority="high">
   <link rel="stylesheet" href="../style.css">
   <!-- Leaflet CSS viene caricato on-demand allo scroll (vedi script in fondo) -->
   <script type="application/ld+json">
@@ -214,10 +214,17 @@
   <section class="hero hero--video" id="hero">
     <div class="hero__bg">
       <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto"
-             poster="../images/hero-drone-poster.jpg"
-         aria-label="Villa Volpe — Blick auf den Ortasee">
-        <source src="../images/hero-drone.mp4" type="video/mp4">
+             poster="../images/hero-villa-2026-poster.jpg"
+             data-src="../images/hero-villa-2026.mp4"
+             data-src-mobile="../images/hero-villa-2026-mobile.mp4"
+             aria-label="Villa Volpe — Blick auf den Ortasee">
       </video>
+      <script>
+      (function(){
+        var v = document.getElementById('heroVideo');
+        if(v) v.src = v.getAttribute(window.matchMedia('(max-width: 768px)').matches ? 'data-src-mobile' : 'data-src');
+      })();
+      </script>
     </div>
     <div class="hero__overlay"></div>
     <div class="hero__content">
@@ -408,6 +415,21 @@
       new IntersectionObserver(function(es){
         if(es[0].isIntersecting) tryPlay(); else { try{ v.pause(); }catch(e){} }
       }, { threshold: 0.05 }).observe(v);
+    }
+    /* Scroll parallax: il video sale più lentamente dello scroll + zoom leggero */
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      var hero = document.getElementById('hero'), ticking = false;
+      function parallax(){
+        ticking = false;
+        var y = window.scrollY || window.pageYOffset;
+        var h = hero ? hero.offsetHeight : window.innerHeight;
+        if(y > h){ return; }
+        var t = Math.min(y / h, 1);
+        v.style.transform = 'translateY(' + (y * 0.35).toFixed(1) + 'px) scale(' + (1 + t * 0.12).toFixed(4) + ')';
+      }
+      window.addEventListener('scroll', function(){
+        if(!ticking){ ticking = true; requestAnimationFrame(parallax); }
+      }, { passive: true });
     }
   })();
   </script>
