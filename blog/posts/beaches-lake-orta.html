@@ -12,9 +12,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Best Beaches on Lake Orta: Where to Swim | Villa Volpe</title>
   <meta name="description" content="A local's guide to Lake Orta's beaches: free and equipped spots from Omegna to Gozzano, water temperatures month by month, and tips for families.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Font self-hosted (vedi @font-face in style.css): il preload li fa
+       partire in parallelo al CSS invece che dopo averlo scaricato. -->
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
   <link rel="stylesheet" href="../../style.css">
   <link rel="canonical" href="https://www.villa-volpe.com/blog/posts/beaches-lake-orta.html">
   <meta property="og:title" content="The Best Beaches on Lake Orta: Where to Swim | Villa Volpe">
@@ -257,6 +258,9 @@
       if(v.dataset.loaded) return;
       v.dataset.loaded = '1';
       v.setAttribute('preload','auto');
+      /* Il play() sparato subito dopo load() viene rifiutato finche' non c'e'
+         dato da riprodurre, e nessuno lo ritentava: il video restava fermo. */
+      v.addEventListener('canplay', function(){ v.play().catch(function(){}); });
       v.load();
     }
     if(!('IntersectionObserver' in window)){

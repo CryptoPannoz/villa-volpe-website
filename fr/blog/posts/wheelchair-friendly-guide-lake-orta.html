@@ -25,9 +25,10 @@
   <meta name="twitter:title" content="Guide accessible en fauteuil roulant du lac d'Orta et de la Villa Volpe">
   <meta name="twitter:description" content="Le guide ultime du voyage accessible sur le lac d'Orta. La conception sans barrières de la Villa Volpe et des conseils pratiques pour explorer la région.">
   <meta name="twitter:image" content="https://www.villa-volpe.com/images/blog/wheelchair-guide.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Font self-hosted (vedi @font-face in style.css): il preload li fa
+       partire in parallelo al CSS invece che dopo averlo scaricato. -->
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
   <link rel="stylesheet" href="../../../style.css">
   <link rel="canonical" href="https://www.villa-volpe.com/fr/blog/posts/wheelchair-friendly-guide-lake-orta.html">
   <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/wheelchair-friendly-guide-lake-orta.html">

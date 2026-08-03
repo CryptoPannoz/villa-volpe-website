@@ -31,10 +31,10 @@
   <link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/">
   <link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/">
   <link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="images/hero-villa-2026-poster.jpg" fetchpriority="high">
+  <!-- Font self-hosted (vedi @font-face in style.css): il preload li fa
+       partire in parallelo al CSS invece che dopo averlo scaricato. -->
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <!-- Leaflet CSS viene caricato on-demand allo scroll (vedi script in fondo) -->
   <script type="application/ld+json">
@@ -210,21 +210,26 @@
     </div>
   </div>
 
-  <!-- Hero (autoplay video) -->
+  <!-- Hero (video caricato dopo il primo rendering) -->
   <section class="hero hero--video" id="hero">
     <div class="hero__bg">
-      <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto"
-             poster="images/hero-villa-2026-poster.jpg"
+      <!-- Il poster e' un vero elemento picture, non l'attributo poster= del
+           video: solo cosi' puo' essere AVIF/WebP con srcset responsive
+           (poster= accetta un URL solo). E' questo che dipinge per l'LCP. -->
+      <picture>
+        <source type="image/avif" sizes="100vw" srcset="images/hero-villa-2026-poster-640.avif 640w, images/hero-villa-2026-poster-768.avif 768w, images/hero-villa-2026-poster-960.avif 960w, images/hero-villa-2026-poster-1280.avif 1280w, images/hero-villa-2026-poster-1600.avif 1600w">
+        <source type="image/webp" sizes="100vw" srcset="images/hero-villa-2026-poster-640.webp 640w, images/hero-villa-2026-poster-768.webp 768w, images/hero-villa-2026-poster-960.webp 960w, images/hero-villa-2026-poster-1280.webp 1280w, images/hero-villa-2026-poster-1600.webp 1600w">
+        <img class="hero__poster" src="images/hero-villa-2026-poster-1280.jpg" alt="" width="1600" height="900"
+             fetchpriority="high" decoding="async">
+      </picture>
+      <!-- Il video pesa ~3 MB su mobile: con autoplay + preload="auto"
+           si prendeva tutta la banda del primo rendering. Ora non ha
+           src: glielo mette lo script in fondo alla pagina dopo il
+           load, e solo se la connessione se lo puo' permettere. -->
+      <video class="hero__video" id="heroVideo" muted loop playsinline preload="none"
              data-src="images/hero-villa-2026.mp4"
              data-src-mobile="images/hero-villa-2026-mobile.mp4"
-             aria-label="Villa Volpe — Lake Orta view">
-      </video>
-      <script>
-      (function(){
-        var v = document.getElementById('heroVideo');
-        if(v) v.src = v.getAttribute(window.matchMedia('(max-width: 768px)').matches ? 'data-src-mobile' : 'data-src');
-      })();
-      </script>
+             aria-label="Villa Volpe — Lake Orta view"></video>
     </div>
     <div class="hero__overlay"></div>
     <div class="hero__content">
@@ -244,21 +249,21 @@
     <div class="container">
       <div class="features reveal-stagger" id="features">
         <div class="feature-card">
-          <div class="feature-card__img" style="width:100%;height:100%;"><picture><source srcset="images/uploads/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-opt.avif" type="image/avif"><img src="images/uploads/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-opt.jpg" alt="Lake access at Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="800" height="533"></picture></div>
+          <div class="feature-card__img" style="width:100%;height:100%;"><picture><source type="image/avif" sizes="(max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) 45vw, 380px" srcset="images/uploads/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-opt-400.avif 400w, images/uploads/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-opt-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) 45vw, 380px" srcset="images/uploads/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-opt-400.webp 400w, images/uploads/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-opt-800.webp 800w"><img src="images/uploads/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-opt.jpg" alt="Lake access at Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="800" height="533"></picture></div>
           <div class="feature-card__content">
             <h3 class="feature-card__title" data-cms="features.0.title">By the Lake</h3>
             <p class="feature-card__text" data-cms="features.0.text">Where morning light meets water. Your private beach, just steps away.</p>
           </div>
         </div>
         <div class="feature-card">
-         <div class="feature-card__img" style="width:100%;height:100%;"><picture><source srcset="images/uploads/villavolpeorta-exterior-terrace-sliding-doors-lake-view-opt.avif" type="image/avif"><img src="images/uploads/villavolpeorta-exterior-terrace-sliding-doors-lake-view-opt.jpg" alt="Garden at Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="800" height="533"></picture></div>
+         <div class="feature-card__img" style="width:100%;height:100%;"><picture><source type="image/avif" sizes="(max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) 45vw, 380px" srcset="images/uploads/villavolpeorta-exterior-terrace-sliding-doors-lake-view-opt-400.avif 400w, images/uploads/villavolpeorta-exterior-terrace-sliding-doors-lake-view-opt-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) 45vw, 380px" srcset="images/uploads/villavolpeorta-exterior-terrace-sliding-doors-lake-view-opt-400.webp 400w, images/uploads/villavolpeorta-exterior-terrace-sliding-doors-lake-view-opt-800.webp 800w"><img src="images/uploads/villavolpeorta-exterior-terrace-sliding-doors-lake-view-opt.jpg" alt="Garden at Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="800" height="533"></picture></div>
           <div class="feature-card__content">
             <h3 class="feature-card__title" data-cms="features.1.title">Sunlit Garden</h3>
             <p class="feature-card__text" data-cms="features.1.text">A private space for reading, resting, and watching the light change over the water.</p>
           </div>
         </div>
         <div class="feature-card">
-         <div class="feature-card__img" style="width:100%;height:100%;"><picture><source srcset="images/uploads/villavolpeorta-drone-aerial-garden-jacuzzi-chapel-opt.avif" type="image/avif"><img src="images/uploads/villavolpeorta-drone-aerial-garden-jacuzzi-chapel-opt.jpg" alt="Private Parking at Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="800" height="449"></picture></div>
+         <div class="feature-card__img" style="width:100%;height:100%;"><picture><source type="image/avif" sizes="(max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) 45vw, 380px" srcset="images/uploads/villavolpeorta-drone-aerial-garden-jacuzzi-chapel-opt-400.avif 400w, images/uploads/villavolpeorta-drone-aerial-garden-jacuzzi-chapel-opt-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) 45vw, 380px" srcset="images/uploads/villavolpeorta-drone-aerial-garden-jacuzzi-chapel-opt-400.webp 400w, images/uploads/villavolpeorta-drone-aerial-garden-jacuzzi-chapel-opt-800.webp 800w"><img src="images/uploads/villavolpeorta-drone-aerial-garden-jacuzzi-chapel-opt.jpg" alt="Private Parking at Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="800" height="449"></picture></div>
           <div class="feature-card__content">
             <h3 class="feature-card__title" data-cms="features.2.title">Private Parking</h3>
             <p class="feature-card__text" data-cms="features.2.text">Perhaps the coolest parking spot in the world. Spacious and right above the villa.</p>
@@ -294,14 +299,19 @@
           </div>
           <a href="discover.html" class="btn btn--ghost" style="margin-top:2rem;">Explore the Villa</a>
         </div>
-       <div class="two-col__img" style="aspect-ratio:4/5;">
-  <video class="two-col__video" data-inview muted loop playsinline preload="metadata"
-         poster="images/uploads/villavolpe-about-bedroom-poster.jpg"
-         style="width:100%;height:100%;object-fit:cover;display:block;"
-         aria-label="Villa Volpe bedroom with Lake Orta view">
-    <source src="images/uploads/villavolpe-about-bedroom.webm" type="video/webm">
-    <source src="images/uploads/villavolpe-about-bedroom.mp4" type="video/mp4">
-  </video>
+       <div class="two-col__img two-col__img--media" style="aspect-ratio:4/5;">
+        <picture>
+          <source type="image/avif" sizes="(max-width: 900px) 100vw, 45vw" srcset="images/uploads/villavolpe-about-bedroom-poster-400.avif 400w, images/uploads/villavolpe-about-bedroom-poster-768.avif 768w">
+          <source type="image/webp" sizes="(max-width: 900px) 100vw, 45vw" srcset="images/uploads/villavolpe-about-bedroom-poster-400.webp 400w, images/uploads/villavolpe-about-bedroom-poster-768.webp 768w">
+          <img src="images/uploads/villavolpe-about-bedroom-poster.jpg" alt="" width="768" height="960" loading="lazy" decoding="async">
+        </picture>
+        <!-- preload="none": il video parte solo quando la sezione entra
+             in vista (vedi lo script video[data-inview] in fondo). -->
+        <video class="two-col__video" data-inview muted loop playsinline preload="none"
+               aria-label="Villa Volpe bedroom with Lake Orta view">
+          <source src="images/uploads/villavolpe-about-bedroom.webm" type="video/webm">
+          <source src="images/uploads/villavolpe-about-bedroom.mp4" type="video/mp4">
+        </video>
         </div>
       </div>
     </div>
@@ -318,12 +328,12 @@
       <div class="gallery reveal-stagger" id="gallery" data-cms-gallery="gallery">
         <!-- Gallery items are populated by content-loader.js from JSON -->
         <!-- Fallback if no gallery items in JSON -->
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><picture><source srcset="images/uploads/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview.avif" type="image/avif"><img src="images/uploads/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview.jpg" alt="Open space kitchen with lake view" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></picture></div>
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><picture><source srcset="images/uploads/5.villavolpeorta-interior-livingroom-kitchen-dining-lakeview.avif" type="image/avif"><img src="images/uploads/5.villavolpeorta-interior-livingroom-kitchen-dining-lakeview.jpg" alt="Living room and kitchen with lake view" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></picture></div>
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><picture><source srcset="images/uploads/6.villavolpeorta-interior-livingroom-dining-sofa-entrance.avif" type="image/avif"><img src="images/uploads/6.villavolpeorta-interior-livingroom-dining-sofa-entrance.jpg" alt="Living room dining area and entrance" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></picture></div>
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><picture><source srcset="images/uploads/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom.avif" type="image/avif"><img src="images/uploads/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom.jpg" alt="Master bedroom with king bed" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></picture></div>
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><picture><source srcset="images/uploads/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide.avif" type="image/avif"><img src="images/uploads/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide.jpg" alt="Second bedroom with king bed" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></picture></div>
-        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><picture><source srcset="images/uploads/3.villavolpeorta-interior-bathroom-walkinshower-accessible.avif" type="image/avif"><img src="images/uploads/3.villavolpeorta-interior-bathroom-walkinshower-accessible.jpg" alt="Accessible walk-in shower bathroom" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></picture></div>      
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><picture><source type="image/avif" sizes="(max-width: 768px) 50vw, (max-width: 1240px) 33vw, 400px" srcset="images/uploads/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview-400.avif 400w, images/uploads/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview-800.avif 800w, images/uploads/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview-1200.avif 1200w"><source type="image/webp" sizes="(max-width: 768px) 50vw, (max-width: 1240px) 33vw, 400px" srcset="images/uploads/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview-400.webp 400w, images/uploads/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview-800.webp 800w, images/uploads/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview-1200.webp 1200w"><img src="images/uploads/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview.jpg" alt="Open space kitchen with lake view" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></picture></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><picture><source type="image/avif" sizes="(max-width: 768px) 50vw, (max-width: 1240px) 33vw, 400px" srcset="images/uploads/5.villavolpeorta-interior-livingroom-kitchen-dining-lakeview-400.avif 400w, images/uploads/5.villavolpeorta-interior-livingroom-kitchen-dining-lakeview-800.avif 800w, images/uploads/5.villavolpeorta-interior-livingroom-kitchen-dining-lakeview-1200.avif 1200w"><source type="image/webp" sizes="(max-width: 768px) 50vw, (max-width: 1240px) 33vw, 400px" srcset="images/uploads/5.villavolpeorta-interior-livingroom-kitchen-dining-lakeview-400.webp 400w, images/uploads/5.villavolpeorta-interior-livingroom-kitchen-dining-lakeview-800.webp 800w, images/uploads/5.villavolpeorta-interior-livingroom-kitchen-dining-lakeview-1200.webp 1200w"><img src="images/uploads/5.villavolpeorta-interior-livingroom-kitchen-dining-lakeview.jpg" alt="Living room and kitchen with lake view" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></picture></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><picture><source type="image/avif" sizes="(max-width: 768px) 50vw, (max-width: 1240px) 33vw, 400px" srcset="images/uploads/6.villavolpeorta-interior-livingroom-dining-sofa-entrance-400.avif 400w, images/uploads/6.villavolpeorta-interior-livingroom-dining-sofa-entrance-800.avif 800w, images/uploads/6.villavolpeorta-interior-livingroom-dining-sofa-entrance-1200.avif 1200w"><source type="image/webp" sizes="(max-width: 768px) 50vw, (max-width: 1240px) 33vw, 400px" srcset="images/uploads/6.villavolpeorta-interior-livingroom-dining-sofa-entrance-400.webp 400w, images/uploads/6.villavolpeorta-interior-livingroom-dining-sofa-entrance-800.webp 800w, images/uploads/6.villavolpeorta-interior-livingroom-dining-sofa-entrance-1200.webp 1200w"><img src="images/uploads/6.villavolpeorta-interior-livingroom-dining-sofa-entrance.jpg" alt="Living room dining area and entrance" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></picture></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><picture><source type="image/avif" sizes="(max-width: 768px) 50vw, (max-width: 1240px) 33vw, 400px" srcset="images/uploads/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom-400.avif 400w, images/uploads/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom-800.avif 800w, images/uploads/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom-1200.avif 1200w"><source type="image/webp" sizes="(max-width: 768px) 50vw, (max-width: 1240px) 33vw, 400px" srcset="images/uploads/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom-400.webp 400w, images/uploads/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom-800.webp 800w, images/uploads/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom-1200.webp 1200w"><img src="images/uploads/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom.jpg" alt="Master bedroom with king bed" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></picture></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><picture><source type="image/avif" sizes="(max-width: 768px) 50vw, (max-width: 1240px) 33vw, 400px" srcset="images/uploads/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide-400.avif 400w, images/uploads/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide-800.avif 800w, images/uploads/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide-1200.avif 1200w"><source type="image/webp" sizes="(max-width: 768px) 50vw, (max-width: 1240px) 33vw, 400px" srcset="images/uploads/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide-400.webp 400w, images/uploads/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide-800.webp 800w, images/uploads/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide-1200.webp 1200w"><img src="images/uploads/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide.jpg" alt="Second bedroom with king bed" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></picture></div>
+        <div class="gallery__item" style="aspect-ratio:4/3;overflow:hidden;"><picture><source type="image/avif" sizes="(max-width: 768px) 50vw, (max-width: 1240px) 33vw, 400px" srcset="images/uploads/3.villavolpeorta-interior-bathroom-walkinshower-accessible-400.avif 400w, images/uploads/3.villavolpeorta-interior-bathroom-walkinshower-accessible-800.avif 800w, images/uploads/3.villavolpeorta-interior-bathroom-walkinshower-accessible-1200.avif 1200w"><source type="image/webp" sizes="(max-width: 768px) 50vw, (max-width: 1240px) 33vw, 400px" srcset="images/uploads/3.villavolpeorta-interior-bathroom-walkinshower-accessible-400.webp 400w, images/uploads/3.villavolpeorta-interior-bathroom-walkinshower-accessible-800.webp 800w, images/uploads/3.villavolpeorta-interior-bathroom-walkinshower-accessible-1200.webp 1200w"><img src="images/uploads/3.villavolpeorta-interior-bathroom-walkinshower-accessible.jpg" alt="Accessible walk-in shower bathroom" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="2048" height="1365"></picture></div>      
       </div>
       <div style="text-align:center;margin-top:2.5rem;">
         <a href="discover.html" class="btn btn--ghost">Discover More</a>
@@ -407,20 +417,52 @@
   </div>
 
   <script src="main.js"></script>
-  <!-- Hero video: force autoplay (mobile) + pause when offscreen (battery friendly) + scroll parallax -->
+  <!-- Hero video: caricato dopo il load, messo in pausa fuori schermo, parallax -->
   <script>
   (function(){
     var v = document.getElementById('heroVideo');
     if(!v) return;
+    var bg = document.querySelector('.hero__bg') || v;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     function tryPlay(){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
-    if(v.readyState >= 2) tryPlay(); else v.addEventListener('loadeddata', tryPlay);
+
+    /* Carica il video solo a pagina caricata: prima di allora i suoi ~3 MB
+       competerebbero con l'immagine e i font per la banda, ritardando l'LCP.
+       Su connessioni lente o con Risparmio dati resta il poster e basta. */
+    function loadVideo(){
+      var c = navigator.connection || {};
+      if(c.saveData) return;
+      if(/(^|-)2g$/.test(c.effectiveType || '')) return;
+      if(reduce) return;
+      /* Il play() subito dopo load() viene rifiutato finche' non c'e' dato:
+         va ritentato a 'canplay', altrimenti il video resta fermo. */
+      v.addEventListener('canplay', function(){
+        v.classList.add('hero__video--ready');
+        tryPlay();
+      });
+      v.src = v.getAttribute(window.matchMedia('(max-width: 768px)').matches ? 'data-src-mobile' : 'data-src');
+      v.load();
+      tryPlay();
+    }
+    function schedule(){
+      if(window.requestIdleCallback) requestIdleCallback(loadVideo, { timeout: 2500 });
+      else setTimeout(loadVideo, 300);
+    }
+    if(document.readyState === 'complete') schedule();
+    else window.addEventListener('load', schedule);
+
+    /* Pausa fuori schermo: batteria. Non fa partire nulla se il src non c'e'. */
     if('IntersectionObserver' in window){
       new IntersectionObserver(function(es){
+        if(!v.src) return;
         if(es[0].isIntersecting) tryPlay(); else { try{ v.pause(); }catch(e){} }
       }, { threshold: 0.05 }).observe(v);
     }
-    /* Scroll parallax: il video sale più lentamente dello scroll + zoom leggero */
-    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    /* Scroll parallax: lo sfondo sale piu' lentamente dello scroll + zoom
+       leggero. Si applica a .hero__bg (poster + video insieme), non al solo
+       video, altrimenti finche' il video non e' pronto il poster resta fermo. */
+    if(!reduce){
       var hero = document.getElementById('hero'), ticking = false;
       function parallax(){
         ticking = false;
@@ -428,7 +470,7 @@
         var h = hero ? hero.offsetHeight : window.innerHeight;
         if(y > h){ return; }
         var t = Math.min(y / h, 1);
-        v.style.transform = 'translateY(' + (y * 0.35).toFixed(1) + 'px) scale(' + (1 + t * 0.12).toFixed(4) + ')';
+        bg.style.transform = 'translateY(' + (y * 0.35).toFixed(1) + 'px) scale(' + (1 + t * 0.12).toFixed(4) + ')';
       }
       window.addEventListener('scroll', function(){
         if(!ticking){ ticking = true; requestAnimationFrame(parallax); }
@@ -447,8 +489,18 @@
     }
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if(e.isIntersecting){ e.target.play().catch(function(){}); }
-        else { e.target.pause(); }
+        var v = e.target;
+        if(e.isIntersecting){
+          v.classList.add('is-ready');
+          /* Con preload="none" il primo play() viene rifiutato finche' non c'e'
+             dato da riprodurre: va ritentato a 'canplay', una volta sola. */
+          if(!v.dataset.playRetry){
+            v.dataset.playRetry = '1';
+            v.addEventListener('canplay', function(){ v.play().catch(function(){}); });
+          }
+          v.play().catch(function(){});
+        }
+        else { v.pause(); }
       });
     }, { threshold: 0.25 });
     vids.forEach(function(v){ io.observe(v); });
@@ -561,7 +613,7 @@
 
     // Touch/swipe support
     let startX = 0;
-    lbImg.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; });
+    lbImg.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
     lbImg.addEventListener('touchend', function(e) {
       const diff = startX - e.changedTouches[0].clientX;
       if (Math.abs(diff) > 50) diff > 0 ? next() : prev();

@@ -25,9 +25,10 @@
   <meta name="twitter:title" content="Sacro Monte d'Orta : guide UNESCO — Villa Volpe">
   <meta name="twitter:description" content="Vingt chapelles à fresques dans le bois au-dessus d'Orta San Giulio, au patrimoine UNESCO depuis 2003. Que voir, horaires, la montée et pourquoi l'entrée est libre.">
   <meta name="twitter:image" content="https://www.villa-volpe.com/images/blog/sacro-monte-orta-hero.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Font self-hosted (vedi @font-face in style.css): il preload li fa
+       partire in parallelo al CSS invece che dopo averlo scaricato. -->
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
   <link rel="stylesheet" href="../../../style.css">
   <link rel="canonical" href="https://www.villa-volpe.com/fr/blog/posts/sacro-monte-di-orta-unesco.html">
   <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/blog/posts/sacro-monte-di-orta-unesco.html">

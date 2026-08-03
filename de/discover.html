@@ -31,9 +31,10 @@
   <link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/discover.html">
   <link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/discover.html">
   <link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/discover.html">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Font self-hosted (vedi @font-face in style.css): il preload li fa
+       partire in parallelo al CSS invece che dopo averlo scaricato. -->
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
   <link rel="stylesheet" href="../style.css">
   <script type="application/ld+json">
   {
@@ -496,7 +497,7 @@
 
       // Touch/swipe support
       let startX = 0;
-      track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; });
+      track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
       track.addEventListener('touchend', function(e) {
         const diff = startX - e.changedTouches[0].clientX;
         if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));

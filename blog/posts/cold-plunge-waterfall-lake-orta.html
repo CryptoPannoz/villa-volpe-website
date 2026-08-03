@@ -32,9 +32,10 @@
   <link rel="alternate" hreflang="de" href="https://www.villa-volpe.com/de/blog/posts/cold-plunge-waterfall-lake-orta.html">
   <link rel="alternate" hreflang="it" href="https://www.villa-volpe.com/it/blog/posts/cold-plunge-waterfall-lake-orta.html">
   <link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/blog/posts/cold-plunge-waterfall-lake-orta.html">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Font self-hosted (vedi @font-face in style.css): il preload li fa
+       partire in parallelo al CSS invece che dopo averlo scaricato. -->
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
   <link rel="stylesheet" href="../../style.css">
   <script type="application/ld+json">
   {
@@ -290,6 +291,9 @@
       if(v.dataset.loaded) return;
       v.dataset.loaded = '1';
       v.setAttribute('preload','auto');
+      /* Il play() sparato subito dopo load() viene rifiutato finche' non c'e'
+         dato da riprodurre, e nessuno lo ritentava: il video restava fermo. */
+      v.addEventListener('canplay', function(){ v.play().catch(function(){}); });
       v.load();
     }
     if(!('IntersectionObserver' in window)){
