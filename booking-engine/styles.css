@@ -883,4 +883,8 @@ textarea { resize: vertical; min-height: 80px; }
   .progress-step .step-label { display: none; }
   .calendar-legend { gap: var(--spacing-sm); }
   .gap-chip { flex-direction: column; align-items: flex-start; gap: 2px; }
+  /* Il chip diventa una colonna: senza questo il badge "Offerta" finirebbe
+     in fondo, sotto le condizioni, dove non lo legge nessuno. In cima
+     funziona da etichetta della card. */
+  .gap-chip--promo { flex-direction: column-reverse; gap: 6px; }
 }
