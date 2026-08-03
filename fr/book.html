@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="has-promo">
 <head>
   <script defer src="../head.js"></script>
   <meta charset="UTF-8">
@@ -33,6 +33,7 @@
   <link rel="alternate" hreflang="x-default" href="https://www.villa-volpe.com/book.html">
   <!-- Font self-hosted (vedi @font-face in style.css): il preload li fa
        partire in parallelo al CSS invece che dopo averlo scaricato. -->
+  <script>if(Date.now()>=Date.parse('2026-10-01T00:00:00+02:00'))document.documentElement.classList.remove('has-promo');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
   <link rel="stylesheet" href="../style.css">
@@ -178,6 +179,12 @@
   </script>
 </head>
 <body>
+
+  <a class="promo-bar" href="book.html" aria-label="Offre octobre : 7 nuits &agrave; 1 540 euros">
+    <span class="promo-bar__tag">Offre</span>
+    <span class="promo-bar__text"><strong>7 nuits &agrave; 1&nbsp;540&nbsp;&euro;</strong><span class="promo-bar__dates"> &mdash; 11&ndash;18 ou 18&ndash;25 octobre</span></span>
+    <span class="promo-bar__cta">R&eacute;server &rarr;</span>
+  </a>
 
   <!-- Navigation -->
   <nav class="nav" id="nav">

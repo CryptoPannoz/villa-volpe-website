@@ -518,6 +518,76 @@ h3 {
   opacity: 0.8;
 }
 
+/* ---------- Offerta ottobre 2026 ---------- */
+/* Il chip dell'offerta usa l'accento del sito invece del verde
+   "disponibile": deve staccare dagli altri periodi, non confondersi. */
+.gap-chip--promo {
+  background-color: #F6F1E9;
+  border-color: var(--primary-color, #8B7355);
+  align-items: flex-start;
+  /* Su desktop book.html dispone i periodi in griglia (colonne da 200px):
+     il chip dell'offerta ha tre righe di testo e in una colonna stretta si
+     spappola, quindi si prende la riga intera. Sotto i 640px la lista torna
+     flex column e questa regola non ha effetto. */
+  grid-column: 1 / -1;
+}
+.gap-chip--promo:hover {
+  background-color: #EFE6D8;
+}
+.gap-chip__body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.gap-chip--promo .gap-dates,
+.gap-chip--promo .gap-nights {
+  color: var(--primary-hover, #6E5A42);
+}
+.gap-chip--promo .gap-nights {
+  opacity: 1;
+  font-weight: 600;
+}
+.gap-promo-terms {
+  font-size: 11px;
+  line-height: 1.35;
+  color: var(--text-secondary, #6B6B6B);
+}
+.gap-promo-tag {
+  flex-shrink: 0;
+  margin-left: var(--spacing-sm);
+  padding: 3px 8px;
+  border-radius: 2px;
+  background-color: var(--primary-hover, #6E5A42);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Blocco condizioni dell'offerta, in cima alla policy-section */
+.promo-policy {
+  margin-bottom: var(--spacing-lg, 24px);
+  padding: var(--spacing-md, 16px);
+  border: 1px solid var(--primary-color, #8B7355);
+  border-radius: var(--radius-md, 8px);
+  background-color: #F6F1E9;
+}
+.promo-policy h3 {
+  margin-top: 0;
+  color: var(--primary-hover, #6E5A42);
+}
+.promo-policy__intro {
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-sm, 12px);
+}
+.summary-row--promo strong {
+  color: var(--primary-hover, #6E5A42);
+}
+
 .no-gaps {
   text-align: center;
   color: var(--text-secondary);

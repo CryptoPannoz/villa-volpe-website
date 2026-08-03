@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="has-promo">
 <head>
   <script src="../../head.js"></script>
   <meta charset="UTF-8">
@@ -14,6 +14,7 @@
   <meta name="description" content="Lake Como is eight times bigger and draws 1.4 million visitors a year. An honest comparison with Lake Orta, including when Como is the better choice.">
   <!-- Font self-hosted (vedi @font-face in style.css): il preload li fa
        partire in parallelo al CSS invece che dopo averlo scaricato. -->
+  <script>if(Date.now()>=Date.parse('2026-10-01T00:00:00+02:00'))document.documentElement.classList.remove('has-promo');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
   <link rel="stylesheet" href="../../style.css">
@@ -146,6 +147,12 @@
   </script>
 </head>
 <body>
+
+  <a class="promo-bar" href="../../book.html" aria-label="October offer: 7 nights for 1,540 euro">
+    <span class="promo-bar__tag">Offer</span>
+    <span class="promo-bar__text"><strong>7 nights for &euro;1,540</strong><span class="promo-bar__dates"> &mdash; Oct 11&ndash;18 or Oct 18&ndash;25</span></span>
+    <span class="promo-bar__cta">Book now &rarr;</span>
+  </a>
 
   <!-- Navigation -->
   <nav class="nav" id="nav">

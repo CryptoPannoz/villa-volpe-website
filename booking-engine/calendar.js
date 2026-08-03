@@ -29,6 +29,83 @@ const BOOKING_CONFIG = {
 };
 
 
+// ── PROMO ───────────────────────────────────────────────────
+// Offerta ottobre 2026: due settimane a prezzo fisso, saldo immediato e
+// nessun rimborso. Sostituisce le condizioni standard (acconto 30% + saldo
+// 21 giorni prima) per queste sole date — vedi renderPromoPolicy().
+//
+// Per spegnerla: `active: false`, oppure lascia passare `expires`.
+// ⚠️ La stessa scadenza e' ripetuta nello snippet inline nell'<head> di ogni
+// pagina, quello che toglie la classe `has-promo` e nasconde la fascia in
+// cima al sito. Se cambi la data qui, cambiala anche li' (cerca `has-promo`).
+var PROMO = {
+  active: true,
+  expires: '2026-10-01T00:00:00+02:00',   // fine 30/09/2026, ora italiana
+  price: 1540,
+  weeks: [
+    { start: '2026-10-11', end: '2026-10-18' },
+    { start: '2026-10-18', end: '2026-10-25' }
+  ]
+};
+
+function promoIsRunning() {
+  return PROMO.active && Date.now() < Date.parse(PROMO.expires);
+}
+
+/** '2026-10-11' → Date locale a mezzanotte (evita lo shift UTC di new Date(str)) */
+function promoParseDate(iso) {
+  var p = iso.split('-');
+  return new Date(+p[0], +p[1] - 1, +p[2]);
+}
+
+/** Prezzo nel formato della lingua: €1,540 in EN, 1.540 € in IT/DE, 1 540 € in FR.
+ *  `useGrouping: 'always'` non e' un vezzo: in italiano e tedesco il CLDR non
+ *  raggruppa i numeri di quattro cifre, quindi verrebbe "1540 €" mentre la
+ *  fascia in cima al sito scrive "1.540 €". Due prezzi scritti diversi nella
+ *  stessa pagina sembrano due prezzi. */
+function promoPrice() {
+  try {
+    return new Intl.NumberFormat(BOOKING_LOCALE, {
+      style: 'currency', currency: 'EUR',
+      minimumFractionDigits: 0, maximumFractionDigits: 0,
+      useGrouping: 'always'
+    }).format(PROMO.price);
+  } catch (e) {
+    return PROMO.price.toLocaleString(BOOKING_LOCALE) + ' €';
+  }
+}
+
+/** La settimana promo che corrisponde esattamente alle date scelte, o null. */
+function promoWeekFor(checkIn, checkOut) {
+  if (!promoIsRunning() || !checkIn || !checkOut) return null;
+  for (var i = 0; i < PROMO.weeks.length; i++) {
+    var w = PROMO.weeks[i];
+    if (promoParseDate(w.start).toDateString() === checkIn.toDateString() &&
+        promoParseDate(w.end).toDateString() === checkOut.toDateString()) {
+      return w;
+    }
+  }
+  return null;
+}
+
+/** Settimane promo ancora future e con tutte le notti libere. */
+function promoBookableWeeks() {
+  if (!promoIsRunning()) return [];
+  var today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  return PROMO.weeks.filter(function(w) {
+    var start = promoParseDate(w.start);
+    var end = promoParseDate(w.end);
+    if (start < today) return false;
+    // Stesso criterio della selezione manuale: check-in libero e nessuna
+    // notte bloccata in mezzo (il giorno di check-out non conta, si libera
+    // la mattina).
+    return !isDateBlocked(start) && !hasBlockedDatesInRange(start, end);
+  });
+}
+
+
 // ── I18N (booking widget) ───────────────────────────────────
 var BOOKING_LANG = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
 if (['en', 'fr', 'de', 'it'].indexOf(BOOKING_LANG) === -1) BOOKING_LANG = 'en';
@@ -62,7 +139,21 @@ var I18N = {
     ariaAvailable: 'available',
     ariaCheckin: 'selected as check-in',
     ariaCheckout: 'selected as check-out',
-    ariaGapSelect: function(from, to) { return 'Select availability from ' + from + ' to ' + to; }
+    ariaGapSelect: function(from, to) { return 'Select availability from ' + from + ' to ' + to; },
+    promoTag: 'Offer',
+    promoNights: function(p) { return '7 nights · ' + p + ' all included'; },
+    promoTerms: 'Pay in full on booking · non-refundable',
+    promoSummaryLabel: 'Offer price',
+    promoSummaryValue: function(p) { return p + ' — all included'; },
+    promoPolicyTitle: 'October offer — terms',
+    promoPolicyIntro: 'For these dates the following terms apply instead of the standard payment and cancellation policy below.',
+    promoPolicyItems: function(p) { return [
+      '<strong>Price:</strong> ' + p + ' for 7 nights, cleaning and linen included',
+      '<strong>Payment:</strong> full amount due on booking, not a 30% deposit',
+      '<strong>Cancellation:</strong> non-refundable — no refund if you cancel or change dates',
+      '<strong>Tourist tax:</strong> €1.00 per night per guest, still payable on arrival'
+    ]; },
+    promoRequestNote: function(p) { return 'OCTOBER OFFER — ' + p + ' for 7 nights, all included. Pay in full on booking, non-refundable.'; }
   },
   fr: {
     noGaps: 'Aucune période disponible trouvée. Merci de nous contacter directement.',
@@ -91,7 +182,21 @@ var I18N = {
     ariaAvailable: 'disponible',
     ariaCheckin: 'sélectionné comme arrivée',
     ariaCheckout: 'sélectionné comme départ',
-    ariaGapSelect: function(from, to) { return 'Sélectionner la disponibilité du ' + from + ' au ' + to; }
+    ariaGapSelect: function(from, to) { return 'Sélectionner la disponibilité du ' + from + ' au ' + to; },
+    promoTag: 'Offre',
+    promoNights: function(p) { return '7 nuits · ' + p + ' tout compris'; },
+    promoTerms: 'Paiement intégral à la réservation · non remboursable',
+    promoSummaryLabel: 'Prix de l’offre',
+    promoSummaryValue: function(p) { return p + ' — tout compris'; },
+    promoPolicyTitle: 'Offre d’octobre — conditions',
+    promoPolicyIntro: 'Pour ces dates, les conditions suivantes remplacent la politique de paiement et d’annulation standard ci-dessous.',
+    promoPolicyItems: function(p) { return [
+      '<strong>Prix :</strong> ' + p + ' pour 7 nuits, ménage et linge inclus',
+      '<strong>Paiement :</strong> intégralité due à la réservation, et non un acompte de 30 %',
+      '<strong>Annulation :</strong> non remboursable — aucun remboursement en cas d’annulation ou de changement de dates',
+      '<strong>Taxe de séjour :</strong> 1,00 € par nuit et par personne, à régler sur place'
+    ]; },
+    promoRequestNote: function(p) { return 'OFFRE OCTOBRE — ' + p + ' pour 7 nuits, tout compris. Paiement intégral à la réservation, non remboursable.'; }
   },
   de: {
     noGaps: 'Keine verfügbaren Zeiträume gefunden. Bitte kontaktieren Sie uns direkt.',
@@ -120,7 +225,21 @@ var I18N = {
     ariaAvailable: 'verfügbar',
     ariaCheckin: 'als Anreise ausgewählt',
     ariaCheckout: 'als Abreise ausgewählt',
-    ariaGapSelect: function(from, to) { return 'Verfügbarkeit vom ' + from + ' bis ' + to + ' auswählen'; }
+    ariaGapSelect: function(from, to) { return 'Verfügbarkeit vom ' + from + ' bis ' + to + ' auswählen'; },
+    promoTag: 'Angebot',
+    promoNights: function(p) { return '7 Nächte · ' + p + ' alles inklusive'; },
+    promoTerms: 'Vollständige Zahlung bei Buchung · nicht erstattbar',
+    promoSummaryLabel: 'Angebotspreis',
+    promoSummaryValue: function(p) { return p + ' — alles inklusive'; },
+    promoPolicyTitle: 'Oktober-Angebot — Bedingungen',
+    promoPolicyIntro: 'Für diese Daten gelten die folgenden Bedingungen anstelle der unten stehenden Standard-Zahlungs- und Stornierungsbedingungen.',
+    promoPolicyItems: function(p) { return [
+      '<strong>Preis:</strong> ' + p + ' für 7 Nächte, Endreinigung und Wäsche inklusive',
+      '<strong>Zahlung:</strong> Gesamtbetrag bei Buchung fällig, keine Anzahlung von 30 %',
+      '<strong>Stornierung:</strong> nicht erstattbar — keine Rückerstattung bei Stornierung oder Datumsänderung',
+      '<strong>Kurtaxe:</strong> 1,00 € pro Nacht und Person, weiterhin vor Ort zu zahlen'
+    ]; },
+    promoRequestNote: function(p) { return 'OKTOBER-ANGEBOT — ' + p + ' für 7 Nächte, alles inklusive. Vollständige Zahlung bei Buchung, nicht erstattbar.'; }
   },
   it: {
     noGaps: 'Nessun periodo disponibile trovato. Contattaci direttamente.',
@@ -149,7 +268,21 @@ var I18N = {
     ariaAvailable: 'disponibile',
     ariaCheckin: 'selezionato come check-in',
     ariaCheckout: 'selezionato come check-out',
-    ariaGapSelect: function(from, to) { return 'Seleziona la disponibilit\u00e0 dal ' + from + ' al ' + to; }
+    ariaGapSelect: function(from, to) { return 'Seleziona la disponibilit\u00e0 dal ' + from + ' al ' + to; },
+    promoTag: 'Offerta',
+    promoNights: function(p) { return '7 notti \u00b7 ' + p + ' tutto incluso'; },
+    promoTerms: 'Saldo immediato alla prenotazione \u00b7 non rimborsabile',
+    promoSummaryLabel: 'Prezzo offerta',
+    promoSummaryValue: function(p) { return p + ' \u2014 tutto incluso'; },
+    promoPolicyTitle: 'Offerta ottobre \u2014 condizioni',
+    promoPolicyIntro: 'Per queste date valgono le condizioni qui sotto, al posto della politica standard di pagamento e cancellazione riportata pi\u00f9 in basso.',
+    promoPolicyItems: function(p) { return [
+      '<strong>Prezzo:</strong> ' + p + ' per 7 notti, pulizie finali e biancheria incluse',
+      '<strong>Pagamento:</strong> saldo dell\u2019intero importo alla prenotazione, non l\u2019acconto del 30%',
+      '<strong>Cancellazione:</strong> non rimborsabile \u2014 nessun rimborso in caso di disdetta o cambio date',
+      '<strong>Tassa di soggiorno:</strong> 1,00 \u20ac a notte a persona, comunque da versare in loco'
+    ]; },
+    promoRequestNote: function(p) { return 'OFFERTA OTTOBRE \u2014 ' + p + ' per 7 notti, tutto incluso. Saldo immediato alla prenotazione, non rimborsabile.'; }
   }
 };
 var T = I18N[BOOKING_LANG];
@@ -274,9 +407,14 @@ function renderAvailableGapsList() {
     return;
   }
 
-  // Spezza i gap in blocchi da suggestedNights (5) e mostra max 3
+  // Le settimane in offerta vanno in cima, con il loro chip dedicato: sono da
+  // 7 notti e quindi non coincidono mai con i blocchi da 5 generati sotto.
+  var promoWeeks = promoBookableWeeks();
+
+  // Spezza i gap in blocchi da suggestedNights (5). Con l'offerta attiva ne
+  // mostriamo meno, altrimenti la lista diventa una colonna di sei bottoni.
   var suggestedNights = 5;
-  var maxBlocks = 3;
+  var maxBlocks = promoWeeks.length ? 2 : 3;
   var blocks = [];
   var today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -307,6 +445,19 @@ function renderAvailableGapsList() {
   }
 
   var html = '';
+  for (var w = 0; w < promoWeeks.length; w++) {
+    var ps = promoParseDate(promoWeeks[w].start);
+    var pe = promoParseDate(promoWeeks[w].end);
+    html += '<button type="button" class="gap-chip gap-chip--promo" data-start="' + ps.toISOString() + '" data-end="' + pe.toISOString() + '" aria-label="' + T.ariaGapSelect(formatDateDisplay(ps), formatDateDisplay(pe)) + '">'
+      + '<span class="gap-chip__body">'
+      + '<span class="gap-dates">' + formatDateShort(ps) + ' → ' + formatDateShort(pe) + '</span>'
+      + '<span class="gap-nights">' + T.promoNights(promoPrice()) + '</span>'
+      + '<span class="gap-promo-terms">' + T.promoTerms + '</span>'
+      + '</span>'
+      + '<span class="gap-promo-tag">' + T.promoTag + '</span>'
+      + '</button>';
+  }
+
   for (var b = 0; b < blocks.length; b++) {
     var block = blocks[b];
     html += '<button type="button" class="gap-chip" data-gap-index="' + block.gapIndex + '" data-start="' + block.start.toISOString() + '" data-end="' + block.end.toISOString() + '" aria-label="' + T.ariaGapSelect(formatDateDisplay(block.start), formatDateDisplay(block.end)) + '">'
@@ -634,6 +785,15 @@ function sendBookingRequest() {
   sendButton.textContent = T.sending;
   sendButton.disabled = true;
 
+  // L'offerta viaggia dentro specialRequests, non in un campo suo: cosi'
+  // finisce nella mail e nella colonna NOTE del foglio senza dover
+  // ridistribuire l'Apps Script (BookingHandler.gs ignorerebbe un campo nuovo).
+  var promoWeek = promoWeekFor(state.checkInDate, state.checkOutDate);
+  var requests = state.guestData.requests || '';
+  if (promoWeek) {
+    requests = T.promoRequestNote(promoPrice()) + (requests ? '\n\n' + requests : '');
+  }
+
   var bookingData = {
     guestName: state.guestData.name,
     guestEmail: state.guestData.email,
@@ -645,7 +805,9 @@ function sendBookingRequest() {
     children: state.guestData.children,
     totalGuests: totalGuests,
     pets: state.guestData.pets,
-    specialRequests: state.guestData.requests || ''
+    promo: promoWeek ? 'october-2026' : '',
+    promoPrice: promoWeek ? PROMO.price : '',
+    specialRequests: requests
   };
 
   fetch(BOOKING_CONFIG.webAppUrl, {
@@ -770,6 +932,60 @@ function updateSummary() {
   document.getElementById('summary-email').textContent = state.guestData.email;
   document.getElementById('summary-pets').textContent =
     state.guestData.pets === 'yes' ? T.petsYes : T.petsNo;
+
+  renderPromoTerms();
+}
+
+
+/**
+ * Se le date scelte sono una settimana in offerta, il riepilogo mostra il
+ * prezzo fisso e le condizioni dell'offerta.
+ *
+ * Le condizioni promo (saldo subito, niente rimborso) contraddicono quelle
+ * standard stampate nella pagina (acconto 30%, rimborso fino a 21 giorni
+ * prima): il blocco va quindi in cima a .policy-section e dice a chiare
+ * lettere che sostituisce quelle sotto. Non le nascondiamo, cosi' l'ospite
+ * vede entrambe e non puo' dire di non essere stato avvisato.
+ */
+function renderPromoTerms() {
+  var week = promoWeekFor(state.checkInDate, state.checkOutDate);
+  var price = promoPrice();
+
+  // Il riquadro va rifatto a ogni passaggio: l'ospite puo' tornare indietro
+  // e cambiare le date, e allora l'offerta non vale piu'.
+  var oldRow = document.getElementById('promo-summary-row');
+  if (oldRow) oldRow.remove();
+  var oldBlock = document.getElementById('promo-policy-block');
+  if (oldBlock) oldBlock.remove();
+
+  var note = document.getElementById('summary-pricing-note');
+  if (note) {
+    if (!note.dataset.standardText) note.dataset.standardText = note.textContent;
+    note.textContent = week ? T.promoSummaryValue(price) : note.dataset.standardText;
+  }
+
+  if (!week) return;
+
+  var card = document.querySelector('.summary-card');
+  if (card) {
+    var row = document.createElement('div');
+    row.id = 'promo-summary-row';
+    row.className = 'summary-row summary-row--promo';
+    row.innerHTML = '<span>' + T.promoSummaryLabel + '</span><strong>' + price + '</strong>';
+    card.appendChild(row);
+  }
+
+  var policy = document.querySelector('.policy-section');
+  if (policy) {
+    var items = T.promoPolicyItems(price).map(function(li) { return '<li>' + li + '</li>'; }).join('');
+    var block = document.createElement('div');
+    block.id = 'promo-policy-block';
+    block.className = 'promo-policy';
+    block.innerHTML = '<h3>' + T.promoPolicyTitle + '</h3>'
+      + '<p class="promo-policy__intro">' + T.promoPolicyIntro + '</p>'
+      + '<ul>' + items + '</ul>';
+    policy.insertBefore(block, policy.firstChild);
+  }
 }
 
 function resetWidget() {

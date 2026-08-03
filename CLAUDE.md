@@ -14,6 +14,11 @@ Sito di villa-volpe.com.
   - 🔒 La chiave privata sta **solo** nel secret GitHub `GSC_SERVICE_ACCOUNT_JSON`. Per ruotarla: crea la chiave nuova, verificala con `--dry-run`, aggiorna il secret, **poi** cancella la vecchia. Invertire l'ordine da `invalid_grant: Invalid JWT Signature`.
   - Serve `google-auth[requests]`: `google-auth` da solo non basta, il transport vuole `requests`.
   - Non illudersi: `sitemaps.submit` **non forza una scansione**, e' il pulsante "Invia" della UI. Cio' che conta resta il `<lastmod>`.
+- **Promo ottobre 2026** (attiva dal 03/08/2026, **scade il 30/09/2026**): due settimane a prezzo fisso, 11→18 e 18→25 ottobre, 1.540 € a settimana tutto incluso, saldo immediato e non rimborsabile. Vive in due posti che **vanno tenuti allineati a mano**:
+  - *Fascia in cima al sito* — HTML statico in tutte le 130 pagine reali (fuori: `404.html`, `email-signature.html`, gli stub `refresh`). Si vede solo se `<html>` ha `class="has-promo"`; uno snippet inline nel `<head>` la toglie a scadenza. È inline e sincrono di proposito: nasconderla da JS dopo il primo paint farebbe saltare la pagina di 44px e il CLS non sarebbe più 0. Stile in `style.css` (`.promo-bar`, `--promo-h`).
+  - *Motore di prenotazione* — oggetto `PROMO` in cima a `booking-engine/calendar.js`: date, prezzo, scadenza. Da lì escono i chip dedicati fra gli "available periods", il prezzo nel riepilogo e il blocco condizioni che **sostituisce** acconto 30% + rimborso a 21 giorni (le condizioni standard restano stampate sotto, non si nascondono).
+  - **Per spegnerla in anticipo:** `PROMO.active = false` **e** togliere `has-promo` dagli `<html>`. Cambiando la data di scadenza, cambiarla in entrambi i posti (`grep -rl has-promo`).
+  - Le richieste arrivano con l'offerta in testa a `specialRequests` (più i campi `promo`/`promoPrice`): così finisce nella mail e nella colonna NOTE del foglio **senza ridistribuire l'Apps Script**, che ignorerebbe campi nuovi.
 - **Clasp:** no (script in villa-volpe-scripts).
 ---
 *Workspace multi-progetto — vedi `PROJECTS.md` nella radice. GitHub: gh=CryptoPannoz. 🔒 Niente credenziali nei file.*

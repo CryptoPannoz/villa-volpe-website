@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="has-promo">
 <head>
   <script src="../../../head.js"></script>
   <meta charset="UTF-8">
@@ -27,6 +27,7 @@
   <meta name="twitter:image" content="https://www.villa-volpe.com/images/blog/villa-crespi.jpg">
   <!-- Font self-hosted (vedi @font-face in style.css): il preload li fa
        partire in parallelo al CSS invece che dopo averlo scaricato. -->
+  <script>if(Date.now()>=Date.parse('2026-10-01T00:00:00+02:00'))document.documentElement.classList.remove('has-promo');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
   <link rel="stylesheet" href="../../../style.css">
@@ -146,6 +147,12 @@
   </script>
 </head>
 <body>
+
+  <a class="promo-bar" href="../../book.html" aria-label="Offerta ottobre: 7 notti a 1.540 euro">
+    <span class="promo-bar__tag">Offerta</span>
+    <span class="promo-bar__text"><strong>7 notti a 1.540&nbsp;&euro;</strong><span class="promo-bar__dates"> &mdash; 11&ndash;18 o 18&ndash;25 ottobre</span></span>
+    <span class="promo-bar__cta">Prenota &rarr;</span>
+  </a>
 
   <!-- Navigation -->
   <nav class="nav" id="nav">
