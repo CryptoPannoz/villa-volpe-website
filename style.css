@@ -413,6 +413,18 @@ p {
 .has-promo .promo-only { display: block; }
 .has-promo span.promo-only { display: inline; }
 
+/* Settimana 1-8 novembre (herfstvakantie fiamminga): scade il 25/10, cioe'
+   dopo la fascia in cima al sito, che invece sparisce il 01/10 perche' il
+   suo testo nomina solo ottobre. Serve percio' un interruttore separato,
+   `has-promo-nov`, tolto da un secondo snippet inline nel <head> del post
+   NL. Vedi CLAUDE.md, "Promo autunno 2026". */
+.promo-nov-only { display: none; }
+.has-promo-nov .promo-nov-only { display: block; }
+/* `.promo-box` di suo si accende con `has-promo`, che il 01/10 sparisce:
+   senza questa riga il box dentro il blocco di novembre resterebbe invisibile
+   proprio nelle tre settimane in cui e' l'unica offerta viva. */
+.has-promo-nov .promo-nov-only .promo-box { display: block; }
+
 /* ---------- Navigation ---------- */
 .nav {
   position: fixed;

@@ -30,26 +30,44 @@ const BOOKING_CONFIG = {
 
 
 // ── PROMO ───────────────────────────────────────────────────
-// Offerta ottobre 2026: due settimane a prezzo fisso, saldo immediato e
+// Offerta autunno 2026: tre settimane a prezzo fisso, saldo immediato e
 // nessun rimborso. Sostituisce le condizioni standard (acconto 30% + saldo
 // 21 giorni prima) per queste sole date — vedi renderPromoPolicy().
 //
-// Per spegnerla: `active: false`, oppure lascia passare `expires`.
-// ⚠️ La stessa scadenza e' ripetuta nello snippet inline nell'<head> di ogni
-// pagina, quello che toglie la classe `has-promo` e nasconde la fascia in
-// cima al sito. Se cambi la data qui, cambiala anche li' (cerca `has-promo`).
+// Ogni settimana ha la **sua** scadenza: le due di ottobre chiudono il
+// 30/09, quella di novembre resta prenotabile fino al 25/10 perche' le
+// famiglie fiamminghe decidono tardi. Quella settimana e' 1->8 novembre
+// (domenica-domenica, come le altre due): la herfstvakantie fiamminga e'
+// 2-8/11, quindi si arriva la domenica prima e si riparte l'ultimo giorno,
+// a scuola il lunedi'. Da 2 a 8 novembre sarebbero 6 notti, non 7.
+// `PROMO.expires` e' quindi la piu' lontana delle tre: spegne il motore
+// quando non c'e' piu' nulla da vendere.
+//
+// Per spegnere tutto in anticipo: `active: false`.
+// ⚠️ La fascia in cima al sito ha una scadenza **diversa e voluta**: lo
+// snippet inline nell'<head> la toglie il 01/10, perche' il suo testo
+// statico nomina solo le due settimane di ottobre e dopo sarebbe falso.
+// La settimana di novembre vive nei chip del motore e nel post NL, che ha
+// un suo interruttore (`has-promo-nov`). Vedi CLAUDE.md.
 var PROMO = {
   active: true,
-  expires: '2026-10-01T00:00:00+02:00',   // fine 30/09/2026, ora italiana
+  expires: '2026-10-26T00:00:00+01:00',   // fine 25/10/2026 (CET, dopo il cambio ora)
   price: 1540,
   weeks: [
-    { start: '2026-10-11', end: '2026-10-18' },
-    { start: '2026-10-18', end: '2026-10-25' }
+    { start: '2026-10-11', end: '2026-10-18', expires: '2026-10-01T00:00:00+02:00' },
+    { start: '2026-10-18', end: '2026-10-25', expires: '2026-10-01T00:00:00+02:00' },
+    { start: '2026-11-01', end: '2026-11-08', expires: '2026-10-26T00:00:00+01:00' }
   ]
 };
 
 function promoIsRunning() {
   return PROMO.active && Date.now() < Date.parse(PROMO.expires);
+}
+
+/** Una singola settimana e' ancora vendibile in promo? Le scadenze sono
+ *  per-settimana; `PROMO.expires` resta il fallback se una non ce l'ha. */
+function promoWeekLive(w) {
+  return Date.now() < Date.parse(w.expires || PROMO.expires);
 }
 
 /** '2026-10-11' → Date locale a mezzanotte (evita lo shift UTC di new Date(str)) */
@@ -80,6 +98,7 @@ function promoWeekFor(checkIn, checkOut) {
   if (!promoIsRunning() || !checkIn || !checkOut) return null;
   for (var i = 0; i < PROMO.weeks.length; i++) {
     var w = PROMO.weeks[i];
+    if (!promoWeekLive(w)) continue;
     if (promoParseDate(w.start).toDateString() === checkIn.toDateString() &&
         promoParseDate(w.end).toDateString() === checkOut.toDateString()) {
       return w;
@@ -95,6 +114,7 @@ function promoBookableWeeks() {
   today.setHours(0, 0, 0, 0);
 
   return PROMO.weeks.filter(function(w) {
+    if (!promoWeekLive(w)) return false;
     var start = promoParseDate(w.start);
     var end = promoParseDate(w.end);
     if (start < today) return false;
@@ -145,7 +165,7 @@ var I18N = {
     promoTerms: 'Pay in full on booking · non-refundable',
     promoSummaryLabel: 'Offer price',
     promoSummaryValue: function(p) { return p + ' — all included'; },
-    promoPolicyTitle: 'October offer — terms',
+    promoPolicyTitle: 'Autumn offer — terms',
     promoPolicyIntro: 'For these dates the following terms apply instead of the standard payment and cancellation policy below.',
     promoPolicyItems: function(p) { return [
       '<strong>Price:</strong> ' + p + ' for 7 nights, cleaning and linen included',
@@ -153,7 +173,7 @@ var I18N = {
       '<strong>Cancellation:</strong> non-refundable — no refund if you cancel or change dates',
       '<strong>Tourist tax:</strong> €1.00 per night per guest, still payable on arrival'
     ]; },
-    promoRequestNote: function(p) { return 'OCTOBER OFFER — ' + p + ' for 7 nights, all included. Pay in full on booking, non-refundable.'; }
+    promoRequestNote: function(p) { return 'AUTUMN OFFER — ' + p + ' for 7 nights, all included. Pay in full on booking, non-refundable.'; }
   },
   fr: {
     noGaps: 'Aucune période disponible trouvée. Merci de nous contacter directement.',
@@ -188,7 +208,7 @@ var I18N = {
     promoTerms: 'Paiement intégral à la réservation · non remboursable',
     promoSummaryLabel: 'Prix de l’offre',
     promoSummaryValue: function(p) { return p + ' — tout compris'; },
-    promoPolicyTitle: 'Offre d’octobre — conditions',
+    promoPolicyTitle: 'Offre d’automne — conditions',
     promoPolicyIntro: 'Pour ces dates, les conditions suivantes remplacent la politique de paiement et d’annulation standard ci-dessous.',
     promoPolicyItems: function(p) { return [
       '<strong>Prix :</strong> ' + p + ' pour 7 nuits, ménage et linge inclus',
@@ -196,7 +216,7 @@ var I18N = {
       '<strong>Annulation :</strong> non remboursable — aucun remboursement en cas d’annulation ou de changement de dates',
       '<strong>Taxe de séjour :</strong> 1,00 € par nuit et par personne, à régler sur place'
     ]; },
-    promoRequestNote: function(p) { return 'OFFRE OCTOBRE — ' + p + ' pour 7 nuits, tout compris. Paiement intégral à la réservation, non remboursable.'; }
+    promoRequestNote: function(p) { return 'OFFRE AUTOMNE — ' + p + ' pour 7 nuits, tout compris. Paiement intégral à la réservation, non remboursable.'; }
   },
   de: {
     noGaps: 'Keine verfügbaren Zeiträume gefunden. Bitte kontaktieren Sie uns direkt.',
@@ -231,7 +251,7 @@ var I18N = {
     promoTerms: 'Vollständige Zahlung bei Buchung · nicht erstattbar',
     promoSummaryLabel: 'Angebotspreis',
     promoSummaryValue: function(p) { return p + ' — alles inklusive'; },
-    promoPolicyTitle: 'Oktober-Angebot — Bedingungen',
+    promoPolicyTitle: 'Herbst-Angebot — Bedingungen',
     promoPolicyIntro: 'Für diese Daten gelten die folgenden Bedingungen anstelle der unten stehenden Standard-Zahlungs- und Stornierungsbedingungen.',
     promoPolicyItems: function(p) { return [
       '<strong>Preis:</strong> ' + p + ' für 7 Nächte, Endreinigung und Wäsche inklusive',
@@ -239,7 +259,7 @@ var I18N = {
       '<strong>Stornierung:</strong> nicht erstattbar — keine Rückerstattung bei Stornierung oder Datumsänderung',
       '<strong>Kurtaxe:</strong> 1,00 € pro Nacht und Person, weiterhin vor Ort zu zahlen'
     ]; },
-    promoRequestNote: function(p) { return 'OKTOBER-ANGEBOT — ' + p + ' für 7 Nächte, alles inklusive. Vollständige Zahlung bei Buchung, nicht erstattbar.'; }
+    promoRequestNote: function(p) { return 'HERBST-ANGEBOT — ' + p + ' für 7 Nächte, alles inklusive. Vollständige Zahlung bei Buchung, nicht erstattbar.'; }
   },
   it: {
     noGaps: 'Nessun periodo disponibile trovato. Contattaci direttamente.',
@@ -274,7 +294,7 @@ var I18N = {
     promoTerms: 'Saldo immediato alla prenotazione \u00b7 non rimborsabile',
     promoSummaryLabel: 'Prezzo offerta',
     promoSummaryValue: function(p) { return p + ' \u2014 tutto incluso'; },
-    promoPolicyTitle: 'Offerta ottobre \u2014 condizioni',
+    promoPolicyTitle: 'Offerta autunno \u2014 condizioni',
     promoPolicyIntro: 'Per queste date valgono le condizioni qui sotto, al posto della politica standard di pagamento e cancellazione riportata pi\u00f9 in basso.',
     promoPolicyItems: function(p) { return [
       '<strong>Prezzo:</strong> ' + p + ' per 7 notti, pulizie finali e biancheria incluse',
@@ -282,7 +302,7 @@ var I18N = {
       '<strong>Cancellazione:</strong> non rimborsabile \u2014 nessun rimborso in caso di disdetta o cambio date',
       '<strong>Tassa di soggiorno:</strong> 1,00 \u20ac a notte a persona, comunque da versare in loco'
     ]; },
-    promoRequestNote: function(p) { return 'OFFERTA OTTOBRE \u2014 ' + p + ' per 7 notti, tutto incluso. Saldo immediato alla prenotazione, non rimborsabile.'; }
+    promoRequestNote: function(p) { return 'OFFERTA AUTUNNO \u2014 ' + p + ' per 7 notti, tutto incluso. Saldo immediato alla prenotazione, non rimborsabile.'; }
   }
 };
 var T = I18N[BOOKING_LANG];
@@ -805,7 +825,7 @@ function sendBookingRequest() {
     children: state.guestData.children,
     totalGuests: totalGuests,
     pets: state.guestData.pets,
-    promo: promoWeek ? 'october-2026' : '',
+    promo: promoWeek ? 'autumn-2026' : '',
     promoPrice: promoWeek ? PROMO.price : '',
     specialRequests: requests
   };

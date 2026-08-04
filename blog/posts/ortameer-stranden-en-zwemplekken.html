@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl" class="has-promo">
+<html lang="nl" class="has-promo has-promo-nov">
 <head>
   <script src="../../head.js"></script>
   <meta charset="UTF-8">
@@ -25,7 +25,10 @@
   <meta name="twitter:image" content="https://www.villa-volpe.com/images/gallery/villavolpeorta-drone-aerial-overview-lakefront-wide.jpg">
   <!-- Font self-hosted (vedi @font-face in style.css): il preload li fa
        partire in parallelo al CSS invece che dopo averlo scaricato. -->
-  <script>if(Date.now()>=Date.parse('2026-10-01T00:00:00+02:00'))document.documentElement.classList.remove('has-promo');</script>
+  <!-- Due scadenze diverse: la fascia in cima (has-promo) nomina solo le
+       settimane di ottobre e sparisce il 01/10; il blocco sulla settimana
+       1-8 novembre (has-promo-nov) resta fino al 25/10. -->
+  <script>var _d=Date.now(),_c=document.documentElement.classList;if(_d>=Date.parse('2026-10-01T00:00:00+02:00'))_c.remove('has-promo');if(_d>=Date.parse('2026-10-26T00:00:00+01:00'))_c.remove('has-promo-nov');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
   <link rel="stylesheet" href="../../style.css">
@@ -277,6 +280,18 @@
       <p><strong>7 nachten voor €&nbsp;1.540</strong> — 11–18 of 18–25 oktober 2026. Het hele huis, privéstrand, alles inbegrepen behalve de toeslag voor huisdieren. Te boeken tot 30 september, directe betaling, niet restitueerbaar.</p>
       <a class="btn btn--accent" href="../../book.html">Bekijk beschikbaarheid &rarr;</a>
     </aside>
+
+    <div class="promo-nov-only">
+      <h2>Herfstvakantie 2026: een week aan het meer</h2>
+      <p>De Vlaamse herfstvakantie loopt van <strong>maandag 2 tot en met zondag 8 november 2026</strong>. Wij houden daarvoor de week van <strong>zondag 1 tot zondag 8 november</strong> open: je reist op zondag, hebt de hele vakantieweek aan het meer en bent op tijd terug voor de eerste schooldag.</p>
+      <p>Zwemmen zit er in november niet meer in — dat zeggen we liever eerlijk. Wat er wél is: koperkleurige bossen boven het water, ochtendnevel over het meer, dorpen zonder één toerist, en kastanjes en paddenstoelen op elke kaart. Het huis heeft verwarming in alle kamers en grote ramen om vanachter naar de regen te kijken als die komt.</p>
+      <p>Vanuit Antwerpen is het ongeveer 900 kilometer over de weg. Vliegen kan ook: vanaf Milaan Malpensa ben je in minder dan een uur aan de oever.</p>
+      <aside class="promo-box">
+        <span class="promo-box__tag">Herfstvakantie</span>
+        <p><strong>7 nachten voor €&nbsp;1.540</strong> — 1 tot 8 november 2026. Het hele huis, alles inbegrepen behalve de toeslag voor huisdieren. Te boeken tot 25 oktober, directe betaling, niet restitueerbaar.</p>
+        <a class="btn btn--accent" href="../../book.html">Bekijk beschikbaarheid &rarr;</a>
+      </aside>
+    </div>
 
     <h2>Zwemmen met kinderen</h2>
     <p>Het meer is een oud gletsjerbekken: op veel plekken loopt de bodem snel af. Kies met jonge kinderen de stranden waar het water geleidelijk dieper wordt — Bagnella in Omegna en de Miami-zone in Orta zijn de veiligste keuzes — en houd elders de diepte in de gaten.</p>
