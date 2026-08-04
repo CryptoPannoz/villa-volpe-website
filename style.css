@@ -370,6 +370,49 @@ p {
   .promo-bar__dates { display: none; }
 }
 
+/* Box promo dentro il corpo degli articoli. Stesso ciclo di vita della
+   fascia: visibile solo con `has-promo`, quindi si spegne da solo alla
+   scadenza grazie allo snippet inline nel <head>. Va rimosso insieme al
+   resto della promo (vedi CLAUDE.md, "Promo ottobre 2026"). */
+.promo-box { display: none; }
+.has-promo .promo-box {
+  display: block;
+  margin: var(--space-lg) 0;
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius);
+}
+.promo-box__tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+  border: 1px solid var(--color-accent-light);
+  border-radius: 2px;
+  padding: 0.2rem 0.5rem;
+  margin-bottom: var(--space-xs);
+}
+.promo-box p { margin: 0 0 var(--space-sm); }
+/* Dentro `.post-content` la regola dei link (accent + underline) batterebbe
+   `.btn--accent` per specificita' e il testo sparirebbe sul fondo accent. */
+.post-content .promo-box a.btn--accent {
+  color: var(--color-white);
+  text-decoration: none;
+  margin: 0;
+}
+.post-content .promo-box a.btn--accent:hover { color: var(--color-white); }
+
+/* Contenuto testuale legato alla promo (sezioni di articolo che descrivono
+   l'offerta): stesso interruttore `has-promo`, cosi' alla scadenza non resta
+   in pagina un'offerta che non esiste piu'. */
+.promo-only { display: none; }
+.has-promo .promo-only { display: block; }
+.has-promo span.promo-only { display: inline; }
+
 /* ---------- Navigation ---------- */
 .nav {
   position: fixed;
