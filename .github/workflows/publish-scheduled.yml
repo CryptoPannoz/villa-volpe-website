@@ -1,0 +1,92 @@
+name: Pubblica articoli programmati
+
+# Il sito e' statico: un articolo "programmato" non puo' accendersi da solo.
+# Gli articoli pronti aspettano nel branch `scheduled-posts`, ognuno in un
+# pacchetto scheduled/AAAA-MM-GG-<slug>.tar.gz (formato in
+# tools/publish-scheduled.py). Ogni mattina questo workflow pubblica quelli
+# arrivati a data: copia i file, mette le card in cima agli indici del blog,
+# committa su main e avvia il deploy.
+#
+# Perche' avvia deploy.yml a mano: i push fatti con GITHUB_TOKEN non fanno
+# partire altri workflow (regola di GitHub contro i loop), workflow_dispatch
+# si'. E siccome deploy.yml notifica IndexNow solo sui push, qui la notifica
+# la fa questo workflow, dopo che il deploy e' andato online.
+#
+# Per rinviare o annullare un articolo: rinomina o cancella il suo pacchetto
+# nel branch scheduled-posts. Per pubblicare subito: "Run workflow" dalla
+# scheda Actions non basta (rispetta le date) — rinomina il pacchetto con la
+# data di oggi e poi lancialo.
+
+on:
+  schedule:
+    - cron: '15 5 * * *'   # 07:15 in Italia con l'ora legale, 06:15 con la solare
+  workflow_dispatch:
+
+permissions:
+  contents: write   # commit su main
+  actions: write    # avviare deploy.yml
+
+concurrency:
+  group: publish-scheduled
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # build-sitemap.py legge le date da git log
+
+      - name: Pubblica gli articoli arrivati a data
+        id: publish
+        run: |
+          if ! git fetch origin scheduled-posts:refs/remotes/origin/scheduled-posts; then
+            echo "branch scheduled-posts assente: niente da pubblicare"
+            exit 0
+          fi
+          python3 tools/publish-scheduled.py publish --ref origin/scheduled-posts
+
+      - name: Commit e push su main
+        id: push
+        if: steps.publish.outputs.published != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898733+github-actions[bot]@users.noreply.github.com"
+          BEFORE=$(git rev-parse HEAD)
+          git add -A
+          git commit -F "$RUNNER_TEMP/commit-msg.txt"
+          git push origin HEAD:main
+          echo "before=$BEFORE" >> "$GITHUB_OUTPUT"
+          echo "after=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Avvia il deploy e aspetta che finisca
+        if: steps.push.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          SINCE=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          gh workflow run deploy.yml --ref main
+          RUN_ID=""
+          for i in $(seq 1 36); do
+            sleep 5
+            RUN_ID=$(gh run list --workflow deploy.yml --event workflow_dispatch --limit 5 \
+              --json databaseId,createdAt --jq "[.[] | select(.createdAt >= \"$SINCE\")][0].databaseId // empty")
+            [ -n "$RUN_ID" ] && break
+          done
+          if [ -z "$RUN_ID" ]; then
+            echo "!! il run di deploy non compare: controlla la scheda Actions"
+            exit 1
+          fi
+          echo "deploy: run $RUN_ID"
+          gh run watch "$RUN_ID" --exit-status --interval 20
+
+      # Stessa notifica che deploy.yml fa sui push. continue-on-error: una
+      # notifica fallita non deve far risultare fallita la pubblicazione.
+      - name: Notifica IndexNow
+        if: steps.push.outcome == 'success'
+        continue-on-error: true
+        run: |
+          python3 tools/build-sitemap.py
+          python3 tools/indexnow.py --range "${{ steps.push.outputs.before }}..${{ steps.push.outputs.after }}"
