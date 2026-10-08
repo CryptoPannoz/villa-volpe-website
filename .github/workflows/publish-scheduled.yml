@@ -13,13 +13,18 @@ name: Pubblica articoli programmati
 # la fa questo workflow, dopo che il deploy e' andato online.
 #
 # Per rinviare o annullare un articolo: rinomina o cancella il suo pacchetto
-# nel branch scheduled-posts. Per pubblicare subito: "Run workflow" dalla
-# scheda Actions non basta (rispetta le date) — rinomina il pacchetto con la
-# data di oggi e poi lancialo.
+# nel branch scheduled-posts. "Run workflow" dalla scheda Actions rispetta le
+# date: per pubblicare subito, rinomina prima il pacchetto con la data di oggi.
 
 on:
+  # Tre passaggi al giorno: GitHub puo' ritardare o saltare del tutto un cron
+  # (l'8/10/2026 quello delle 05:15 non e' partito). Lo script e' idempotente,
+  # quindi i passaggi dopo il primo non fanno nulla. Minuti lontani dall'ora
+  # piena, quando la coda di GitHub e' piu' carica.
   schedule:
-    - cron: '15 5 * * *'   # 07:15 in Italia con l'ora legale, 06:15 con la solare
+    - cron: '17 5 * * *'    # 07:17 in Italia con l'ora legale, 06:17 con la solare
+    - cron: '47 7 * * *'    # 09:47 / 08:47
+    - cron: '23 11 * * *'   # 13:23 / 12:23
   workflow_dispatch:
 
 permissions:
