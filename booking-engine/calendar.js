@@ -842,6 +842,20 @@ function sendBookingRequest() {
   .then(function(res) { return res.json(); })
   .then(function(out) {
     if (!out || out.result !== 'success') throw new Error((out && out.error) || 'Booking request failed');
+    // Google Analytics 4: la richiesta di prenotazione inviata è l'evento chiave del sito (key event in GA4).
+    // Solo dati del soggiorno, niente nome o email dell'ospite.
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'generate_lead', {
+        lead_source: 'booking_form',
+        currency: 'EUR',
+        nights: nights,
+        guests: totalGuests,
+        pets: state.guestData.pets === 'yes' ? 'yes' : 'no',
+        promo: promoWeek ? 'autumn-2026' : 'none',
+        check_in_month: formatLocalISO(state.checkInDate).slice(0, 7),
+        language: BOOKING_LANG
+      });
+    }
     document.getElementById('confirmation-email').textContent = state.guestData.email;
     goToStep('confirmation');
   })
