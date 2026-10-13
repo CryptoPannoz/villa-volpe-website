@@ -1057,7 +1057,9 @@ function dateFromISO(value) {
 }
 
 function calculateNights(checkIn, checkOut) {
-  return Math.ceil(Math.abs(checkOut - checkIn) / (1000 * 60 * 60 * 24));
+  // Math.round e non Math.ceil: la notte del cambio d'ora (ultima domenica di ottobre) dura 25 ore e con ceil
+  // 25→28 ottobre risultava 4 notti invece di 3 (a marzo, 23 ore, ceil andava bene per caso)
+  return Math.round(Math.abs(checkOut - checkIn) / (1000 * 60 * 60 * 24));
 }
 
 function isDateBlocked(date) {
