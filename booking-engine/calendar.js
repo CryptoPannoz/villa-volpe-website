@@ -21,7 +21,8 @@
 const BOOKING_CONFIG = {
   calendarId: 'be5a630aebb1f10d8e8bee8144948cda4b8227517394f8ff109a17c9424b6e57@group.calendar.google.com',
   apiKey: 'AIzaSyDkmWoTVEgonSPPTYrKIY9SuoodIVO4lpQ',
-  webAppUrl: 'https://script.google.com/macros/s/AKfycbwRS03OQTl9x2KLZbQFEqvA9f3MoccyPcf7sdeHiSzd53r5u6ubnC4b6OS2tE9kuJUo-Q/exec',
+  // Accensione Villa Volpe v5: le richieste vanno a Neon (stesso doPost del v4, portato identico)
+  webAppUrl: 'https://villa-volpe-v5.vercel.app/api/booking',
   minNights: 3,
   maxNightsToShow: 29,  // Gap > 29 notti non vengono mostrati nella lista
   maxGuests: 4,
@@ -830,13 +831,16 @@ function sendBookingRequest() {
     specialRequests: requests
   };
 
+  // v5 risponde con CORS: leggiamo l'esito invece di mostrare sempre la conferma (con l'Apps Script e
+  // mode 'no-cors' la risposta era illeggibile, anche quando le date non erano piu' disponibili).
   fetch(BOOKING_CONFIG.webAppUrl, {
     method: 'POST',
-    mode: 'no-cors',
     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
     body: JSON.stringify(bookingData)
   })
-  .then(function() {
+  .then(function(res) { return res.json(); })
+  .then(function(out) {
+    if (!out || out.result !== 'success') throw new Error((out && out.error) || 'Booking request failed');
     document.getElementById('confirmation-email').textContent = state.guestData.email;
     goToStep('confirmation');
   })
