@@ -361,7 +361,7 @@ function calculateAvailableGaps() {
 
   var current = new Date(today);
   while (current <= endDate) {
-    var dateStr = current.toISOString().split('T')[0];
+    var dateStr = formatLocalISO(current);
     var blocked = state.blockedDates.indexOf(dateStr) >= 0;
 
     if (!blocked) {
@@ -553,7 +553,7 @@ function renderCalendar() {
     dayCell.className = 'calendar-day';
     dayCell.type = 'button';
     dayCell.textContent = day;
-    dayCell.dataset.date = date.toISOString().split('T')[0];
+    dayCell.dataset.date = formatLocalISO(date);
 
     var isPast = date < today;
     var isBlocked = isDateBlocked(date);
@@ -736,8 +736,9 @@ function loadBlockedDates() {
           var startDate, endDate;
 
           if (event.start.date) {
-            startDate = new Date(event.start.date);
-            endDate = new Date(event.end.date);
+            // giorni interi: data locale, non mezzanotte UTC (che in America cade il giorno prima)
+            startDate = dateFromISO(event.start.date);
+            endDate = dateFromISO(event.end.date);
           } else if (event.start.dateTime) {
             startDate = new Date(event.start.dateTime);
             endDate = new Date(event.end.dateTime);
@@ -751,7 +752,7 @@ function loadBlockedDates() {
             // Checkout day is available (checkout happens in the morning)
             var currentDate = new Date(startDate);
             while (currentDate < endDate) {
-              var dateStr = currentDate.toISOString().split('T')[0];
+              var dateStr = formatLocalISO(currentDate);
               if (state.blockedDates.indexOf(dateStr) === -1) {
                 state.blockedDates.push(dateStr);
               }
@@ -1043,12 +1044,24 @@ function formatDateForSheet(date) {
   return dd + '/' + mm + '/' + date.getFullYear();
 }
 
+// Date come giorni del calendario, nel fuso del visitatore. toISOString() le convertiva in UTC: in Italia la
+// mezzanotte locale è ancora il giorno prima in UTC, e ogni soggiorno risultava spostato indietro di un giorno
+// (bloccato il giorno prima dell'arrivo, libera l'ultima notte).
+function formatLocalISO(date) {
+  return date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
+}
+
+function dateFromISO(value) {
+  var parts = value.split('-');
+  return new Date(+parts[0], +parts[1] - 1, +parts[2]);
+}
+
 function calculateNights(checkIn, checkOut) {
   return Math.ceil(Math.abs(checkOut - checkIn) / (1000 * 60 * 60 * 24));
 }
 
 function isDateBlocked(date) {
-  return state.blockedDates.indexOf(date.toISOString().split('T')[0]) >= 0;
+  return state.blockedDates.indexOf(formatLocalISO(date)) >= 0;
 }
 
 function hasBlockedDatesInRange(startDate, endDate) {
