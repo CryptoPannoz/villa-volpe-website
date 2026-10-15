@@ -3,9 +3,15 @@ name: Pubblica articoli programmati
 # Il sito e' statico: un articolo "programmato" non puo' accendersi da solo.
 # Gli articoli pronti aspettano nel branch `scheduled-posts`, ognuno in un
 # pacchetto scheduled/AAAA-MM-GG-<slug>.tar.gz (formato in
-# tools/publish-scheduled.py). Ogni mattina questo workflow pubblica quelli
-# arrivati a data: copia i file, mette le card in cima agli indici del blog,
-# committa su main e avvia il deploy.
+# tools/publish-scheduled.py). Questo workflow pubblica quelli arrivati a
+# data: copia i file, mette le card in cima agli indici del blog, committa su
+# main e avvia il deploy.
+#
+# Quando parte (dal 15/10/2026, deciso da Alberto: niente piu' passaggi
+# quotidiani): il giorno dell'uscita lo avvia Villa Volpe v5 (giro delle
+# 07:00, solo se c'e' un pacchetto arrivato a data e non ancora online, e
+# "Pubblica subito"); da solo gira una volta a settimana, il giovedi', come
+# riserva se v5 non ci riesce.
 #
 # Perche' avvia deploy.yml a mano: i push fatti con GITHUB_TOKEN non fanno
 # partire altri workflow (regola di GitHub contro i loop), workflow_dispatch
@@ -17,14 +23,12 @@ name: Pubblica articoli programmati
 # date: per pubblicare subito, rinomina prima il pacchetto con la data di oggi.
 
 on:
-  # Tre passaggi al giorno: GitHub puo' ritardare o saltare del tutto un cron
-  # (l'8/10/2026 quello delle 05:15 non e' partito). Lo script e' idempotente,
-  # quindi i passaggi dopo il primo non fanno nulla. Minuti lontani dall'ora
-  # piena, quando la coda di GitHub e' piu' carica.
+  # Una volta a settimana (riserva): il passaggio del giorno lo avvia v5 con
+  # workflow_dispatch. Lo script e' idempotente: senza pacchetti arrivati a
+  # data non fa nulla. Minuti lontani dall'ora piena, quando la coda di GitHub
+  # e' piu' carica.
   schedule:
-    - cron: '17 5 * * *'    # 07:17 in Italia con l'ora legale, 06:17 con la solare
-    - cron: '47 7 * * *'    # 09:47 / 08:47
-    - cron: '23 11 * * *'   # 13:23 / 12:23
+    - cron: '47 7 * * 4'    # giovedi' 09:47 in Italia con l'ora legale, 08:47 con la solare
   workflow_dispatch:
 
 permissions:
