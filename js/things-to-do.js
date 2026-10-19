@@ -7,8 +7,8 @@
  * content can never drift, and the file stays language-agnostic (all display
  * text lives in the localized HTML, never here).
  *
- * Leaflet is loaded on-demand only when the map scrolls into view, exactly like
- * the homepage map, to keep the page fast.
+ * Leaflet and the base map come from the shared js/vv-map.js (also used by the
+ * homepage map), loaded on demand only when the map scrolls into view.
  */
 (function () {
   'use strict';
@@ -143,11 +143,7 @@
     if (typeof L === 'undefined') return;
     var map = L.map('ttd-map', { scrollWheelZoom: false });
     mapRef = map;
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
-      maxZoom: 20,
-      subdomains: 'abcd'
-    }).addTo(map);
+    VVMap.addBase(map);
 
     var group = L.featureGroup().addTo(map);
     groupRef = group;
@@ -178,26 +174,6 @@
     if (activeFilter !== 'all') applyFilter(activeFilter);
   }
 
-  // ── On-demand Leaflet loader (same pattern as the homepage map) ─
-  var loaded = false;
-  function loadMap() {
-    if (loaded) return; loaded = true;
-    var css = document.createElement('link');
-    css.rel = 'stylesheet';
-    css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
-    document.head.appendChild(css);
-    var js = document.createElement('script');
-    js.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
-    js.onload = initMap;
-    document.body.appendChild(js);
-  }
-
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (es) {
-      if (es[0].isIntersecting) { loadMap(); io.disconnect(); }
-    }, { rootMargin: '300px' });
-    io.observe(mapEl);
-  } else {
-    loadMap();
-  }
+  // Leaflet + base map are loaded on demand by the shared js/vv-map.js.
+  VVMap.whenVisible(mapEl, initMap);
 })();
