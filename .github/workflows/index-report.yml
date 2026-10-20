@@ -1,0 +1,34 @@
+name: Resoconto indicizzazione Google
+
+# Per ogni URL della sitemap chiede a Search Console (URL Inspection API) se la pagina e' nell'indice di Google,
+# perche' no e quando e' stata letta. Solo letture: non cambia niente nel sito ne' in Search Console.
+# Il resoconto e' nel riepilogo del run (scheda Actions). Si avvia a mano: "Run workflow".
+
+on:
+  push:  # TEMPORANEO: prova sul branch, da togliere
+    branches: [seo/indicizzazione-sicurezza]
+    paths: [tools/gsc-index-report.py, .github/workflows/index-report.yml]
+  workflow_dispatch:
+    inputs:
+      only:
+        description: "Solo gli URL che contengono questo testo (es. blog/posts/). Vuoto = tutta la sitemap"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ispeziona gli URL della sitemap
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          ONLY: ${{ inputs.only }}
+        run: |
+          pip install --quiet "google-auth[requests]"
+          python3 tools/gsc-index-report.py --only "$ONLY"
