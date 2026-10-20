@@ -31,13 +31,20 @@ jobs:
       - name: Rigenera sitemap.xml
         run: python3 tools/build-sitemap.py
 
+      # Si pubblica una copia senza i file interni del repo (note, script, file del Mac): restano solo le pagine,
+      # gli asset e content/ (letto da js/content-loader.js). tools/ resta nel checkout per gli step sotto.
+      - name: Prepara la cartella da pubblicare
+        run: |
+          rsync -a --exclude='.git' --exclude='.github' --exclude='.DS_Store' --exclude='.gitignore' \
+            --exclude='/CLAUDE.md' --exclude='/README.md' --exclude='/tools/' ./ "$RUNNER_TEMP/site/"
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: ${{ runner.temp }}/site
 
       - name: Deploy to GitHub Pages
         id: deployment
