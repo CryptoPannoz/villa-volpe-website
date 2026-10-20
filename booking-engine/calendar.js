@@ -829,7 +829,9 @@ function sendBookingRequest() {
     pets: state.guestData.pets,
     promo: promoWeek ? 'autumn-2026' : '',
     promoPrice: promoWeek ? PROMO.price : '',
-    specialRequests: requests
+    specialRequests: requests,
+    // lingua della pagina (en/it/de/fr): v5 la mette in maiuscolo; senza, ogni richiesta risultava in inglese
+    language: BOOKING_LANG
   };
 
   // v5 risponde con CORS: leggiamo l'esito invece di mostrare sempre la conferma (con l'Apps Script e

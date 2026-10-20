@@ -48,6 +48,17 @@ import argparse, datetime, io, json, os, re, subprocess, sys, tarfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RE_BUNDLE = re.compile(r"^scheduled/(\d{4}-\d{2}-\d{2})-([a-z0-9-]+)\.tar\.gz$")
+# Cosa un pacchetto puo' toccare. I pacchetti arrivano anche da v5 con un token GitHub: un pacchetto sbagliato o
+# malevolo non deve poter scrivere tools/, .github/, .git/, booking-engine/ o le pagine esistenti.
+LANG_DIR = r"(?:(?:it|de|fr)/)?"
+RE_IMAGE = re.compile(r"^images/blog/[a-z0-9][a-z0-9._-]*\.(?:jpg|jpeg|avif|webp|png)$")
+RE_INDEX = re.compile(rf"^{LANG_DIR}blog\.html$")
+RE_POST = re.compile(rf"^{LANG_DIR}blog/posts/[a-z0-9-]+\.html$")
+
+
+def allowed_file(rel, slug):
+    """Le pagine del pacchetto (una per lingua, col nome del pacchetto) e le sue immagini in images/blog/."""
+    return bool(RE_IMAGE.match(rel)) or (bool(RE_POST.match(rel)) and rel.endswith(f"/{slug}.html"))
 GRID_MARK = 'id="blogGrid"'
 
 
@@ -87,6 +98,7 @@ def bundles(ref):
 
 
 def open_bundle(ref, name):
+    slug = RE_BUNDLE.match(name).group(2)
     blob = git("show", f"{ref}:{name}", binary=True)
     tar = tarfile.open(fileobj=io.BytesIO(blob), mode="r:gz")
     manifest = json.load(tar.extractfile("publish.json"))
@@ -95,11 +107,17 @@ def open_bundle(ref, name):
         if not member.isfile() or not member.name.startswith("site/"):
             continue
         rel = os.path.normpath(member.name[len("site/"):])
-        if rel.startswith("..") or os.path.isabs(rel):
+        if rel.startswith("..") or os.path.isabs(rel) or not allowed_file(rel, slug):
             sys.exit(f"!! percorso non ammesso nel pacchetto {name}: {member.name}")
         files.append((rel, member))
     if not files:
         sys.exit(f"!! pacchetto {name} senza file in site/")
+    for index_rel in manifest.get("cards", {}):
+        if not RE_INDEX.match(index_rel):
+            sys.exit(f"!! card verso una pagina non ammessa nel pacchetto {name}: {index_rel}")
+    for link in manifest.get("links", []):
+        if not RE_POST.match(str(link.get("file", ""))):
+            sys.exit(f"!! link in una pagina non ammessa nel pacchetto {name}: {link.get('file')}")
     return tar, manifest, files
 
 
