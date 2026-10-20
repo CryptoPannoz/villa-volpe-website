@@ -737,6 +737,28 @@ textarea { resize: vertical; min-height: 80px; }
   margin-bottom: var(--spacing-md);
 }
 
+/* ── Anti-bot (Cloudflare Turnstile) ───────────────────── */
+
+/* Il widget compare solo se Cloudflare chiede un click (appearance 'interaction-only'):
+   altrimenti il contenitore e' alto 0. La classe la mette calendar.js quando compare. */
+.turnstile-widget { max-width: 100%; overflow: hidden; }
+.turnstile-widget--shown { margin-bottom: var(--spacing-md); }
+
+/* Messaggio con l'email quando la verifica non funziona: mai un errore muto. */
+.booking-notice {
+  padding: var(--spacing-md);
+  background-color: #FFF3E0;
+  border-left: 3px solid var(--warning-color);
+  border-radius: var(--radius-sm);
+  color: #8A3A00;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: var(--spacing-sm) 0 var(--spacing-md);
+  max-width: none;   /* style.css limita i <p> alla misura del testo: qui va largo quanto il pulsante */
+}
+.booking-notice[hidden] { display: none; }
+.booking-notice a { color: inherit; font-weight: 600; text-decoration: underline; }
+
 /* ── Summary Card ──────────────────────────────────────── */
 
 .summary-card {
