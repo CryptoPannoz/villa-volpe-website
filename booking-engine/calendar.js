@@ -27,11 +27,11 @@ const BOOKING_CONFIG = {
   maxNightsToShow: 29,  // Gap > 29 notti non vengono mostrati nella lista
   maxGuests: 4,
   email: 'villavolpeorta@gmail.com',
-  // Cloudflare Turnstile (anti-bot, vedi sotto): sitekey PUBBLICA del widget di
-  // Alberto. Il secret sta solo su Vercel (TURNSTILE_SECRET_KEY di v5).
-  // ⚠️ Questa e' la chiave di PROVA di Cloudflare: va sostituita con quella vera
-  // prima del merge, altrimenti appena v5 verifica i token nessuna richiesta passa.
-  turnstileSiteKey: '1x00000000000000000000AA'
+  // Cloudflare Turnstile (anti-bot, vedi sotto): sitekey PUBBLICA del widget
+  // "Villa Volpe prenotazioni" (account Cloudflare bebroggi@gmail.com, hostname
+  // villa-volpe.com e www). Il secret sta solo su Vercel (TURNSTILE_SECRET_KEY di v5).
+  // In locale la sitekey vera non funziona: per provare usare 1x00000000000000000000AA.
+  turnstileSiteKey: '0x4AAAAAAFdxlq4pZgnIZlwS'
 };
 
 
