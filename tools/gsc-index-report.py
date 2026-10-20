@@ -25,7 +25,6 @@ gsc = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(gsc)
 
 INSPECT = "https://searchconsole.googleapis.com/v1/urlInspection/index:inspect"
-INDEXED = "Submitted and indexed"
 
 
 def sitemap_urls():
@@ -59,7 +58,7 @@ def main():
     counts = {}
     for r in rows:
         counts[r["coverage"]] = counts.get(r["coverage"], 0) + 1
-    todo = sorted((r for r in rows if r["coverage"] != INDEXED), key=lambda r: (r["coverage"], r["url"]))
+    todo = sorted((r for r in rows if r.get("verdict") != "PASS"), key=lambda r: (r["coverage"], r["url"]))
     other_canonical = [r for r in rows if r.get("google") and r.get("ours") and r["google"] != r["ours"]]
 
     out = ["## Indicizzazione su Google", "", f"{len(rows)} URL della sitemap, ispezionati con l'URL Inspection API.", ""]
