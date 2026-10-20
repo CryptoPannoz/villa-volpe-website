@@ -390,6 +390,8 @@
                 <label for="special-requests">Richieste particolari</label>
                 <textarea id="special-requests" placeholder="Richieste particolari o domande... (facoltativo)" rows="3"></textarea>
               </div>
+              <!-- Anti-bot Cloudflare Turnstile: lo disegna booking-engine/calendar.js e di solito resta invisibile -->
+              <div id="turnstile-widget" class="turnstile-widget"></div>
             </form>
             <button class="btn-primary" id="continue-to-policy">Verifica e conferma</button>
           </div>

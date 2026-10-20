@@ -26,7 +26,12 @@ const BOOKING_CONFIG = {
   minNights: 3,
   maxNightsToShow: 29,  // Gap > 29 notti non vengono mostrati nella lista
   maxGuests: 4,
-  email: 'villavolpeorta@gmail.com'
+  email: 'villavolpeorta@gmail.com',
+  // Cloudflare Turnstile (anti-bot, vedi sotto): sitekey PUBBLICA del widget di
+  // Alberto. Il secret sta solo su Vercel (TURNSTILE_SECRET_KEY di v5).
+  // ⚠️ Questa e' la chiave di PROVA di Cloudflare: va sostituita con quella vera
+  // prima del merge, altrimenti appena v5 verifica i token nessuna richiesta passa.
+  turnstileSiteKey: '1x00000000000000000000AA'
 };
 
 
@@ -174,7 +179,11 @@ var I18N = {
       '<strong>Cancellation:</strong> non-refundable — no refund if you cancel or change dates',
       '<strong>Tourist tax:</strong> €1.00 per night per guest, still payable on arrival'
     ]; },
-    promoRequestNote: function(p) { return 'AUTUMN OFFER — ' + p + ' for 7 nights, all included. Pay in full on booking, non-refundable.'; }
+    promoRequestNote: function(p) { return 'AUTUMN OFFER — ' + p + ' for 7 nights, all included. Pay in full on booking, non-refundable.'; },
+    mailSubject: 'Booking request',
+    botCheckFailed: function(email) { return 'Our anti-spam check could not load (an ad blocker or a strict network can stop it). You can still book: write to us at ' + email + ' with your dates and number of guests.'; },
+    botCheckRejected: function(email) { return 'The security check expired or did not succeed. Please send the request again; if it keeps failing, write to us at ' + email + '.'; },
+    botCheckInteract: 'Please complete the short security check below, then continue.'
   },
   fr: {
     noGaps: 'Aucune période disponible trouvée. Merci de nous contacter directement.',
@@ -217,7 +226,11 @@ var I18N = {
       '<strong>Annulation :</strong> non remboursable — aucun remboursement en cas d’annulation ou de changement de dates',
       '<strong>Taxe de séjour :</strong> 1,00 € par nuit et par personne, à régler sur place'
     ]; },
-    promoRequestNote: function(p) { return 'OFFRE AUTOMNE — ' + p + ' pour 7 nuits, tout compris. Paiement intégral à la réservation, non remboursable.'; }
+    promoRequestNote: function(p) { return 'OFFRE AUTOMNE — ' + p + ' pour 7 nuits, tout compris. Paiement intégral à la réservation, non remboursable.'; },
+    mailSubject: 'Demande de réservation',
+    botCheckFailed: function(email) { return 'Notre contrôle anti-spam n’a pas pu se charger (un bloqueur de publicité ou un réseau strict peut l’empêcher). Vous pouvez quand même réserver : écrivez-nous à ' + email + ' en indiquant vos dates et le nombre de personnes.'; },
+    botCheckRejected: function(email) { return 'La vérification de sécurité a expiré ou n’a pas abouti. Veuillez renvoyer la demande ; si le problème persiste, écrivez-nous à ' + email + '.'; },
+    botCheckInteract: 'Veuillez compléter la courte vérification de sécurité ci-dessous, puis continuer.'
   },
   de: {
     noGaps: 'Keine verfügbaren Zeiträume gefunden. Bitte kontaktieren Sie uns direkt.',
@@ -260,7 +273,11 @@ var I18N = {
       '<strong>Stornierung:</strong> nicht erstattbar — keine Rückerstattung bei Stornierung oder Datumsänderung',
       '<strong>Kurtaxe:</strong> 1,00 € pro Nacht und Person, weiterhin vor Ort zu zahlen'
     ]; },
-    promoRequestNote: function(p) { return 'HERBST-ANGEBOT — ' + p + ' für 7 Nächte, alles inklusive. Vollständige Zahlung bei Buchung, nicht erstattbar.'; }
+    promoRequestNote: function(p) { return 'HERBST-ANGEBOT — ' + p + ' für 7 Nächte, alles inklusive. Vollständige Zahlung bei Buchung, nicht erstattbar.'; },
+    mailSubject: 'Buchungsanfrage',
+    botCheckFailed: function(email) { return 'Unsere Anti-Spam-Prüfung konnte nicht geladen werden (ein Werbeblocker oder ein strenges Netzwerk kann sie verhindern). Sie können trotzdem buchen: Schreiben Sie uns an ' + email + ' mit Ihren Reisedaten und der Anzahl der Gäste.'; },
+    botCheckRejected: function(email) { return 'Die Sicherheitsprüfung ist abgelaufen oder fehlgeschlagen. Bitte senden Sie die Anfrage erneut; wenn es weiterhin nicht klappt, schreiben Sie uns an ' + email + '.'; },
+    botCheckInteract: 'Bitte schließen Sie die kurze Sicherheitsprüfung unten ab und fahren Sie dann fort.'
   },
   it: {
     noGaps: 'Nessun periodo disponibile trovato. Contattaci direttamente.',
@@ -303,7 +320,11 @@ var I18N = {
       '<strong>Cancellazione:</strong> non rimborsabile \u2014 nessun rimborso in caso di disdetta o cambio date',
       '<strong>Tassa di soggiorno:</strong> 1,00 \u20ac a notte a persona, comunque da versare in loco'
     ]; },
-    promoRequestNote: function(p) { return 'OFFERTA AUTUNNO \u2014 ' + p + ' per 7 notti, tutto incluso. Saldo immediato alla prenotazione, non rimborsabile.'; }
+    promoRequestNote: function(p) { return 'OFFERTA AUTUNNO \u2014 ' + p + ' per 7 notti, tutto incluso. Saldo immediato alla prenotazione, non rimborsabile.'; },
+    mailSubject: 'Richiesta di prenotazione',
+    botCheckFailed: function(email) { return 'Il controllo anti-spam non si \u00e8 caricato (pu\u00f2 bloccarlo un ad blocker o una rete aziendale). Puoi prenotare lo stesso: scrivici a ' + email + ' con le date e il numero di ospiti.'; },
+    botCheckRejected: function(email) { return 'La verifica di sicurezza \u00e8 scaduta o non \u00e8 riuscita. Invia di nuovo la richiesta; se non funziona, scrivici a ' + email + '.'; },
+    botCheckInteract: 'Completa la breve verifica di sicurezza qui sotto, poi continua.'
   }
 };
 var T = I18N[BOOKING_LANG];
@@ -337,7 +358,174 @@ document.addEventListener('DOMContentLoaded', function() {
   renderCalendar();
   setupEventListeners();
   loadBlockedDates();
+  loadTurnstile();
 });
+
+
+// ═══════════════════════════════════════════════════════════
+// ANTI-BOT (Cloudflare Turnstile)
+// ═══════════════════════════════════════════════════════════
+//
+// v5 rifiuta (403) le richieste senza un token Turnstile valido: prima un
+// curl qualsiasi creava righe, email e notifiche. Widget "managed" con
+// appearance 'interaction-only': di solito non si vede e non chiede nulla;
+// compare nel form dei dati ospite (#turnstile-widget) solo se Cloudflare
+// vuole un click. Lo disegniamo quando l'ospite arriva a quel passo, cosi'
+// e' visibile se serve.
+//
+// Il token dura 5 minuti e vale una volta: Turnstile lo rinnova da solo quando
+// scade, e dopo ogni invio ne chiediamo uno nuovo. Se lo script non si carica
+// (ad blocker, rete aziendale, Cloudflare giu') l'ospite vede un messaggio con
+// l'email, mai un errore muto.
+// Niente formStartedAt del v4: confronta l'orologio del browser con quello del
+// server e scarterebbe in silenzio le richieste vere.
+
+var turnstileState = {
+  status: 'loading',    // loading → ready, oppure failed (lo script non arriva)
+  widgetId: null,
+  wanted: false,        // l'ospite e' arrivato al form: disegnare appena pronto
+  error: null,          // errore del widget (Turnstile riprova da solo)
+  interactive: false,   // Cloudflare chiede un click nel widget
+  waiters: []
+};
+
+function loadTurnstile() {
+  var s = document.createElement('script');
+  s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=vvTurnstileReady';
+  s.async = true;
+  s.onerror = function() {
+    turnstileState.status = 'failed';
+    turnstileProblem();
+  };
+  document.head.appendChild(s);
+}
+
+window.vvTurnstileReady = function() {
+  turnstileState.status = 'ready';
+  if (turnstileState.wanted) renderTurnstile();
+};
+
+function renderTurnstile() {
+  turnstileState.wanted = true;
+  if (turnstileState.status === 'failed') return turnstileProblem();
+  if (turnstileState.status !== 'ready' || turnstileState.widgetId !== null) return;
+  try {
+    turnstileState.widgetId = window.turnstile.render('#turnstile-widget', {
+      sitekey: BOOKING_CONFIG.turnstileSiteKey,
+      action: 'booking',   // v5 lo controlla in siteverify
+      language: BOOKING_LANG,
+      theme: 'light',
+      // 'flexible' vuole almeno 300px: sul telefono il form e' piu' stretto e lo taglierebbe
+      size: document.getElementById('turnstile-widget').offsetWidth < 300 ? 'compact' : 'flexible',
+      appearance: 'interaction-only',
+      callback: function(token) {
+        turnstileState.error = null;
+        turnstileState.interactive = false;
+        hideBookingNotice('guests');
+        var waiters = turnstileState.waiters;
+        turnstileState.waiters = [];
+        waiters.forEach(function(fn) { fn(token); });
+      },
+      'before-interactive-callback': function() {
+        // serve un click: il widget compare nel form, e chi aspetta il token (l'invio) non deve aspettare per niente
+        turnstileState.interactive = true;
+        document.getElementById('turnstile-widget').classList.add('turnstile-widget--shown');
+        var waiters = turnstileState.waiters;
+        turnstileState.waiters = [];
+        waiters.forEach(function(fn) { fn(''); });
+      },
+      'after-interactive-callback': function() { turnstileState.interactive = false; },
+      'error-callback': function(code) {
+        turnstileState.error = String(code || 'error');
+        turnstileProblem();
+        return true;   // gestito: Turnstile riprova da solo (retry 'auto')
+      },
+      'unsupported-callback': function() {
+        turnstileState.error = 'unsupported';
+        turnstileProblem();
+      }
+    });
+  } catch (e) {
+    console.error('Turnstile:', e);
+    turnstileState.status = 'failed';
+    turnstileProblem();
+  }
+}
+
+/** Lo script o il widget non funzionano: messaggio con l'email nel form, e chi aspetta un token riceve ''. */
+function turnstileProblem() {
+  if (turnstileState.wanted) showBookingNotice('guests', T.botCheckFailed(bookingMailLink()));
+  var waiters = turnstileState.waiters;
+  turnstileState.waiters = [];
+  waiters.forEach(function(fn) { fn(''); });
+}
+
+/** Token valido adesso, o '' se non c'e' (ancora in corso, scaduto, errore). */
+function currentTurnstileToken() {
+  if (!window.turnstile || turnstileState.widgetId === null) return '';
+  try {
+    return window.turnstile.isExpired(turnstileState.widgetId) ? '' : (window.turnstile.getResponse(turnstileState.widgetId) || '');
+  } catch (e) {
+    return '';
+  }
+}
+
+/** Promise con il token: subito se c'e', altrimenti aspetta il widget fino a timeoutMs ('' se non arriva). */
+function getTurnstileToken(timeoutMs) {
+  return new Promise(function(resolve) {
+    var token = currentTurnstileToken();
+    if (token) return resolve(token);
+    // script assente, widget in errore o in attesa di un click: inutile aspettare
+    if (turnstileState.status === 'failed' || turnstileState.error || turnstileState.interactive) return resolve('');
+    renderTurnstile();
+    var done = false;
+    var timer = setTimeout(function() { finish(''); }, timeoutMs);
+    function finish(t) {
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      resolve(t);
+    }
+    turnstileState.waiters.push(finish);
+  });
+}
+
+/** Il token e' stato usato (o rifiutato): se ne chiede uno nuovo per il prossimo invio. */
+function resetTurnstile() {
+  if (!window.turnstile || turnstileState.widgetId === null) return;
+  try { window.turnstile.reset(turnstileState.widgetId); } catch (e) { /* al prossimo invio si riprova */ }
+}
+
+/** Link all'email della villa, con oggetto e date gia' scritti. */
+function bookingMailLink() {
+  var subject = T.mailSubject;
+  if (state.checkInDate && state.checkOutDate) {
+    subject += ' ' + formatDateForSheet(state.checkInDate) + ' - ' + formatDateForSheet(state.checkOutDate);
+  }
+  return '<a href="mailto:' + BOOKING_CONFIG.email + '?subject=' + encodeURIComponent(subject) + '">' + BOOKING_CONFIG.email + '</a>';
+}
+
+/** Messaggio dentro un passo: nel form sopra il widget, nel riepilogo sopra il pulsante di invio. */
+function showBookingNotice(stepName, html) {
+  var anchor = document.getElementById(stepName === 'guests' ? 'turnstile-widget' : 'send-request');
+  if (!anchor) return;
+  var id = 'booking-notice-' + stepName;
+  var el = document.getElementById(id);
+  if (!el) {
+    el = document.createElement('p');
+    el.id = id;
+    el.className = 'booking-notice';
+    el.setAttribute('role', 'alert');
+    anchor.parentNode.insertBefore(el, anchor);
+  }
+  el.innerHTML = html;
+  el.hidden = false;
+}
+
+function hideBookingNotice(stepName) {
+  var el = document.getElementById('booking-notice-' + stepName);
+  if (el) el.hidden = true;
+}
 
 
 // ═══════════════════════════════════════════════════════════
@@ -834,38 +1022,66 @@ function sendBookingRequest() {
     language: BOOKING_LANG
   };
 
-  // v5 risponde con CORS: leggiamo l'esito invece di mostrare sempre la conferma (con l'Apps Script e
-  // mode 'no-cors' la risposta era illeggibile, anche quando le date non erano piu' disponibili).
-  fetch(BOOKING_CONFIG.webAppUrl, {
-    method: 'POST',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify(bookingData)
-  })
-  .then(function(res) { return res.json(); })
-  .then(function(out) {
-    if (!out || out.result !== 'success') throw new Error((out && out.error) || 'Booking request failed');
-    // Google Analytics 4: la richiesta di prenotazione inviata è l'evento chiave del sito (key event in GA4).
-    // Solo dati del soggiorno, niente nome o email dell'ospite.
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'generate_lead', {
-        lead_source: 'booking_form',
-        currency: 'EUR',
-        nights: nights,
-        guests: totalGuests,
-        pets: state.guestData.pets === 'yes' ? 'yes' : 'no',
-        promo: promoWeek ? 'autumn-2026' : 'none',
-        check_in_month: formatLocalISO(state.checkInDate).slice(0, 7),
-        language: BOOKING_LANG
-      });
-    }
-    document.getElementById('confirmation-email').textContent = state.guestData.email;
-    goToStep('confirmation');
-  })
-  .catch(function(error) {
-    console.error('Error:', error);
-    alert(T.sendError(BOOKING_CONFIG.email));
+  hideBookingNotice('policy');
+  function restoreButton() {
     sendButton.textContent = originalText;
     sendButton.disabled = false;
+  }
+
+  // Prima il token Turnstile (di solito e' gia' pronto): senza, v5 risponde 403.
+  getTurnstileToken(15000).then(function(token) {
+    if (!token) {
+      restoreButton();
+      if (turnstileState.interactive) {
+        // Cloudflare vuole un click: il widget sta nel form dei dati, si torna li'
+        goToStep('guests');
+        showBookingNotice('guests', T.botCheckInteract);
+      } else {
+        showBookingNotice('policy', T.botCheckFailed(bookingMailLink()));
+      }
+      return;
+    }
+    bookingData.turnstileToken = token;
+
+    // v5 risponde con CORS: leggiamo l'esito invece di mostrare sempre la conferma (con l'Apps Script e
+    // mode 'no-cors' la risposta era illeggibile, anche quando le date non erano piu' disponibili).
+    return fetch(BOOKING_CONFIG.webAppUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(bookingData)
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(out) {
+      resetTurnstile();   // il token vale una volta: un nuovo invio ne usa uno fresco
+      if (out && out.code === 'turnstile') {
+        restoreButton();
+        showBookingNotice('policy', T.botCheckRejected(bookingMailLink()));
+        return;
+      }
+      if (!out || out.result !== 'success') throw new Error((out && out.error) || 'Booking request failed');
+      // Google Analytics 4: la richiesta di prenotazione inviata è l'evento chiave del sito (key event in GA4).
+      // Solo dati del soggiorno, niente nome o email dell'ospite.
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', {
+          lead_source: 'booking_form',
+          currency: 'EUR',
+          nights: nights,
+          guests: totalGuests,
+          pets: state.guestData.pets === 'yes' ? 'yes' : 'no',
+          promo: promoWeek ? 'autumn-2026' : 'none',
+          check_in_month: formatLocalISO(state.checkInDate).slice(0, 7),
+          language: BOOKING_LANG
+        });
+      }
+      document.getElementById('confirmation-email').textContent = state.guestData.email;
+      goToStep('confirmation');
+    });
+  })
+  .catch(function(error) {
+    resetTurnstile();
+    console.error('Error:', error);
+    alert(T.sendError(BOOKING_CONFIG.email));
+    restoreButton();
   });
 }
 
@@ -944,6 +1160,8 @@ function goToStep(stepName) {
     step.classList.remove('active');
   });
   document.getElementById('step-' + stepName).classList.add('active');
+  // il widget anti-bot nasce nel form dei dati ospite, quando e' visibile
+  if (stepName === 'guests') renderTurnstile();
 
   // Update progress indicator
   var steps = ['calendar', 'guests', 'policy', 'confirmation'];
