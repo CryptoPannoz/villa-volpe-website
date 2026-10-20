@@ -5,9 +5,6 @@ name: Resoconto indicizzazione Google
 # Il resoconto e' nel riepilogo del run (scheda Actions). Si avvia a mano: "Run workflow".
 
 on:
-  push:  # TEMPORANEO: prova sul branch, da togliere
-    branches: [seo/indicizzazione-sicurezza]
-    paths: [tools/gsc-index-report.py, .github/workflows/index-report.yml]
   workflow_dispatch:
     inputs:
       only:
