@@ -112,5 +112,12 @@
   var target = document.getElementById('site-footer');
   if (target) {
     target.innerHTML = footerHTML;
+
+    // Anteprima del feed Instagram subito sopra il footer: tutta la logica
+    // (e la richiesta a v5, solo quando il footer si avvicina) sta in js/ig-feed.js.
+    var igFeed = document.createElement('script');
+    igFeed.src = toRoot + 'js/ig-feed.js';
+    igFeed.async = true;
+    document.body.appendChild(igFeed);
   }
 })();

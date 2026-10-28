@@ -2704,3 +2704,126 @@ html.no-io .vv-cinema .label { opacity: 1; transform: none; }
 /* Testate con foto piccole (800 px): restano strette, niente ingrandimenti sgranati. */
 .post-hero--compact { max-width: 932px; }
 .post-hero--compact .post-hero__frame { aspect-ratio: 16 / 9; }
+
+/* =====================================================================
+   INSTAGRAM — anteprima del feed subito sopra il footer.
+   La sezione la crea js/ig-feed.js (caricato da footer.js) solo quando i
+   dati di v5 sono arrivati: niente box vuoto, niente salti di layout.
+   Riquadri quadrati, 3 colonne anche su telefono (3x2, come il profilo).
+   ===================================================================== */
+.ig-feed {
+  background: var(--color-surface);
+  padding: var(--space-xl) 0;
+  text-align: center;
+}
+.ig-feed__head {
+  margin-bottom: var(--space-lg);
+}
+.ig-feed__eyebrow {
+  /* h2 per la struttura della pagina, ma con l'aspetto di .label */
+  font-family: var(--font-body);
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.ig-feed__handle {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  line-height: 1.2;
+  color: var(--color-black);
+}
+.ig-feed__handle:hover,
+.ig-feed__handle:focus-visible {
+  color: var(--color-accent);
+}
+.ig-feed__grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-sm);
+  max-width: 860px;
+  margin: 0 auto;
+}
+.ig-feed__tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--color-border);
+}
+.ig-feed__tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s var(--ease-out-expo);
+}
+.ig-feed__tile.is-broken img {
+  opacity: 0; /* resta il fondo neutro; l'alt rimane per gli screen reader */
+}
+.ig-feed__tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 26, 26, 0);
+  transition: background var(--duration) var(--ease);
+  pointer-events: none;
+}
+.ig-feed__tile:hover::after,
+.ig-feed__tile:focus-visible::after {
+  background: rgba(26, 26, 26, 0.18);
+}
+.ig-feed__tile:hover img {
+  transform: scale(1.05);
+}
+.ig-feed__tile:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+.ig-feed__badge {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 1;
+  line-height: 0;
+  color: var(--color-white);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+  pointer-events: none;
+}
+.ig-feed__badge svg {
+  width: 20px;
+  height: 20px;
+}
+.ig-feed__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+.ig-feed__cta {
+  margin-top: var(--space-lg);
+}
+.ig-feed__btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .ig-feed__head { margin-bottom: var(--space-md); }
+  .ig-feed__grid { gap: 4px; }
+  .ig-feed__badge { top: 0.4rem; right: 0.4rem; }
+  .ig-feed__badge svg { width: 16px; height: 16px; }
+  .ig-feed__cta { margin-top: var(--space-md); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ig-feed__tile img,
+  .ig-feed__tile::after { transition: none; }
+  .ig-feed__tile:hover img { transform: none; }
+}
