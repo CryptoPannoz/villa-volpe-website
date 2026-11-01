@@ -759,6 +759,24 @@ textarea { resize: vertical; min-height: 80px; }
 .booking-notice[hidden] { display: none; }
 .booking-notice a { color: inherit; font-weight: 600; text-decoration: underline; }
 
+/* Chiusura invernale 2026/27: avviso sopra il calendario, stesso interruttore
+   della fascia in cima al sito (`has-winter`, tolta il 29/03/2027). */
+.winter-note { display: none; }
+.has-winter .winter-note {
+  display: block;
+  padding: var(--spacing-md);
+  background-color: var(--primary-light);
+  border-left: 3px solid var(--primary-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: var(--spacing-sm) 0 var(--spacing-md);
+  max-width: none;
+}
+.winter-note strong { font-weight: 600; }
+.winter-note a { color: var(--primary-color); font-weight: 600; text-decoration: underline; }
+
 /* ── Summary Card ──────────────────────────────────────── */
 
 .summary-card {
