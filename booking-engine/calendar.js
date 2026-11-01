@@ -132,6 +132,27 @@ function promoBookableWeeks() {
 }
 
 
+// ── CHIUSURA INVERNALE ──────────────────────────────────────
+// Inverno 2026/27: la villa e' chiusa e riapre ufficialmente il 29/03/2027.
+// Tutte le notti prima di `reopen` sono bloccate, quindi il primo check-in
+// possibile e' il giorno di riapertura e il calendario si apre su marzo
+// (jumpToFirstAvailableMonth). Dal 29/03 la funzione non blocca piu' nulla e
+// resta solo Google Calendar. Avviso sopra il calendario e fascia in cima al
+// sito si spengono da soli lo stesso giorno (classe `has-winter`).
+// Richieste su misura e medio termine passano dall'email, non dal calendario.
+var WINTER = { reopen: '2027-03-29' };
+
+function addWinterClosure() {
+  var reopen = dateFromISO(WINTER.reopen);
+  var d = new Date();
+  d.setHours(0, 0, 0, 0);
+  while (d < reopen) {
+    var dateStr = formatLocalISO(d);
+    if (state.blockedDates.indexOf(dateStr) === -1) state.blockedDates.push(dateStr);
+    d.setDate(d.getDate() + 1);
+  }
+}
+
 // ── I18N (booking widget) ───────────────────────────────────
 var BOOKING_LANG = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
 if (['en', 'fr', 'de', 'it'].indexOf(BOOKING_LANG) === -1) BOOKING_LANG = 'en';
@@ -355,6 +376,7 @@ var state = {
 // ── INIT ────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', function() {
+  addWinterClosure();
   renderCalendar();
   setupEventListeners();
   loadBlockedDates();
