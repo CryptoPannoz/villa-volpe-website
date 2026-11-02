@@ -5,7 +5,7 @@
  *
  * Widget unificato: Calendario + Form ospiti + Policy + Conferma
  * Legge disponibilità da Google Calendar API,
- * evidenzia periodi liberi (min 3 notti),
+ * evidenzia periodi liberi (soggiorno minimo stagionale, vedi MIN_STAY),
  * invia richieste a BookingRequest.gs via doPost.
  *
  * Flusso: Calendar → Guests → Policy/Summary → Confirmation
@@ -23,7 +23,6 @@ const BOOKING_CONFIG = {
   apiKey: 'AIzaSyDkmWoTVEgonSPPTYrKIY9SuoodIVO4lpQ',
   // Accensione Villa Volpe v5: le richieste vanno a Neon (stesso doPost del v4, portato identico)
   webAppUrl: 'https://villa-volpe-v5.vercel.app/api/booking',
-  minNights: 3,
   maxNightsToShow: 29,  // Gap > 29 notti non vengono mostrati nella lista
   maxGuests: 4,
   email: 'villavolpeorta@gmail.com',
@@ -33,6 +32,19 @@ const BOOKING_CONFIG = {
   // In locale la sitekey vera non funziona: per provare usare 1x00000000000000000000AA.
   turnstileSiteKey: '0x4AAAAAAFdxlq4pZgnIZlwS'
 };
+
+
+// ── SOGGIORNO MINIMO ────────────────────────────────────────
+// Dal 03/11/2026 (deciso da Alberto): 5 notti per gli arrivi dal 1° agosto al
+// 21 ottobre compreso, 4 notti il resto dell'anno. Conta il giorno di arrivo.
+// v5 (/api/booking) rifiuta solo sotto le 3 notti: la regola stagionale vive
+// qui. La scritta sopra il calendario nei 4 book.html va tenuta uguale.
+var MIN_STAY = { nights: 4, high: { nights: 5, from: '08-01', to: '10-21' } };
+
+function minNightsFor(checkIn) {
+  var md = formatLocalISO(checkIn).slice(5);
+  return md >= MIN_STAY.high.from && md <= MIN_STAY.high.to ? MIN_STAY.high.nights : MIN_STAY.nights;
+}
 
 
 // ── PROMO ───────────────────────────────────────────────────
@@ -556,7 +568,9 @@ function hideBookingNotice(stepName) {
 
 /**
  * Dopo aver caricato le date bloccate, calcola i periodi
- * consecutivi liberi di almeno minNights notti.
+ * consecutivi liberi abbastanza lunghi per il soggiorno minimo del loro
+ * primo giorno (minNightsFor): se non basta arrivare il primo giorno, non
+ * basta nessun altro, perche' le notti che restano sono di meno.
  * Guarda avanti 12 mesi da oggi.
  */
 function calculateAvailableGaps() {
@@ -582,7 +596,7 @@ function calculateAvailableGaps() {
       if (gapStart) {
         var gapEnd = new Date(current);
         var nights = Math.round((gapEnd - gapStart) / (1000 * 60 * 60 * 24));
-        if (nights >= BOOKING_CONFIG.minNights) {
+        if (nights >= minNightsFor(gapStart)) {
           state.availableGaps.push({
             start: new Date(gapStart),
             end: new Date(gapEnd),
@@ -598,7 +612,7 @@ function calculateAvailableGaps() {
   // Chiudi l'ultimo gap se aperto
   if (gapStart) {
     var nights = Math.round((endDate - gapStart) / (1000 * 60 * 60 * 24));
-    if (nights >= BOOKING_CONFIG.minNights) {
+    if (nights >= minNightsFor(gapStart)) {
       state.availableGaps.push({
         start: new Date(gapStart),
         end: new Date(endDate),
@@ -611,7 +625,7 @@ function calculateAvailableGaps() {
 }
 
 /**
- * Verifica se una data è dentro un gap disponibile (≥ minNights)
+ * Verifica se una data è dentro un gap disponibile (≥ soggiorno minimo)
  */
 function isInAvailableGap(date) {
   var d = new Date(date);
@@ -661,10 +675,10 @@ function renderAvailableGapsList() {
       var blockEnd = new Date(blockStart);
       blockEnd.setDate(blockEnd.getDate() + suggestedNights);
 
-      // Se il blocco sfora il gap, prendi quello che resta (solo se >= minNights)
+      // Se il blocco sfora il gap, prendi quello che resta (solo se basta per il minimo)
       if (blockEnd > gap.end) {
         var remainingNights = Math.round((gap.end - blockStart) / (1000 * 60 * 60 * 24));
-        if (remainingNights >= BOOKING_CONFIG.minNights) {
+        if (remainingNights >= minNightsFor(blockStart)) {
           blocks.push({ start: new Date(blockStart), end: new Date(gap.end), nights: remainingNights, gapIndex: i });
         }
         break;
@@ -776,7 +790,7 @@ function renderCalendar() {
       dayCell.classList.add('available');
       dayCell.setAttribute('aria-label', formatDateDisplay(date) + ' ' + T.ariaAvailable);
 
-      // Evidenzia se il giorno fa parte di un gap valido (≥ minNights)
+      // Evidenzia se il giorno fa parte di un gap valido (≥ soggiorno minimo)
       if (state.calendarLoaded && isInAvailableGap(date)) {
         dayCell.classList.add('in-gap');
       }
@@ -847,10 +861,11 @@ function selectDate(date) {
       state.checkOutDate = date;
     }
 
-    // Validazione: minimo notti
+    // Validazione: minimo notti (dipende dal giorno di arrivo)
     var nights = calculateNights(state.checkInDate, state.checkOutDate);
-    if (nights < BOOKING_CONFIG.minNights) {
-      showDateError(T.minStay(BOOKING_CONFIG.minNights, nights));
+    var minNights = minNightsFor(state.checkInDate);
+    if (nights < minNights) {
+      showDateError(T.minStay(minNights, nights));
       state.checkOutDate = null;
     }
 
