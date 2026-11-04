@@ -33,6 +33,7 @@
     var titleEl = el.querySelector('.ttd-card__title');
     var descEl = el.querySelector('.ttd-card__desc');
     var linkEl = el.querySelector('.ttd-card__link');
+    var imgEl = el.querySelector('.ttd-card__img');
     return {
       el: el,
       id: el.id || '',
@@ -43,7 +44,8 @@
       emoji: el.getAttribute('data-emoji') || '📍',
       title: titleEl ? titleEl.textContent.trim() : '',
       desc: descEl ? descEl.textContent.trim() : '',
-      link: linkEl ? { href: linkEl.getAttribute('href'), text: linkEl.textContent.trim() } : null
+      link: linkEl ? { href: linkEl.getAttribute('href'), text: linkEl.textContent.trim() } : null,
+      img: imgEl ? imgEl.src : ''
     };
   }).filter(function (p) { return !isNaN(p.lat) && !isNaN(p.lng); });
 
@@ -65,6 +67,7 @@
               : pageUrl + (p.id ? '#' + p.id : '')
           };
           if (p.desc) attraction.description = p.desc;
+          if (p.img) attraction.image = p.img;
           return { '@type': 'ListItem', position: i + 1, item: attraction };
         });
       var ld = {
@@ -112,7 +115,31 @@
 
   chips.forEach(function (c) {
     c.addEventListener('click', function () { applyFilter(c.getAttribute('data-filter')); });
+    // How many places each chip shows (the villa marker is always there, so it doesn't count)
+    var f = c.getAttribute('data-filter');
+    var n = pois.filter(function (p) {
+      return p.cat !== 'villa' && (f === 'all' || (f === 'pick' ? p.pick : p.cat === f));
+    }).length;
+    var badge = document.createElement('span');
+    badge.className = 'ttd-chip__n';
+    badge.textContent = n;
+    c.appendChild(badge);
   });
+
+  // Opens one place on the map from elsewhere on the page (the business-card
+  // drawer, js/ttd-drawer.js). If the map isn't built yet, it waits for it.
+  var pendingFocus = null;
+  function focusPoi(id) {
+    var p = pois.filter(function (x) { return x.id === id; })[0];
+    if (!p) return;
+    var shown = activeFilter === 'all' || (activeFilter === 'pick' ? p.pick : p.cat === activeFilter);
+    if (!shown) applyFilter('all');
+    mapEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (!mapRef) { pendingFocus = id; return; }
+    mapRef.setView([p.lat, p.lng], Math.max(mapRef.getZoom(), 15), { animate: true });
+    if (markers[id]) markers[id].openPopup();
+  }
+  window.VVTtd = { focus: focusPoi };
 
   // «#picks» (il pulsante in Discover) apre la pagina già filtrata sulle scelte di casa
   if (window.location.hash === '#picks') applyFilter('pick');
@@ -177,6 +204,7 @@
     if (villa && markers[villa.id]) markers[villa.id].openPopup();
 
     if (activeFilter !== 'all') applyFilter(activeFilter);
+    if (pendingFocus) { var f = pendingFocus; pendingFocus = null; focusPoi(f); }
   }
 
   // Leaflet + base map are loaded on demand by the shared js/vv-map.js.
