@@ -71,6 +71,11 @@ Sito di villa-volpe.com.
     costruito da `ttd-drawer.js`, tocco = la carta si gira). Il vecchio paragrafo d'introduzione è in fondo
     (`p.ttd-about`, prima del link al blog); il cassetto apre con una riga sola (`h2.ttd-drawer__line`) e i numeri.
   - Foto nelle schede `img.ttd-card__img` (`images/things-to-do/photos/`), solo dove la foto è davvero quel posto.
+    Dal 04/11/2026 sono «cartoline»: `figure.ttd-postcard` (cornice, francobollo 🦊, timbro «Lago d'Orta»). Quelle
+    prese da Wikimedia Commons (Sacro Monte CC0, Madonna del Sasso pubblico dominio, Torre di Buccione, Monte Mesma,
+    Monte Falò, Mottarone, Villa Crespi, kayak, Anello Indaco: CC BY-SA) hanno il credito obbligatorio nel
+    `figcaption` (autore → pagina del file, licenza → testo della licenza): non toglierlo. Senza foto vera, niente foto
+    (museo dell'ombrello, Pescone, Cappella del Vago, parco Le Pigne).
     Immagine social `images/things-to-do/og-cassetto.jpg`. Filtri della mappa fissi in alto con i conteggi.
 - **Clasp:** no (script in villa-volpe-scripts).
 ---
