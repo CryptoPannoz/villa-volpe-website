@@ -114,6 +114,9 @@
     c.addEventListener('click', function () { applyFilter(c.getAttribute('data-filter')); });
   });
 
+  // «#picks» (il pulsante in Discover) apre la pagina già filtrata sulle scelte di casa
+  if (window.location.hash === '#picks') applyFilter('pick');
+
   // ── Leaflet: build the map ─────────────────────────────────────
   function pinIcon(p) {
     var color = CAT_COLOR[p.cat] || CAT_COLOR.culture;
