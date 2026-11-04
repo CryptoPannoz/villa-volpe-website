@@ -43,8 +43,9 @@ Sito di villa-volpe.com.
 - **Pianta interattiva** (dal 04/11/2026, voluta da Alberto): sezione `#floor-plan` in cima alle 4 `discover.html`
   (prima di «Esterni», `section--alt`; le gallerie hanno ora gli id `outdoor`, `bedrooms`, `living`, `bathroom`).
   Immagine `images/plan/villa-volpe-plan.webp`: la pianta esatta di `scripts/villa-plan.py` del repo v5 (planimetria
-  del manuale 2025 + foto + correzioni di Alberto del 04/11/2026) resa dall'alto con Higgsfield e riallineata sui muri,
-  quindi le coordinate dei punti restano quelle della planimetria. Visore `js/vv-plan.js` (punti, testi nelle 4 lingue
+  del manuale 2025 + foto + correzioni di Alberto del 04/11/2026) resa dall'alto con Higgsfield; l'inquadratura del
+  render, misurata sui muri, sta in `xy()`, quindi le coordinate dei punti restano quelle della planimetria (come
+  `planXY` in v5). Visore `js/vv-plan.js` (punti, testi nelle 4 lingue
   e foto delle gallerie, scheda accanto; la lente è stata tolta su richiesta di Alberto) e stili nel blocco «PIANTA INTERATTIVA» in fondo a `style.css`. Sul sito solo
   stanze ed esterni: niente punti tecnici (caldaia, quadro, router), che stanno solo nella guida ospiti di v5.
 - **Clasp:** no (script in villa-volpe-scripts).

@@ -1,10 +1,11 @@
 /*
  * Villa Volpe — pianta interattiva della pagina Discover (4 lingue, dalla lingua di <html>).
  * Punti numerati sulla pianta (images/plan/villa-volpe-plan.webp: la pianta di scripts/villa-plan.py di v5 resa con
- * Higgsfield e riallineata sui muri): toccandone uno, la scheda accanto mostra foto, testo e il link alla galleria della
- * stanza. Niente lente: Alberto l'ha tolta il 04/11/2026.
+ * Higgsfield): toccandone uno, la scheda accanto mostra foto, testo e il link alla galleria della stanza. Niente lente:
+ * Alberto l'ha tolta il 04/11/2026.
  * Markup: <div class="vv-plan" data-vv-plan data-base="../"></div> (data-base vuoto alla radice).
- * Le coordinate dei punti sono quelle della planimetria (come in v5): xy() le porta in percentuale del disegno.
+ * Le coordinate dei punti sono quelle della planimetria (come in v5). Il render ha un'altra inquadratura, misurata sui
+ * muri: xy() porta i punti in percentuale dell'immagine (stessa formula di planXY in v5).
  */
 (function () {
   'use strict';
@@ -16,8 +17,8 @@
   var BASE = root.getAttribute('data-base') || '';
   var SRC = BASE + 'images/plan/villa-volpe-plan.webp';
   var GAL = BASE + 'images/gallery/';
-  var W = 1840, H = 1552;
-  function xy(x, y) { return { left: (4 * x + 440) / W * 100, top: (4 * y + 160) / H * 100 }; }
+  var W = 2048, H = 1360;
+  function xy(x, y) { return { left: (3.664 * x + 569.5) / W * 100, top: (3.736 * y + 65.2) / H * 100 }; }
 
   var UI = [
     { intro: 'Explore the house', introText: '65 m² on a single level, three metres from the water: an open-plan living room with kitchen, two king-size bedrooms, an accessible bathroom, a terrace on the lake and private access to the water.', hint: 'Tap a number to discover that corner of the house.', photos: 'See the photos', prev: 'Previous', next: 'Next', close: 'Close', plan: 'Floor plan of Villa Volpe' },
@@ -28,7 +29,7 @@
 
   // [x, y, stanza?, ancora della galleria, foto, titoli EN/IT/DE/FR, testi EN/IT/DE/FR]
   var POINTS = [
-    { x: 290, y: -26, anchor: 'amenities', photo: 'villavolpeorta-exterior-facade-entrance-ivy-closeup.jpg',
+    { x: 270, y: -2, anchor: 'amenities', photo: 'villavolpeorta-exterior-facade-entrance-ivy-closeup.jpg',
       t: ['Parking & ramp', 'Parcheggio e rampa', 'Parkplatz & Rampe', 'Parking et rampe'],
       d: ['Private parking above the villa and a step-free ramp down to the front door.', 'Parcheggio privato sopra la villa e una rampa senza gradini fino alla porta.', 'Privatparkplatz oberhalb der Villa und eine stufenlose Rampe bis zur Haustür.', 'Parking privé au-dessus de la villa et une rampe sans marches jusqu\'à la porte.'] },
     { x: 150, y: 120, room: true, anchor: 'living', photo: 'villavolpeorta-interior-living-room-sofa-lake-panorama.jpg',
@@ -52,7 +53,7 @@
     { x: 10, y: 314, anchor: 'outdoor',
       t: ['Outdoor shower', 'Doccia esterna', 'Außendusche', 'Douche extérieure'],
       d: ['Hot and cold, for after a swim in the lake.', 'Calda e fredda, per dopo il bagno nel lago.', 'Warm und kalt, für nach dem Baden im See.', 'Chaude et froide, pour après la baignade.'] },
-    { x: -44, y: 290, room: true, anchor: 'outdoor', photo: 'villavolpeorta-exterior-sunloungers-sunset-lake-reflection.jpg',
+    { x: -84, y: 300, room: true, anchor: 'outdoor', photo: 'villavolpeorta-exterior-sunloungers-sunset-lake-reflection.jpg',
       t: ['Private lake access', 'Accesso privato al lago', 'Privater Seezugang', 'Accès privé au lac'],
       d: ['No beach: a stone wall on the water, with steps down into the lake. Swim, paddle or simply watch the sunset over San Giulio.', 'Niente spiaggia: un muro di pietra sull\'acqua, con i gradini che scendono nel lago. Bagno, SUP o solo il tramonto su San Giulio.', 'Kein Strand: eine Steinmauer am Wasser, mit Stufen hinunter in den See. Baden, paddeln oder einfach den Sonnenuntergang über San Giulio genießen.', 'Pas de plage : un mur de pierre au bord de l\'eau, avec des marches qui descendent dans le lac. Baignade, paddle ou simplement le coucher de soleil sur San Giulio.'] }
   ];
