@@ -39,6 +39,7 @@
       lat: parseFloat(el.getAttribute('data-lat')),
       lng: parseFloat(el.getAttribute('data-lng')),
       cat: (el.getAttribute('data-cat') || 'culture').trim(),
+      pick: el.hasAttribute('data-pick'),
       emoji: el.getAttribute('data-emoji') || '📍',
       title: titleEl ? titleEl.textContent.trim() : '',
       desc: descEl ? descEl.textContent.trim() : '',
@@ -93,7 +94,8 @@
       c.classList.toggle('is-active', c.getAttribute('data-filter') === cat);
     });
     pois.forEach(function (p) {
-      var show = cat === 'all' || p.cat === cat || p.cat === 'villa';
+      // «pick» = le scelte di casa (data-pick), trasversali alle categorie
+      var show = cat === 'all' || (cat === 'pick' ? p.pick : p.cat === cat) || p.cat === 'villa';
       p.el.style.display = show ? '' : 'none';
       var m = markers[p.id];
       if (m && mapRef && groupRef) {
