@@ -15,7 +15,7 @@
   <meta property="og:title" content="Que faire au lac d'Orta — Carte interactive | Villa Volpe">
   <meta property="og:description" content="Carte interactive des choses à faire au lac d'Orta : Orta San Giulio, l'île, cascades, randonnées, sports nautiques et restaurants.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://www.villa-volpe.com/images/villa-volpe-hero-new.jpg">
+  <meta property="og:image" content="https://www.villa-volpe.com/images/things-to-do/og-cassetto.jpg">
   <meta property="og:url" content="https://www.villa-volpe.com/fr/things-to-do-lake-orta.html">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:locale:alternate" content="en_US">
@@ -24,7 +24,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Que faire au lac d'Orta — Carte interactive | Villa Volpe">
   <meta name="twitter:description" content="Carte interactive des choses à faire au lac d'Orta : Orta San Giulio, l'île, cascades, randonnées, sports nautiques et restaurants.">
-  <meta name="twitter:image" content="https://www.villa-volpe.com/images/villa-volpe-hero-new.jpg">
+  <meta name="twitter:image" content="https://www.villa-volpe.com/images/things-to-do/og-cassetto.jpg">
   <link rel="canonical" href="https://www.villa-volpe.com/fr/things-to-do-lake-orta.html">
   <link rel="alternate" hreflang="en" href="https://www.villa-volpe.com/things-to-do-lake-orta.html">
   <link rel="alternate" hreflang="fr" href="https://www.villa-volpe.com/fr/things-to-do-lake-orta.html">
@@ -205,6 +205,91 @@
     </div>
   </section>
 
+  <!-- The drawer: the real business cards kept at the villa, built from the [data-pick] cards by js/ttd-drawer.js -->
+  <section class="ttd-drawer" id="drawer" hidden data-t-walk="min à pied de la villa" data-t-drive="min en voiture de la villa" data-t-pickup="Ils viennent vous chercher à la villa" data-t-call="Appeler" data-t-directions="Itinéraire" data-t-web="Site" data-t-map="Voir sur la carte" data-t-share="Partager" data-t-copied="Lien copié" data-t-close="Fermer" data-t-turn="Retourner la carte" data-t-prev="Carte précédente" data-t-next="Carte suivante">
+    <div class="container">
+      <div class="ttd-drawer__head">
+        <span class="label">Le tiroir</span>
+        <div class="divider divider--center"></div>
+        <h2>Le lac d'Orta, tout droit sorti de notre tiroir</h2>
+        <p>Au fil des ans, chaque fois que nous trouvions quelqu'un de bien autour du lac (les bateliers de la Piazza Motta, un boucher à Miasino, une osteria dans les collines, le garage à l'entrée d'Orta), sa carte de visite finissait dans un tiroir de la Villa Volpe. Nous avons vidé le tiroir sur la table. Touchez une carte pour la retourner.</p>
+        <ul class="ttd-drawer__stats">
+          <li><b>14</b>cartes de visite</li>
+          <li><b>8</b>à moins de 30 minutes à pied de la villa</li>
+          <li><b>1</b>tiroir</li>
+        </ul>
+      </div>
+      <div class="ttd-top" data-top-slot hidden></div>
+      <div class="ttd-drawer__bar">
+        <div class="ttd-drawer__tabs" role="group" aria-label="Filtrer les cartes">
+          <button type="button" class="ttd-tab is-active" data-dfilter="all">Toutes</button>
+          <button type="button" class="ttd-tab" data-dfilter="food">🍽️ Manger &amp; boire</button>
+          <button type="button" class="ttd-tab" data-dfilter="sport">🌊 Sur l'eau &amp; en plein air</button>
+          <button type="button" class="ttd-tab" data-dfilter="practical">🧭 Pratique</button>
+        </div>
+        <button type="button" class="ttd-drawer__shuffle">↻ Mélanger les cartes</button>
+      </div>
+      <div class="ttd-table" data-table></div>
+      <p class="ttd-drawer__hint"><span class="only-fine">Déplacez les cartes et touchez-en une pour la retourner.</span><span class="only-touch">Faites défiler les cartes et touchez-en une pour la retourner.</span></p>
+    </div>
+  </section>
+
+  <!-- A day like a local: every stop opens its card -->
+  <section class="section ttd-day">
+    <div class="container container--narrow">
+      <div style="text-align:center;">
+        <span class="label">Une journée comme ici</span>
+        <div class="divider divider--center"></div>
+        <h2>Une journée parfaite, carte après carte</h2>
+      </div>
+      <ol class="ttd-day__steps">
+        <li class="ttd-day__step">
+          <span class="ttd-day__time">09:30</span>
+          <div>
+            <p><span aria-hidden="true">🚲</span>Prenez un vélo électrique via Domodossola, à dix minutes à pied de la villa, et longez la route du lac.</p>
+            <button type="button" class="ttd-day__open" data-open="ebike">Ouvrir la carte</button>
+          </div>
+        </li>
+        <li class="ttd-day__step">
+          <span class="ttd-day__time">11:00</span>
+          <div>
+            <p><span aria-hidden="true">⛴️</span>Depuis la Piazza Motta, le bateau public pour l'île de San Giulio : deux minutes de traversée, un autre monde.</p>
+            <button type="button" class="ttd-day__open" data-open="navigazione">Ouvrir la carte</button>
+          </div>
+        </li>
+        <li class="ttd-day__step">
+          <span class="ttd-day__time">13:00</span>
+          <div>
+            <p><span aria-hidden="true">🍝</span>Déjeuner au village chez Filo e Fieno : pâtes maison, fermé le mardi.</p>
+            <button type="button" class="ttd-day__open" data-open="filo-fieno">Ouvrir la carte</button>
+          </div>
+        </li>
+        <li class="ttd-day__step">
+          <span class="ttd-day__time">16:00</span>
+          <div>
+            <p><span aria-hidden="true">🏄</span>Après-midi d'été : wakesurf avec Wakeorta à Pettenasco, à cinq minutes en voiture.</p>
+            <button type="button" class="ttd-day__open" data-open="wakeorta">Ouvrir la carte</button>
+          </div>
+        </li>
+        <li class="ttd-day__step">
+          <span class="ttd-day__time">18:30</span>
+          <div>
+            <p><span aria-hidden="true">🍷</span>Apéritif chez Pan &amp; Vino, Piazza Motta : vins, fromages et charcuterie du coin, à table.</p>
+            <button type="button" class="ttd-day__open" data-open="pan-e-vino">Ouvrir la carte</button>
+          </div>
+        </li>
+        <li class="ttd-day__step">
+          <span class="ttd-day__time">20:30</span>
+          <div>
+            <p><span aria-hidden="true">🌙</span>Dîner au bord de l'eau au Sant'Antonio, à vingt minutes à pied de la villa.</p>
+            <button type="button" class="ttd-day__open" data-open="antico-agnello">Ouvrir la carte</button>
+          </div>
+        </li>
+      </ol>
+      <p class="ttd-day__note">Vérifiez les jours d'ouverture : certains lieux ferment le mardi ou le mercredi, et les sports nautiques ne se pratiquent qu'en été.</p>
+    </div>
+  </section>
+
   <!-- Map + POIs -->
   <section class="section section--alt" style="padding-top:var(--space-lg);">
     <div class="container">
@@ -231,6 +316,7 @@
       <div class="ttd-grid">
 
         <article class="ttd-card" data-poi id="villa-volpe" data-lat="45.7903779" data-lng="8.4188104" data-cat="villa" data-emoji="🦊">
+          <img class="ttd-card__img" src="../images/things-to-do/photos/villa-volpe.webp" alt="Villa Volpe" width="720" height="450" loading="lazy" decoding="async">
           <div class="ttd-card__cat">🦊 Votre base</div>
           <h3 class="ttd-card__title">Villa Volpe</h3>
           <p class="ttd-card__desc">Votre maison de design sur la rive ensoleillée du lac d'Orta, à trois mètres de l'eau à Orta San Giulio — la base idéale pour tout ce qui figure sur cette carte.</p>
@@ -240,6 +326,7 @@
         <h2 class="ttd-grouptitle" data-group="culture">🏛️ Villages, îles &amp; monuments</h2>
 
         <article class="ttd-card" data-poi id="orta-san-giulio" data-lat="45.7975" data-lng="8.4165" data-cat="culture" data-emoji="🏛️">
+          <img class="ttd-card__img" src="../images/things-to-do/photos/orta-san-giulio.webp" alt="Orta San Giulio" width="720" height="450" loading="lazy" decoding="async">
           <div class="ttd-card__cat">🏛️ Village</div>
           <h3 class="ttd-card__title">Orta San Giulio</h3>
           <p class="ttd-card__desc">Le cœur médiéval et piéton du lac : ruelles pavées, maisons à fresques et la Piazza Motta qui s'ouvre directement sur l'eau.</p>
@@ -247,6 +334,7 @@
         </article>
 
         <article class="ttd-card" data-poi id="isola-san-giulio" data-lat="45.7955" data-lng="8.4045" data-cat="culture" data-emoji="🏛️">
+          <img class="ttd-card__img" src="../images/things-to-do/photos/isola-san-giulio.webp" alt="Île San Giulio" width="720" height="450" loading="lazy" decoding="async">
           <div class="ttd-card__cat">🏛️ Île</div>
           <h3 class="ttd-card__title">Île San Giulio</h3>
           <p class="ttd-card__desc">Une petite île couronnée d'une basilique romane et d'un monastère silencieux, à deux minutes de bateau de l'embarcadère d'Orta.</p>
@@ -254,6 +342,7 @@
         </article>
 
         <article class="ttd-card" data-poi id="sacro-monte" data-lat="45.7986" data-lng="8.4155" data-cat="culture" data-emoji="🏛️">
+          <img class="ttd-card__img" src="../images/things-to-do/photos/sacro-monte.webp" alt="Sacro Monte di Orta" width="720" height="450" loading="lazy" decoding="async">
           <div class="ttd-card__cat">🏛️ Site UNESCO</div>
           <h3 class="ttd-card__title">Sacro Monte di Orta</h3>
           <p class="ttd-card__desc">Une colline classée au patrimoine mondial de l'UNESCO au-dessus du village, avec vingt chapelles à fresques dédiées à saint François et de vastes vues sur le lac.</p>
@@ -274,6 +363,7 @@
         <h2 class="ttd-grouptitle" data-group="nature">🌿 Nature, cascades &amp; panoramas</h2>
 
         <article class="ttd-card" data-poi id="cascata-qualba" data-lat="45.8423516" data-lng="8.3843819" data-cat="nature" data-emoji="🌿">
+          <img class="ttd-card__img" src="../images/things-to-do/photos/cascata-qualba.webp" alt="Cascata della Qualba" width="720" height="450" loading="lazy" decoding="async">
           <div class="ttd-card__cat">🌿 Cascade</div>
           <h3 class="ttd-card__title">Cascata della Qualba</h3>
           <p class="ttd-card__desc">Une cascade cachée avec un bassin naturel glacé près de Boleto — une baignade revigorante après une courte marche en forêt.</p>
@@ -326,30 +416,36 @@
         </article>
 
         <article class="ttd-card" data-poi id="sailing" data-lat="45.7986" data-lng="8.4110" data-cat="sport" data-emoji="🚴">
+          <img class="ttd-card__img" src="../images/things-to-do/photos/sailing.webp" alt="Voile sur le lac d'Orta" width="720" height="450" loading="lazy" decoding="async">
           <div class="ttd-card__cat">🚴 Sur l'eau</div>
           <h3 class="ttd-card__title">Voile sur le lac d'Orta</h3>
           <p class="ttd-card__desc">Apprenez à naviguer ou partez en croisière avec skipper sur les eaux calmes et abritées du lac.</p>
           <a class="ttd-card__link" href="blog/posts/dodo-gorla-sailing-lake-orta.html">Voile avec Dodo Gorla</a>
         </article>
 
-        <article class="ttd-card" data-poi id="wakeboard" data-lat="45.7653496" data-lng="8.4290188" data-cat="sport" data-emoji="🚴" data-pick="Notre choix">
+        <article class="ttd-card" data-poi id="wakeboard" data-lat="45.7653496" data-lng="8.4290188" data-cat="sport" data-emoji="🚴" data-pick="Notre choix" data-maps="https://maps.google.com/?cid=6243193785371589750" data-drive="8">
           <div class="ttd-card__cat">🚴 Adrénaline</div>
+          <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/wakeboard.webp" alt="Carte de visite de Wakeboard &amp; wakesurf" width="720" height="476" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Wakeboard &amp; wakesurf</h3>
           <p class="ttd-card__desc">Wake&amp;More propose des sessions de wakeboard et de wakesurf pour tous les niveaux sur la partie sud plus calme du lac.</p>
+          <p class="ttd-card__contact"><a href="tel:+393396093256">+39 339 609 3256</a> · <a href="http://www.wakemore.it/" target="_blank" rel="noopener">Site</a></p>
           <a class="ttd-card__link" href="blog/posts/wakeboarding-wakesurfing-lake-orta.html">Guide du wakeboard</a>
         </article>
 
-        <article class="ttd-card" data-poi id="wakeorta" data-lat="45.8103982" data-lng="8.4116004" data-cat="sport" data-emoji="🚴" data-pick="Notre choix">
+        <article class="ttd-card" data-poi id="wakeorta" data-lat="45.8103982" data-lng="8.4116004" data-cat="sport" data-emoji="🚴" data-pick="Notre choix" data-maps="https://maps.google.com/?cid=3692058386744882851" data-drive="5">
           <div class="ttd-card__cat">🚴 Adrénaline</div>
+          <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/wakeorta.webp" alt="Carte de visite de Wakeorta" width="720" height="477" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Wakeorta</h3>
           <p class="ttd-card__desc">École de wakesurf et de wakeboard à l'Hotel L'Approdo de Pettenasco, à cinq minutes en voiture ; sorties en bateau pour groupes l'été.</p>
           <p class="ttd-card__contact"><a href="tel:+393357758040">+39 335 775 8040</a> · <a href="https://wakeorta.com/" target="_blank" rel="noopener">Site</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="ebike" data-lat="45.7969036" data-lng="8.4170294" data-cat="sport" data-emoji="🚴" data-pick="Notre choix">
+        <article class="ttd-card" data-poi id="ebike" data-lat="45.7969036" data-lng="8.4170294" data-cat="sport" data-emoji="🚴" data-pick="Notre choix" data-maps="https://maps.google.com/?cid=9599080110130984481" data-walk="10">
           <div class="ttd-card__cat">🚴 À deux roues</div>
+          <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/ebike.webp" alt="Carte de visite de Location d'e-bike &amp; tours" width="720" height="473" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Location d'e-bike &amp; tours</h3>
           <p class="ttd-card__desc">Louez un vélo électrique et laissez le moteur aplanir les côtes en faisant le tour du lac ou en montant à un point de vue.</p>
+          <p class="ttd-card__contact"><a href="tel:+393482618416">+39 348 261 8416</a> · <a href="https://www.ebikelagodorta.com/" target="_blank" rel="noopener">Site</a></p>
           <a class="ttd-card__link" href="blog/posts/outdoor-activities-lake-orta.html">Activités de plein air</a>
         </article>
 
@@ -366,6 +462,21 @@
         </article>
 
         <h2 class="ttd-grouptitle" data-group="food">🍽️ Où manger &amp; boire</h2>
+
+        <article class="ttd-card" data-poi id="antico-agnello" data-lat="45.8023338" data-lng="8.4296922" data-cat="food" data-emoji="🍽️" data-pick="Notre n°1" data-top data-maps="https://www.google.com/maps/search/?api=1&amp;query=Taverna+Antico+Agnello+Miasino" data-drive="6">
+          <img class="ttd-card__img" src="../images/things-to-do/photos/antico-agnello-limonaia.webp" alt="La limonaia de la Taverna Antico Agnello, avec ses verrières en arc sur le jardin" width="960" height="600" loading="lazy" decoding="async">
+          <div class="ttd-card__cat">🍽️ Restaurant de la Villa Nigra</div>
+          <h3 class="ttd-card__title">Taverna Antico Agnello</h3>
+          <p class="ttd-card__desc">Notre restaurant préféré, dans la Villa Nigra du XVIe siècle, à Miasino : une cuisine du terroir servie dans la limonaia, avec ses hautes verrières en arc sur le jardin. Dites à Lilli que vous logez à la Villa Volpe. Fermé le mercredi.</p>
+          <p class="ttd-card__contact"><a href="tel:+390322980527">+39 0322 980527</a> · <a href="https://www.ristoranteanticoagnello.com/" target="_blank" rel="noopener">Site</a></p>
+          <p class="ttd-card__credit">Photo: Villa Nigra</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="ca-dal-rat" data-lat="45.7854473" data-lng="8.422997" data-cat="food" data-emoji="🍽️" data-pick="Notre choix" data-maps="https://www.google.com/maps/search/?api=1&amp;query=Ustaria+Ca+dal+Rat+Orta+San+Giulio" data-walk="9">
+          <div class="ttd-card__cat">🍽️ Osteria</div>
+          <h3 class="ttd-card__title">L'Ustaria Cà dal Rat</h3>
+          <p class="ttd-card__desc">Notre plus proche voisin : neuf minutes à pied le long de la rive, une cuisine créative sur une terrasse au bord de l'eau.</p>
+        </article>
 
         <article class="ttd-card" data-poi id="villa-crespi" data-lat="45.7967" data-lng="8.4176" data-cat="food" data-emoji="🍽️">
           <div class="ttd-card__cat">🍽️ Grande table ★★</div>
@@ -386,28 +497,10 @@
           <p class="ttd-card__desc">Le restaurant et resort décontracté de Cannavacciuolo au bord du lac à Pettenasco, les pieds dans l'eau.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="san-rocco" data-lat="45.8007538" data-lng="8.4047449" data-cat="food" data-emoji="🍽️">
-          <div class="ttd-card__cat">🍽️ Front de lac</div>
-          <h3 class="ttd-card__title">Hotel San Rocco</h3>
-          <p class="ttd-card__desc">Un restaurant raffiné en front de lac avec terrasse et piscine au cœur d'Orta — parfait pour un dîner spécial au-dessus de l'eau.</p>
-        </article>
-
         <article class="ttd-card" data-poi id="la-darbia" data-lat="45.7936444" data-lng="8.4256952" data-cat="food" data-emoji="🍽️">
           <div class="ttd-card__cat">🍽️ Agritourisme</div>
           <h3 class="ttd-card__title">La Darbia</h3>
           <p class="ttd-card__desc">Un agritourisme de coteau avec son propre vignoble, une cuisine de saison et une vue mémorable sur le lac.</p>
-        </article>
-
-        <article class="ttd-card" data-poi id="antico-agnello" data-lat="45.8023338" data-lng="8.4296922" data-cat="food" data-emoji="🍽️">
-          <div class="ttd-card__cat">🍽️ Trattoria</div>
-          <h3 class="ttd-card__title">Taverna Antico Agnello</h3>
-          <p class="ttd-card__desc">Une trattoria chaleureuse dans la vieille ville d'Orta servant de généreux classiques piémontais.</p>
-        </article>
-
-        <article class="ttd-card" data-poi id="ca-dal-rat" data-lat="45.7854473" data-lng="8.422997" data-cat="food" data-emoji="🍽️">
-          <div class="ttd-card__cat">🍽️ Osteria</div>
-          <h3 class="ttd-card__title">L'Ustaria Cà dal Rat</h3>
-          <p class="ttd-card__desc">Une osteria rustique dans les collines au-dessus du lac, forte en plats du terroir et en accueil chaleureux.</p>
         </article>
 
         <article class="ttd-card" data-poi id="bocciolo" data-lat="45.8007869" data-lng="8.4221172" data-cat="food" data-emoji="🍽️">
@@ -440,43 +533,49 @@
           <p class="ttd-card__desc">Une pâtisserie et un café de quartier pour un vrai petit-déjeuner italien à deux pas de la villa.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="pan-e-vino" data-lat="45.798428" data-lng="8.40536" data-cat="food" data-emoji="🍷" data-pick="Notre choix">
+        <article class="ttd-card" data-poi id="pan-e-vino" data-lat="45.798428" data-lng="8.40536" data-cat="food" data-emoji="🍷" data-pick="Notre choix" data-maps="https://maps.google.com/?cid=15675138757320530078" data-walk="30">
           <div class="ttd-card__cat">🍷 Cave &amp; épicerie</div>
+          <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/pan-e-vino.webp" alt="Carte de visite de Pan &amp; Vino" width="470" height="710" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Pan &amp; Vino</h3>
           <p class="ttd-card__desc">Vins, fromages et charcuteries à déguster en terrasse sur la Piazza Motta, et produits locaux à emporter.</p>
           <p class="ttd-card__contact"><a href="tel:+393938583293">+39 393 858 3293</a> · <a href="https://www.panevino-orta.it/" target="_blank" rel="noopener">Site</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="venus" data-lat="45.79822" data-lng="8.405546" data-cat="food" data-emoji="🍽️" data-pick="Notre choix">
+        <article class="ttd-card" data-poi id="venus" data-lat="45.79822" data-lng="8.405546" data-cat="food" data-emoji="🍽️" data-pick="Notre choix" data-maps="https://maps.google.com/?cid=16057634476937208104" data-walk="27">
           <div class="ttd-card__cat">🍽️ Restaurant &amp; bar</div>
+          <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/venus.webp" alt="Carte de visite de Ristorante Venus" width="470" height="685" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Ristorante Venus</h3>
           <p class="ttd-card__desc">Sur la Piazza Motta, avec des salles à l'étage donnant sur le lac et l'île San Giulio ; cuisine piémontaise.</p>
           <p class="ttd-card__contact"><a href="tel:+393474667447">+39 347 466 7447</a> · <a href="http://www.ristorantebarvenus.it/" target="_blank" rel="noopener">Site</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="ristoro-olina" data-lat="45.799304" data-lng="8.4057998" data-cat="food" data-emoji="🍽️" data-pick="Notre choix">
+        <article class="ttd-card" data-poi id="ristoro-olina" data-lat="45.799304" data-lng="8.4057998" data-cat="food" data-emoji="🍽️" data-pick="Notre choix" data-maps="https://maps.google.com/?cid=9212309886843834597" data-walk="27">
           <div class="ttd-card__cat">🍽️ Restaurant</div>
+          <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/ristoro-olina.webp" alt="Carte de visite de Ristoro Olina" width="720" height="590" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Ristoro Olina</h3>
           <p class="ttd-card__desc">Le restaurant du Piccolo Hotel Olina, dans le vieux bourg à deux pas de la Piazza Motta. Mieux vaut réserver.</p>
           <p class="ttd-card__contact"><a href="tel:+390322905656">+39 0322 905656</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="filo-fieno" data-lat="45.7991636" data-lng="8.4057621" data-cat="food" data-emoji="🍽️" data-pick="Notre choix">
+        <article class="ttd-card" data-poi id="filo-fieno" data-lat="45.7991636" data-lng="8.4057621" data-cat="food" data-emoji="🍽️" data-pick="Notre choix" data-maps="https://maps.google.com/?cid=14410784117112415565" data-walk="27">
           <div class="ttd-card__cat">🍽️ Trattoria</div>
+          <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/filo-fieno.webp" alt="Carte de visite de Filo e Fieno" width="720" height="482" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Filo e Fieno</h3>
           <p class="ttd-card__desc">Cuisine traditionnelle du lac d'Orta, pâtes faites maison et plats végétariens, une ruelle derrière la place. Fermé le mardi.</p>
           <p class="ttd-card__contact"><a href="tel:+393492120001">+39 349 212 0001</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="sant-antonio" data-lat="45.8030047" data-lng="8.4198463" data-cat="food" data-emoji="🍽️" data-pick="Notre choix">
+        <article class="ttd-card" data-poi id="sant-antonio" data-lat="45.8030047" data-lng="8.4198463" data-cat="food" data-emoji="🍽️" data-pick="Notre choix" data-maps="https://maps.google.com/?cid=16403309790175117471" data-walk="20">
           <div class="ttd-card__cat">🍽️ Au bord du lac</div>
+          <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/sant-antonio.webp" alt="Carte de visite de Sant'Antonio" width="720" height="467" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Sant'Antonio</h3>
           <p class="ttd-card__desc">Sur la rive entre Orta et Pettenasco, à trois minutes en voiture de la villa : cuisine contemporaine aux touches asiatiques. Fermé le mardi.</p>
           <p class="ttd-card__contact"><a href="tel:+393293823555">+39 329 382 3555</a> · <a href="http://www.ristorantesantantoniorta.com/" target="_blank" rel="noopener">Site</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="carlo-e-tina" data-lat="45.7886037" data-lng="8.4401088" data-cat="food" data-emoji="🍽️" data-pick="Notre choix">
+        <article class="ttd-card" data-poi id="carlo-e-tina" data-lat="45.7886037" data-lng="8.4401088" data-cat="food" data-emoji="🍽️" data-pick="Notre choix" data-maps="https://maps.google.com/?cid=16717985081898665669" data-drive="10">
           <div class="ttd-card__cat">🍽️ Osteria</div>
+          <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/carlo-e-tina.webp" alt="Carte de visite de Carlo e Tina Osteria" width="720" height="426" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Carlo e Tina Osteria</h3>
           <p class="ttd-card__desc">À Ameno, à dix minutes en voiture dans les collines : cuisine de saison entre Piémont et Toscane.</p>
           <p class="ttd-card__contact"><a href="tel:+39032287432">+39 0322 87432</a> · <a href="http://www.carloetinaosteria.it/" target="_blank" rel="noopener">Site</a></p>
@@ -508,36 +607,41 @@
           <p class="ttd-card__desc">Un plus grand supermarché pour de grosses courses, à l'extrémité sud du lac.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="navigazione" data-lat="45.7980134" data-lng="8.4058762" data-cat="practical" data-emoji="⛴️" data-pick="Notre choix">
+        <article class="ttd-card" data-poi id="navigazione" data-lat="45.7980134" data-lng="8.4058762" data-cat="practical" data-emoji="⛴️" data-pick="Notre choix" data-maps="https://maps.google.com/?cid=5242282348198145108" data-walk="27" data-drawer-cat="sport">
           <div class="ttd-card__cat">⛴️ Bateaux publics</div>
+          <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/navigazione.webp" alt="Carte de visite de Bateaux pour l'île San Giulio" width="720" height="450" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Bateaux pour l'île San Giulio</h3>
           <p class="ttd-card__desc">Les bateaux publics de la Piazza Motta à l'île San Giulio circulent toute l'année.</p>
           <p class="ttd-card__contact"><a href="tel:+393336050288">+39 333 605 0288</a> · <a href="https://www.navigazioneorta.it/" target="_blank" rel="noopener">Site</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="cerutti" data-lat="45.8029382" data-lng="8.431367" data-cat="practical" data-emoji="🥩" data-pick="Notre choix">
+        <article class="ttd-card" data-poi id="cerutti" data-lat="45.8029382" data-lng="8.431367" data-cat="practical" data-emoji="🥩" data-pick="Notre choix" data-maps="https://maps.google.com/?cid=11949718477340716034" data-drive="6">
           <div class="ttd-card__cat">🥩 Boucherie</div>
+          <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/cerutti.webp" alt="Carte de visite de Macelleria Cerutti" width="720" height="469" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Macelleria Cerutti</h3>
           <p class="ttd-card__desc">Boucherie de village à Miasino, ouverte depuis 1950, avec de la viande locale pour cuisiner à la villa.</p>
           <p class="ttd-card__contact"><a href="tel:+390322980015">+39 0322 980015</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="taxi-orta" data-lat="45.7917519" data-lng="8.4215189" data-cat="practical" data-emoji="🚕" data-pick="Notre choix">
+        <article class="ttd-card" data-poi id="taxi-orta" data-lat="45.7917519" data-lng="8.4215189" data-cat="practical" data-emoji="🚕" data-pick="Notre choix" data-maps="https://maps.google.com/?cid=2217549100963173519" data-pickup>
           <div class="ttd-card__cat">🚕 Taxi</div>
+          <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/taxi-orta.webp" alt="Carte de visite de Taxi Orta – Davide" width="720" height="352" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Taxi Orta – Davide</h3>
           <p class="ttd-card__desc">Taxi et voiture avec chauffeur depuis Orta, pour les aéroports et les trajets autour du lac. On y parle anglais.</p>
           <p class="ttd-card__contact"><a href="tel:+393334748045">+39 333 474 8045</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="tecnocar" data-lat="45.7972682" data-lng="8.4180461" data-cat="practical" data-emoji="🔧" data-pick="Notre choix">
+        <article class="ttd-card" data-poi id="tecnocar" data-lat="45.7972682" data-lng="8.4180461" data-cat="practical" data-emoji="🔧" data-pick="Notre choix" data-maps="https://maps.google.com/?cid=1862953226679484943" data-walk="11">
           <div class="ttd-card__cat">🔧 Garage</div>
+          <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/tecnocar.webp" alt="Carte de visite de Tecnocar Garage" width="720" height="422" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Tecnocar Garage</h3>
           <p class="ttd-card__desc">Garage à l'entrée d'Orta depuis 1951, pour les pannes et l'entretien.</p>
           <p class="ttd-card__contact"><a href="tel:+390322911909">+39 0322 911909</a> · <a href="http://www.tecnocargarage.com/" target="_blank" rel="noopener">Site</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="farmacia-calderara" data-lat="45.7429724" data-lng="8.4344735" data-cat="practical" data-emoji="💊" data-pick="Notre choix">
+        <article class="ttd-card" data-poi id="farmacia-calderara" data-lat="45.7429724" data-lng="8.4344735" data-cat="practical" data-emoji="💊" data-pick="Notre choix" data-maps="https://maps.google.com/?cid=11499355346143969193" data-drive="10">
           <div class="ttd-card__cat">💊 Pharmacie</div>
+          <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/farmacia-calderara.webp" alt="Carte de visite de Farmacia Calderara" width="720" height="466" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Farmacia Calderara</h3>
           <p class="ttd-card__desc">Pharmacie au centre de Gozzano, au sud du lac, à dix minutes en voiture.</p>
           <p class="ttd-card__contact"><a href="tel:+39032294040">+39 0322 94040</a></p>
@@ -572,5 +676,6 @@
   <script src="../main.js"></script>
   <script src="../js/vv-map.js"></script>
   <script src="../js/things-to-do.js"></script>
+  <script src="../js/ttd-drawer.js"></script>
 </body>
 </html>
