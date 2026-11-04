@@ -2184,6 +2184,17 @@ p {
 .ttd-card[data-cat="culture"]   { border-left-color: #9B5B8B; }
 .ttd-card[data-cat="practical"] { border-left-color: #8A8A82; }
 .ttd-card[data-cat="villa"]     { border-left-color: #1A1A1A; background: var(--color-surface); }
+/* «Scelta di casa»: le attività dei biglietti da visita che Alberto tiene in villa (data-pick = testo dell'etichetta) */
+.ttd-card[data-pick]::after {
+  content: "\2605  " attr(data-pick);
+  position: absolute; top: var(--space-md); right: var(--space-md);
+  padding: 0.18rem 0.55rem; border-radius: 999px;
+  background: #F4ECDF; color: #7A5C38;
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.ttd-card[data-pick] .ttd-card__cat { padding-right: 8.5rem; }
+.ttd-card__contact { margin: 0.5rem 0 0; font-size: 0.82rem; color: var(--color-text-muted); }
+.ttd-card__contact a { color: inherit; }
 .ttd-card__cat {
   display: inline-flex;
   align-items: center;

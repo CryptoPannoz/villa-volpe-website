@@ -222,6 +222,7 @@
         <button class="ttd-chip" data-filter="sport">🚴 Outdoor e sport acquatici</button>
         <button class="ttd-chip" data-filter="food">🍽️ Dove mangiare</button>
         <button class="ttd-chip" data-filter="practical">🛒 Utile</button>
+        <button class="ttd-chip" data-filter="pick">★ Le nostre scelte</button>
       </div>
 
       <div id="ttd-map" class="ttd-map" role="application" aria-label="Mappa interattiva delle cose da fare sul Lago d'Orta"></div>
@@ -331,14 +332,21 @@
           <a class="ttd-card__link" href="blog/posts/dodo-gorla-sailing-lake-orta.html">In barca a vela con Dodo Gorla</a>
         </article>
 
-        <article class="ttd-card" data-poi id="wakeboard" data-lat="45.7653496" data-lng="8.4290188" data-cat="sport" data-emoji="🚴">
+        <article class="ttd-card" data-poi id="wakeboard" data-lat="45.7653496" data-lng="8.4290188" data-cat="sport" data-emoji="🚴" data-pick="Scelta di casa">
           <div class="ttd-card__cat">🚴 Adrenalina</div>
           <h3 class="ttd-card__title">Wakeboard e Wakesurf</h3>
           <p class="ttd-card__desc">Wake&amp;More organizza sessioni di wakeboard e wakesurf per tutti i livelli nel tratto meridionale più tranquillo del lago.</p>
           <a class="ttd-card__link" href="blog/posts/wakeboarding-wakesurfing-lake-orta.html">Guida al wakeboard</a>
         </article>
 
-        <article class="ttd-card" data-poi id="ebike" data-lat="45.7969036" data-lng="8.4170294" data-cat="sport" data-emoji="🚴">
+        <article class="ttd-card" data-poi id="wakeorta" data-lat="45.8103982" data-lng="8.4116004" data-cat="sport" data-emoji="🚴" data-pick="Scelta di casa">
+          <div class="ttd-card__cat">🚴 Adrenalina</div>
+          <h3 class="ttd-card__title">Wakeorta</h3>
+          <p class="ttd-card__desc">Scuola di wakesurf e wakeboard all'Hotel L'Approdo di Pettenasco, a cinque minuti d'auto; d'estate anche uscite in barca per gruppi.</p>
+          <p class="ttd-card__contact"><a href="tel:+393357758040">+39 335 775 8040</a> · <a href="https://wakeorta.com/" target="_blank" rel="noopener">Sito</a></p>
+        </article>
+
+        <article class="ttd-card" data-poi id="ebike" data-lat="45.7969036" data-lng="8.4170294" data-cat="sport" data-emoji="🚴" data-pick="Scelta di casa">
           <div class="ttd-card__cat">🚴 Su due ruote</div>
           <h3 class="ttd-card__title">Noleggio e-bike e tour</h3>
           <p class="ttd-card__desc">Noleggia una e-bike e lascia che il motore appiattisca le salite mentre giri il lago o raggiungi un punto panoramico.</p>
@@ -432,6 +440,48 @@
           <p class="ttd-card__desc">Una pasticceria e caffetteria di quartiere per una vera colazione italiana a due passi dalla villa.</p>
         </article>
 
+        <article class="ttd-card" data-poi id="pan-e-vino" data-lat="45.798428" data-lng="8.40536" data-cat="food" data-emoji="🍷" data-pick="Scelta di casa">
+          <div class="ttd-card__cat">🍷 Enoteca</div>
+          <h3 class="ttd-card__title">Pan &amp; Vino</h3>
+          <p class="ttd-card__desc">Vini, formaggi e salumi da assaggiare ai tavoli in Piazza Motta, e prodotti tipici da portare a casa.</p>
+          <p class="ttd-card__contact"><a href="tel:+393938583293">+39 393 858 3293</a> · <a href="https://www.panevino-orta.it/" target="_blank" rel="noopener">Sito</a></p>
+        </article>
+
+        <article class="ttd-card" data-poi id="venus" data-lat="45.79822" data-lng="8.405546" data-cat="food" data-emoji="🍽️" data-pick="Scelta di casa">
+          <div class="ttd-card__cat">🍽️ Ristorante e bar</div>
+          <h3 class="ttd-card__title">Ristorante Venus</h3>
+          <p class="ttd-card__desc">In Piazza Motta, con le sale al primo piano affacciate sul lago e sull'isola di San Giulio; cucina piemontese.</p>
+          <p class="ttd-card__contact"><a href="tel:+393474667447">+39 347 466 7447</a> · <a href="http://www.ristorantebarvenus.it/" target="_blank" rel="noopener">Sito</a></p>
+        </article>
+
+        <article class="ttd-card" data-poi id="ristoro-olina" data-lat="45.799304" data-lng="8.4057998" data-cat="food" data-emoji="🍽️" data-pick="Scelta di casa">
+          <div class="ttd-card__cat">🍽️ Ristorante</div>
+          <h3 class="ttd-card__title">Ristoro Olina</h3>
+          <p class="ttd-card__desc">Il ristorante del Piccolo Hotel Olina, nel borgo a due passi da Piazza Motta. Meglio prenotare.</p>
+          <p class="ttd-card__contact"><a href="tel:+390322905656">+39 0322 905656</a></p>
+        </article>
+
+        <article class="ttd-card" data-poi id="filo-fieno" data-lat="45.7991636" data-lng="8.4057621" data-cat="food" data-emoji="🍽️" data-pick="Scelta di casa">
+          <div class="ttd-card__cat">🍽️ Trattoria</div>
+          <h3 class="ttd-card__title">Filo e Fieno</h3>
+          <p class="ttd-card__desc">Cucina tradizionale del lago d'Orta, pasta fatta a mano e piatti vegetariani, una via dietro la piazza. Chiuso il martedì.</p>
+          <p class="ttd-card__contact"><a href="tel:+393492120001">+39 349 212 0001</a></p>
+        </article>
+
+        <article class="ttd-card" data-poi id="sant-antonio" data-lat="45.8030047" data-lng="8.4198463" data-cat="food" data-emoji="🍽️" data-pick="Scelta di casa">
+          <div class="ttd-card__cat">🍽️ Sul lago</div>
+          <h3 class="ttd-card__title">Sant'Antonio</h3>
+          <p class="ttd-card__desc">Sulla riva tra Orta e Pettenasco, a tre minuti d'auto dalla villa: cucina contemporanea con tocchi asiatici. Chiuso il martedì.</p>
+          <p class="ttd-card__contact"><a href="tel:+393293823555">+39 329 382 3555</a> · <a href="http://www.ristorantesantantoniorta.com/" target="_blank" rel="noopener">Sito</a></p>
+        </article>
+
+        <article class="ttd-card" data-poi id="carlo-e-tina" data-lat="45.7886037" data-lng="8.4401088" data-cat="food" data-emoji="🍽️" data-pick="Scelta di casa">
+          <div class="ttd-card__cat">🍽️ Osteria</div>
+          <h3 class="ttd-card__title">Carlo e Tina Osteria</h3>
+          <p class="ttd-card__desc">Ad Ameno, dieci minuti d'auto in collina: cucina di stagione tra Piemonte e Toscana.</p>
+          <p class="ttd-card__contact"><a href="tel:+39032287432">+39 0322 87432</a> · <a href="http://www.carloetinaosteria.it/" target="_blank" rel="noopener">Sito</a></p>
+        </article>
+
         <h2 class="ttd-grouptitle" data-group="practical">🛒 Utile: negozi e supermercati</h2>
 
         <article class="ttd-card" data-poi id="conad" data-lat="45.8143793" data-lng="8.4095085" data-cat="practical" data-emoji="🛒">
@@ -456,6 +506,41 @@
           <div class="ttd-card__cat">🛒 Supermercato</div>
           <h3 class="ttd-card__title">Tigros — Gozzano</h3>
           <p class="ttd-card__desc">Un supermercato più grande per una spesa completa, all'estremità meridionale del lago.</p>
+        </article>
+
+        <article class="ttd-card" data-poi id="navigazione" data-lat="45.7980134" data-lng="8.4058762" data-cat="practical" data-emoji="⛴️" data-pick="Scelta di casa">
+          <div class="ttd-card__cat">⛴️ Motoscafi pubblici</div>
+          <h3 class="ttd-card__title">Motoscafi per l'isola di San Giulio</h3>
+          <p class="ttd-card__desc">I motoscafi pubblici da Piazza Motta all'isola di San Giulio, tutto l'anno.</p>
+          <p class="ttd-card__contact"><a href="tel:+393336050288">+39 333 605 0288</a> · <a href="https://www.navigazioneorta.it/" target="_blank" rel="noopener">Sito</a></p>
+        </article>
+
+        <article class="ttd-card" data-poi id="cerutti" data-lat="45.8029382" data-lng="8.431367" data-cat="practical" data-emoji="🥩" data-pick="Scelta di casa">
+          <div class="ttd-card__cat">🥩 Macelleria</div>
+          <h3 class="ttd-card__title">Macelleria Cerutti</h3>
+          <p class="ttd-card__desc">Macelleria di paese a Miasino, aperta dal 1950, con carne del territorio per cucinare in villa.</p>
+          <p class="ttd-card__contact"><a href="tel:+390322980015">+39 0322 980015</a></p>
+        </article>
+
+        <article class="ttd-card" data-poi id="taxi-orta" data-lat="45.7917519" data-lng="8.4215189" data-cat="practical" data-emoji="🚕" data-pick="Scelta di casa">
+          <div class="ttd-card__cat">🚕 Taxi</div>
+          <h3 class="ttd-card__title">Taxi Orta – Davide</h3>
+          <p class="ttd-card__desc">Taxi e noleggio con conducente da Orta, per gli aeroporti e i giri del lago. Si parla inglese.</p>
+          <p class="ttd-card__contact"><a href="tel:+393334748045">+39 333 474 8045</a></p>
+        </article>
+
+        <article class="ttd-card" data-poi id="tecnocar" data-lat="45.7972682" data-lng="8.4180461" data-cat="practical" data-emoji="🔧" data-pick="Scelta di casa">
+          <div class="ttd-card__cat">🔧 Officina</div>
+          <h3 class="ttd-card__title">Tecnocar Garage</h3>
+          <p class="ttd-card__desc">Officina all'ingresso di Orta dal 1951, per guasti e assistenza all'auto.</p>
+          <p class="ttd-card__contact"><a href="tel:+390322911909">+39 0322 911909</a> · <a href="http://www.tecnocargarage.com/" target="_blank" rel="noopener">Sito</a></p>
+        </article>
+
+        <article class="ttd-card" data-poi id="farmacia-calderara" data-lat="45.7429724" data-lng="8.4344735" data-cat="practical" data-emoji="💊" data-pick="Scelta di casa">
+          <div class="ttd-card__cat">💊 Farmacia</div>
+          <h3 class="ttd-card__title">Farmacia Calderara</h3>
+          <p class="ttd-card__desc">Farmacia nel centro di Gozzano, a sud del lago, a dieci minuti d'auto.</p>
+          <p class="ttd-card__contact"><a href="tel:+39032294040">+39 0322 94040</a></p>
         </article>
 
       </div>
