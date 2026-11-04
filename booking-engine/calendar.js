@@ -5,7 +5,7 @@
  *
  * Widget unificato: Calendario + Form ospiti + Policy + Conferma
  * Legge disponibilità da Google Calendar API,
- * evidenzia periodi liberi (soggiorno minimo stagionale, vedi MIN_STAY),
+ * evidenzia periodi liberi (soggiorno minimo, vedi MIN_STAY),
  * invia richieste a BookingRequest.gs via doPost.
  *
  * Flusso: Calendar → Guests → Policy/Summary → Confirmation
@@ -35,15 +35,14 @@ const BOOKING_CONFIG = {
 
 
 // ── SOGGIORNO MINIMO ────────────────────────────────────────
-// Dal 03/11/2026 (deciso da Alberto): 5 notti per gli arrivi dal 1° agosto al
-// 21 ottobre compreso, 4 notti il resto dell'anno. Conta il giorno di arrivo.
-// v5 (/api/booking) rifiuta solo sotto le 3 notti: la regola stagionale vive
-// qui. La scritta sopra il calendario nei 4 book.html va tenuta uguale.
-var MIN_STAY = { nights: 4, high: { nights: 5, from: '08-01', to: '10-21' } };
+// Dal 04/11/2026 (deciso da Alberto): 5 notti tutto l'anno, niente soggiorni
+// da 3 o 4 notti. Uguale in v5 (RULES.minNights), che rifiuta anche lui le
+// richieste più corte. La scritta sopra il calendario nei 4 book.html va
+// tenuta uguale.
+var MIN_STAY = { nights: 5 };
 
 function minNightsFor(checkIn) {
-  var md = formatLocalISO(checkIn).slice(5);
-  return md >= MIN_STAY.high.from && md <= MIN_STAY.high.to ? MIN_STAY.high.nights : MIN_STAY.nights;
+  return MIN_STAY.nights;
 }
 
 
