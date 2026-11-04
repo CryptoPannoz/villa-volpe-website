@@ -199,8 +199,22 @@
     <p class="page-header__desc">65 Quadratmeter Design-Wohnen, drei Meter vom kristallklaren Wasser entfernt.</p>
   </header>
 
+  <!-- Floor Plan (interattiva: js/vv-plan.js) -->
+  <section class="section section--alt" id="floor-plan">
+    <div class="container">
+      <div class="mosaic__title reveal">
+        <span class="label">Grundriss</span>
+        <div class="divider divider--center"></div>
+        <h2>Das Haus entdecken</h2>
+        <p style="margin-top:1rem;max-width:600px;margin-left:auto;margin-right:auto;opacity:0.8;">65 m² auf einer Ebene, drei Meter vom Wasser entfernt. Tippen Sie auf eine Zahl, um näher hinzusehen.</p>
+      </div>
+      <div class="vv-plan" data-vv-plan data-base="../"></div>
+      <noscript><img src="../images/plan/villa-volpe-plan.svg" alt="Grundriss der Villa Volpe" width="1840" height="1552" style="width:100%;height:auto;border-radius:20px"></noscript>
+    </div>
+  </section>
+
   <!-- Outdoor Area -->
-  <section class="section">
+  <section class="section" id="outdoor">
     <div class="container">
       <div class="mosaic__title reveal">
         <span class="label">Außenbereich</span>
@@ -243,7 +257,7 @@
   </section>
 
   <!-- Bedrooms Gallery -->
-  <section class="section section--alt">
+  <section class="section section--alt" id="bedrooms">
     <div class="container">
       <div class="mosaic__title reveal">
         <span class="label">Schlafzimmer</span>
@@ -269,7 +283,7 @@
   </section>
 
   <!-- Living Room Gallery -->
-  <section class="section">
+  <section class="section" id="living">
     <div class="container">
       <div class="mosaic__title reveal">
         <span class="label">Wohnzimmer</span>
@@ -303,7 +317,7 @@
   </section>
 
   <!-- Bathroom Gallery -->
-  <section class="section section--alt">
+  <section class="section section--alt" id="bathroom">
     <div class="container">
       <div class="mosaic__title reveal">
         <span class="label">Badezimmer</span>
@@ -470,6 +484,7 @@
 <script src="../footer.js"></script>
 
   <script src="../main.js"></script>
+  <script src="../js/vv-plan.js" defer></script>
 
   <!-- Carousel logic -->
   <script>
