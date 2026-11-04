@@ -50,7 +50,7 @@ Sito di villa-volpe.com.
   stanze ed esterni: niente punti tecnici (caldaia, quadro, router), che stanno solo nella guida ospiti di v5.
 - **Things to do: «il cassetto dei biglietti»** (dal 04/11/2026, voluto da Alberto): le 14 «scelte di casa» sono i
   biglietti da visita veri che Alberto teneva in villa (scansione `VILLA VOLPE/volpe biglietti visita.pdf`).
-  - *Cassetto* (`#drawer`, sopra «Una giornata da locale» e la mappa): `js/ttd-drawer.js` costruisce il tavolo dalle
+  - *Cassetto* (`#drawer`, sopra la mappa): `js/ttd-drawer.js` costruisce il tavolo dalle
     schede `article[data-pick]` che hanno `img.ttd-card__img--card` (`images/things-to-do/cards/<id>.webp`). Desktop:
     carte sparse, trascinabili, «Mescola», filtri per categoria; telefono: fila da scorrere. Tocco → la carta si gira
     (`<dialog>`): distanza dalla villa, Chiama, Indicazioni, Sito, Sulla mappa (`window.VVTtd.focus(id)` di
@@ -63,13 +63,18 @@ Sito di villa-volpe.com.
   - **La nostra n.1** (Alberto, 04/11/2026): Taverna Antico Agnello (Villa Nigra, Miasino; Lilli è amica di Alberto e
     accoglie gli ospiti di Villa Volpe). Scheda con `data-top`, prima di «Dove mangiare», a tutta riga; la sua foto
     della limonaia (dal sito di Villa Nigra, «Foto: Villa Nigra») fa da carta al centro del tavolo e riempie il
-    riquadro `[data-top-slot]` in testa al cassetto; è la cena di «Una giornata da locale». Tolto Hotel San Rocco
+    riquadro `[data-top-slot]` in testa al cassetto. Tolto Hotel San Rocco
     (Alberto), L'Ustaria Cà dal Rat è «scelta di casa» (9 minuti a piedi lungo la riva).
   - **Testata** (`header.ttd-hero`, 04/11/2026 sera, Alberto: «troppo testo, doppia scritta»): solo l'H1 piccolo
     in alto («Things to do on Lake Orta», resta per Google), una frase grande («Our lake, card by card»), il pulsante
     «Open the drawer» e il ventaglio `[data-fan]` di 5 biglietti veri che spuntano dal bordo (ids nell'attributo,
     costruito da `ttd-drawer.js`, tocco = la carta si gira). Il vecchio paragrafo d'introduzione è in fondo
     (`p.ttd-about`, prima del link al blog); il cassetto apre con una riga sola (`h2.ttd-drawer__line`) e i numeri.
+  - **Cartoline nel cassetto** (04/11/2026, Alberto: niente farmacia e officina sul tavolo, più posti belli): le schede
+    con `data-postcard` (isola, Sacro Monte, Madonna del Sasso, Anello Indaco, Torre di Buccione, Qualba) vanno sul
+    tavolo come cartoline, scheda «Cartoline»; i servizi `practical` (taxi) restano solo nella lista; farmacia e
+    officina non sono più «scelte di casa». Tolta «Una giornata da locale» (Alberto: non ha senso). Immagine social
+    `og-cartoline.jpg` (solo foto nostre o senza diritti, niente crediti da mettere).
   - Foto nelle schede `img.ttd-card__img` (`images/things-to-do/photos/`), solo dove la foto è davvero quel posto.
     Dal 04/11/2026 sono «cartoline»: `figure.ttd-postcard` (cornice, francobollo 🦊, timbro «Lago d'Orta»). Quelle
     prese da Wikimedia Commons (Sacro Monte CC0, Madonna del Sasso pubblico dominio, Torre di Buccione, Monte Mesma,
