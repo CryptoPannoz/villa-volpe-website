@@ -2357,6 +2357,26 @@ html:has(.nav:not(.nav--hidden)) .ttd-filters { top: calc(var(--promo-h) + var(-
   .ttd-top__photo img { min-height: 0; aspect-ratio: 16 / 10; }
 }
 
+/* Postcards on the table (article[data-postcard]): white border and the fox stamp */
+.ttd-bc--postcard { padding: 6px; border-radius: 2px; }
+.ttd-bc--postcard img { aspect-ratio: 16 / 10; object-fit: cover; border-radius: 0; }
+.ttd-bc--postcard::before {
+  content: "🦊";
+  position: absolute;
+  top: 11px;
+  right: 11px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 31px;
+  background: #FBF7F0;
+  border: 1.5px dashed #C9B48F;
+  font-size: 13px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+.ttd-fan__card--postcard { padding: 6px; border-radius: 2px; }
+.ttd-fan__card--postcard img { aspect-ratio: 16 / 10; object-fit: cover; border-radius: 0; }
+
 /* …and on the table, a photo print with its ribbon */
 .ttd-bc--top { padding: 8px 8px 30px; border-radius: 3px; }
 .ttd-bc--top img { border-radius: 1px; aspect-ratio: 16 / 10; object-fit: cover; }
@@ -2660,54 +2680,6 @@ html:has(.nav:not(.nav--hidden)) .ttd-filters { top: calc(var(--promo-h) + var(-
   .ttd-flip, .ttd-bc { transition: none; }
 }
 
-/* «A day like a local»: a timeline where every stop opens its card */
-.ttd-day__steps { position: relative; margin: var(--space-lg) 0 0; padding: 0; list-style: none; }
-.ttd-day__steps::before {
-  content: "";
-  position: absolute;
-  top: 0.6rem;
-  bottom: 0.6rem;
-  left: 3.1rem;
-  width: 1px;
-  background: var(--color-border);
-}
-.ttd-day__step { position: relative; display: grid; grid-template-columns: 6.2rem 1fr; gap: 0 1.25rem; padding: 0 0 2rem; }
-.ttd-day__time {
-  position: relative;
-  z-index: 1;
-  align-self: start;
-  justify-self: center;
-  padding: 0.35rem 0.6rem;
-  border-radius: 999px;
-  background: var(--color-black);
-  color: #fff;
-  font: 600 0.78rem/1 'Inter', sans-serif;
-  letter-spacing: 0.04em;
-}
-.ttd-day__step p { margin: 0 0 0.75rem; line-height: 1.7; }
-.ttd-day__step p span { margin-right: 0.35rem; }
-.ttd-day__open {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.35rem 0.9rem 0.35rem 0.35rem;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  background: #fff;
-  color: var(--color-text);
-  font: 600 0.78rem/1 'Inter', sans-serif;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: border-color .2s ease, transform .2s ease;
-}
-.ttd-day__open:hover { border-color: var(--color-accent); transform: translateY(-2px); }
-.ttd-day__card { width: 3.2rem; height: 2.1rem; object-fit: cover; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.18); transform: rotate(-3deg); }
-.ttd-day__note { margin: 0.5rem 0 0; font-size: 0.85rem; color: var(--color-text-muted); text-align: center; }
-@media (max-width: 600px) {
-  .ttd-day__steps::before { left: 2.2rem; }
-  .ttd-day__step { grid-template-columns: 4.4rem 1fr; gap: 0 0.9rem; }
-}
 .ttd-card__contact { margin: 0.5rem 0 0; font-size: 0.82rem; color: var(--color-text-muted); }
 .ttd-card__contact a { color: inherit; }
 .ttd-card__cat {

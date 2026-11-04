@@ -23,9 +23,14 @@
   var table = section && section.querySelector('[data-table]');
   if (!section || !table) return;
 
-  // The business cards, plus our number one (article[data-top]), whose «card» is its photo
-  var arts = Array.prototype.slice.call(document.querySelectorAll('article[data-pick]'))
-    .filter(function (a) { return a.querySelector('.ttd-card__img--card') || (a.hasAttribute('data-top') && a.querySelector('.ttd-card__img')); });
+  // The business cards, our number one (article[data-top]) and the postcards (article[data-postcard]),
+  // whose «card» is their photo. Practical services (taxi…) stay in the list, not on the table.
+  var arts = Array.prototype.slice.call(document.querySelectorAll('article[data-pick], article[data-postcard]'))
+    .filter(function (a) {
+      var photo = (a.hasAttribute('data-top') || a.hasAttribute('data-postcard')) && a.querySelector('.ttd-card__img');
+      var cat = a.getAttribute('data-drawer-cat') || a.getAttribute('data-cat');
+      return (a.querySelector('.ttd-card__img--card') || photo) && cat !== 'practical';
+    });
   if (!arts.length) return;
   section.hidden = false;
 
@@ -40,10 +45,12 @@
     var tel = a.querySelector('.ttd-card__contact a[href^="tel:"]');
     var web = a.querySelector('.ttd-card__contact a[href^="http"]');
     var more = a.querySelector('.ttd-card__link');
+    var postcard = a.hasAttribute('data-postcard');
     return {
       id: a.id,
       art: a,
-      cat: a.getAttribute('data-drawer-cat') || a.getAttribute('data-cat'),
+      cat: postcard ? 'postcard' : (a.getAttribute('data-drawer-cat') || a.getAttribute('data-cat')),
+      postcard: postcard,
       label: text(a, '.ttd-card__cat'),
       title: text(a, '.ttd-card__title'),
       desc: text(a, '.ttd-card__desc'),
@@ -52,7 +59,8 @@
       tel: tel ? { href: tel.getAttribute('href'), text: tel.textContent.trim() } : null,
       web: web ? web.getAttribute('href') : '',
       more: more ? { href: more.getAttribute('href'), text: more.textContent.trim() } : null,
-      maps: a.getAttribute('data-maps') || '',
+      maps: a.getAttribute('data-maps') ||
+        'https://www.google.com/maps/search/?api=1&query=' + a.getAttribute('data-lat') + ',' + a.getAttribute('data-lng'),
       walk: a.getAttribute('data-walk'),
       drive: a.getAttribute('data-drive'),
       pickup: a.hasAttribute('data-pickup'),
@@ -60,16 +68,19 @@
       badge: a.getAttribute('data-pick') || ''
     };
   });
-  // Our number one first, then food, the lake, the practical ones (the order of the swipeable row)
-  var ORDER = ['food', 'sport', 'practical'];
+  // Our number one first, then postcards and cards mixed, food and lake first (the order of the swipeable row)
+  var ORDER = ['food', 'postcard', 'sport'];
   cards.sort(function (a, b) { return (b.top - a.top) || (ORDER.indexOf(a.cat) - ORDER.indexOf(b.cat)); });
+  var posts = cards.filter(function (c) { return c.postcard; });
+  cards = cards.filter(function (c) { return !c.postcard; });
+  posts.forEach(function (p, i) { cards.splice(Math.min(cards.length, 1 + i * 2), 0, p); });
 
   // ── The cards on the table ──────────────────────────────────────
   var z = 10;
   cards.forEach(function (c) {
     var b = document.createElement('button');
     b.type = 'button';
-    b.className = 'ttd-bc' + (c.portrait ? ' ttd-bc--tall' : '') + (c.top ? ' ttd-bc--top' : '');
+    b.className = 'ttd-bc' + (c.portrait ? ' ttd-bc--tall' : '') + (c.top ? ' ttd-bc--top' : '') + (c.postcard ? ' ttd-bc--postcard' : '');
     if (c.top) b.setAttribute('data-label', '★ ' + c.badge);
     b.setAttribute('aria-label', c.title + ' — ' + (T.tTurn || ''));
     b.innerHTML = '<img alt="" draggable="false" loading="lazy">';
@@ -346,19 +357,6 @@
     if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, function () {});
   }
 
-  // ── «A day like a local»: each step opens its card ─────────────
-  Array.prototype.forEach.call(document.querySelectorAll('[data-open]'), function (b) {
-    var c = cards.filter(function (x) { return x.id === b.getAttribute('data-open'); })[0];
-    if (!c) { b.hidden = true; return; }
-    var mini = document.createElement('img');
-    mini.className = 'ttd-day__card';
-    mini.alt = '';
-    mini.loading = 'lazy';
-    mini.src = c.src;
-    b.insertBefore(mini, b.firstChild);
-    b.addEventListener('click', function () { open(c); });
-  });
-
   // ── Our number one, in the head of the drawer ──────────────────
   var slot = section.querySelector('[data-top-slot]');
   var first = cards.filter(function (c) { return c.top; })[0];
@@ -394,7 +392,7 @@
     fanCards.forEach(function (c, i) {
       var b = document.createElement('button');
       b.type = 'button';
-      b.className = 'ttd-fan__card' + (c.top ? ' ttd-fan__card--top' : '');
+      b.className = 'ttd-fan__card' + (c.top ? ' ttd-fan__card--top' : '') + (c.postcard ? ' ttd-fan__card--postcard' : '');
       b.style.setProperty('--i', i - mid);
       b.style.zIndex = 10 - Math.abs(i - mid);
       b.setAttribute('aria-label', c.title + ' — ' + (T.tTurn || ''));
