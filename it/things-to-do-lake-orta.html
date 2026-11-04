@@ -191,28 +191,20 @@
   </div>
 
   <!-- Page Header -->
-  <header class="page-header page-header--cinema">
+  <header class="page-header page-header--cinema ttd-hero">
     <div class="vv-cinema__media" aria-hidden="true"><picture><source media="(max-width: 768px)" type="image/avif" srcset="../images/cinema/island-mist-poster-sq.avif"><source media="(max-width: 768px)" srcset="../images/cinema/island-mist-poster-sq.jpg"><source type="image/avif" sizes="100vw" srcset="../images/cinema/island-mist-poster-1280.avif 1280w, ../images/cinema/island-mist-poster-1920.avif 1920w"><img src="../images/cinema/island-mist-poster-1920.jpg" srcset="../images/cinema/island-mist-poster-1280.jpg 1280w, ../images/cinema/island-mist-poster-1920.jpg 1920w" sizes="100vw" alt="" width="1920" height="1080" fetchpriority="high" decoding="async"></picture><video data-vv-video muted loop playsinline preload="none" disablepictureinpicture tabindex="-1"><source src="../images/cinema/island-mist-sq.mp4" type="video/mp4" media="(max-width: 768px)"><source src="../images/cinema/island-mist-1920.mp4" type="video/mp4"></video></div>
-    <span class="label page-header__label">Esplora il Lago d'Orta</span>
-    <h1 class="page-header__title">Cosa Fare sul Lago d'Orta</h1>
-    <p class="page-header__desc">Una mappa interattiva dei nostri luoghi preferiti sul lago — da Orta San Giulio e la sua isola alle cascate, ai sentieri, agli sport acquatici e alle tavole migliori. Selezionati dai proprietari di Villa Volpe.</p>
+    <h1 class="ttd-hero__kicker">Cosa Fare sul Lago d'Orta</h1>
+    <p class="ttd-hero__title">Il nostro lago, <em>biglietto per biglietto</em>.</p>
+    <a class="ttd-hero__cta" href="#drawer">Apri il cassetto <span aria-hidden="true">↓</span></a>
+    <!-- a few real cards peeking out of the drawer (js/ttd-drawer.js), in this order -->
+    <div class="ttd-fan" data-fan="navigazione filo-fieno antico-agnello wakeboard sant-antonio"></div>
   </header>
-
-  <!-- Intro -->
-  <section class="section" style="padding-top:0;">
-    <div class="container container--narrow" style="text-align:center;">
-      <p style="opacity:0.85;">Il Lago d'Orta è la sorella minore, quieta e romantica, dei grandi laghi italiani: un Sacro Monte patrimonio UNESCO, un borgo medievale pedonale, un monastero su un'isola e colline verdi solcate da sentieri e cascate. Tutto ciò che segue è a breve distanza da Villa Volpe. Usa i filtri per categoria per organizzare le tue giornate e tocca un luogo sulla mappa o su una scheda per saperne di più.</p>
-    </div>
-  </section>
 
   <!-- The drawer: the real business cards kept at the villa, built from the [data-pick] cards by js/ttd-drawer.js -->
   <section class="ttd-drawer" id="drawer" hidden data-t-walk="min a piedi dalla villa" data-t-drive="min in auto dalla villa" data-t-pickup="Vengono a prenderti in villa" data-t-call="Chiama" data-t-directions="Indicazioni" data-t-web="Sito" data-t-map="Vedi sulla mappa" data-t-share="Condividi" data-t-copied="Link copiato" data-t-close="Chiudi" data-t-turn="Gira il biglietto" data-t-prev="Biglietto precedente" data-t-next="Biglietto successivo">
     <div class="container">
       <div class="ttd-drawer__head">
-        <span class="label">Il cassetto dei biglietti</span>
-        <div class="divider divider--center"></div>
-        <h2>Il Lago d'Orta, dal nostro cassetto</h2>
-        <p>Negli anni, ogni volta che trovavamo qualcuno di bravo intorno al lago (i motoscafisti di Piazza Motta, un macellaio su a Miasino, un'osteria in collina, l'officina all'ingresso di Orta), il suo biglietto da visita finiva in un cassetto di Villa Volpe. Abbiamo rovesciato il cassetto sul tavolo. Tocca un biglietto per girarlo.</p>
+        <h2 class="ttd-drawer__line">I biglietti da visita che teniamo in villa</h2>
         <ul class="ttd-drawer__stats">
           <li><b>14</b>biglietti da visita</li>
           <li><b>8</b>a meno di 30 minuti a piedi dalla villa</li>
@@ -654,6 +646,7 @@
   <!-- Cross-link to blog -->
   <section class="section">
     <div class="container container--narrow" style="text-align:center;">
+      <p class="ttd-about">Il Lago d'Orta è la sorella minore, quieta e romantica, dei grandi laghi italiani: un Sacro Monte patrimonio UNESCO, un borgo medievale pedonale, un monastero su un'isola e colline verdi solcate da sentieri e cascate. Tutto quello che trovi in questa pagina è a breve distanza da Villa Volpe.</p>
       <span class="label">Approfondisci</span>
       <div class="divider divider--center"></div>
       <h2>Altre storie e guide sul Lago d'Orta</h2>

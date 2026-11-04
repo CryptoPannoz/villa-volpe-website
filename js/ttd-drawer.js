@@ -384,6 +384,27 @@
     slot.hidden = false;
   }
 
+  // ── The hero: a few cards peeking out of the drawer ([data-fan] = ids, in order) ──
+  var fan = document.querySelector('[data-fan]');
+  if (fan) {
+    var fanCards = fan.getAttribute('data-fan').split(/\s+/).map(function (id) {
+      return cards.filter(function (c) { return c.id === id; })[0];
+    }).filter(Boolean);
+    var mid = (fanCards.length - 1) / 2;
+    fanCards.forEach(function (c, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'ttd-fan__card' + (c.top ? ' ttd-fan__card--top' : '');
+      b.style.setProperty('--i', i - mid);
+      b.style.zIndex = 10 - Math.abs(i - mid);
+      b.setAttribute('aria-label', c.title + ' — ' + (T.tTurn || ''));
+      b.innerHTML = '<img alt="" draggable="false">';
+      b.firstChild.src = c.src;
+      b.addEventListener('click', function () { open(c); });
+      fan.appendChild(b);
+    });
+  }
+
   // ── Deep link: …/things-to-do-lake-orta.html#card-venus ─────────
   var m = /^#card-([\w-]+)$/.exec(window.location.hash);
   if (m) {
