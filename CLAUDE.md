@@ -60,6 +60,11 @@ Sito di villa-volpe.com.
   - Scansioni: ritagliate e ridotte; coperti col colore della carta il vecchio sito di Venus (oggi un casinò) e il
     vecchio numero dell'e-bike; tagliato dal taxi il numero di Marcello (ditta chiusa). Esclusi Nordic Walking e la
     fotografa (non confermati) e i tre locali di Verbania (sono nella guida ospiti v5, non su questa pagina).
+  - **La nostra n.1** (Alberto, 04/11/2026): Taverna Antico Agnello (Villa Nigra, Miasino; Lilli è amica di Alberto e
+    accoglie gli ospiti di Villa Volpe). Scheda con `data-top`, prima di «Dove mangiare», a tutta riga; la sua foto
+    della limonaia (dal sito di Villa Nigra, «Foto: Villa Nigra») fa da carta al centro del tavolo e riempie il
+    riquadro `[data-top-slot]` in testa al cassetto; è la cena di «Una giornata da locale». Tolto Hotel San Rocco
+    (Alberto), L'Ustaria Cà dal Rat è «scelta di casa» (9 minuti a piedi lungo la riva).
   - Foto nelle schede `img.ttd-card__img` (`images/things-to-do/photos/`), solo dove la foto è davvero quel posto.
     Immagine social `images/things-to-do/og-cassetto.jpg`. Filtri della mappa fissi in alto con i conteggi.
 - **Clasp:** no (script in villa-volpe-scripts).

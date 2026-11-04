@@ -10,6 +10,8 @@
  *   data-pickup they come to the villa (taxi)
  *   data-drawer-cat  tab override (the public boats sit with «on the water», not «practical»)
  *
+ * Our number one (article[data-top], Taverna Antico Agnello) gets its photo as a card in the middle of the
+ * table and a block of its own in the head of the drawer ([data-top-slot]).
  * Desktop: cards scattered on the table, draggable, «Shuffle» deals them again.
  * Touch/narrow: a swipeable row. Tap a card → it flips: what it is, how far,
  * call / directions / website / on the map / share. #card-<id> opens one directly.
@@ -21,8 +23,9 @@
   var table = section && section.querySelector('[data-table]');
   if (!section || !table) return;
 
+  // The business cards, plus our number one (article[data-top]), whose «card» is its photo
   var arts = Array.prototype.slice.call(document.querySelectorAll('article[data-pick]'))
-    .filter(function (a) { return a.querySelector('.ttd-card__img--card'); });
+    .filter(function (a) { return a.querySelector('.ttd-card__img--card') || (a.hasAttribute('data-top') && a.querySelector('.ttd-card__img')); });
   if (!arts.length) return;
   section.hidden = false;
 
@@ -33,7 +36,7 @@
   function text(el, sel) { var x = el.querySelector(sel); return x ? x.textContent.trim() : ''; }
 
   var cards = arts.map(function (a) {
-    var img = a.querySelector('.ttd-card__img--card');
+    var img = a.querySelector('.ttd-card__img--card') || a.querySelector('.ttd-card__img');
     var tel = a.querySelector('.ttd-card__contact a[href^="tel:"]');
     var web = a.querySelector('.ttd-card__contact a[href^="http"]');
     var more = a.querySelector('.ttd-card__link');
@@ -52,19 +55,22 @@
       maps: a.getAttribute('data-maps') || '',
       walk: a.getAttribute('data-walk'),
       drive: a.getAttribute('data-drive'),
-      pickup: a.hasAttribute('data-pickup')
+      pickup: a.hasAttribute('data-pickup'),
+      top: a.hasAttribute('data-top'),
+      badge: a.getAttribute('data-pick') || ''
     };
   });
-  // Food first, then the lake, then the practical ones (the order of the swipeable row)
+  // Our number one first, then food, the lake, the practical ones (the order of the swipeable row)
   var ORDER = ['food', 'sport', 'practical'];
-  cards.sort(function (a, b) { return ORDER.indexOf(a.cat) - ORDER.indexOf(b.cat); });
+  cards.sort(function (a, b) { return (b.top - a.top) || (ORDER.indexOf(a.cat) - ORDER.indexOf(b.cat)); });
 
   // ── The cards on the table ──────────────────────────────────────
   var z = 10;
   cards.forEach(function (c) {
     var b = document.createElement('button');
     b.type = 'button';
-    b.className = 'ttd-bc' + (c.portrait ? ' ttd-bc--tall' : '');
+    b.className = 'ttd-bc' + (c.portrait ? ' ttd-bc--tall' : '') + (c.top ? ' ttd-bc--top' : '');
+    if (c.top) b.setAttribute('data-label', '★ ' + c.badge);
     b.setAttribute('aria-label', c.title + ' — ' + (T.tTurn || ''));
     b.innerHTML = '<img alt="" draggable="false" loading="lazy">';
     b.firstChild.src = c.src;
@@ -77,7 +83,8 @@
 
   // Scatter the visible cards over a loose grid, with a bit of chaos.
   function layout(deal) {
-    var on = cards.filter(function (c) { return !c.off; });
+    var on = cards.filter(function (c) { return !c.off && !c.top; });
+    var top = cards.filter(function (c) { return !c.off && c.top; })[0];
     if (!wide.matches) {
       cards.forEach(function (c, i) {
         c.btn.style.cssText = '';
@@ -104,6 +111,17 @@
       if (deal && !reduce) c.btn.style.transitionDelay = (i * 55) + 'ms';
       place(c);
     });
+    // Our number one always lands in the middle, on top of the pile
+    if (top) {
+      var tw = Math.round(300 * sc);
+      top.x = W / 2 - tw / 2;
+      top.y = Math.max(0, H / 2 - tw * 0.42);
+      top.btn.style.width = tw + 'px';
+      top.btn.style.setProperty('--r', rand(-3, 3).toFixed(1) + 'deg');
+      top.btn.style.zIndex = z + 50;
+      if (deal && !reduce) top.btn.style.transitionDelay = (order.length * 55 + 120) + 'ms';
+      place(top);
+    }
     cards.filter(function (c) { return c.off; }).forEach(function (c) {
       c.btn.style.setProperty('--x', (W / 2 - 110) + 'px');
       c.btn.style.setProperty('--y', (H + 60) + 'px');
@@ -242,19 +260,26 @@
     dlg.querySelector('.ttd-dlg__cat').textContent = c.label;
     dlg.querySelector('.ttd-dlg__title').textContent = c.title;
     dlg.querySelector('.ttd-dlg__desc').textContent = c.desc;
-    var dist = c.pickup ? '🚕 ' + (T.tPickup || '')
+    var d = dlg.querySelector('.ttd-dlg__dist');
+    d.textContent = distText(c);
+    d.hidden = !d.textContent;
+    actions(dlg.querySelector('.ttd-dlg__actions'), c, close);
+  }
+
+  function distText(c) {
+    return c.pickup ? '🚕 ' + (T.tPickup || '')
       : c.walk ? '🚶 ' + c.walk + ' ' + (T.tWalk || '')
       : c.drive ? '🚗 ' + c.drive + ' ' + (T.tDrive || '') : '';
-    var d = dlg.querySelector('.ttd-dlg__dist');
-    d.textContent = dist;
-    d.hidden = !dist;
-    var box = dlg.querySelector('.ttd-dlg__actions');
+  }
+
+  // Call / directions / website / on the map / share (+ the article's own link)
+  function actions(box, c, before) {
     box.innerHTML = '';
     if (c.tel) box.appendChild(action('a', 'ttd-act--main', '📞 ' + (T.tCall || '') + ' · ' + c.tel.text, c.tel.href));
     if (c.maps) box.appendChild(action('a', '', '🧭 ' + (T.tDirections || ''), c.maps));
     if (c.web) box.appendChild(action('a', '', '🌐 ' + (T.tWeb || ''), c.web));
     var onMap = action('button', '', '📍 ' + (T.tMap || ''));
-    onMap.addEventListener('click', function () { close(); if (window.VVTtd) window.VVTtd.focus(c.id); });
+    onMap.addEventListener('click', function () { if (before) before(); if (window.VVTtd) window.VVTtd.focus(c.id); });
     box.appendChild(onMap);
     var share = action('button', '', '↗ ' + (T.tShare || ''));
     share.addEventListener('click', function () { shareCard(c, share); });
@@ -333,6 +358,31 @@
     b.insertBefore(mini, b.firstChild);
     b.addEventListener('click', function () { open(c); });
   });
+
+  // ── Our number one, in the head of the drawer ──────────────────
+  var slot = section.querySelector('[data-top-slot]');
+  var first = cards.filter(function (c) { return c.top; })[0];
+  if (slot && first) {
+    slot.innerHTML =
+      '<button type="button" class="ttd-top__photo"><img alt="" loading="lazy"></button>' +
+      '<div class="ttd-top__body">' +
+        '<span class="ttd-top__badge"></span>' +
+        '<h3 class="ttd-top__title"></h3>' +
+        '<p class="ttd-top__desc"></p>' +
+        '<p class="ttd-dlg__dist"></p>' +
+        '<div class="ttd-dlg__actions"></div>' +
+      '</div>';
+    slot.querySelector('img').src = first.src;
+    slot.querySelector('img').alt = first.title;
+    slot.querySelector('.ttd-top__photo').setAttribute('aria-label', first.title + ' — ' + (T.tTurn || ''));
+    slot.querySelector('.ttd-top__photo').addEventListener('click', function () { open(first); });
+    slot.querySelector('.ttd-top__badge').textContent = '★ ' + first.badge;
+    slot.querySelector('.ttd-top__title').textContent = first.title;
+    slot.querySelector('.ttd-top__desc').textContent = first.desc;
+    slot.querySelector('.ttd-dlg__dist').textContent = distText(first);
+    actions(slot.querySelector('.ttd-dlg__actions'), first, null);
+    slot.hidden = false;
+  }
 
   // ── Deep link: …/things-to-do-lake-orta.html#card-venus ─────────
   var m = /^#card-([\w-]+)$/.exec(window.location.hash);

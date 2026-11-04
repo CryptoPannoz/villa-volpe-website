@@ -2256,6 +2256,66 @@ html:has(.nav:not(.nav--hidden)) .ttd-filters { top: calc(var(--promo-h) + var(-
   transition: transform .3s ease;
 }
 .ttd-card:nth-child(even) .ttd-card__img--card { transform: rotate(1.8deg); }
+.ttd-card__credit { margin: 0.4rem 0 0; font-size: 0.68rem; color: var(--color-text-muted); }
+
+/* Our number one (data-top): the whole row, gold instead of the category colour */
+.ttd-card[data-top] { border-left-color: #B8913A; background: #FFFBF2; }
+.ttd-card[data-top]::after { background: #2B221C; color: #F4D98B; }
+.ttd-card[data-top] .ttd-card__title { font-size: 1.5rem; }
+@media (min-width: 700px) {
+  .ttd-card[data-top] { grid-column: 1 / -1; display: grid; grid-template-columns: 1.15fr 1fr; column-gap: var(--space-md); align-content: start; }
+  .ttd-card[data-top] .ttd-card__img { grid-row: 1 / span 6; width: calc(100% + var(--space-md)); height: calc(100% + 2 * var(--space-md)); aspect-ratio: auto; margin: calc(-1 * var(--space-md)) 0 calc(-1 * var(--space-md)) calc(-1 * var(--space-md)); }
+}
+
+/* …and in the head of the drawer */
+.ttd-top {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  max-width: 980px;
+  margin: var(--space-lg) auto 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #FBF7F0;
+  color: var(--color-text);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+  text-align: left;
+}
+.ttd-top[hidden] { display: none; }
+.ttd-top__photo { padding: 0; border: 0; background: none; cursor: pointer; }
+.ttd-top__photo img { display: block; width: 100%; height: 100%; min-height: 260px; object-fit: cover; }
+.ttd-top__body { padding: 1.6rem 1.6rem 1.4rem; }
+.ttd-top__badge {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: #2B221C;
+  color: #F4D98B;
+  font: 700 0.7rem/1.2 'Inter', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ttd-top__title { margin: 0.7rem 0 0.5rem; font-family: 'Playfair Display', serif; font-size: 1.9rem; line-height: 1.1; color: var(--color-black); }
+.ttd-top__desc { margin: 0; font-size: 0.95rem; line-height: 1.65; color: var(--color-text-light); }
+@media (max-width: 760px) {
+  .ttd-top { grid-template-columns: 1fr; margin-top: var(--space-md); }
+  .ttd-top__photo img { min-height: 0; aspect-ratio: 16 / 10; }
+}
+
+/* …and on the table, a photo print with its ribbon */
+.ttd-bc--top { padding: 8px 8px 30px; border-radius: 3px; }
+.ttd-bc--top img { border-radius: 1px; aspect-ratio: 16 / 10; object-fit: cover; }
+.ttd-bc--top::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font: 700 0.68rem/1.2 'Inter', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8A6A2B;
+}
 .ttd-card:hover .ttd-card__img--card { transform: rotate(0) scale(1.03); }
 
 /* ---------- «The drawer»: the real business cards on a walnut table (js/ttd-drawer.js) ---------- */
