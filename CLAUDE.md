@@ -65,6 +65,11 @@ Sito di villa-volpe.com.
     della limonaia (dal sito di Villa Nigra, «Foto: Villa Nigra») fa da carta al centro del tavolo e riempie il
     riquadro `[data-top-slot]` in testa al cassetto; è la cena di «Una giornata da locale». Tolto Hotel San Rocco
     (Alberto), L'Ustaria Cà dal Rat è «scelta di casa» (9 minuti a piedi lungo la riva).
+  - **Testata** (`header.ttd-hero`, 04/11/2026 sera, Alberto: «troppo testo, doppia scritta»): solo l'H1 piccolo
+    in alto («Things to do on Lake Orta», resta per Google), una frase grande («Our lake, card by card»), il pulsante
+    «Open the drawer» e il ventaglio `[data-fan]` di 5 biglietti veri che spuntano dal bordo (ids nell'attributo,
+    costruito da `ttd-drawer.js`, tocco = la carta si gira). Il vecchio paragrafo d'introduzione è in fondo
+    (`p.ttd-about`, prima del link al blog); il cassetto apre con una riga sola (`h2.ttd-drawer__line`) e i numeri.
   - Foto nelle schede `img.ttd-card__img` (`images/things-to-do/photos/`), solo dove la foto è davvero quel posto.
     Immagine social `images/things-to-do/og-cassetto.jpg`. Filtri della mappa fissi in alto con i conteggi.
 - **Clasp:** no (script in villa-volpe-scripts).

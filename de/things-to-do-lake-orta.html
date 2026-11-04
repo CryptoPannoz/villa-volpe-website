@@ -191,28 +191,20 @@
   </div>
 
   <!-- Page Header -->
-  <header class="page-header page-header--cinema">
+  <header class="page-header page-header--cinema ttd-hero">
     <div class="vv-cinema__media" aria-hidden="true"><picture><source media="(max-width: 768px)" type="image/avif" srcset="../images/cinema/island-mist-poster-sq.avif"><source media="(max-width: 768px)" srcset="../images/cinema/island-mist-poster-sq.jpg"><source type="image/avif" sizes="100vw" srcset="../images/cinema/island-mist-poster-1280.avif 1280w, ../images/cinema/island-mist-poster-1920.avif 1920w"><img src="../images/cinema/island-mist-poster-1920.jpg" srcset="../images/cinema/island-mist-poster-1280.jpg 1280w, ../images/cinema/island-mist-poster-1920.jpg 1920w" sizes="100vw" alt="" width="1920" height="1080" fetchpriority="high" decoding="async"></picture><video data-vv-video muted loop playsinline preload="none" disablepictureinpicture tabindex="-1"><source src="../images/cinema/island-mist-sq.mp4" type="video/mp4" media="(max-width: 768px)"><source src="../images/cinema/island-mist-1920.mp4" type="video/mp4"></video></div>
-    <span class="label page-header__label">Ortasee entdecken</span>
-    <h1 class="page-header__title">Was man am Ortasee unternehmen kann</h1>
-    <p class="page-header__desc">Eine interaktive Karte unserer Lieblingsorte rund um den See — von Orta San Giulio und seiner Insel bis zu Wasserfällen, Wanderungen, Wassersport und den besten Restaurants. Handverlesen von den Gastgebern der Villa Volpe.</p>
+    <h1 class="ttd-hero__kicker">Was man am Ortasee unternehmen kann</h1>
+    <p class="ttd-hero__title">Unser See, <em>Karte für Karte</em>.</p>
+    <a class="ttd-hero__cta" href="#drawer">Schublade öffnen <span aria-hidden="true">↓</span></a>
+    <!-- a few real cards peeking out of the drawer (js/ttd-drawer.js), in this order -->
+    <div class="ttd-fan" data-fan="navigazione filo-fieno antico-agnello wakeboard sant-antonio"></div>
   </header>
-
-  <!-- Intro -->
-  <section class="section" style="padding-top:0;">
-    <div class="container container--narrow" style="text-align:center;">
-      <p style="opacity:0.85;">Der Ortasee ist die stille, romantische kleine Schwester der großen italienischen Seen: ein UNESCO-Sacro Monte, ein autofreies mittelalterliches Dorf, ein Kloster auf einer Insel und grüne Hügel voller Wege und Wasserfälle. Alles Folgende liegt nur eine kurze Fahrt von der Villa Volpe entfernt. Nutzen Sie die Kategoriefilter, um Ihre Tage zu planen, und tippen Sie auf einen Ort auf der Karte oder auf eine Kachel, um mehr zu erfahren.</p>
-    </div>
-  </section>
 
   <!-- The drawer: the real business cards kept at the villa, built from the [data-pick] cards by js/ttd-drawer.js -->
   <section class="ttd-drawer" id="drawer" hidden data-t-walk="Min. zu Fuß von der Villa" data-t-drive="Min. mit dem Auto von der Villa" data-t-pickup="Holt Sie direkt an der Villa ab" data-t-call="Anrufen" data-t-directions="Route" data-t-web="Website" data-t-map="Auf der Karte zeigen" data-t-share="Teilen" data-t-copied="Link kopiert" data-t-close="Schließen" data-t-turn="Umdrehen" data-t-prev="Vorherige Karte" data-t-next="Nächste Karte">
     <div class="container">
       <div class="ttd-drawer__head">
-        <span class="label">Die Schublade</span>
-        <div class="divider divider--center"></div>
-        <h2>Der Ortasee, direkt aus unserer Schublade</h2>
-        <p>Jedes Mal, wenn wir rund um den See jemand Gutes gefunden haben (die Bootsleute an der Piazza Motta, einen Metzger oben in Miasino, eine Osteria in den Hügeln, die Werkstatt am Ortseingang von Orta), landete die Visitenkarte in einer Schublade der Villa Volpe. Jetzt haben wir die Schublade auf dem Tisch ausgeleert. Tippen Sie auf eine Karte, um sie umzudrehen.</p>
+        <h2 class="ttd-drawer__line">Die Visitenkarten, die wir in der Villa aufbewahren</h2>
         <ul class="ttd-drawer__stats">
           <li><b>14</b>Visitenkarten</li>
           <li><b>8</b>unter 30 Minuten zu Fuß von der Villa</li>
@@ -654,6 +646,7 @@
   <!-- Cross-link to blog -->
   <section class="section">
     <div class="container container--narrow" style="text-align:center;">
+      <p class="ttd-about">Der Ortasee ist die stille, romantische kleine Schwester der großen italienischen Seen: ein UNESCO-Sacro Monte, ein autofreies mittelalterliches Dorf, ein Kloster auf einer Insel und grüne Hügel voller Wege und Wasserfälle. Alles auf dieser Seite liegt nur eine kurze Fahrt von der Villa Volpe entfernt.</p>
       <span class="label">Mehr erfahren</span>
       <div class="divider divider--center"></div>
       <h2>Weitere Geschichten &amp; Guides zum Ortasee</h2>

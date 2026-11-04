@@ -2318,6 +2318,80 @@ html:has(.nav:not(.nav--hidden)) .ttd-filters { top: calc(var(--promo-h) + var(-
 }
 .ttd-card:hover .ttd-card__img--card { transform: rotate(0) scale(1.03); }
 
+/* ---------- Things to do hero: one line, and the real cards peeking out of the drawer ---------- */
+.page-header--cinema.ttd-hero { min-height: min(92vh, 820px); justify-content: flex-end; padding-bottom: clamp(150px, 14vw, 200px); }
+.ttd-hero__kicker {
+  margin: 0 0 1.1rem;
+  font: 600 0.78rem/1.4 'Inter', sans-serif;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+}
+.ttd-hero__title {
+  max-width: 13ch;
+  margin: 0 auto;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.7rem, 6.6vw, 5.6rem);
+  line-height: 1.02;
+  color: #fff;
+  text-wrap: balance;
+}
+.ttd-hero__title em { font-style: italic; color: #EBD7AE; }
+.ttd-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  align-self: center;
+  margin-top: 1.9rem;
+  padding: 0.8rem 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font: 600 0.88rem/1 'Inter', sans-serif;
+  letter-spacing: 0.05em;
+  transition: background .25s ease;
+}
+.ttd-hero__cta:hover { background: rgba(255, 255, 255, 0.22); color: #fff; }
+.ttd-fan { position: absolute; left: 50%; bottom: 0; z-index: 2; width: 0; height: 0; }
+.ttd-fan__card {
+  --spread: clamp(62px, 11vw, 168px);
+  --y: 38%;
+  --s: 1;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: clamp(124px, 17vw, 232px);
+  padding: 0;
+  border: 0;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+  transform-origin: 50% 140%;
+  transform: translateX(calc(-50% + var(--i) * var(--spread))) translateY(var(--y)) rotate(calc(var(--i) * 8deg)) scale(var(--s));
+  box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.4);
+  transition: transform .5s cubic-bezier(.2, .9, .25, 1);
+  animation: ttd-peek 1.2s cubic-bezier(.2, .9, .25, 1) backwards;
+  animation-delay: calc(300ms + (var(--i) + 2) * 110ms);
+}
+.ttd-fan__card img { display: block; width: 100%; height: auto; border-radius: 5px; pointer-events: none; }
+.ttd-fan__card--top { padding: 6px; border-radius: 3px; }
+.ttd-fan__card--top img { aspect-ratio: 16 / 10; object-fit: cover; border-radius: 1px; }
+.ttd-fan__card:hover, .ttd-fan__card:focus-visible { --y: 14%; --s: 1.06; z-index: 20 !important; outline: none; }
+@keyframes ttd-peek {
+  from { transform: translateX(calc(-50% + var(--i) * var(--spread))) translateY(120%) rotate(0deg); }
+}
+@media (max-width: 600px) {
+  .ttd-fan__card { --spread: 17vw; --y: 24%; width: 36vw; }
+  .ttd-fan__card:hover, .ttd-fan__card:focus-visible { --y: 6%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ttd-fan__card { animation: none; transition: none; }
+}
+.ttd-about { margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.75; color: var(--color-text-light); }
+
 /* ---------- «The drawer»: the real business cards on a walnut table (js/ttd-drawer.js) ---------- */
 .ttd-drawer {
   position: relative;
@@ -2336,6 +2410,7 @@ html:has(.nav:not(.nav--hidden)) .ttd-filters { top: calc(var(--promo-h) + var(-
 .ttd-drawer .label { color: #D9C3A0; }
 .ttd-drawer .divider { background: #D9C3A0; }
 .ttd-drawer h2 { color: #fff; }
+.ttd-drawer__line { margin: 0; font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 400; }
 .ttd-drawer__head p { margin-top: 1.25rem; color: rgba(244, 236, 223, 0.82); line-height: 1.75; }
 .ttd-drawer__stats {
   display: flex;

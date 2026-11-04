@@ -191,28 +191,20 @@
   </div>
 
   <!-- Page Header -->
-  <header class="page-header page-header--cinema">
+  <header class="page-header page-header--cinema ttd-hero">
     <div class="vv-cinema__media" aria-hidden="true"><picture><source media="(max-width: 768px)" type="image/avif" srcset="../images/cinema/island-mist-poster-sq.avif"><source media="(max-width: 768px)" srcset="../images/cinema/island-mist-poster-sq.jpg"><source type="image/avif" sizes="100vw" srcset="../images/cinema/island-mist-poster-1280.avif 1280w, ../images/cinema/island-mist-poster-1920.avif 1920w"><img src="../images/cinema/island-mist-poster-1920.jpg" srcset="../images/cinema/island-mist-poster-1280.jpg 1280w, ../images/cinema/island-mist-poster-1920.jpg 1920w" sizes="100vw" alt="" width="1920" height="1080" fetchpriority="high" decoding="async"></picture><video data-vv-video muted loop playsinline preload="none" disablepictureinpicture tabindex="-1"><source src="../images/cinema/island-mist-sq.mp4" type="video/mp4" media="(max-width: 768px)"><source src="../images/cinema/island-mist-1920.mp4" type="video/mp4"></video></div>
-    <span class="label page-header__label">Explorer le lac d'Orta</span>
-    <h1 class="page-header__title">Que faire au lac d'Orta</h1>
-    <p class="page-header__desc">Une carte interactive de nos lieux préférés autour du lac — d'Orta San Giulio et son île aux cascades, randonnées, sports nautiques et meilleures tables. Sélectionnés par les hôtes de la Villa Volpe.</p>
+    <h1 class="ttd-hero__kicker">Que faire au lac d'Orta</h1>
+    <p class="ttd-hero__title">Notre lac, <em>carte après carte</em>.</p>
+    <a class="ttd-hero__cta" href="#drawer">Ouvrir le tiroir <span aria-hidden="true">↓</span></a>
+    <!-- a few real cards peeking out of the drawer (js/ttd-drawer.js), in this order -->
+    <div class="ttd-fan" data-fan="navigazione filo-fieno antico-agnello wakeboard sant-antonio"></div>
   </header>
-
-  <!-- Intro -->
-  <section class="section" style="padding-top:0;">
-    <div class="container container--narrow" style="text-align:center;">
-      <p style="opacity:0.85;">Le lac d'Orta est la petite sœur tranquille et romantique des grands lacs italiens : un Sacro Monte classé à l'UNESCO, un village médiéval piéton, un monastère sur une île et des collines verdoyantes sillonnées de sentiers et de cascades. Tout ce qui suit est à courte distance en voiture de la Villa Volpe. Utilisez les filtres par catégorie pour organiser vos journées et touchez un lieu sur la carte ou une fiche pour en savoir plus.</p>
-    </div>
-  </section>
 
   <!-- The drawer: the real business cards kept at the villa, built from the [data-pick] cards by js/ttd-drawer.js -->
   <section class="ttd-drawer" id="drawer" hidden data-t-walk="min à pied de la villa" data-t-drive="min en voiture de la villa" data-t-pickup="Ils viennent vous chercher à la villa" data-t-call="Appeler" data-t-directions="Itinéraire" data-t-web="Site" data-t-map="Voir sur la carte" data-t-share="Partager" data-t-copied="Lien copié" data-t-close="Fermer" data-t-turn="Retourner la carte" data-t-prev="Carte précédente" data-t-next="Carte suivante">
     <div class="container">
       <div class="ttd-drawer__head">
-        <span class="label">Le tiroir</span>
-        <div class="divider divider--center"></div>
-        <h2>Le lac d'Orta, tout droit sorti de notre tiroir</h2>
-        <p>Au fil des ans, chaque fois que nous trouvions quelqu'un de bien autour du lac (les bateliers de la Piazza Motta, un boucher à Miasino, une osteria dans les collines, le garage à l'entrée d'Orta), sa carte de visite finissait dans un tiroir de la Villa Volpe. Nous avons vidé le tiroir sur la table. Touchez une carte pour la retourner.</p>
+        <h2 class="ttd-drawer__line">Les cartes de visite que nous gardons à la villa</h2>
         <ul class="ttd-drawer__stats">
           <li><b>14</b>cartes de visite</li>
           <li><b>8</b>à moins de 30 minutes à pied de la villa</li>
@@ -654,6 +646,7 @@
   <!-- Cross-link to blog -->
   <section class="section">
     <div class="container container--narrow" style="text-align:center;">
+      <p class="ttd-about">Le lac d'Orta est la petite sœur tranquille et romantique des grands lacs italiens : un Sacro Monte classé à l'UNESCO, un village médiéval piéton, un monastère sur une île et des collines verdoyantes sillonnées de sentiers et de cascades. Tout ce qui figure sur cette page est à courte distance en voiture de la Villa Volpe.</p>
       <span class="label">Aller plus loin</span>
       <div class="divider divider--center"></div>
       <h2>Plus d'histoires &amp; de guides sur le lac d'Orta</h2>

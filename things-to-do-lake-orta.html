@@ -191,28 +191,20 @@
   </div>
 
   <!-- Page Header -->
-  <header class="page-header page-header--cinema">
+  <header class="page-header page-header--cinema ttd-hero">
     <div class="vv-cinema__media" aria-hidden="true"><picture><source media="(max-width: 768px)" type="image/avif" srcset="images/cinema/island-mist-poster-sq.avif"><source media="(max-width: 768px)" srcset="images/cinema/island-mist-poster-sq.jpg"><source type="image/avif" sizes="100vw" srcset="images/cinema/island-mist-poster-1280.avif 1280w, images/cinema/island-mist-poster-1920.avif 1920w"><img src="images/cinema/island-mist-poster-1920.jpg" srcset="images/cinema/island-mist-poster-1280.jpg 1280w, images/cinema/island-mist-poster-1920.jpg 1920w" sizes="100vw" alt="" width="1920" height="1080" fetchpriority="high" decoding="async"></picture><video data-vv-video muted loop playsinline preload="none" disablepictureinpicture tabindex="-1"><source src="images/cinema/island-mist-sq.mp4" type="video/mp4" media="(max-width: 768px)"><source src="images/cinema/island-mist-1920.mp4" type="video/mp4"></video></div>
-    <span class="label page-header__label">Explore Lake Orta</span>
-    <h1 class="page-header__title">Things to Do on Lake Orta</h1>
-    <p class="page-header__desc">An interactive map of our favourite places around the lake — from Orta San Giulio and its island to waterfalls, hikes, watersports and the best tables. Hand-picked by the hosts of Villa Volpe.</p>
+    <h1 class="ttd-hero__kicker">Things to Do on Lake Orta</h1>
+    <p class="ttd-hero__title">Our lake, <em>card by card</em>.</p>
+    <a class="ttd-hero__cta" href="#drawer">Open the drawer <span aria-hidden="true">↓</span></a>
+    <!-- a few real cards peeking out of the drawer (js/ttd-drawer.js), in this order -->
+    <div class="ttd-fan" data-fan="navigazione filo-fieno antico-agnello wakeboard sant-antonio"></div>
   </header>
-
-  <!-- Intro -->
-  <section class="section" style="padding-top:0;">
-    <div class="container container--narrow" style="text-align:center;">
-      <p style="opacity:0.85;">Lake Orta is the quiet, romantic little sister of the bigger Italian lakes: a UNESCO-listed sacred mountain, a car-free medieval village, a monastery on an island, and green hills laced with trails and waterfalls. Everything below is within an easy drive of Villa Volpe. Use the category filters to plan your days, and tap any place on the map or card to learn more.</p>
-    </div>
-  </section>
 
   <!-- The drawer: the real business cards kept at the villa, built from the [data-pick] cards by js/ttd-drawer.js -->
   <section class="ttd-drawer" id="drawer" hidden data-t-walk="min on foot from the villa" data-t-drive="min by car from the villa" data-t-pickup="They come and pick you up at the villa" data-t-call="Call" data-t-directions="Directions" data-t-web="Website" data-t-map="Show on the map" data-t-share="Share" data-t-copied="Link copied" data-t-close="Close" data-t-turn="Turn over" data-t-prev="Previous card" data-t-next="Next card">
     <div class="container">
       <div class="ttd-drawer__head">
-        <span class="label">The drawer</span>
-        <div class="divider divider--center"></div>
-        <h2>Lake Orta, straight from our drawer</h2>
-        <p>Over the years, every time we found someone good around the lake (the boatmen on Piazza Motta, a butcher up in Miasino, an osteria in the hills, the garage at the entrance to Orta), their business card ended up in a drawer at Villa Volpe. We have tipped the drawer out onto the table. Tap a card to turn it over.</p>
+        <h2 class="ttd-drawer__line">The business cards we kept at the villa</h2>
         <ul class="ttd-drawer__stats">
           <li><b>14</b>business cards</li>
           <li><b>8</b>under 30 minutes on foot from the villa</li>
@@ -657,6 +649,7 @@
   <!-- Cross-link to blog -->
   <section class="section">
     <div class="container container--narrow" style="text-align:center;">
+      <p class="ttd-about">Lake Orta is the quiet, romantic little sister of the bigger Italian lakes: a UNESCO-listed sacred mountain, a car-free medieval village, a monastery on an island, and green hills laced with trails and waterfalls. Everything on this page is within an easy drive of Villa Volpe.</p>
       <span class="label">Go Deeper</span>
       <div class="divider divider--center"></div>
       <h2>More Lake Orta stories &amp; guides</h2>
