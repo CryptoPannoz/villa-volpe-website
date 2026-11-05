@@ -36,7 +36,7 @@
   <script>if(Date.now()>=Date.parse('2027-03-29T00:00:00+02:00'))document.documentElement.classList.remove('has-winter');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
-  <link rel="stylesheet" href="../style.css?v=20261105b">
+  <link rel="stylesheet" href="../style.css?v=20261105ux">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -143,6 +143,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Vai al contenuto</a>
 
   <aside class="season-card" aria-label="Chiusura invernale">
     <svg class="season-card__icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M4.2 6.5l15.6 9M4.2 17.5l15.6-9M9.5 3.5 12 6l2.5-2.5M9.5 20.5 12 18l2.5 2.5M3 10.2l3.4.9-.9 3.4M21 13.8l-3.4-.9.9-3.4M3 13.8l3.4-.9-.9-3.4M21 10.2l-3.4.9.9 3.4"/></svg>
@@ -206,6 +207,8 @@
     </div>
   </div>
 
+  <main id="main" tabindex="-1">
+
   <!-- Page Header -->
   <header class="page-header page-header--cinema ttd-hero">
     <div class="vv-cinema__media" aria-hidden="true"><picture><source media="(max-width: 768px)" type="image/avif" srcset="../images/cinema/island-mist-poster-sq.avif"><source media="(max-width: 768px)" srcset="../images/cinema/island-mist-poster-sq.jpg"><source type="image/avif" sizes="100vw" srcset="../images/cinema/island-mist-poster-1280.avif 1280w, ../images/cinema/island-mist-poster-1920.avif 1920w"><img src="../images/cinema/island-mist-poster-1920.jpg" srcset="../images/cinema/island-mist-poster-1280.jpg 1280w, ../images/cinema/island-mist-poster-1920.jpg 1920w" sizes="100vw" alt="" width="1920" height="1080" fetchpriority="high" decoding="async"></picture><video data-vv-video muted loop playsinline preload="none" disablepictureinpicture tabindex="-1"><source src="../images/cinema/island-mist-sq.mp4" type="video/mp4" media="(max-width: 768px)"><source src="../images/cinema/island-mist-1920.mp4" type="video/mp4"></video></div>
@@ -231,9 +234,9 @@
       <div class="ttd-drawer__bar">
         <div class="ttd-drawer__tabs" role="group" aria-label="Filtra i biglietti">
           <button type="button" class="ttd-tab is-active" data-dfilter="all">Tutti</button>
-          <button type="button" class="ttd-tab" data-dfilter="food">🍽️ Mangiare e bere</button>
-          <button type="button" class="ttd-tab" data-dfilter="sport">🌊 Sul lago e all'aperto</button>
-          <button type="button" class="ttd-tab" data-dfilter="postcard">🖼️ Cartoline</button>
+          <button type="button" class="ttd-tab" data-dfilter="food"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Mangiare e bere</button>
+          <button type="button" class="ttd-tab" data-dfilter="sport"><span class="ttd-ico ttd-ico--waves" aria-hidden="true"></span>Sul lago e all'aperto</button>
+          <button type="button" class="ttd-tab" data-dfilter="postcard"><span class="ttd-ico ttd-ico--image" aria-hidden="true"></span>Cartoline</button>
         </div>
         <button type="button" class="ttd-drawer__shuffle">↻ Mescola i biglietti</button>
       </div>
@@ -254,15 +257,15 @@
 
       <div class="ttd-filters" id="picks" role="group" aria-label="Filtra i luoghi per categoria">
         <button class="ttd-chip is-active" data-filter="all">Tutti</button>
-        <button class="ttd-chip" data-filter="culture">🏛️ Borghi e monumenti</button>
-        <button class="ttd-chip" data-filter="nature">🌿 Natura e panorami</button>
-        <button class="ttd-chip" data-filter="sport">🚴 Outdoor e sport acquatici</button>
-        <button class="ttd-chip" data-filter="food">🍽️ Dove mangiare</button>
-        <button class="ttd-chip" data-filter="practical">🛒 Utile</button>
+        <button class="ttd-chip" data-filter="culture"><span class="ttd-ico ttd-ico--landmark" aria-hidden="true"></span>Borghi e monumenti</button>
+        <button class="ttd-chip" data-filter="nature"><span class="ttd-ico ttd-ico--leaf" aria-hidden="true"></span>Natura e panorami</button>
+        <button class="ttd-chip" data-filter="sport"><span class="ttd-ico ttd-ico--bike" aria-hidden="true"></span>Outdoor e sport acquatici</button>
+        <button class="ttd-chip" data-filter="food"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Dove mangiare</button>
+        <button class="ttd-chip" data-filter="practical"><span class="ttd-ico ttd-ico--bag" aria-hidden="true"></span>Utile</button>
         <button class="ttd-chip" data-filter="pick">★ Le nostre scelte</button>
       </div>
 
-      <div id="ttd-map" class="ttd-map" role="application" aria-label="Mappa interattiva delle cose da fare sul Lago d'Orta"></div>
+      <div id="ttd-map" class="ttd-map" data-t-unlock="Tocca per muovere la mappa" role="application" aria-label="Mappa interattiva delle cose da fare sul Lago d'Orta"></div>
       <p style="text-align:center;font-size:0.85rem;color:var(--color-text-muted);margin:-1rem 0 var(--space-lg);">Tocca un segnaposto o una scheda per i dettagli. Villa Volpe è il segnaposto nero.</p>
 
       <div class="ttd-grid">
@@ -275,114 +278,114 @@
           <a class="ttd-card__link" href="book.html">Verifica disponibilità</a>
         </article>
 
-        <h2 class="ttd-grouptitle" data-group="culture">🏛️ Borghi, isole e monumenti</h2>
+        <h2 class="ttd-grouptitle" data-group="culture"><span class="ttd-ico ttd-ico--landmark" aria-hidden="true"></span>Borghi, isole e monumenti</h2>
 
-        <article class="ttd-card" data-poi id="orta-san-giulio" data-lat="45.7975" data-lng="8.4165" data-cat="culture" data-emoji="🏛️">
+        <article class="ttd-card" data-poi id="orta-san-giulio" data-lat="45.7975" data-lng="8.4165" data-cat="culture" data-emoji="🏛️" data-icon="landmark">
           <figure class="ttd-postcard"><img class="ttd-card__img" src="../images/things-to-do/photos/orta-san-giulio.webp" alt="Orta San Giulio" width="720" height="450" loading="lazy" decoding="async"></figure>
-          <div class="ttd-card__cat">🏛️ Borgo</div>
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--landmark" aria-hidden="true"></span>Borgo</div>
           <h3 class="ttd-card__title">Orta San Giulio</h3>
           <p class="ttd-card__desc">Il cuore medievale e pedonale del lago: vicoli acciottolati, case affrescate e Piazza Motta che si apre direttamente sull'acqua.</p>
           <a class="ttd-card__link" href="blog/posts/lake-orta-italys-quiet-gem.html">Leggi la guida</a>
         </article>
 
-        <article class="ttd-card" data-poi id="isola-san-giulio" data-lat="45.7955" data-lng="8.4045" data-cat="culture" data-emoji="🏛️" data-postcard>
+        <article class="ttd-card" data-poi id="isola-san-giulio" data-lat="45.7955" data-lng="8.4045" data-cat="culture" data-emoji="🏛️" data-icon="landmark" data-postcard>
           <figure class="ttd-postcard"><img class="ttd-card__img" src="../images/things-to-do/photos/isola-san-giulio.webp" alt="Isola di San Giulio" width="720" height="450" loading="lazy" decoding="async"></figure>
-          <div class="ttd-card__cat">🏛️ Isola</div>
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--landmark" aria-hidden="true"></span>Isola</div>
           <h3 class="ttd-card__title">Isola di San Giulio</h3>
           <p class="ttd-card__desc">Una piccola isola coronata da una basilica romanica e da un monastero silenzioso, a due minuti di barca dall'imbarcadero di Orta.</p>
           <a class="ttd-card__link" href="blog/posts/legend-of-san-giulio.html">La leggenda di San Giulio</a>
         </article>
 
-        <article class="ttd-card" data-poi id="sacro-monte" data-lat="45.7986" data-lng="8.4155" data-cat="culture" data-emoji="🏛️" data-postcard>
+        <article class="ttd-card" data-poi id="sacro-monte" data-lat="45.7986" data-lng="8.4155" data-cat="culture" data-emoji="🏛️" data-icon="landmark" data-postcard>
           <figure class="ttd-postcard"><img class="ttd-card__img" src="../images/things-to-do/photos/sacro-monte.webp" alt="Sacro Monte di Orta" width="960" height="600" loading="lazy" decoding="async"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:ORTA_S.GILIO.LAKE_AND_ILAND_FROM_SACRE_MONTE.%D7%90%D7%95%D7%A8%D7%98%D7%94_%D7%A1%D7%9F_%D7%92%27%D7%95%D7%9C%D7%99%D7%95_%D7%94%D7%90%D7%92%D7%9D_%D7%95%D7%94%D7%90%D7%99_%D7%9E%D7%94%D7%94%D7%A8_%D7%94%D7%A7%D7%93%D7%95%D7%A9.jpg" target="_blank" rel="noopener">Avisadehh</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></figcaption></figure>
-          <div class="ttd-card__cat">🏛️ Sito UNESCO</div>
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--landmark" aria-hidden="true"></span>Sito UNESCO</div>
           <h3 class="ttd-card__title">Sacro Monte di Orta</h3>
           <p class="ttd-card__desc">Una collina patrimonio dell'umanità UNESCO sopra il borgo, con venti cappelle affrescate dedicate a San Francesco e ampie vedute sul lago.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="madonna-del-sasso" data-lat="45.8355" data-lng="8.3843" data-cat="culture" data-emoji="🏛️" data-postcard>
+        <article class="ttd-card" data-poi id="madonna-del-sasso" data-lat="45.8355" data-lng="8.3843" data-cat="culture" data-emoji="🏛️" data-icon="landmark" data-postcard>
           <figure class="ttd-postcard"><img class="ttd-card__img" src="../images/things-to-do/photos/madonna-del-sasso.webp" alt="Madonna del Sasso" width="960" height="600" loading="lazy" decoding="async"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:LagoOrtaMadonnaSasso.jpg" target="_blank" rel="noopener">Alberto Orlandini</a>, pubblico dominio</figcaption></figure>
-          <div class="ttd-card__cat">🏛️ Santuario</div>
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--landmark" aria-hidden="true"></span>Santuario</div>
           <h3 class="ttd-card__title">Madonna del Sasso</h3>
           <p class="ttd-card__desc">Un santuario barocco arroccato su uno sperone di granito, con forse il più bel panorama su tutto il Lago d'Orta.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="museo-ombrello" data-lat="45.8618564" data-lng="8.5104065" data-cat="culture" data-emoji="🏛️">
-          <div class="ttd-card__cat">🏛️ Museo</div>
+        <article class="ttd-card" data-poi id="museo-ombrello" data-lat="45.8618564" data-lng="8.5104065" data-cat="culture" data-emoji="🏛️" data-icon="landmark">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--landmark" aria-hidden="true"></span>Museo</div>
           <h3 class="ttd-card__title">Museo dell'Ombrello e del Parasole</h3>
           <p class="ttd-card__desc">A Gignese, sulle colline, l'unico museo al mondo dedicato a ombrelli e parasoli — curioso, affascinante e a prova di pioggia.</p>
         </article>
 
-        <h2 class="ttd-grouptitle" data-group="nature">🌿 Natura, cascate e panorami</h2>
+        <h2 class="ttd-grouptitle" data-group="nature"><span class="ttd-ico ttd-ico--leaf" aria-hidden="true"></span>Natura, cascate e panorami</h2>
 
-        <article class="ttd-card" data-poi id="cascata-qualba" data-lat="45.8423516" data-lng="8.3843819" data-cat="nature" data-emoji="🌿" data-postcard>
+        <article class="ttd-card" data-poi id="cascata-qualba" data-lat="45.8423516" data-lng="8.3843819" data-cat="nature" data-emoji="🌿" data-icon="leaf" data-postcard>
           <figure class="ttd-postcard"><img class="ttd-card__img" src="../images/things-to-do/photos/cascata-qualba.webp" alt="Cascata della Qualba" width="720" height="450" loading="lazy" decoding="async"></figure>
-          <div class="ttd-card__cat">🌿 Cascata</div>
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--leaf" aria-hidden="true"></span>Cascata</div>
           <h3 class="ttd-card__title">Cascata della Qualba</h3>
           <p class="ttd-card__desc">Una cascata nascosta con una pozza naturale gelida vicino a Boleto — un tuffo rigenerante dopo una breve camminata nel bosco.</p>
           <a class="ttd-card__link" href="blog/posts/cold-plunge-waterfall-lake-orta.html">Guida al bagno freddo</a>
         </article>
 
-        <article class="ttd-card" data-poi id="cascata-pescone" data-lat="45.8404749" data-lng="8.4254388" data-cat="nature" data-emoji="🌿">
-          <div class="ttd-card__cat">🌿 Cascata</div>
+        <article class="ttd-card" data-poi id="cascata-pescone" data-lat="45.8404749" data-lng="8.4254388" data-cat="nature" data-emoji="🌿" data-icon="leaf">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--leaf" aria-hidden="true"></span>Cascata</div>
           <h3 class="ttd-card__title">Cascata del Pescone</h3>
           <p class="ttd-card__desc">Cascatelle e pozze verdi lungo il torrente Pescone vicino ad Ameno — un posto delizioso per rinfrescarsi nelle giornate calde.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="torre-buccione" data-lat="45.7706754" data-lng="8.4316302" data-cat="nature" data-emoji="🌿" data-postcard>
+        <article class="ttd-card" data-poi id="torre-buccione" data-lat="45.7706754" data-lng="8.4316302" data-cat="nature" data-emoji="🌿" data-icon="leaf" data-postcard>
           <figure class="ttd-postcard"><img class="ttd-card__img" src="../images/things-to-do/photos/torre-buccione.webp" alt="Torre di Buccione" width="960" height="600" loading="lazy" decoding="async"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:Torre_del_Buccione,_Madonna_del_Sasso_e_il_Monte_Rosa_in_primavera_da_diapositiva.jpg" target="_blank" rel="noopener">Alien66</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a></figcaption></figure>
-          <div class="ttd-card__cat">🌿 Panorama</div>
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--leaf" aria-hidden="true"></span>Panorama</div>
           <h3 class="ttd-card__title">Torre di Buccione</h3>
           <p class="ttd-card__desc">Una torre di avvistamento medievale di 23 metri su un poggio boscoso, raggiungibile con una breve passeggiata e ricompensata da un'ampia vista sul lago meridionale.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="monte-mesma" data-lat="45.7758166" data-lng="8.4417889" data-cat="nature" data-emoji="🌿">
+        <article class="ttd-card" data-poi id="monte-mesma" data-lat="45.7758166" data-lng="8.4417889" data-cat="nature" data-emoji="🌿" data-icon="leaf">
           <figure class="ttd-postcard"><img class="ttd-card__img" src="../images/things-to-do/photos/monte-mesma.webp" alt="Convento del Monte Mesma" width="960" height="600" loading="lazy" decoding="async"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:Ulivo_monte_Mesma.jpg" target="_blank" rel="noopener">Alcolo85</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption></figure>
-          <div class="ttd-card__cat">🌿 Passeggiata</div>
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--leaf" aria-hidden="true"></span>Passeggiata</div>
           <h3 class="ttd-card__title">Convento del Monte Mesma</h3>
           <p class="ttd-card__desc">Un convento francescano del XV secolo che corona una collina quieta e coperta di castagni — una facile camminata verso pace e panorama.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="monte-falo" data-lat="45.8470975" data-lng="8.487309" data-cat="nature" data-emoji="🌿">
+        <article class="ttd-card" data-poi id="monte-falo" data-lat="45.8470975" data-lng="8.487309" data-cat="nature" data-emoji="🌿" data-icon="leaf">
           <figure class="ttd-postcard"><img class="ttd-card__img" src="../images/things-to-do/photos/monte-falo.webp" alt="Monte Falò e Tre Montagnette" width="960" height="600" loading="lazy" decoding="async"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:Birch_tree_on_Monte_Fal%C3%B2_(1.081_m.a.s.l.)_-_Mergozzolo_group_of_Pennine_Alps_-_Province_of_Novara,_Piedmont_-_Italy,_2017-11-01.jpg" target="_blank" rel="noopener">Mænsard vokser</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption></figure>
-          <div class="ttd-card__cat">🌿 Escursione</div>
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--leaf" aria-hidden="true"></span>Escursione</div>
           <h3 class="ttd-card__title">Monte Falò e Tre Montagnette</h3>
           <p class="ttd-card__desc">Una facile escursione di cresta sopra la sponda orientale con una serie di punti panoramici su lago e Alpi.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="anello-indaco" data-lat="45.7885718" data-lng="8.4562309" data-cat="nature" data-emoji="🌿" data-postcard>
+        <article class="ttd-card" data-poi id="anello-indaco" data-lat="45.7885718" data-lng="8.4562309" data-cat="nature" data-emoji="🌿" data-icon="leaf" data-postcard>
           <figure class="ttd-postcard"><img class="ttd-card__img" src="../images/things-to-do/photos/anello-indaco.webp" alt="Anello Indaco — Oasi WWF di Ameno" width="960" height="600" loading="lazy" decoding="async"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:View_of_Lake_Orta_from_the_Sanctuary_of_Madonna_della_Bocciola_in_Vacciago,_Ameno.jpg" target="_blank" rel="noopener">Explore.piedmont</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption></figure>
-          <div class="ttd-card__cat">🌿 Sentiero</div>
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--leaf" aria-hidden="true"></span>Sentiero</div>
           <h3 class="ttd-card__title">Anello Indaco — Oasi WWF di Ameno</h3>
           <p class="ttd-card__desc">Un sentiero ad anello nella natura attraverso l'oasi WWF, boschi e suggestivi borghi abbandonati sulle colline di Ameno.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="cappella-vago" data-lat="45.7917339" data-lng="8.4723161" data-cat="nature" data-emoji="🌿">
-          <div class="ttd-card__cat">🌿 Panorama</div>
+        <article class="ttd-card" data-poi id="cappella-vago" data-lat="45.7917339" data-lng="8.4723161" data-cat="nature" data-emoji="🌿" data-icon="leaf">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--leaf" aria-hidden="true"></span>Panorama</div>
           <h3 class="ttd-card__title">Cappella del Vago</h3>
           <p class="ttd-card__desc">Una minuscola cappella in cima a una collina e uno dei punti più belli e tranquilli per il tramonto sul lago.</p>
         </article>
 
-        <h2 class="ttd-grouptitle" data-group="sport">🚴 Attività outdoor e sport acquatici</h2>
+        <h2 class="ttd-grouptitle" data-group="sport"><span class="ttd-ico ttd-ico--bike" aria-hidden="true"></span>Attività outdoor e sport acquatici</h2>
 
-        <article class="ttd-card" data-poi id="canoe-kayak" data-lat="45.8050805" data-lng="8.4042071" data-cat="sport" data-emoji="🚴">
+        <article class="ttd-card" data-poi id="canoe-kayak" data-lat="45.8050805" data-lng="8.4042071" data-cat="sport" data-emoji="🚴" data-icon="bike">
           <figure class="ttd-postcard"><img class="ttd-card__img" src="../images/things-to-do/photos/canoe-kayak.webp" alt="Kayak, Canoa e SUP" width="960" height="600" loading="lazy" decoding="async"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:Aussicht_28.06.2016_13-50-57.jpg" target="_blank" rel="noopener">Dirk Ingo Franke</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption></figure>
-          <div class="ttd-card__cat">🚴 Sull'acqua</div>
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--bike" aria-hidden="true"></span>Sull'acqua</div>
           <h3 class="ttd-card__title">Kayak, Canoa e SUP</h3>
           <p class="ttd-card__desc">Noleggia un kayak, una canoa o una tavola SUP sul lungolago di Orta e raggiungi l'isola a forza di braccia.</p>
           <a class="ttd-card__link" href="blog/posts/outdoor-activities-lake-orta.html">Attività outdoor</a>
         </article>
 
-        <article class="ttd-card" data-poi id="sailing" data-lat="45.7986" data-lng="8.4110" data-cat="sport" data-emoji="🚴">
+        <article class="ttd-card" data-poi id="sailing" data-lat="45.7986" data-lng="8.4110" data-cat="sport" data-emoji="🚴" data-icon="bike">
           <figure class="ttd-postcard"><img class="ttd-card__img" src="../images/things-to-do/photos/sailing.webp" alt="Vela sul Lago d'Orta" width="720" height="450" loading="lazy" decoding="async"></figure>
-          <div class="ttd-card__cat">🚴 Sull'acqua</div>
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--bike" aria-hidden="true"></span>Sull'acqua</div>
           <h3 class="ttd-card__title">Vela sul Lago d'Orta</h3>
           <p class="ttd-card__desc">Impara a veleggiare o parti per una crociera con skipper sulle acque calme e riparate del lago.</p>
           <a class="ttd-card__link" href="blog/posts/dodo-gorla-sailing-lake-orta.html">In barca a vela con Dodo Gorla</a>
         </article>
 
-        <article class="ttd-card" data-poi id="wakeboard" data-lat="45.7653496" data-lng="8.4290188" data-cat="sport" data-emoji="🚴" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=6243193785371589750" data-drive="8">
-          <div class="ttd-card__cat">🚴 Adrenalina</div>
+        <article class="ttd-card" data-poi id="wakeboard" data-lat="45.7653496" data-lng="8.4290188" data-cat="sport" data-emoji="🚴" data-icon="bike" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=6243193785371589750" data-drive="8">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--bike" aria-hidden="true"></span>Adrenalina</div>
           <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/wakeboard.webp" alt="Biglietto da visita di Wakeboard e Wakesurf" width="720" height="476" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Wakeboard e Wakesurf</h3>
           <p class="ttd-card__desc">Wake&amp;More organizza sessioni di wakeboard e wakesurf per tutti i livelli nel tratto meridionale più tranquillo del lago.</p>
@@ -390,16 +393,16 @@
           <a class="ttd-card__link" href="blog/posts/wakeboarding-wakesurfing-lake-orta.html">Guida al wakeboard</a>
         </article>
 
-        <article class="ttd-card" data-poi id="wakeorta" data-lat="45.8103982" data-lng="8.4116004" data-cat="sport" data-emoji="🚴" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=3692058386744882851" data-drive="5">
-          <div class="ttd-card__cat">🚴 Adrenalina</div>
+        <article class="ttd-card" data-poi id="wakeorta" data-lat="45.8103982" data-lng="8.4116004" data-cat="sport" data-emoji="🚴" data-icon="bike" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=3692058386744882851" data-drive="5">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--bike" aria-hidden="true"></span>Adrenalina</div>
           <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/wakeorta.webp" alt="Biglietto da visita di Wakeorta" width="720" height="477" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Wakeorta</h3>
           <p class="ttd-card__desc">Scuola di wakesurf e wakeboard all'Hotel L'Approdo di Pettenasco, a cinque minuti d'auto; d'estate anche uscite in barca per gruppi.</p>
           <p class="ttd-card__contact"><a href="tel:+393357758040">+39 335 775 8040</a> · <a href="https://wakeorta.com/" target="_blank" rel="noopener">Sito</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="ebike" data-lat="45.7969036" data-lng="8.4170294" data-cat="sport" data-emoji="🚴" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=9599080110130984481" data-walk="10">
-          <div class="ttd-card__cat">🚴 Su due ruote</div>
+        <article class="ttd-card" data-poi id="ebike" data-lat="45.7969036" data-lng="8.4170294" data-cat="sport" data-emoji="🚴" data-icon="bike" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=9599080110130984481" data-walk="10">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--bike" aria-hidden="true"></span>Su due ruote</div>
           <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/ebike.webp" alt="Biglietto da visita di Noleggio e-bike e tour" width="720" height="473" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Noleggio e-bike e tour</h3>
           <p class="ttd-card__desc">Noleggia una e-bike e lascia che il motore appiattisca le salite mentre giri il lago o raggiungi un punto panoramico.</p>
@@ -407,200 +410,200 @@
           <a class="ttd-card__link" href="blog/posts/outdoor-activities-lake-orta.html">Attività outdoor</a>
         </article>
 
-        <article class="ttd-card" data-poi id="adventure-park-pigne" data-lat="45.7966539" data-lng="8.4421979" data-cat="sport" data-emoji="🚴">
-          <div class="ttd-card__cat">🚴 Divertimento in famiglia</div>
+        <article class="ttd-card" data-poi id="adventure-park-pigne" data-lat="45.7966539" data-lng="8.4421979" data-cat="sport" data-emoji="🚴" data-icon="bike">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--bike" aria-hidden="true"></span>Divertimento in famiglia</div>
           <h3 class="ttd-card__title">Adventure Park Le Pigne</h3>
           <p class="ttd-card__desc">Percorsi acrobatici tra gli alberi e zip-line nei boschi sopra il lago — una bella mezza giornata per famiglie e amanti del brivido.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="mottarone" data-lat="45.8777809" data-lng="8.4778881" data-cat="sport" data-emoji="🚴">
+        <article class="ttd-card" data-poi id="mottarone" data-lat="45.8777809" data-lng="8.4778881" data-cat="sport" data-emoji="🚴" data-icon="bike">
           <figure class="ttd-postcard"><img class="ttd-card__img" src="../images/things-to-do/photos/mottarone.webp" alt="Mottarone e Alpyland" width="960" height="600" loading="lazy" decoding="async"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:E_wiew_from_Monte_Novesso.png" target="_blank" rel="noopener">Pampuco</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption></figure>
-          <div class="ttd-card__cat">🚴 Montagna</div>
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--bike" aria-hidden="true"></span>Montagna</div>
           <h3 class="ttd-card__title">Mottarone e Alpyland</h3>
           <p class="ttd-card__desc">La vetta di 1.491 m tra Orta e Maggiore, con una slittovia alpina, un parco avventura e una vista a 360° su sette laghi.</p>
         </article>
 
-        <h2 class="ttd-grouptitle" data-group="food">🍽️ Dove mangiare e bere</h2>
+        <h2 class="ttd-grouptitle" data-group="food"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Dove mangiare e bere</h2>
 
-        <article class="ttd-card" data-poi id="antico-agnello" data-lat="45.8023338" data-lng="8.4296922" data-cat="food" data-emoji="🍽️" data-pick="La nostra n.1" data-top data-maps="https://www.google.com/maps/search/?api=1&amp;query=Taverna+Antico+Agnello+Miasino" data-drive="6">
+        <article class="ttd-card" data-poi id="antico-agnello" data-lat="45.8023338" data-lng="8.4296922" data-cat="food" data-emoji="🍽️" data-icon="food" data-pick="La nostra n.1" data-top data-maps="https://www.google.com/maps/search/?api=1&amp;query=Taverna+Antico+Agnello+Miasino" data-drive="6">
           <img class="ttd-card__img" src="../images/things-to-do/photos/antico-agnello-limonaia.webp" alt="La limonaia della Taverna Antico Agnello, con le vetrate ad arco sul giardino" width="960" height="600" loading="lazy" decoding="async">
-          <div class="ttd-card__cat">🍽️ Ristorante in Villa Nigra</div>
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Ristorante in Villa Nigra</div>
           <h3 class="ttd-card__title">Taverna Antico Agnello</h3>
           <p class="ttd-card__desc">Il nostro ristorante preferito, nella cinquecentesca Villa Nigra su a Miasino: cucina del territorio servita nella limonaia, con le grandi vetrate ad arco sul giardino. Dite a Lilli che siete ospiti di Villa Volpe. Chiuso il mercoledì.</p>
           <p class="ttd-card__contact"><a href="tel:+390322980527">+39 0322 980527</a> · <a href="https://www.ristoranteanticoagnello.com/" target="_blank" rel="noopener">Sito</a></p>
           <p class="ttd-card__credit">Foto: Villa Nigra</p>
         </article>
 
-        <article class="ttd-card" data-poi id="ca-dal-rat" data-lat="45.7854473" data-lng="8.422997" data-cat="food" data-emoji="🍽️" data-pick="Scelta di casa" data-maps="https://www.google.com/maps/search/?api=1&amp;query=Ustaria+Ca+dal+Rat+Orta+San+Giulio" data-walk="9">
-          <div class="ttd-card__cat">🍽️ Osteria</div>
+        <article class="ttd-card" data-poi id="ca-dal-rat" data-lat="45.7854473" data-lng="8.422997" data-cat="food" data-emoji="🍽️" data-icon="food" data-pick="Scelta di casa" data-maps="https://www.google.com/maps/search/?api=1&amp;query=Ustaria+Ca+dal+Rat+Orta+San+Giulio" data-walk="9">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Osteria</div>
           <h3 class="ttd-card__title">L'Ustaria Cà dal Rat</h3>
           <p class="ttd-card__desc">Il nostro vicino più vicino: nove minuti a piedi lungo la riva, cucina creativa su una terrazza sull'acqua.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="villa-crespi" data-lat="45.7967" data-lng="8.4176" data-cat="food" data-emoji="🍽️">
+        <article class="ttd-card" data-poi id="villa-crespi" data-lat="45.7967" data-lng="8.4176" data-cat="food" data-emoji="🍽️" data-icon="food">
           <figure class="ttd-postcard"><img class="ttd-card__img" src="../images/things-to-do/photos/villa-crespi.webp" alt="Villa Crespi" width="960" height="600" loading="lazy" decoding="async"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:28016_Orta_San_Giulio_NO,_Italy_-_panoramio_(14).jpg" target="_blank" rel="noopener">trolvag</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a></figcaption></figure>
-          <div class="ttd-card__cat">🍽️ Alta cucina ★★</div>
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Alta cucina ★★</div>
           <h3 class="ttd-card__title">Villa Crespi</h3>
           <p class="ttd-card__desc">Il ristorante tre stelle Michelin di Antonino Cannavacciuolo in una fiabesca villa moresca — l'esperienza gastronomica di punta del lago.</p>
           <a class="ttd-card__link" href="blog/posts/villa-crespi-michelin-experience.html">L'esperienza Villa Crespi</a>
         </article>
 
-        <article class="ttd-card" data-poi id="al-sorriso" data-lat="45.7408178" data-lng="8.4113571" data-cat="food" data-emoji="🍽️">
-          <div class="ttd-card__cat">🍽️ Alta cucina ★</div>
+        <article class="ttd-card" data-poi id="al-sorriso" data-lat="45.7408178" data-lng="8.4113571" data-cat="food" data-emoji="🍽️" data-icon="food">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Alta cucina ★</div>
           <h3 class="ttd-card__title">Al Sorriso</h3>
           <p class="ttd-card__desc">Una storica cucina stellata Michelin nella vicina Soriso, a 15 minuti d'auto dal lago.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="laqua" data-lat="45.8194539" data-lng="8.4050625" data-cat="food" data-emoji="🍽️">
-          <div class="ttd-card__cat">🍽️ Sul lago</div>
+        <article class="ttd-card" data-poi id="laqua" data-lat="45.8194539" data-lng="8.4050625" data-cat="food" data-emoji="🍽️" data-icon="food">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Sul lago</div>
           <h3 class="ttd-card__title">Laqua by the Lake</h3>
           <p class="ttd-card__desc">Il ristorante e resort informale sul lago di Cannavacciuolo a Pettenasco, proprio sull'acqua.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="la-darbia" data-lat="45.7936444" data-lng="8.4256952" data-cat="food" data-emoji="🍽️">
-          <div class="ttd-card__cat">🍽️ Agriturismo</div>
+        <article class="ttd-card" data-poi id="la-darbia" data-lat="45.7936444" data-lng="8.4256952" data-cat="food" data-emoji="🍽️" data-icon="food">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Agriturismo</div>
           <h3 class="ttd-card__title">La Darbia</h3>
           <p class="ttd-card__desc">Un agriturismo collinare con vigneto proprio, cucina di stagione e una vista memorabile sul lago.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="bocciolo" data-lat="45.8007869" data-lng="8.4221172" data-cat="food" data-emoji="🍽️">
-          <div class="ttd-card__cat">🍽️ Ristorante</div>
+        <article class="ttd-card" data-poi id="bocciolo" data-lat="45.8007869" data-lng="8.4221172" data-cat="food" data-emoji="🍽️" data-icon="food">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Ristorante</div>
           <h3 class="ttd-card__title">Hotel Bocciolo</h3>
           <p class="ttd-card__desc">Un cordiale ristorante d'albergo nel centro di Orta San Giulio, comodo per pranzo tra una visita e l'altra.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="imbarcadero" data-lat="45.8015497" data-lng="8.3885799" data-cat="food" data-emoji="🍽️">
-          <div class="ttd-card__cat">🍽️ Sul lago</div>
+        <article class="ttd-card" data-poi id="imbarcadero" data-lat="45.8015497" data-lng="8.3885799" data-cat="food" data-emoji="🍽️" data-icon="food">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Sul lago</div>
           <h3 class="ttd-card__title">Ristorante Imbarcadero</h3>
           <p class="ttd-card__desc">Pesce di lago e una terrazza sull'acqua all'imbarcadero di Pella, sulla sponda occidentale più soleggiata.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="rampolina" data-lat="45.8937492" data-lng="8.5082254" data-cat="food" data-emoji="🍽️">
-          <div class="ttd-card__cat">🍽️ Panoramico</div>
+        <article class="ttd-card" data-poi id="rampolina" data-lat="45.8937492" data-lng="8.5082254" data-cat="food" data-emoji="🍽️" data-icon="food">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Panoramico</div>
           <h3 class="ttd-card__title">La Rampolina</h3>
           <p class="ttd-card__desc">Un ristorante panoramico sulle colline sopra il lago, che vale il viaggio solo per la vista.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="gelateria-antica-torre" data-lat="45.8009444" data-lng="8.3874639" data-cat="food" data-emoji="🍽️">
-          <div class="ttd-card__cat">🍽️ Gelato</div>
+        <article class="ttd-card" data-poi id="gelateria-antica-torre" data-lat="45.8009444" data-lng="8.3874639" data-cat="food" data-emoji="🍽️" data-icon="food">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Gelato</div>
           <h3 class="ttd-card__title">Gelateria Antica Torre</h3>
           <p class="ttd-card__desc">Gelato artigianale sulla sponda occidentale a Pella — la scusa perfetta per una passeggiata in riva al lago.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="arianna" data-lat="45.7975" data-lng="8.4183333" data-cat="food" data-emoji="🍽️">
-          <div class="ttd-card__cat">🍽️ Caffè e pasticceria</div>
+        <article class="ttd-card" data-poi id="arianna" data-lat="45.7975" data-lng="8.4183333" data-cat="food" data-emoji="🍽️" data-icon="food">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Caffè e pasticceria</div>
           <h3 class="ttd-card__title">Pasticceria Arianna</h3>
           <p class="ttd-card__desc">Una pasticceria e caffetteria di quartiere per una vera colazione italiana a due passi dalla villa.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="pan-e-vino" data-lat="45.798428" data-lng="8.40536" data-cat="food" data-emoji="🍷" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=15675138757320530078" data-walk="30">
-          <div class="ttd-card__cat">🍷 Enoteca</div>
+        <article class="ttd-card" data-poi id="pan-e-vino" data-lat="45.798428" data-lng="8.40536" data-cat="food" data-emoji="🍷" data-icon="food" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=15675138757320530078" data-walk="30">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Enoteca</div>
           <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/pan-e-vino.webp" alt="Biglietto da visita di Pan &amp; Vino" width="470" height="710" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Pan &amp; Vino</h3>
           <p class="ttd-card__desc">Vini, formaggi e salumi da assaggiare ai tavoli in Piazza Motta, e prodotti tipici da portare a casa.</p>
           <p class="ttd-card__contact"><a href="tel:+393938583293">+39 393 858 3293</a> · <a href="https://www.panevino-orta.it/" target="_blank" rel="noopener">Sito</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="venus" data-lat="45.79822" data-lng="8.405546" data-cat="food" data-emoji="🍽️" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=16057634476937208104" data-walk="27">
-          <div class="ttd-card__cat">🍽️ Ristorante e bar</div>
+        <article class="ttd-card" data-poi id="venus" data-lat="45.79822" data-lng="8.405546" data-cat="food" data-emoji="🍽️" data-icon="food" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=16057634476937208104" data-walk="27">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Ristorante e bar</div>
           <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/venus.webp" alt="Biglietto da visita di Ristorante Venus" width="470" height="685" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Ristorante Venus</h3>
           <p class="ttd-card__desc">In Piazza Motta, con le sale al primo piano affacciate sul lago e sull'isola di San Giulio; cucina piemontese.</p>
           <p class="ttd-card__contact"><a href="tel:+393474667447">+39 347 466 7447</a> · <a href="http://www.ristorantebarvenus.it/" target="_blank" rel="noopener">Sito</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="ristoro-olina" data-lat="45.799304" data-lng="8.4057998" data-cat="food" data-emoji="🍽️" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=9212309886843834597" data-walk="27">
-          <div class="ttd-card__cat">🍽️ Ristorante</div>
+        <article class="ttd-card" data-poi id="ristoro-olina" data-lat="45.799304" data-lng="8.4057998" data-cat="food" data-emoji="🍽️" data-icon="food" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=9212309886843834597" data-walk="27">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Ristorante</div>
           <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/ristoro-olina.webp" alt="Biglietto da visita di Ristoro Olina" width="720" height="590" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Ristoro Olina</h3>
           <p class="ttd-card__desc">Il ristorante del Piccolo Hotel Olina, nel borgo a due passi da Piazza Motta. Meglio prenotare.</p>
           <p class="ttd-card__contact"><a href="tel:+390322905656">+39 0322 905656</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="filo-fieno" data-lat="45.7991636" data-lng="8.4057621" data-cat="food" data-emoji="🍽️" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=14410784117112415565" data-walk="27">
-          <div class="ttd-card__cat">🍽️ Trattoria</div>
+        <article class="ttd-card" data-poi id="filo-fieno" data-lat="45.7991636" data-lng="8.4057621" data-cat="food" data-emoji="🍽️" data-icon="food" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=14410784117112415565" data-walk="27">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Trattoria</div>
           <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/filo-fieno.webp" alt="Biglietto da visita di Filo e Fieno" width="720" height="482" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Filo e Fieno</h3>
           <p class="ttd-card__desc">Cucina tradizionale del lago d'Orta, pasta fatta a mano e piatti vegetariani, una via dietro la piazza. Chiuso il martedì.</p>
           <p class="ttd-card__contact"><a href="tel:+393492120001">+39 349 212 0001</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="sant-antonio" data-lat="45.8030047" data-lng="8.4198463" data-cat="food" data-emoji="🍽️" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=16403309790175117471" data-walk="20">
-          <div class="ttd-card__cat">🍽️ Sul lago</div>
+        <article class="ttd-card" data-poi id="sant-antonio" data-lat="45.8030047" data-lng="8.4198463" data-cat="food" data-emoji="🍽️" data-icon="food" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=16403309790175117471" data-walk="20">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Sul lago</div>
           <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/sant-antonio.webp" alt="Biglietto da visita di Sant'Antonio" width="720" height="467" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Sant'Antonio</h3>
           <p class="ttd-card__desc">Sulla riva tra Orta e Pettenasco, a tre minuti d'auto dalla villa: cucina contemporanea con tocchi asiatici. Chiuso il martedì.</p>
           <p class="ttd-card__contact"><a href="tel:+393293823555">+39 329 382 3555</a> · <a href="http://www.ristorantesantantoniorta.com/" target="_blank" rel="noopener">Sito</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="carlo-e-tina" data-lat="45.7886037" data-lng="8.4401088" data-cat="food" data-emoji="🍽️" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=16717985081898665669" data-drive="10">
-          <div class="ttd-card__cat">🍽️ Osteria</div>
+        <article class="ttd-card" data-poi id="carlo-e-tina" data-lat="45.7886037" data-lng="8.4401088" data-cat="food" data-emoji="🍽️" data-icon="food" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=16717985081898665669" data-drive="10">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--food" aria-hidden="true"></span>Osteria</div>
           <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/carlo-e-tina.webp" alt="Biglietto da visita di Carlo e Tina Osteria" width="720" height="426" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Carlo e Tina Osteria</h3>
           <p class="ttd-card__desc">Ad Ameno, dieci minuti d'auto in collina: cucina di stagione tra Piemonte e Toscana.</p>
           <p class="ttd-card__contact"><a href="tel:+39032287432">+39 0322 87432</a> · <a href="http://www.carloetinaosteria.it/" target="_blank" rel="noopener">Sito</a></p>
         </article>
 
-        <h2 class="ttd-grouptitle" data-group="practical">🛒 Utile: negozi e supermercati</h2>
+        <h2 class="ttd-grouptitle" data-group="practical"><span class="ttd-ico ttd-ico--bag" aria-hidden="true"></span>Utile: negozi e supermercati</h2>
 
-        <article class="ttd-card" data-poi id="conad" data-lat="45.8143793" data-lng="8.4095085" data-cat="practical" data-emoji="🛒">
-          <div class="ttd-card__cat">🛒 Supermercato</div>
+        <article class="ttd-card" data-poi id="conad" data-lat="45.8143793" data-lng="8.4095085" data-cat="practical" data-emoji="🛒" data-icon="bag">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--bag" aria-hidden="true"></span>Supermercato</div>
           <h3 class="ttd-card__title">Conad City — Pettenasco</h3>
           <p class="ttd-card__desc">Il supermercato più comodo per la villa, pochi minuti a nord lungo il lago.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="savoini" data-lat="45.8190421" data-lng="8.4428879" data-cat="practical" data-emoji="🛒">
-          <div class="ttd-card__cat">🛒 Alimentari</div>
+        <article class="ttd-card" data-poi id="savoini" data-lat="45.8190421" data-lng="8.4428879" data-cat="practical" data-emoji="🛒" data-icon="bag">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--bag" aria-hidden="true"></span>Alimentari</div>
           <h3 class="ttd-card__title">Savoini</h3>
           <p class="ttd-card__desc">Un alimentari locale per la spesa quotidiana sulle colline a est del lago.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="md-market" data-lat="45.7441617" data-lng="8.4332331" data-cat="practical" data-emoji="🛒">
-          <div class="ttd-card__cat">🛒 Supermercato</div>
+        <article class="ttd-card" data-poi id="md-market" data-lat="45.7441617" data-lng="8.4332331" data-cat="practical" data-emoji="🛒" data-icon="bag">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--bag" aria-hidden="true"></span>Supermercato</div>
           <h3 class="ttd-card__title">MD Market — Gozzano</h3>
           <p class="ttd-card__desc">Un supermercato conveniente a breve distanza in auto verso sud, in direzione Gozzano.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="tigros" data-lat="45.7345359" data-lng="8.4401878" data-cat="practical" data-emoji="🛒">
-          <div class="ttd-card__cat">🛒 Supermercato</div>
+        <article class="ttd-card" data-poi id="tigros" data-lat="45.7345359" data-lng="8.4401878" data-cat="practical" data-emoji="🛒" data-icon="bag">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--bag" aria-hidden="true"></span>Supermercato</div>
           <h3 class="ttd-card__title">Tigros — Gozzano</h3>
           <p class="ttd-card__desc">Un supermercato più grande per una spesa completa, all'estremità meridionale del lago.</p>
         </article>
 
-        <article class="ttd-card" data-poi id="navigazione" data-lat="45.7980134" data-lng="8.4058762" data-cat="practical" data-emoji="⛴️" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=5242282348198145108" data-walk="27" data-drawer-cat="sport">
-          <div class="ttd-card__cat">⛴️ Motoscafi pubblici</div>
+        <article class="ttd-card" data-poi id="navigazione" data-lat="45.7980134" data-lng="8.4058762" data-cat="practical" data-emoji="⛴️" data-icon="anchor" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=5242282348198145108" data-walk="27" data-drawer-cat="sport">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--anchor" aria-hidden="true"></span>Motoscafi pubblici</div>
           <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/navigazione.webp" alt="Biglietto da visita di Motoscafi per l'isola di San Giulio" width="720" height="450" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Motoscafi per l'isola di San Giulio</h3>
           <p class="ttd-card__desc">I motoscafi pubblici da Piazza Motta all'isola di San Giulio, tutto l'anno.</p>
           <p class="ttd-card__contact"><a href="tel:+393336050288">+39 333 605 0288</a> · <a href="https://www.navigazioneorta.it/" target="_blank" rel="noopener">Sito</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="cerutti" data-lat="45.8029382" data-lng="8.431367" data-cat="practical" data-emoji="🥩" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=11949718477340716034" data-drive="6" data-drawer-cat="food">
-          <div class="ttd-card__cat">🥩 Macelleria</div>
+        <article class="ttd-card" data-poi id="cerutti" data-lat="45.8029382" data-lng="8.431367" data-cat="practical" data-emoji="🥩" data-icon="bag" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=11949718477340716034" data-drive="6" data-drawer-cat="food">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--bag" aria-hidden="true"></span>Macelleria</div>
           <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/cerutti.webp" alt="Biglietto da visita di Macelleria Cerutti" width="720" height="469" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Macelleria Cerutti</h3>
           <p class="ttd-card__desc">Macelleria di paese a Miasino, aperta dal 1950, con carne del territorio per cucinare in villa.</p>
           <p class="ttd-card__contact"><a href="tel:+390322980015">+39 0322 980015</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="taxi-orta" data-lat="45.7917519" data-lng="8.4215189" data-cat="practical" data-emoji="🚕" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=2217549100963173519" data-pickup>
-          <div class="ttd-card__cat">🚕 Taxi</div>
+        <article class="ttd-card" data-poi id="taxi-orta" data-lat="45.7917519" data-lng="8.4215189" data-cat="practical" data-emoji="🚕" data-icon="car" data-pick="Scelta di casa" data-maps="https://maps.google.com/?cid=2217549100963173519" data-pickup>
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--car" aria-hidden="true"></span>Taxi</div>
           <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/taxi-orta.webp" alt="Biglietto da visita di Taxi Orta – Davide" width="720" height="352" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Taxi Orta – Davide</h3>
           <p class="ttd-card__desc">Taxi e noleggio con conducente da Orta, per gli aeroporti e i giri del lago. Si parla inglese.</p>
           <p class="ttd-card__contact"><a href="tel:+393334748045">+39 333 474 8045</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="tecnocar" data-lat="45.7972682" data-lng="8.4180461" data-cat="practical" data-emoji="🔧" data-maps="https://maps.google.com/?cid=1862953226679484943" data-walk="11">
-          <div class="ttd-card__cat">🔧 Officina</div>
+        <article class="ttd-card" data-poi id="tecnocar" data-lat="45.7972682" data-lng="8.4180461" data-cat="practical" data-emoji="🔧" data-icon="wrench" data-maps="https://maps.google.com/?cid=1862953226679484943" data-walk="11">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--wrench" aria-hidden="true"></span>Officina</div>
           <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/tecnocar.webp" alt="Biglietto da visita di Tecnocar Garage" width="720" height="422" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Tecnocar Garage</h3>
           <p class="ttd-card__desc">Officina all'ingresso di Orta dal 1951, per guasti e assistenza all'auto.</p>
           <p class="ttd-card__contact"><a href="tel:+390322911909">+39 0322 911909</a> · <a href="http://www.tecnocargarage.com/" target="_blank" rel="noopener">Sito</a></p>
         </article>
 
-        <article class="ttd-card" data-poi id="farmacia-calderara" data-lat="45.7429724" data-lng="8.4344735" data-cat="practical" data-emoji="💊" data-maps="https://maps.google.com/?cid=11499355346143969193" data-drive="10">
-          <div class="ttd-card__cat">💊 Farmacia</div>
+        <article class="ttd-card" data-poi id="farmacia-calderara" data-lat="45.7429724" data-lng="8.4344735" data-cat="practical" data-emoji="💊" data-icon="cross" data-maps="https://maps.google.com/?cid=11499355346143969193" data-drive="10">
+          <div class="ttd-card__cat"><span class="ttd-ico ttd-ico--cross" aria-hidden="true"></span>Farmacia</div>
           <img class="ttd-card__img ttd-card__img--card" src="../images/things-to-do/cards/farmacia-calderara.webp" alt="Biglietto da visita di Farmacia Calderara" width="720" height="466" loading="lazy" decoding="async">
           <h3 class="ttd-card__title">Farmacia Calderara</h3>
           <p class="ttd-card__desc">Farmacia nel centro di Gozzano, a sud del lago, a dieci minuti d'auto.</p>
@@ -630,13 +633,15 @@
     <a href="book.html" class="btn btn--accent">Prenota il tuo soggiorno</a>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <div id="site-footer"></div>
   <script src="../footer.js?v=20261105"></script>
 
-  <script src="../main.js?v=20261105"></script>
+  <script src="../main.js?v=20261105ux"></script>
   <script src="../js/vv-map.js"></script>
-  <script src="../js/things-to-do.js?v=20261104e"></script>
-  <script src="../js/ttd-drawer.js?v=20261104e"></script>
+  <script src="../js/things-to-do.js?v=20261105ux"></script>
+  <script src="../js/ttd-drawer.js?v=20261105ux"></script>
 </body>
 </html>
