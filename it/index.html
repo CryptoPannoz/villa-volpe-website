@@ -36,7 +36,7 @@
   <script>if(Date.now()>=Date.parse('2027-03-29T00:00:00+02:00'))document.documentElement.classList.remove('has-winter');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
-  <link rel="stylesheet" href="../style.css?v=20261105b">
+  <link rel="stylesheet" href="../style.css?v=20261105ux">
   <!-- Leaflet CSS viene caricato on-demand allo scroll (vedi script in fondo) -->
   <script type="application/ld+json">
   {
@@ -169,6 +169,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Vai al contenuto</a>
 
 
   <!-- Navigation -->
@@ -223,6 +224,8 @@
     </div>
   </div>
 
+  <main id="main" tabindex="-1">
+
   <!-- Hero (video caricato dopo il primo rendering) -->
   <section class="hero hero--video" id="hero">
     <div class="hero__bg">
@@ -230,8 +233,10 @@
            video: solo cosi' puo' essere AVIF/WebP con srcset responsive
            (poster= accetta un URL solo). E' questo che dipinge per l'LCP. -->
       <picture>
-        <source type="image/avif" sizes="100vw" srcset="../images/hero-villa-2026-poster-640.avif 640w, ../images/hero-villa-2026-poster-768.avif 768w, ../images/hero-villa-2026-poster-960.avif 960w, ../images/hero-villa-2026-poster-1280.avif 1280w, ../images/hero-villa-2026-poster-1600.avif 1600w">
-        <source type="image/webp" sizes="100vw" srcset="../images/hero-villa-2026-poster-640.webp 640w, ../images/hero-villa-2026-poster-768.webp 768w, ../images/hero-villa-2026-poster-960.webp 960w, ../images/hero-villa-2026-poster-1280.webp 1280w, ../images/hero-villa-2026-poster-1600.webp 1600w">
+        <source media="(max-aspect-ratio: 4/5) and (max-width: 600px)" type="image/avif" srcset="../images/hero-villa-2026-poster-portrait-608.avif">
+        <source media="(max-aspect-ratio: 4/5) and (max-width: 600px)" type="image/webp" srcset="../images/hero-villa-2026-poster-portrait-608.webp">
+        <source type="image/avif" sizes="(max-aspect-ratio: 16/9) 178vh, 100vw" srcset="../images/hero-villa-2026-poster-640.avif 640w, ../images/hero-villa-2026-poster-768.avif 768w, ../images/hero-villa-2026-poster-960.avif 960w, ../images/hero-villa-2026-poster-1280.avif 1280w, ../images/hero-villa-2026-poster-1600.avif 1600w">
+        <source type="image/webp" sizes="(max-aspect-ratio: 16/9) 178vh, 100vw" srcset="../images/hero-villa-2026-poster-640.webp 640w, ../images/hero-villa-2026-poster-768.webp 768w, ../images/hero-villa-2026-poster-960.webp 960w, ../images/hero-villa-2026-poster-1280.webp 1280w, ../images/hero-villa-2026-poster-1600.webp 1600w">
         <img class="hero__poster" src="../images/hero-villa-2026-poster-1280.jpg" alt="" width="1600" height="900"
              fetchpriority="high" decoding="async">
       </picture>
@@ -242,6 +247,7 @@
       <video class="hero__video" id="heroVideo" muted loop playsinline preload="none"
              data-src="../images/hero-villa-2026.mp4"
              data-src-mobile="../images/hero-villa-2026-mobile.mp4"
+             data-src-portrait="../images/hero-villa-2026-portrait.mp4"
              aria-label="Villa Volpe — vista sul Lago d'Orta"></video>
     </div>
     <div class="hero__overlay"></div>
@@ -269,6 +275,7 @@
   <!-- Feature Cards -->
   <section class="section">
     <div class="container">
+      <h2 class="sr-only">La villa in breve</h2>
       <div class="features reveal-stagger" id="features">
         <div class="feature-card">
           <div class="feature-card__img" style="width:100%;height:100%;"><picture><source type="image/avif" sizes="(max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) 45vw, 380px" srcset="../images/uploads/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-opt-400.avif 400w, ../images/uploads/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-opt-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) 45vw, 380px" srcset="../images/uploads/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-opt-400.webp 400w, ../images/uploads/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-opt-800.webp 800w"><img src="../images/uploads/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-opt.jpg" alt="Accesso al lago a Villa Volpe" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" width="800" height="533"></picture></div>
@@ -309,11 +316,11 @@
         </div>
       </div>
       <a class="home-ttd__fan reveal" href="things-to-do-lake-orta.html#drawer" aria-label="Cosa fare sul Lago d'Orta: apri il cassetto dei biglietti">
-        <img class="home-ttd__card home-ttd__card--postcard" src="../images/things-to-do/photos/isola-san-giulio.webp" alt="" width="720" height="450" loading="lazy" decoding="async">
-        <img class="home-ttd__card" src="../images/things-to-do/cards/filo-fieno.webp" alt="" width="720" height="482" loading="lazy" decoding="async">
-        <img class="home-ttd__card home-ttd__card--postcard" src="../images/things-to-do/photos/antico-agnello-limonaia.webp" alt="" width="960" height="600" loading="lazy" decoding="async">
-        <img class="home-ttd__card" src="../images/things-to-do/cards/wakeboard.webp" alt="" width="720" height="476" loading="lazy" decoding="async">
-        <img class="home-ttd__card" src="../images/things-to-do/cards/navigazione.webp" alt="" width="720" height="450" loading="lazy" decoding="async">
+        <img class="home-ttd__card home-ttd__card--postcard" src="../images/things-to-do/photos/isola-san-giulio.webp" srcset="../images/things-to-do/photos/isola-san-giulio-360.webp 360w, ../images/things-to-do/photos/isola-san-giulio.webp 720w" sizes="(max-width: 768px) 50vw, 240px" alt="" width="720" height="450" loading="lazy" decoding="async">
+        <img class="home-ttd__card" src="../images/things-to-do/cards/filo-fieno.webp" srcset="../images/things-to-do/cards/filo-fieno-360.webp 360w, ../images/things-to-do/cards/filo-fieno.webp 720w" sizes="(max-width: 768px) 50vw, 240px" alt="" width="720" height="482" loading="lazy" decoding="async">
+        <img class="home-ttd__card home-ttd__card--postcard" src="../images/things-to-do/photos/antico-agnello-limonaia.webp" srcset="../images/things-to-do/photos/antico-agnello-limonaia-360.webp 360w, ../images/things-to-do/photos/antico-agnello-limonaia.webp 960w" sizes="(max-width: 768px) 50vw, 240px" alt="" width="960" height="600" loading="lazy" decoding="async">
+        <img class="home-ttd__card" src="../images/things-to-do/cards/wakeboard.webp" srcset="../images/things-to-do/cards/wakeboard-360.webp 360w, ../images/things-to-do/cards/wakeboard.webp 720w" sizes="(max-width: 768px) 50vw, 240px" alt="" width="720" height="476" loading="lazy" decoding="async">
+        <img class="home-ttd__card" src="../images/things-to-do/cards/navigazione.webp" srcset="../images/things-to-do/cards/navigazione-360.webp 360w, ../images/things-to-do/cards/navigazione.webp 720w" sizes="(max-width: 768px) 50vw, 240px" alt="" width="720" height="450" loading="lazy" decoding="async">
       </a>
     </div>
   </section>
@@ -473,6 +480,8 @@
     <a href="book.html" class="btn btn--accent">Prenota il tuo soggiorno</a>
   </section>
 
+  </main>
+
   <!-- Footer -->
 <div id="site-footer"></div>
 <script src="../footer.js?v=20261105"></script>
@@ -486,7 +495,7 @@
     <div class="lightbox__counter"></div>
   </div>
 
-  <script src="../main.js?v=20261105"></script>
+  <script src="../main.js?v=20261105ux"></script>
   <!-- Hero video: caricato dopo il load, messo in pausa fuori schermo, parallax -->
   <script>
   (function(){
@@ -511,7 +520,11 @@
         v.classList.add('hero__video--ready');
         tryPlay();
       });
-      v.src = v.getAttribute(window.matchMedia('(max-width: 768px)').matches ? 'data-src-mobile' : 'data-src');
+      /* Telefono in verticale: ritaglio 9:16 (prima un 16:9 di cui si vedeva un quarto,
+         ingrandito). Stessa media query del poster verticale qui sopra. */
+      var mq = function(q){ return window.matchMedia(q).matches; };
+      v.src = v.getAttribute(mq('(max-aspect-ratio: 4/5) and (max-width: 600px)') ? 'data-src-portrait'
+        : mq('(max-width: 768px)') ? 'data-src-mobile' : 'data-src');
       v.load();
       tryPlay();
     }

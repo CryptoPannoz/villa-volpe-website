@@ -36,7 +36,7 @@
   <script>if(Date.now()>=Date.parse('2027-03-29T00:00:00+02:00'))document.documentElement.classList.remove('has-winter');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
-  <link rel="stylesheet" href="../style.css?v=20261105b">
+  <link rel="stylesheet" href="../style.css?v=20261105ux">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -143,6 +143,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
 
   <aside class="season-card" aria-label="Fermeture hivernale">
     <svg class="season-card__icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M4.2 6.5l15.6 9M4.2 17.5l15.6-9M9.5 3.5 12 6l2.5-2.5M9.5 20.5 12 18l2.5 2.5M3 10.2l3.4.9-.9 3.4M21 13.8l-3.4-.9.9-3.4M3 13.8l3.4-.9-.9-3.4M21 10.2l-3.4.9.9 3.4"/></svg>
@@ -207,6 +208,8 @@
     </div>
   </div>
 
+  <main id="main" tabindex="-1">
+
   <!-- Page Header -->
   <header class="page-header page-header--cinema">
     <div class="vv-cinema__media" aria-hidden="true"><picture><source media="(max-width: 768px)" type="image/avif" srcset="../images/cinema/golden-table-poster-sq.avif"><source media="(max-width: 768px)" srcset="../images/cinema/golden-table-poster-sq.jpg"><source type="image/avif" sizes="100vw" srcset="../images/cinema/golden-table-poster-1280.avif 1280w, ../images/cinema/golden-table-poster-1920.avif 1920w"><img src="../images/cinema/golden-table-poster-1920.jpg" srcset="../images/cinema/golden-table-poster-1280.jpg 1280w, ../images/cinema/golden-table-poster-1920.jpg 1920w" sizes="100vw" alt="" width="1920" height="1080" fetchpriority="high" decoding="async"></picture><video data-vv-video muted loop playsinline preload="none" disablepictureinpicture tabindex="-1"><source src="../images/cinema/golden-table-sq.mp4" type="video/mp4" media="(max-width: 768px)"><source src="../images/cinema/golden-table-1920.mp4" type="video/mp4"></video></div>
@@ -241,28 +244,28 @@
       <div class="carousel reveal" id="outdoorCarousel">
         <div class="carousel__track">
           <div class="carousel__slide">
-            <picture><source srcset="../images/gallery/villavolpeorta-drone-aerial-overview-lakefront-wide.avif" type="image/avif"><img src="../images/gallery/villavolpeorta-drone-aerial-overview-lakefront-wide.jpg" alt="Vue aérienne — villa au bord du lac" loading="lazy" width="1600" height="899"></picture>
+            <picture><source srcset="../images/gallery/villavolpeorta-drone-aerial-overview-lakefront-wide-800.avif 800w, ../images/gallery/villavolpeorta-drone-aerial-overview-lakefront-wide-1200.avif 1200w, ../images/gallery/villavolpeorta-drone-aerial-overview-lakefront-wide.avif 1600w" sizes="(max-width: 1148px) calc(100vw - 48px), 1100px" type="image/avif"><img src="../images/gallery/villavolpeorta-drone-aerial-overview-lakefront-wide.jpg" alt="Vue aérienne — villa au bord du lac" loading="lazy" width="1600" height="899"></picture>
           </div>
           <div class="carousel__slide">
-            <picture><source srcset="../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol.avif" type="image/avif"><img src="../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol.jpg" alt="Façade sur jardin avec lac et parasol" loading="lazy" width="1600" height="1067"></picture>
+            <picture><source srcset="../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol-800.avif 800w, ../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol-1200.avif 1200w, ../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol.avif 1600w" sizes="(max-width: 1148px) calc(100vw - 48px), 1100px" type="image/avif"><img src="../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol.jpg" alt="Façade sur jardin avec lac et parasol" loading="lazy" width="1600" height="1067"></picture>
           </div>
           <div class="carousel__slide">
-            <picture><source srcset="../images/gallery/villavolpeorta-exterior-sunloungers-sunset-lake-reflection.avif" type="image/avif"><img src="../images/gallery/villavolpeorta-exterior-sunloungers-sunset-lake-reflection.jpg" alt="Transats au coucher du soleil avec reflet sur le lac" loading="lazy" width="1600" height="1067"></picture>
+            <picture><source srcset="../images/gallery/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-800.avif 800w, ../images/gallery/villavolpeorta-exterior-sunloungers-sunset-lake-reflection-1200.avif 1200w, ../images/gallery/villavolpeorta-exterior-sunloungers-sunset-lake-reflection.avif 1600w" sizes="(max-width: 1148px) calc(100vw - 48px), 1100px" type="image/avif"><img src="../images/gallery/villavolpeorta-exterior-sunloungers-sunset-lake-reflection.jpg" alt="Transats au coucher du soleil avec reflet sur le lac" loading="lazy" width="1600" height="1067"></picture>
           </div>
           <div class="carousel__slide">
-            <picture><source srcset="../images/gallery/villavolpeorta-drone-aerial-villa-waterfront-terrace.avif" type="image/avif"><img src="../images/gallery/villavolpeorta-drone-aerial-villa-waterfront-terrace.jpg" alt="Vue aérienne — villa au bord de l'eau et terrasse" loading="lazy" width="1600" height="899"></picture>
+            <picture><source srcset="../images/gallery/villavolpeorta-drone-aerial-villa-waterfront-terrace-800.avif 800w, ../images/gallery/villavolpeorta-drone-aerial-villa-waterfront-terrace-1200.avif 1200w, ../images/gallery/villavolpeorta-drone-aerial-villa-waterfront-terrace.avif 1600w" sizes="(max-width: 1148px) calc(100vw - 48px), 1100px" type="image/avif"><img src="../images/gallery/villavolpeorta-drone-aerial-villa-waterfront-terrace.jpg" alt="Vue aérienne — villa au bord de l'eau et terrasse" loading="lazy" width="1600" height="899"></picture>
           </div>
           <div class="carousel__slide">
-            <picture><source srcset="../images/gallery/villavolpeorta-exterior-terrace-sliding-doors-lake-view.avif" type="image/avif"><img src="../images/gallery/villavolpeorta-exterior-terrace-sliding-doors-lake-view.jpg" alt="Terrasse avec baies coulissantes et vue sur le lac" loading="lazy" width="1600" height="1067"></picture>
+            <picture><source srcset="../images/gallery/villavolpeorta-exterior-terrace-sliding-doors-lake-view-800.avif 800w, ../images/gallery/villavolpeorta-exterior-terrace-sliding-doors-lake-view-1200.avif 1200w, ../images/gallery/villavolpeorta-exterior-terrace-sliding-doors-lake-view.avif 1600w" sizes="(max-width: 1148px) calc(100vw - 48px), 1100px" type="image/avif"><img src="../images/gallery/villavolpeorta-exterior-terrace-sliding-doors-lake-view.jpg" alt="Terrasse avec baies coulissantes et vue sur le lac" loading="lazy" width="1600" height="1067"></picture>
           </div>
           <div class="carousel__slide">
-            <picture><source srcset="../images/gallery/villavolpeorta-drone-aerial-garden-jacuzzi-chapel.avif" type="image/avif"><img src="../images/gallery/villavolpeorta-drone-aerial-garden-jacuzzi-chapel.jpg" alt="Vue aérienne — jardin, jacuzzi et chapelle" loading="lazy" width="1600" height="899"></picture>
+            <picture><source srcset="../images/gallery/villavolpeorta-drone-aerial-garden-jacuzzi-chapel-800.avif 800w, ../images/gallery/villavolpeorta-drone-aerial-garden-jacuzzi-chapel-1200.avif 1200w, ../images/gallery/villavolpeorta-drone-aerial-garden-jacuzzi-chapel.avif 1600w" sizes="(max-width: 1148px) calc(100vw - 48px), 1100px" type="image/avif"><img src="../images/gallery/villavolpeorta-drone-aerial-garden-jacuzzi-chapel.jpg" alt="Vue aérienne — jardin, jacuzzi et chapelle" loading="lazy" width="1600" height="899"></picture>
           </div>
           <div class="carousel__slide">
-            <picture><source srcset="../images/gallery/villavolpeorta-exterior-facade-entrance-ivy-closeup.avif" type="image/avif"><img src="../images/gallery/villavolpeorta-exterior-facade-entrance-ivy-closeup.jpg" alt="Entrée de la façade avec gros plan sur le lierre" loading="lazy" width="1600" height="1066"></picture>
+            <picture><source srcset="../images/gallery/villavolpeorta-exterior-facade-entrance-ivy-closeup-800.avif 800w, ../images/gallery/villavolpeorta-exterior-facade-entrance-ivy-closeup-1200.avif 1200w, ../images/gallery/villavolpeorta-exterior-facade-entrance-ivy-closeup.avif 1600w" sizes="(max-width: 1148px) calc(100vw - 48px), 1100px" type="image/avif"><img src="../images/gallery/villavolpeorta-exterior-facade-entrance-ivy-closeup.jpg" alt="Entrée de la façade avec gros plan sur le lierre" loading="lazy" width="1600" height="1066"></picture>
           </div>
           <div class="carousel__slide">
-            <picture><source srcset="../images/gallery/villavolpeorta-drone-aerial-villa-chapel-garden.avif" type="image/avif"><img src="../images/gallery/villavolpeorta-drone-aerial-villa-chapel-garden.jpg" alt="Vue aérienne — villa, chapelle et jardin" loading="lazy" width="1600" height="899"></picture>
+            <picture><source srcset="../images/gallery/villavolpeorta-drone-aerial-villa-chapel-garden-800.avif 800w, ../images/gallery/villavolpeorta-drone-aerial-villa-chapel-garden-1200.avif 1200w, ../images/gallery/villavolpeorta-drone-aerial-villa-chapel-garden.avif 1600w" sizes="(max-width: 1148px) calc(100vw - 48px), 1100px" type="image/avif"><img src="../images/gallery/villavolpeorta-drone-aerial-villa-chapel-garden.jpg" alt="Vue aérienne — villa, chapelle et jardin" loading="lazy" width="1600" height="899"></picture>
           </div>
         </div>
         <button class="carousel__btn carousel__btn--prev" aria-label="Diapositive précédente">&#8249;</button>
@@ -283,16 +286,16 @@
       </div>
       <div class="mosaic reveal">
         <div class="mosaic__hero">
-          <picture><source srcset="../images/gallery/villavolpeorta-interior-bedroom-double-bed-ensuite.avif" type="image/avif"><img src="../images/gallery/villavolpeorta-interior-bedroom-double-bed-ensuite.jpg" alt="Chambre 1 — lit king-size avec salle de bains attenante" loading="lazy" width="1600" height="1067"></picture>
+          <picture><source srcset="../images/gallery/villavolpeorta-interior-bedroom-double-bed-ensuite-800.avif 800w, ../images/gallery/villavolpeorta-interior-bedroom-double-bed-ensuite-1200.avif 1200w, ../images/gallery/villavolpeorta-interior-bedroom-double-bed-ensuite.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), 600px" type="image/avif"><img src="../images/gallery/villavolpeorta-interior-bedroom-double-bed-ensuite.jpg" alt="Chambre 1 — lit king-size avec salle de bains attenante" loading="lazy" width="1600" height="1067"></picture>
         </div>
         <div class="mosaic__thumb">
-          <picture><source srcset="../images/gallery/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom.avif" type="image/avif"><img src="../images/gallery/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom.jpg" alt="Chambre 1 — détail de l'œuvre poisson" loading="lazy" width="2048" height="1365"></picture>
+          <picture><source srcset="../images/gallery/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom-800.avif 800w, ../images/gallery/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom-1200.avif 1200w, ../images/gallery/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), 600px" type="image/avif"><img src="../images/gallery/2.villavolpeorta-interior-bedroom-kingbed-fishart-bathroom.jpg" alt="Chambre 1 — détail de l'œuvre poisson" loading="lazy" width="2048" height="1365"></picture>
         </div>
         <div class="mosaic__thumb">
-          <picture><source srcset="../images/gallery/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide.avif" type="image/avif"><img src="../images/gallery/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide.jpg" alt="Chambre 2 — lit king-size et miroir" loading="lazy" width="2048" height="1365"></picture>
+          <picture><source srcset="../images/gallery/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide-800.avif 800w, ../images/gallery/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide-1200.avif 1200w, ../images/gallery/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), 600px" type="image/avif"><img src="../images/gallery/4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide.jpg" alt="Chambre 2 — lit king-size et miroir" loading="lazy" width="2048" height="1365"></picture>
         </div>
         <div class="mosaic__thumb">
-          <picture><source srcset="../images/gallery/camera-zio.avif" type="image/avif"><img src="../images/gallery/camera-zio.jpg" alt="Chambre 2 — lumière naturelle" loading="lazy" width="1600" height="1093"></picture>
+          <picture><source srcset="../images/gallery/camera-zio-800.avif 800w, ../images/gallery/camera-zio-1200.avif 1200w, ../images/gallery/camera-zio.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), 600px" type="image/avif"><img src="../images/gallery/camera-zio.jpg" alt="Chambre 2 — lumière naturelle" loading="lazy" width="1600" height="1093"></picture>
         </div>
       </div>
     </div>
@@ -309,24 +312,24 @@
       </div>
       <div class="mosaic reveal">
         <div class="mosaic__hero">
-          <picture><source srcset="../images/gallery/villavolpeorta-interior-living-room-sofa-lake-panorama.avif" type="image/avif"><img src="../images/gallery/villavolpeorta-interior-living-room-sofa-lake-panorama.jpg" alt="Salon — canapé avec panorama sur le lac" loading="lazy" width="1600" height="1067"></picture>
+          <picture><source srcset="../images/gallery/villavolpeorta-interior-living-room-sofa-lake-panorama-800.avif 800w, ../images/gallery/villavolpeorta-interior-living-room-sofa-lake-panorama-1200.avif 1200w, ../images/gallery/villavolpeorta-interior-living-room-sofa-lake-panorama.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), 600px" type="image/avif"><img src="../images/gallery/villavolpeorta-interior-living-room-sofa-lake-panorama.jpg" alt="Salon — canapé avec panorama sur le lac" loading="lazy" width="1600" height="1067"></picture>
         </div>
         <div class="mosaic__thumb">
-          <picture><source srcset="../images/gallery/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview.avif" type="image/avif"><img src="../images/gallery/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview.jpg" alt="Espace ouvert — cuisine et vue sur le lac" loading="lazy" width="2048" height="1365"></picture>
+          <picture><source srcset="../images/gallery/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview-800.avif 800w, ../images/gallery/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview-1200.avif 1200w, ../images/gallery/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), 600px" type="image/avif"><img src="../images/gallery/1.villavolpeorta-interior-openspace-kitchen-sofa-lakeview.jpg" alt="Espace ouvert — cuisine et vue sur le lac" loading="lazy" width="2048" height="1365"></picture>
         </div>
         <div class="mosaic__thumb">
-          <picture><source srcset="../images/gallery/villavolpeorta-interior-kitchen-dining-lake-view.avif" type="image/avif"><img src="../images/gallery/villavolpeorta-interior-kitchen-dining-lake-view.jpg" alt="Cuisine et coin repas avec vue sur le lac" loading="lazy" width="1600" height="1067"></picture>
+          <picture><source srcset="../images/gallery/villavolpeorta-interior-kitchen-dining-lake-view-800.avif 800w, ../images/gallery/villavolpeorta-interior-kitchen-dining-lake-view-1200.avif 1200w, ../images/gallery/villavolpeorta-interior-kitchen-dining-lake-view.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), 600px" type="image/avif"><img src="../images/gallery/villavolpeorta-interior-kitchen-dining-lake-view.jpg" alt="Cuisine et coin repas avec vue sur le lac" loading="lazy" width="1600" height="1067"></picture>
         </div>
         <div class="mosaic__thumb">
-          <picture><source srcset="../images/gallery/villavolpeorta-interior-living-dining-evening-light.avif" type="image/avif"><img src="../images/gallery/villavolpeorta-interior-living-dining-evening-light.jpg" alt="Salon et coin repas — lumière du soir" loading="lazy" width="1600" height="1067"></picture>
+          <picture><source srcset="../images/gallery/villavolpeorta-interior-living-dining-evening-light-800.avif 800w, ../images/gallery/villavolpeorta-interior-living-dining-evening-light-1200.avif 1200w, ../images/gallery/villavolpeorta-interior-living-dining-evening-light.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), 600px" type="image/avif"><img src="../images/gallery/villavolpeorta-interior-living-dining-evening-light.jpg" alt="Salon et coin repas — lumière du soir" loading="lazy" width="1600" height="1067"></picture>
         </div>
       </div>
       <div class="mosaic__bottom reveal">
         <div class="mosaic__thumb">
-          <picture><source srcset="../images/gallery/villavolpe-interior-kitchen-details.avif" type="image/avif"><img src="../images/gallery/villavolpe-interior-kitchen-details.jpg" alt="Salon — détails de la cuisine" loading="lazy" width="1600" height="1055"></picture>
+          <picture><source srcset="../images/gallery/villavolpe-interior-kitchen-details-800.avif 800w, ../images/gallery/villavolpe-interior-kitchen-details-1200.avif 1200w, ../images/gallery/villavolpe-interior-kitchen-details.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), 600px" type="image/avif"><img src="../images/gallery/villavolpe-interior-kitchen-details.jpg" alt="Salon — détails de la cuisine" loading="lazy" width="1600" height="1055"></picture>
         </div>
         <div class="mosaic__thumb">
-          <picture><source srcset="../images/gallery/villavolpeorta-interior-kitchen1.avif" type="image/avif"><img src="../images/gallery/villavolpeorta-interior-kitchen1.jpg" alt="Cuisine — vue de détail" loading="lazy" width="1600" height="1060"></picture>
+          <picture><source srcset="../images/gallery/villavolpeorta-interior-kitchen1-800.avif 800w, ../images/gallery/villavolpeorta-interior-kitchen1-1200.avif 1200w, ../images/gallery/villavolpeorta-interior-kitchen1.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), 600px" type="image/avif"><img src="../images/gallery/villavolpeorta-interior-kitchen1.jpg" alt="Cuisine — vue de détail" loading="lazy" width="1600" height="1060"></picture>
         </div>
       </div>
     </div>
@@ -343,10 +346,10 @@
       </div>
       <div class="mosaic--duo reveal">
         <div class="mosaic__thumb">
-          <picture><source srcset="../images/gallery/villavolpeorta-interior-bathroom.avif" type="image/avif"><img src="../images/gallery/villavolpeorta-interior-bathroom.jpg" alt="Salle de bains — vue d'ensemble" loading="lazy" width="1600" height="1067"></picture>
+          <picture><source srcset="../images/gallery/villavolpeorta-interior-bathroom-800.avif 800w, ../images/gallery/villavolpeorta-interior-bathroom-1200.avif 1200w, ../images/gallery/villavolpeorta-interior-bathroom.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), 600px" type="image/avif"><img src="../images/gallery/villavolpeorta-interior-bathroom.jpg" alt="Salle de bains — vue d'ensemble" loading="lazy" width="1600" height="1067"></picture>
         </div>
         <div class="mosaic__thumb">
-          <picture><source srcset="../images/gallery/villavolpeorta-interior-bathroom-walk-in-shower-sink.avif" type="image/avif"><img src="../images/gallery/villavolpeorta-interior-bathroom-walk-in-shower-sink.jpg" alt="Salle de bains — détail de la douche et du lavabo" loading="lazy" width="1600" height="1067"></picture>
+          <picture><source srcset="../images/gallery/villavolpeorta-interior-bathroom-walk-in-shower-sink-800.avif 800w, ../images/gallery/villavolpeorta-interior-bathroom-walk-in-shower-sink-1200.avif 1200w, ../images/gallery/villavolpeorta-interior-bathroom-walk-in-shower-sink.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), 600px" type="image/avif"><img src="../images/gallery/villavolpeorta-interior-bathroom-walk-in-shower-sink.jpg" alt="Salle de bains — détail de la douche et du lavabo" loading="lazy" width="1600" height="1067"></picture>
         </div>
       </div>
     </div>
@@ -447,7 +450,7 @@
           <a href="accessibility.html" class="btn btn--ghost" style="margin-top:2rem;">En savoir plus sur l'accessibilité</a>
         </div>
         <div class="two-col__img" style="aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;">
-          <picture><source srcset="../images/gallery/accessibility.avif" type="image/avif"><img src="../images/gallery/accessibility.jpg" alt="Villa Volpe — entrée avec rampe accessible en fauteuil roulant" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="1067"></picture>
+          <picture><source srcset="../images/gallery/accessibility-800.avif 800w, ../images/gallery/accessibility-1200.avif 1200w, ../images/gallery/accessibility.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), 600px" type="image/avif"><img src="../images/gallery/accessibility.jpg" alt="Villa Volpe — entrée avec rampe accessible en fauteuil roulant" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="1067"></picture>
         </div>
       </div>
     </div>
@@ -506,12 +509,14 @@
     <a href="book.html" class="btn btn--accent">Réservez votre séjour</a>
   </section>
 
+  </main>
+
   <!-- Footer -->
 <div id="site-footer"></div>
 <script src="../footer.js?v=20261105"></script>
 
-  <script src="../main.js?v=20261105"></script>
-  <script src="../js/vv-plan.js?v=20261105c" defer></script>
+  <script src="../main.js?v=20261105ux"></script>
+  <script src="../js/vv-plan.js?v=20261105ux" defer></script>
 
   <!-- Carousel logic -->
   <script>
@@ -553,12 +558,19 @@
         if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
       });
 
-      // Auto-advance every 5s
-      let timer = setInterval(function() { goTo(current + 1); }, 5000);
-      carousel.addEventListener('mouseenter', function() { clearInterval(timer); });
-      carousel.addEventListener('mouseleave', function() {
-        timer = setInterval(function() { goTo(current + 1); }, 5000);
-      });
+      // Auto-advance every 5s: mai con «riduci movimento», e si ferma per
+      // sempre appena l'ospite la usa (tocco, tastiera, frecce, puntini).
+      let timer = null;
+      let stopped = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function play() { if (!stopped && !timer) timer = setInterval(function() { goTo(current + 1); }, 5000); }
+      function pause() { clearInterval(timer); timer = null; }
+      function stop() { stopped = true; pause(); }
+      play();
+      carousel.addEventListener('mouseenter', pause);
+      carousel.addEventListener('mouseleave', play);
+      carousel.addEventListener('focusin', stop);
+      carousel.addEventListener('touchstart', stop, { passive: true });
+      carousel.addEventListener('click', stop);
     });
   })();
   </script>

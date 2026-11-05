@@ -31,24 +31,31 @@
     navToggle.setAttribute('aria-expanded', 'false');
     mobileMenu.setAttribute('aria-hidden', 'true');
 
+    // A menu aperto la nav sta sopra il menu e copre la sua ×: l'hamburger
+    // diventa la × (style.css) e prende l'etichetta «Chiudi» della lingua.
+    const openLabel = navToggle.getAttribute('aria-label');
+    const closeLabel = mobileClose ? mobileClose.getAttribute('aria-label') : openLabel;
+
     function openMobileMenu() {
       mobileMenu.classList.add('mobile-menu--open');
       mobileMenu.setAttribute('aria-hidden', 'false');
       navToggle.setAttribute('aria-expanded', 'true');
+      navToggle.setAttribute('aria-label', closeLabel);
       document.body.style.overflow = 'hidden';
-      if (mobileClose) mobileClose.focus();
     }
 
     function closeMobileMenu() {
       mobileMenu.classList.remove('mobile-menu--open');
       mobileMenu.setAttribute('aria-hidden', 'true');
       navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', openLabel);
       document.body.style.overflow = '';
       navToggle.focus();
     }
 
     navToggle.addEventListener('click', function () {
-      openMobileMenu();
+      if (mobileMenu.classList.contains('mobile-menu--open')) closeMobileMenu();
+      else openMobileMenu();
     });
 
     if (mobileClose) {
@@ -137,8 +144,10 @@
         const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight;
         window.scrollTo({
           top: targetPosition,
-          behavior: 'smooth',
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
         });
+        // «Salta al contenuto» (#main, tabindex=-1): anche il focus deve arrivarci
+        if (target.hasAttribute('tabindex')) target.focus({ preventScroll: true });
       }
     });
   });

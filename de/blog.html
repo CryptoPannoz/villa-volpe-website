@@ -36,7 +36,7 @@
   <script>if(Date.now()>=Date.parse('2027-03-29T00:00:00+02:00'))document.documentElement.classList.remove('has-winter');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
-  <link rel="stylesheet" href="../style.css?v=20261105b">
+  <link rel="stylesheet" href="../style.css?v=20261105ux">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -143,6 +143,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   <aside class="season-card" aria-label="Winterpause">
     <svg class="season-card__icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M4.2 6.5l15.6 9M4.2 17.5l15.6-9M9.5 3.5 12 6l2.5-2.5M9.5 20.5 12 18l2.5 2.5M3 10.2l3.4.9-.9 3.4M21 13.8l-3.4-.9.9-3.4M3 13.8l3.4-.9-.9-3.4M21 10.2l-3.4.9.9 3.4"/></svg>
@@ -207,6 +208,8 @@
     </div>
   </div>
 
+  <main id="main" tabindex="-1">
+
   <!-- Page Header -->
   <header class="page-header page-header--cinema">
     <div class="vv-cinema__media" aria-hidden="true"><picture><source media="(max-width: 768px)" type="image/avif" srcset="../images/cinema/isola-aerial-poster-sq.avif"><source media="(max-width: 768px)" srcset="../images/cinema/isola-aerial-poster-sq.jpg"><source type="image/avif" sizes="100vw" srcset="../images/cinema/isola-aerial-poster-1280.avif 1280w, ../images/cinema/isola-aerial-poster-1920.avif 1920w"><img src="../images/cinema/isola-aerial-poster-1920.jpg" srcset="../images/cinema/isola-aerial-poster-1280.jpg 1280w, ../images/cinema/isola-aerial-poster-1920.jpg 1920w" sizes="100vw" alt="" width="1920" height="1080" fetchpriority="high" decoding="async"></picture><video data-vv-video muted loop playsinline preload="none" disablepictureinpicture tabindex="-1"><source src="../images/cinema/isola-aerial-sq.mp4" type="video/mp4" media="(max-width: 768px)"><source src="../images/cinema/isola-aerial-1920.mp4" type="video/mp4"></video></div>
@@ -218,9 +221,10 @@
   <!-- Blog Grid -->
   <section class="section">
     <div class="container">
+      <h2 class="sr-only">Alle Artikel</h2>
       <div class="blog-grid" id="blogGrid">
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/isola-san-giulio-lake-orta.avif" type="image/avif"><img src="../images/blog/isola-san-giulio-lake-orta.jpg" alt="Die Insel San Giulio im Ortasee mit Basilika und Kloster, vom Ufer in Orta San Giulio aus gesehen" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/isola-san-giulio-lake-orta-800.avif 800w, ../images/blog/isola-san-giulio-lake-orta.avif 1200w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/isola-san-giulio-lake-orta.jpg" alt="Die Insel San Giulio im Ortasee mit Basilika und Kloster, vom Ufer in Orta San Giulio aus gesehen" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">2. November 2026</div>
             <h3 class="blog-card__title">Was tun am Ortasee? 20 Ideen für jede Jahreszeit</h3>
@@ -230,7 +234,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-iseo-vs-lake-orta-hero.avif" type="image/avif"><img src="../images/blog/lake-iseo-vs-lake-orta-hero.jpg" alt="Zwei Seen nebeneinander in der Dämmerung: Monte Isola im Iseosee und die Isola San Giulio mit den Lichtern von Orta San Giulio" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-iseo-vs-lake-orta-hero-800.avif 800w, ../images/blog/lake-iseo-vs-lake-orta-hero-1200.avif 1200w, ../images/blog/lake-iseo-vs-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/lake-iseo-vs-lake-orta-hero.jpg" alt="Zwei Seen nebeneinander in der Dämmerung: Monte Isola im Iseosee und die Isola San Giulio mit den Lichtern von Orta San Giulio" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">28. Oktober 2026</div>
             <h3 class="blog-card__title">Ortasee oder Iseosee? Ein ehrlicher Vergleich</h3>
@@ -240,7 +244,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/where-to-eat-lake-orta-hero.avif" type="image/avif"><img src="../images/blog/where-to-eat-lake-orta-hero.jpg" alt="Café-Tische und Sonnenschirme auf der Piazza Motta in Orta San Giulio vor pastellfarbenen Palazzi mit Arkaden" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/where-to-eat-lake-orta-hero-800.avif 800w, ../images/blog/where-to-eat-lake-orta-hero-1200.avif 1200w, ../images/blog/where-to-eat-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/where-to-eat-lake-orta-hero.jpg" alt="Café-Tische und Sonnenschirme auf der Piazza Motta in Orta San Giulio vor pastellfarbenen Palazzi mit Arkaden" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">21. Oktober 2026</div>
             <h3 class="blog-card__title">Essen am Ortasee: Restaurants, typische Gerichte und Weine</h3>
@@ -260,7 +264,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/christmas-new-year-lake-orta-hero.avif" type="image/avif"><img src="../images/blog/christmas-new-year-lake-orta-hero.jpg" alt="Die Piazza Motta in Orta San Giulio in der Abenddämmerung im Dezember, mit dem bemalten Palazzo della Comunità und einem beleuchteten Weihnachtsbaum" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/christmas-new-year-lake-orta-hero-800.avif 800w, ../images/blog/christmas-new-year-lake-orta-hero-1200.avif 1200w, ../images/blog/christmas-new-year-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/christmas-new-year-lake-orta-hero.jpg" alt="Die Piazza Motta in Orta San Giulio in der Abenddämmerung im Dezember, mit dem bemalten Palazzo della Comunità und einem beleuchteten Weihnachtsbaum" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">13. Oktober 2026</div>
             <h3 class="blog-card__title">Weihnachten und Silvester am Ortasee: Lichter, Märkte und Feuerwerk (2026)</h3>
@@ -270,7 +274,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/anreise-deutschland-ortasee-hero.avif" type="image/avif"><img src="../images/blog/anreise-deutschland-ortasee-hero.jpg" alt="Blick über die Dächer von Orta San Giulio auf die Insel und den Ortasee" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/anreise-deutschland-ortasee-hero-800.avif 800w, ../images/blog/anreise-deutschland-ortasee-hero-1200.avif 1200w, ../images/blog/anreise-deutschland-ortasee-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/anreise-deutschland-ortasee-hero.jpg" alt="Blick über die Dächer von Orta San Giulio auf die Insel und den Ortasee" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">27. Juli 2026</div>
             <h3 class="blog-card__title">Mit dem Auto an den Ortasee: was 2026 anders ist</h3>
@@ -280,7 +284,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-orta-autumn-winter-hero.avif" type="image/avif"><img src="../images/blog/lake-orta-autumn-winter-hero.jpg" alt="Orta San Giulio vom Wasser aus unter einem grauen Herbsthimmel" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-orta-autumn-winter-hero-800.avif 800w, ../images/blog/lake-orta-autumn-winter-hero-1200.avif 1200w, ../images/blog/lake-orta-autumn-winter-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/lake-orta-autumn-winter-hero.jpg" alt="Orta San Giulio vom Wasser aus unter einem grauen Herbsthimmel" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">22. Juli 2026</div>
             <h3 class="blog-card__title">Der Ortasee im Herbst und Winter: die Saison, die niemand bucht</h3>
@@ -290,7 +294,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-orta-romantic-hero.avif" type="image/avif"><img src="../images/blog/lake-orta-romantic-hero.jpg" alt="Eine gepflasterte Gasse zwischen Steinmauern auf der Insel San Giulio im Ortasee" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-orta-romantic-hero-800.avif 800w, ../images/blog/lake-orta-romantic-hero-1200.avif 1200w, ../images/blog/lake-orta-romantic-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/lake-orta-romantic-hero.jpg" alt="Eine gepflasterte Gasse zwischen Steinmauern auf der Insel San Giulio im Ortasee" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">17. Juli 2026</div>
             <h3 class="blog-card__title">Ein romantisches Wochenende am Ortasee</h3>
@@ -300,7 +304,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol.avif" type="image/avif"><img src="../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol.jpg" alt="Der Garten der Villa Volpe am Ortasee mit Sonnenschirm am Wasser" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="1067"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol-800.avif 800w, ../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol-1200.avif 1200w, ../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol.jpg" alt="Der Garten der Villa Volpe am Ortasee mit Sonnenschirm am Wasser" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="1067"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">13. Juli 2026</div>
             <h3 class="blog-card__title">Der Ortasee mit Kindern: der Familien-Guide</h3>
@@ -310,7 +314,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/dog-friendly-lake-orta-hero.avif" type="image/avif"><img src="../images/blog/dog-friendly-lake-orta-hero.jpg" alt="Ein Hund am Ufer des Ortasees beobachtet die Schwäne" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/dog-friendly-lake-orta-hero-800.avif 800w, ../images/blog/dog-friendly-lake-orta-hero-1200.avif 1200w, ../images/blog/dog-friendly-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/dog-friendly-lake-orta-hero.jpg" alt="Ein Hund am Ufer des Ortasees beobachtet die Schwäne" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">10. Juli 2026</div>
             <h3 class="blog-card__title">Urlaub mit Hund am Ortasee: der große Guide</h3>
@@ -320,7 +324,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/walking-around-lake-orta-hero.avif" type="image/avif"><img src="../images/blog/walking-around-lake-orta-hero.jpg" alt="Panoramablick über den Ortasee und die Insel San Giulio von der Höhe der Madonna del Sasso" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/walking-around-lake-orta-hero-800.avif 800w, ../images/blog/walking-around-lake-orta-hero-1200.avif 1200w, ../images/blog/walking-around-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/walking-around-lake-orta-hero.jpg" alt="Panoramablick über den Ortasee und die Insel San Giulio von der Höhe der Madonna del Sasso" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">2. Juli 2026</div>
             <h3 class="blog-card__title">Wandern am Ortasee: der Rundweg und die kurzen Varianten</h3>
@@ -354,7 +358,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/sacro-monte-orta-hero.avif" type="image/avif"><img src="../images/blog/sacro-monte-orta-hero.jpg" alt="Der Kiesweg zwischen zwei Kapellen des Sacro Monte di Orta, umgeben von hohen Bäumen" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/sacro-monte-orta-hero-800.avif 800w, ../images/blog/sacro-monte-orta-hero-1200.avif 1200w, ../images/blog/sacro-monte-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/sacro-monte-orta-hero.jpg" alt="Der Kiesweg zwischen zwei Kapellen des Sacro Monte di Orta, umgeben von hohen Bäumen" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">5. Juni 2026</div>
             <h3 class="blog-card__title">Sacro Monte di Orta: Guide zum UNESCO-Welterbe</h3>
@@ -364,7 +368,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-como-vs-orta-hero.avif" type="image/avif"><img src="../images/blog/lake-como-vs-orta-hero.jpg" alt="Panorama des Ortasees mit der Insel San Giulio, vom Hügel oberhalb von Orta San Giulio aus" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-como-vs-orta-hero-800.avif 800w, ../images/blog/lake-como-vs-orta-hero-1200.avif 1200w, ../images/blog/lake-como-vs-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/lake-como-vs-orta-hero.jpg" alt="Panorama des Ortasees mit der Insel San Giulio, vom Hügel oberhalb von Orta San Giulio aus" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">21. Mai 2026</div>
             <h3 class="blog-card__title">Comer See oder Ortasee? Ein ehrlicher Vergleich</h3>
@@ -374,7 +378,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/how-to-get-to-lake-orta-hero.avif" type="image/avif"><img src="../images/blog/how-to-get-to-lake-orta-hero.jpg" alt="Orta San Giulio vom Wasser aus gesehen, links die Insel, rechts das Dorf am Ufer" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/how-to-get-to-lake-orta-hero-800.avif 800w, ../images/blog/how-to-get-to-lake-orta-hero-1200.avif 1200w, ../images/blog/how-to-get-to-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/how-to-get-to-lake-orta-hero.jpg" alt="Orta San Giulio vom Wasser aus gesehen, links die Insel, rechts das Dorf am Ufer" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">7. Mai 2026</div>
             <h3 class="blog-card__title">Anreise zum Ortasee: Flughäfen, Bahn und Straßen</h3>
@@ -384,7 +388,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/cascata-qualba-waterfall.avif" type="image/avif"><img src="../images/blog/cascata-qualba-waterfall.jpg" alt="Kaltbad am Wasserfall Cascata della Qualba in der Nähe des Ortasees" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1200" height="1600"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/cascata-qualba-waterfall-800.avif 800w, ../images/blog/cascata-qualba-waterfall.avif 1200w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/cascata-qualba-waterfall.jpg" alt="Kaltbad am Wasserfall Cascata della Qualba in der Nähe des Ortasees" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1200" height="1600"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">13. April 2026</div>
             <h3 class="blog-card__title">Kaltbad an der Cascata della Qualba: Der versteckte Wasserfall des Ortasees</h3>
@@ -394,7 +398,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-orta-april-shoulder-season-hero.avif" type="image/avif"><img src="../images/blog/lake-orta-april-shoulder-season-hero.jpg" alt="Der Ortasee im Morgengrauen im April, mit Bergen, die sich perfekt im spiegelglatten Wasser spiegeln" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1080" height="607"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-orta-april-shoulder-season-hero-800.avif 800w, ../images/blog/lake-orta-april-shoulder-season-hero.avif 1080w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/lake-orta-april-shoulder-season-hero.jpg" alt="Der Ortasee im Morgengrauen im April, mit Bergen, die sich perfekt im spiegelglatten Wasser spiegeln" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1080" height="607"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">7. April 2026</div>
             <h3 class="blog-card__title">Der Ortasee im Frühling: Warum die Nebensaison die beste Reisezeit ist</h3>
@@ -404,7 +408,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/wakeboard-lake-orta-villa-volpe.avif" type="image/avif"><img src="../images/blog/wakeboard-lake-orta-villa-volpe.jpg" alt="Das Wakeboard-Boot von Wake and More am privaten Steg der Villa Volpe am Ortasee" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1556" height="1168"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/wakeboard-lake-orta-villa-volpe-800.avif 800w, ../images/blog/wakeboard-lake-orta-villa-volpe-1200.avif 1200w, ../images/blog/wakeboard-lake-orta-villa-volpe.avif 1556w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/wakeboard-lake-orta-villa-volpe.jpg" alt="Das Wakeboard-Boot von Wake and More am privaten Steg der Villa Volpe am Ortasee" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1556" height="1168"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">31. März 2026</div>
             <h3 class="blog-card__title">Wakeboarden und Wakesurfen auf dem Ortasee: Italiens bestgehütetes Geheimnis</h3>
@@ -424,7 +428,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/spring-summer-events-lake-orta.avif" type="image/avif"><img src="../images/blog/spring-summer-events-lake-orta.jpg" alt="Veranstaltungen im Frühling und Sommer in der Nähe des Ortasees 2026" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="877" height="1168"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/spring-summer-events-lake-orta-800.avif 800w, ../images/blog/spring-summer-events-lake-orta.avif 876w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/spring-summer-events-lake-orta.jpg" alt="Veranstaltungen im Frühling und Sommer in der Nähe des Ortasees 2026" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="877" height="1168"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">26. März 2026</div>
             <h3 class="blog-card__title">Veranstaltungen im Frühling & Sommer am Ortasee: Ihr Kalender 2026</h3>
@@ -534,11 +538,13 @@
     <a href="book.html" class="btn btn--accent">Buchen Sie Ihren Aufenthalt</a>
   </section>
 
+  </main>
+
   <!-- Footer -->
  <div id="site-footer"></div>
 <script src="../footer.js?v=20261105"></script>
 
-  <script src="../main.js?v=20261105"></script>
+  <script src="../main.js?v=20261105ux"></script>
   <!-- Play inline videos only while in view (lightweight, mobile-friendly) -->
   <script>
   (function(){

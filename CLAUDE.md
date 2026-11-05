@@ -28,7 +28,7 @@ Sito di villa-volpe.com.
   - Le richieste arrivano con l'offerta in testa a `specialRequests` (più i campi `promo`/`promoPrice`): così finisce nella mail e nella colonna NOTE del foglio **senza ridistribuire l'Apps Script**, che ignorerebbe campi nuovi.
 - **Chiusura invernale 2026/27** (dal 01/11/2026, voluta da Alberto): la villa è chiusa fino al **28/03/2027** e riapre ufficialmente il **29/03/2027**; d'inverno solo richieste su misura e soggiorni di medio termine via email. Si spegne tutto da solo il 29/03/2027, in tre posti:
   - *Card della chiusura* (dal 05/11/2026, prima era la fascia `.promo-bar` in cima, che Alberto trovava brutta e poco chiara) — `<aside class="season-card">` in tutte le pagine col menu, 4 lingue: nelle 4 home sta dentro `.hero__content` (`season-card--hero`, vetro scuro a destra dei bottoni su computer, sopra il titolo su telefono), nelle altre pagine compare in basso a sinistra dopo 1,2 s e si chiude con la × (`main.js` ricorda la chiusura in localStorage `vv-winter-2027-closed`). Si vede solo con la classe `has-winter` sull'`<html>`, che lo snippet inline nel `<head>` toglie dal 29/03/2027: alla riapertura sparisce da sola. Link: «See the calendar» (book.html della lingua) e l'articolo EN sul medio termine. La `.promo-bar` resta solo per `has-promo`. Script che ha fatto il cambio: `site_migrate.py` nello scratchpad della sessione (vale anche per i pacchetti in `scheduled-posts`).
-  - *Menu a tre voci* (05/11/2026, Alberto: «non voglio così tanta roba lì dentro»): Home · Discover · Lake Orta (IT Scopri / Lago d'Orta, DE Entdecken / Ortasee, FR Découvrir / Lac d'Orta). Discover apre una tendina con la villa (discover.html), la storia e le FAQ; Lake Orta con Things to do (la voce stessa porta lì) e il Blog. Tendine `.nav__group` > `.nav__sub`, solo CSS (hover e focus-within, in fondo a `style.css`); voce del gruppo attiva con `nav__link--active`, la pagina aperta con `aria-current`. Nel menu del telefono ogni voce grande ha sotto una riga di voci piccole (`.mobile-menu__sub`, un `<p>` per non chiudere prima il `</div>` del menu). Il footer (`footer.js`) tiene tutte le pagine. Script del cambio: `site_menu.py` nello scratchpad della sessione. In home, subito dopo le tre card, la sezione `.home-ttd` con il ventaglio di biglietti e cartoline che porta a `things-to-do-lake-orta.html#drawer`. `style.css` ha `?v=20261105b`, `main.js` e `footer.js` `?v=20261105` in tutte le pagine (max-age 600): cambiarlo quando cambia la card o il menu.
+  - *Menu a tre voci* (05/11/2026, Alberto: «non voglio così tanta roba lì dentro»): Home · Discover · Lake Orta (IT Scopri / Lago d'Orta, DE Entdecken / Ortasee, FR Découvrir / Lac d'Orta). Discover apre una tendina con la villa (discover.html), la storia e le FAQ; Lake Orta con Things to do (la voce stessa porta lì) e il Blog. Tendine `.nav__group` > `.nav__sub`, solo CSS (hover e focus-within, in fondo a `style.css`); voce del gruppo attiva con `nav__link--active`, la pagina aperta con `aria-current`. Nel menu del telefono ogni voce grande ha sotto una riga di voci piccole (`.mobile-menu__sub`, un `<p>` per non chiudere prima il `</div>` del menu). Il footer (`footer.js`) tiene tutte le pagine. Script del cambio: `site_menu.py` nello scratchpad della sessione. In home, subito dopo le tre card, la sezione `.home-ttd` con il ventaglio di biglietti e cartoline che porta a `things-to-do-lake-orta.html#drawer`. `style.css` e `main.js` hanno `?v=20261105ux` (audit UI), `footer.js` `?v=20261105` in tutte le pagine (max-age 600): cambiarlo quando cambia la card o il menu.
   - *Avviso sopra il calendario* — `.winter-note` nei 4 `book.html` (stili in `booking-engine/styles.css`), visibile solo con `has-winter`.
   - *Motore* — `WINTER.reopen` in `booking-engine/calendar.js`: `addWinterClosure()` blocca ogni notte prima del 29/03/2027, quindi il calendario si apre su marzo e i chip partono dal 29. Dopo quella data non blocca più nulla.
   - Gli articoli che v5 genera dal modello `christmas-new-year-lake-orta` si portano dietro fascia e snippet: fino al 29/03 è giusto, dopo restano nascosti. Per spegnere tutto prima: togliere `has-winter` dagli `<html>` e mettere `WINTER.reopen` a oggi.
@@ -51,7 +51,9 @@ Sito di villa-volpe.com.
   fatte con Higgsfield dalle foto vere, porta, doccia, siepe, lastre e porfido corretti, ombrellone e tende) passato in
   Nano Banana Pro e riallineato al pixel, stessa inquadratura: si copia da `public/volpe-pianta.webp` di v5. L'inquadratura sta in `xy()`, quindi le coordinate dei punti restano quelle della planimetria
   (come `planXY` in v5); immagine, script e `style.css` hanno `?v=` nei link delle `discover.html`, da cambiare a ogni
-  nuova pianta (cache di 10 minuti). Punti (Alberto, 05/11/2026): 1 parcheggio, 2 soggiorno (due foto, `photos`, da
+  nuova pianta (cache di 10 minuti). **A ogni nuova pianta rilanciare anche `python3 tools/plan-sizes.py`**: dall'audit UI
+  del 05/11/2026 `vv-plan.js` carica sui telefoni `villa-volpe-plan-1024.webp` / `-1536.webp` (srcset), che altrimenti
+  resterebbero quelle della pianta vecchia. Punti (Alberto, 05/11/2026): 1 parcheggio, 2 soggiorno (due foto, `photos`, da
   scorrere con i puntini), 3 cucina (foto della cucina ad angolo), 4 camera 1 = nord-est col quadro dei pesci, 5 camera
   2 = sud con la portafinestra sul lago, 6 bagno, 7 ingresso con vista lago all'angolo dove scende la rampa (al posto
   della terrazza), 8 doccia esterna vicino all'angolo della casa (foto vera, `outdoor-shower-stone-sink`), 9 accesso
@@ -92,6 +94,21 @@ Sito di villa-volpe.com.
     `figcaption` (autore → pagina del file, licenza → testo della licenza): non toglierlo. Senza foto vera, niente foto
     (museo dell'ombrello, Pescone, Cappella del Vago, parco Le Pigne).
     Immagine social `images/things-to-do/og-cassetto.jpg`. Filtri della mappa fissi in alto con i conteggi.
+- **Audit UI/UX** (05/11/2026, skill ui-ux-pro-max, voluto da Alberto): cose da rispettare nelle pagine nuove.
+  - *Struttura:* ogni pagina col menu ha `<a class="skip-link" href="#main">` subito dopo `<body>` (testo nella lingua) e il
+    contenuto fra il menu del telefono e `<div id="site-footer">` dentro `<main id="main" tabindex="-1">`. Vale anche per
+    gli articoli in coda in `scheduled-posts` e per il modello degli articoli di v5. Titoli senza salti (h1 → h2 → h3:
+    dove la grafica vuole un h3 subito dopo l'h1 c'è un `<h2 class="sr-only">` letto solo dagli screen reader).
+  - *Colori:* testi piccoli in oro con `--color-accent-text` (#7D6649, 5,2:1); `--color-accent` (#8B7355) solo per titoli
+    grandi, filetti, logo e icone. `--color-text-muted` è #6E6E6E (era #9A9A9A, illeggibile).
+  - *Prenotazione:* niente card fluttuante della chiusura nelle pagine col calendario (`body:has(.booking-widget)`); su
+    telefono la card delle altre pagine è una barra bassa di due righe. Campi a 16px (sotto, iPhone zooma).
+  - *Things to do:* icone SVG `.ttd-ico--<nome>` (maschere in fondo a `style.css`) al posto delle emoji in filtri, titoli,
+    categorie, pin e bottoni del cassetto; restano la 🦊 della villa e la ★. Pin vicini raggruppati con
+    leaflet.markercluster (unpkg, caricato da `things-to-do.js`); su telefono la mappa si sposta dopo un tocco.
+  - *Media:* video d'apertura ricodificati (CRF 28: 4,4 MB su computer, 1,9 MB) + `hero-villa-2026-portrait.mp4` (9:16,
+    1,5 MB) e poster verticale per i telefoni in verticale; foto della galleria e delle card del blog con varianti
+    `-800/-1200.avif`; biglietti e cartoline del cassetto con `-360.webp`; pianta con `tools/plan-sizes.py`.
 - **Clasp:** no (script in villa-volpe-scripts).
 ---
 *Workspace multi-progetto — vedi `PROJECTS.md` nella radice. GitHub: gh=CryptoPannoz. 🔒 Niente credenziali nei file.*

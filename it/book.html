@@ -36,8 +36,8 @@
   <script>if(Date.now()>=Date.parse('2027-03-29T00:00:00+02:00'))document.documentElement.classList.remove('has-winter');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
-  <link rel="stylesheet" href="../style.css?v=20261105b">
-  <link rel="stylesheet" href="../booking-engine/styles.css">
+  <link rel="stylesheet" href="../style.css?v=20261105ux">
+  <link rel="stylesheet" href="../booking-engine/styles.css?v=20261105ux">
   <style>
     /* ── Layout: single column, centrato ── */
     .booking-layout {
@@ -179,6 +179,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Vai al contenuto</a>
 
   <aside class="season-card" aria-label="Chiusura invernale">
     <svg class="season-card__icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M4.2 6.5l15.6 9M4.2 17.5l15.6-9M9.5 3.5 12 6l2.5-2.5M9.5 20.5 12 18l2.5 2.5M3 10.2l3.4.9-.9 3.4M21 13.8l-3.4-.9.9-3.4M3 13.8l3.4-.9-.9-3.4M21 10.2l-3.4.9.9 3.4"/></svg>
@@ -242,6 +243,8 @@
     </div>
   </div>
 
+  <main id="main" tabindex="-1">
+
   <!-- Page Header -->
   <header class="page-header">
     <span class="label page-header__label">Prenota</span>
@@ -302,7 +305,7 @@
 
             <!-- Available Periods (sopra il calendario) -->
             <div class="available-gaps-section">
-              <h4>Periodi disponibili</h4>
+              <h3>Periodi disponibili</h3>
               <div class="available-gaps" id="available-gaps">
                 <div class="calendar-loader" style="padding:8px;">
                   <span class="spinner"></span>
@@ -333,7 +336,7 @@
               <span class="spinner"></span> Caricamento disponibilità...
             </div>
 
-            <p class="selection-hint" id="selection-hint">Seleziona la data di check-in</p>
+            <p class="selection-hint" id="selection-hint" aria-live="polite">Seleziona la data di check-in</p>
             <p class="booking-reassurance">È solo una richiesta: riceverai il preventivo definitivo prima di qualsiasi pagamento.</p>
             <div class="date-error" id="date-error"></div>
 
@@ -352,7 +355,7 @@
             </div>
 
             <div style="margin-top:1.5rem;">
-              <button class="btn-primary" id="continue-to-guests" disabled>Continua</button>
+              <button class="btn-primary" id="continue-to-guests" aria-describedby="selection-hint" disabled>Continua</button>
             </div>
           </div>
 
@@ -368,16 +371,16 @@
             <form id="guest-form">
               <div class="form-group">
                 <label for="guest-name">Nome e cognome</label>
-                <input type="text" id="guest-name" placeholder="Il tuo nome" required>
+                <input type="text" id="guest-name" autocomplete="name" placeholder="Il tuo nome" required>
               </div>
               <div class="form-row">
                 <div class="form-group">
                   <label for="guest-email">Email</label>
-                  <input type="email" id="guest-email" placeholder="tua@email.com" required>
+                  <input type="email" id="guest-email" autocomplete="email" placeholder="tua@email.com" required>
                 </div>
                 <div class="form-group">
                   <label for="guest-phone">Telefono</label>
-                  <input type="tel" id="guest-phone" placeholder="+39 123 456 7890" required>
+                  <input type="tel" id="guest-phone" autocomplete="tel" placeholder="+39 123 456 7890" required>
                 </div>
               </div>
               <div class="form-row">
@@ -497,7 +500,7 @@
               <div class="booking-highlight__title">Prenotazione diretta &mdash; risparmia il 15%</div>
               <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.7;">
                 Per le tariffe migliori, prenota direttamente con noi tramite questo modulo o scrivendo a
-                <a href="mailto:villavolpeorta@gmail.com" style="color:var(--color-accent);font-weight:600;">villavolpeorta@gmail.com</a>.
+                <a href="mailto:villavolpeorta@gmail.com" style="color:var(--color-accent-text);font-weight:600;">villavolpeorta@gmail.com</a>.
                 Avrai uno sconto speciale del 15% rispetto al prezzo Airbnb.
               </p>
             </div>
@@ -506,7 +509,7 @@
               <div class="booking-highlight__title">Tramite Airbnb</div>
               <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.7;">
                 Preferisci l'assistenza della piattaforma Airbnb? Puoi
-                <a href="https://airbnb.com/rooms/16759665" target="_blank" rel="noopener" style="color:var(--color-accent);font-weight:600;">prenotare anche su Airbnb</a>.
+                <a href="https://airbnb.com/rooms/16759665" target="_blank" rel="noopener" style="color:var(--color-accent-text);font-weight:600;">prenotare anche su Airbnb</a>.
                 Con la prenotazione diretta hai semplicemente la stessa villa, lo stesso lago e gli stessi host, risparmiando il 15%.
               </p>
             </div>
@@ -515,7 +518,7 @@
               <div class="booking-highlight__title">Paga in crypto</div>
               <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.7;">
                 Vuoi pagare in criptovalute?
-                <a href="https://villavolpeortalake.dtravel.com/" target="_blank" rel="noopener" style="color:var(--color-accent);font-weight:600;">Prenota su Dtravel</a>
+                <a href="https://villavolpeortalake.dtravel.com/" target="_blank" rel="noopener" style="color:var(--color-accent-text);font-weight:600;">Prenota su Dtravel</a>
                 e paga con USDT, USDC, ETH o BTC.
               </p>
             </div>
@@ -545,11 +548,13 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <div id="site-footer"></div>
   <script src="../footer.js?v=20261105"></script>
 
-  <script src="../main.js?v=20261105"></script>
+  <script src="../main.js?v=20261105ux"></script>
   <script src="../booking-engine/calendar.js"></script>
   <script>
     // Hook: popola mini-summary quando si passa allo step guests

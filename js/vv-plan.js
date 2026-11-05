@@ -68,7 +68,10 @@
 
   // ── markup ──
   var stage = el('div', 'vv-plan__stage');
-  var img = el('img', 'vv-plan__img', { src: SRC, alt: UI.plan, width: W, height: H, draggable: 'false', loading: 'lazy' });
+  // Versioni ridotte per telefoni e tablet (tools/plan-sizes.py, da rilanciare a ogni nuova pianta)
+  var SRCSET = SRC.replace('.webp', '-1024.webp') + ' 1024w, ' + SRC.replace('.webp', '-1536.webp') + ' 1536w, ' + SRC + ' 2048w';
+  // loading/sizes/srcset prima di src: un'img appena creata parte a scaricare al primo src
+  var img = el('img', 'vv-plan__img', { alt: UI.plan, width: W, height: H, draggable: 'false', loading: 'lazy', sizes: '(min-width: 900px) 62vw, 100vw', srcset: SRCSET, src: SRC });
   stage.appendChild(img);
   var pins = POINTS.map(function (p, i) {
     var pos = xy(p.x, p.y);

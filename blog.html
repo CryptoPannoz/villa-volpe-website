@@ -35,7 +35,7 @@
   <script>if(Date.now()>=Date.parse('2027-03-29T00:00:00+02:00'))document.documentElement.classList.remove('has-winter');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=20261105b">
+  <link rel="stylesheet" href="style.css?v=20261105ux">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -142,6 +142,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <aside class="season-card" aria-label="Winter closure">
     <svg class="season-card__icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M4.2 6.5l15.6 9M4.2 17.5l15.6-9M9.5 3.5 12 6l2.5-2.5M9.5 20.5 12 18l2.5 2.5M3 10.2l3.4.9-.9 3.4M21 13.8l-3.4-.9.9-3.4M3 13.8l3.4-.9-.9-3.4M21 10.2l-3.4.9.9 3.4"/></svg>
@@ -205,6 +206,8 @@
     </div>
   </div>
 
+  <main id="main" tabindex="-1">
+
   <!-- Page Header -->
   <header class="page-header page-header--cinema">
     <div class="vv-cinema__media" aria-hidden="true"><picture><source media="(max-width: 768px)" type="image/avif" srcset="images/cinema/isola-aerial-poster-sq.avif"><source media="(max-width: 768px)" srcset="images/cinema/isola-aerial-poster-sq.jpg"><source type="image/avif" sizes="100vw" srcset="images/cinema/isola-aerial-poster-1280.avif 1280w, images/cinema/isola-aerial-poster-1920.avif 1920w"><img src="images/cinema/isola-aerial-poster-1920.jpg" srcset="images/cinema/isola-aerial-poster-1280.jpg 1280w, images/cinema/isola-aerial-poster-1920.jpg 1920w" sizes="100vw" alt="" width="1920" height="1080" fetchpriority="high" decoding="async"></picture><video data-vv-video muted loop playsinline preload="none" disablepictureinpicture tabindex="-1"><source src="images/cinema/isola-aerial-sq.mp4" type="video/mp4" media="(max-width: 768px)"><source src="images/cinema/isola-aerial-1920.mp4" type="video/mp4"></video></div>
@@ -216,9 +219,10 @@
   <!-- Blog Grid -->
   <section class="section">
     <div class="container">
+      <h2 class="sr-only">All articles</h2>
       <div class="blog-grid" id="blogGrid">
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/lake-iseo-vs-lake-orta-hero.avif" type="image/avif"><img src="images/blog/lake-iseo-vs-lake-orta-hero.jpg" alt="Two lakes side by side at dusk: Monte Isola on Lake Iseo, and Isola San Giulio with the lights of Orta San Giulio" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/lake-iseo-vs-lake-orta-hero-800.avif 800w, images/blog/lake-iseo-vs-lake-orta-hero-1200.avif 1200w, images/blog/lake-iseo-vs-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="images/blog/lake-iseo-vs-lake-orta-hero.jpg" alt="Two lakes side by side at dusk: Monte Isola on Lake Iseo, and Isola San Giulio with the lights of Orta San Giulio" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">October 28, 2026</div>
             <h3 class="blog-card__title">Lake Iseo or Lake Orta? An Honest Comparison</h3>
@@ -238,7 +242,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/where-to-eat-lake-orta-hero.avif" type="image/avif"><img src="images/blog/where-to-eat-lake-orta-hero.jpg" alt="Café tables and umbrellas on Piazza Motta in Orta San Giulio, in front of pastel-coloured arcaded palazzi" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/where-to-eat-lake-orta-hero-800.avif 800w, images/blog/where-to-eat-lake-orta-hero-1200.avif 1200w, images/blog/where-to-eat-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="images/blog/where-to-eat-lake-orta-hero.jpg" alt="Café tables and umbrellas on Piazza Motta in Orta San Giulio, in front of pastel-coloured arcaded palazzi" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">October 21, 2026</div>
             <h3 class="blog-card__title">Where to Eat on Lake Orta: Restaurants, Local Dishes and Wines</h3>
@@ -248,7 +252,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/christmas-new-year-lake-orta-hero.avif" type="image/avif"><img src="images/blog/christmas-new-year-lake-orta-hero.jpg" alt="Piazza Motta in Orta San Giulio at dusk in December, with the frescoed Palazzo della Comunità and a lit Christmas tree" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/christmas-new-year-lake-orta-hero-800.avif 800w, images/blog/christmas-new-year-lake-orta-hero-1200.avif 1200w, images/blog/christmas-new-year-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="images/blog/christmas-new-year-lake-orta-hero.jpg" alt="Piazza Motta in Orta San Giulio at dusk in December, with the frescoed Palazzo della Comunità and a lit Christmas tree" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">October 13, 2026</div>
             <h3 class="blog-card__title">Christmas and New Year on Lake Orta: Lights, Markets and Fireworks (2026)</h3>
@@ -258,7 +262,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/lake-orta-mid-term-stay-hero.avif" type="image/avif"><img src="images/blog/lake-orta-mid-term-stay-hero.jpg" alt="Aerial view of Villa Volpe on the shore of Lake Orta in autumn, with the wooded hillside turning gold behind the house" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/lake-orta-mid-term-stay-hero-800.avif 800w, images/blog/lake-orta-mid-term-stay-hero-1200.avif 1200w, images/blog/lake-orta-mid-term-stay-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="images/blog/lake-orta-mid-term-stay-hero.jpg" alt="Aerial view of Villa Volpe on the shore of Lake Orta in autumn, with the wooded hillside turning gold behind the house" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">September 12, 2026</div>
             <h3 class="blog-card__title">Lake Orta for a Month or More: Mid-Term Stays, Out of Season</h3>
@@ -278,7 +282,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/lake-orta-autumn-winter-hero.avif" type="image/avif"><img src="images/blog/lake-orta-autumn-winter-hero.jpg" alt="Orta San Giulio seen from the water under a grey autumn sky" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/lake-orta-autumn-winter-hero-800.avif 800w, images/blog/lake-orta-autumn-winter-hero-1200.avif 1200w, images/blog/lake-orta-autumn-winter-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="images/blog/lake-orta-autumn-winter-hero.jpg" alt="Orta San Giulio seen from the water under a grey autumn sky" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">July 22, 2026</div>
             <h3 class="blog-card__title">Lake Orta in Autumn and Winter: The Season Nobody Books</h3>
@@ -288,7 +292,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/lake-orta-romantic-hero.avif" type="image/avif"><img src="images/blog/lake-orta-romantic-hero.jpg" alt="A cobbled lane between stone walls on Isola San Giulio, Lake Orta" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/lake-orta-romantic-hero-800.avif 800w, images/blog/lake-orta-romantic-hero-1200.avif 1200w, images/blog/lake-orta-romantic-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="images/blog/lake-orta-romantic-hero.jpg" alt="A cobbled lane between stone walls on Isola San Giulio, Lake Orta" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">July 17, 2026</div>
             <h3 class="blog-card__title">A Romantic Weekend on Lake Orta</h3>
@@ -298,7 +302,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol.avif" type="image/avif"><img src="images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol.jpg" alt="Villa Volpe's garden opening onto Lake Orta, with a parasol by the water" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="1067"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol-800.avif 800w, images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol-1200.avif 1200w, images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol.jpg" alt="Villa Volpe's garden opening onto Lake Orta, with a parasol by the water" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="1067"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">July 13, 2026</div>
             <h3 class="blog-card__title">Lake Orta with Kids: A Family Holiday Guide</h3>
@@ -308,7 +312,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/dog-friendly-lake-orta-hero.avif" type="image/avif"><img src="images/blog/dog-friendly-lake-orta-hero.jpg" alt="A dog on the shore of Lake Orta watching the swans" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/dog-friendly-lake-orta-hero-800.avif 800w, images/blog/dog-friendly-lake-orta-hero-1200.avif 1200w, images/blog/dog-friendly-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="images/blog/dog-friendly-lake-orta-hero.jpg" alt="A dog on the shore of Lake Orta watching the swans" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">July 10, 2026</div>
             <h3 class="blog-card__title">Lake Orta with Your Dog: A Pet-Friendly Holiday Guide</h3>
@@ -318,7 +322,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/walking-around-lake-orta-hero.avif" type="image/avif"><img src="images/blog/walking-around-lake-orta-hero.jpg" alt="Panoramic view of Lake Orta and Isola San Giulio from the heights of Madonna del Sasso" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/walking-around-lake-orta-hero-800.avif 800w, images/blog/walking-around-lake-orta-hero-1200.avif 1200w, images/blog/walking-around-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="images/blog/walking-around-lake-orta-hero.jpg" alt="Panoramic view of Lake Orta and Isola San Giulio from the heights of Madonna del Sasso" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">July 2, 2026</div>
             <h3 class="blog-card__title">Walking Around Lake Orta: The Loop and the Short Versions</h3>
@@ -352,7 +356,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/sacro-monte-orta-hero.avif" type="image/avif"><img src="images/blog/sacro-monte-orta-hero.jpg" alt="The gravel path between two chapels of the Sacro Monte di Orta, surrounded by tall trees" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/sacro-monte-orta-hero-800.avif 800w, images/blog/sacro-monte-orta-hero-1200.avif 1200w, images/blog/sacro-monte-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="images/blog/sacro-monte-orta-hero.jpg" alt="The gravel path between two chapels of the Sacro Monte di Orta, surrounded by tall trees" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">June 5, 2026</div>
             <h3 class="blog-card__title">Sacro Monte di Orta: A Guide to the UNESCO Site</h3>
@@ -362,7 +366,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/lake-como-vs-orta-hero.avif" type="image/avif"><img src="images/blog/lake-como-vs-orta-hero.jpg" alt="Panorama of Lake Orta with Isola San Giulio, seen from the hill above Orta San Giulio" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/lake-como-vs-orta-hero-800.avif 800w, images/blog/lake-como-vs-orta-hero-1200.avif 1200w, images/blog/lake-como-vs-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="images/blog/lake-como-vs-orta-hero.jpg" alt="Panorama of Lake Orta with Isola San Giulio, seen from the hill above Orta San Giulio" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">May 21, 2026</div>
             <h3 class="blog-card__title">Lake Como or Lake Orta? An Honest Comparison</h3>
@@ -372,7 +376,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/how-to-get-to-lake-orta-hero.avif" type="image/avif"><img src="images/blog/how-to-get-to-lake-orta-hero.jpg" alt="Orta San Giulio seen from the water, with the island on the left and the village along the shore" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/how-to-get-to-lake-orta-hero-800.avif 800w, images/blog/how-to-get-to-lake-orta-hero-1200.avif 1200w, images/blog/how-to-get-to-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="images/blog/how-to-get-to-lake-orta-hero.jpg" alt="Orta San Giulio seen from the water, with the island on the left and the village along the shore" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">May 7, 2026</div>
             <h3 class="blog-card__title">How to Get to Lake Orta: Airports, Trains and Roads</h3>
@@ -382,7 +386,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/cascata-qualba-waterfall.avif" type="image/avif"><img src="images/blog/cascata-qualba-waterfall.jpg" alt="Cold plunge at Cascata della Qualba waterfall near Lake Orta" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1200" height="1600"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/cascata-qualba-waterfall-800.avif 800w, images/blog/cascata-qualba-waterfall.avif 1200w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="images/blog/cascata-qualba-waterfall.jpg" alt="Cold plunge at Cascata della Qualba waterfall near Lake Orta" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1200" height="1600"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">April 13, 2026</div>
             <h3 class="blog-card__title">Cold Plunge at Cascata della Qualba: Lake Orta's Hidden Waterfall</h3>
@@ -392,7 +396,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/lake-orta-april-shoulder-season-hero.avif" type="image/avif"><img src="images/blog/lake-orta-april-shoulder-season-hero.jpg" alt="Lake Orta at dawn in April, mountains perfectly reflected in the glass-flat water" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1080" height="607"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/lake-orta-april-shoulder-season-hero-800.avif 800w, images/blog/lake-orta-april-shoulder-season-hero.avif 1080w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="images/blog/lake-orta-april-shoulder-season-hero.jpg" alt="Lake Orta at dawn in April, mountains perfectly reflected in the glass-flat water" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1080" height="607"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">April 7, 2026</div>
             <h3 class="blog-card__title">Lake Orta in Spring: Why the Shoulder Season Is the Best Time to Visit</h3>
@@ -402,7 +406,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/wakeboard-lake-orta-villa-volpe.avif" type="image/avif"><img src="images/blog/wakeboard-lake-orta-villa-volpe.jpg" alt="Wake and More wakeboard boat docked at Villa Volpe's private pier on Lake Orta" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1556" height="1168"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/wakeboard-lake-orta-villa-volpe-800.avif 800w, images/blog/wakeboard-lake-orta-villa-volpe-1200.avif 1200w, images/blog/wakeboard-lake-orta-villa-volpe.avif 1556w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="images/blog/wakeboard-lake-orta-villa-volpe.jpg" alt="Wake and More wakeboard boat docked at Villa Volpe's private pier on Lake Orta" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1556" height="1168"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">March 31, 2026</div>
             <h3 class="blog-card__title">Wakeboarding and Wakesurfing on Lake Orta: Italy's Best Kept Secret</h3>
@@ -422,7 +426,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/spring-summer-events-lake-orta.avif" type="image/avif"><img src="images/blog/spring-summer-events-lake-orta.jpg" alt="Spring and Summer Events Near Lake Orta 2026" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="877" height="1168"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="images/blog/spring-summer-events-lake-orta-800.avif 800w, images/blog/spring-summer-events-lake-orta.avif 876w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="images/blog/spring-summer-events-lake-orta.jpg" alt="Spring and Summer Events Near Lake Orta 2026" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="877" height="1168"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">March 26, 2026</div>
             <h3 class="blog-card__title">Spring & Summer Events Near Lake Orta: Your 2026 Calendar</h3>
@@ -532,11 +536,13 @@
     <a href="book.html" class="btn btn--accent">Book Your Stay</a>
   </section>
 
+  </main>
+
   <!-- Footer -->
  <div id="site-footer"></div>
 <script src="footer.js?v=20261105"></script>
 
-  <script src="main.js?v=20261105"></script>
+  <script src="main.js?v=20261105ux"></script>
   <!-- Play inline videos only while in view (lightweight, mobile-friendly) -->
   <script>
   (function(){

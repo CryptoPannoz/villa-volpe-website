@@ -18,6 +18,8 @@
   --primary-hover: #6E5A42;
   --primary-light: #F5F3EF;
   --accent-color: #A6906F;
+  /* testi piccoli in oro: #A6906F sul bianco fa 3:1, questo 5,4:1 (audit UI 11/2026) */
+  --accent-text: #7D6649;
 
   /* Availability (verde tenue) */
   --available-color: #e8f5e9;
@@ -32,7 +34,7 @@
   /* Text (allineato a style.css sito) */
   --text-primary: #2D2D2D;
   --text-secondary: #6B6B6B;
-  --text-light: #9A9A9A;
+  --text-light: #6E6E6E;   /* era #9A9A9A, 2,8:1: sotto la soglia di leggibilita' (4,5:1) */
 
   /* Backgrounds (allineato a style.css sito) */
   --bg-white: #FFFFFF;
@@ -106,7 +108,7 @@
 }
 
 .progress-step.active {
-  color: var(--primary-color);
+  color: var(--accent-text);
   font-weight: 600;
 }
 
@@ -413,7 +415,7 @@ h3 {
 
 .booking-reassurance {
   text-align: center;
-  color: var(--accent-color);
+  color: var(--accent-text);
   font-size: 13px;
   font-weight: 600;
   margin: 0 0 var(--spacing-md);
@@ -471,6 +473,7 @@ h3 {
   margin-top: var(--spacing-lg);
 }
 
+.available-gaps-section h3,
 .available-gaps-section h4 {
   font-size: 13px;
   text-transform: uppercase;
@@ -666,7 +669,7 @@ h3 {
 .form-group textarea {
   width: 100%;
   padding: 12px;
-  font-size: 15px;
+  font-size: 16px;   /* 15px faceva zoomare Safari su iPhone a ogni tocco */
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -707,19 +710,21 @@ textarea { resize: vertical; min-height: 80px; }
 
 .dates-mini-summary {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: var(--spacing-xs) var(--spacing-md);
   padding: var(--spacing-md);
   background-color: var(--primary-light);
   border-radius: var(--radius-md);
   margin-bottom: var(--spacing-lg);
   font-size: 14px;
-  color: var(--accent-color);
+  color: var(--accent-text);
   font-weight: 500;
 }
 
 .dates-mini-summary strong {
   color: var(--text-primary);
+  white-space: nowrap;
 }
 
 /* ── Warning ───────────────────────────────────────────── */
@@ -775,7 +780,7 @@ textarea { resize: vertical; min-height: 80px; }
   max-width: none;
 }
 .winter-note strong { font-weight: 600; }
-.winter-note a { color: var(--primary-color); font-weight: 600; text-decoration: underline; }
+.winter-note a { color: var(--accent-text); font-weight: 600; text-decoration: underline; }
 
 /* ── Summary Card ──────────────────────────────────────── */
 
@@ -801,7 +806,7 @@ textarea { resize: vertical; min-height: 80px; }
 .summary-row strong { color: var(--text-primary); font-size: 14px; }
 
 .summary-row--note strong {
-  color: var(--accent-color);
+  color: var(--accent-text);
   text-align: right;
 }
 
@@ -928,3 +933,27 @@ textarea { resize: vertical; min-height: 80px; }
      funziona da etichetta della card. */
   .gap-chip--promo { flex-direction: column-reverse; gap: 6px; }
 }
+
+/* ── Audit UI 11/2026 ──────────────────────────────────────
+   Telefono: container del sito (24px) + widget (48px) + calendario (16px)
+   lasciavano alla griglia 197px su uno schermo da 375: giorni da 28px.
+   Specificita' piu' alta dell'override inline di book.html. */
+@media (max-width: 480px) {
+  .section .booking-layout .booking-widget { padding: var(--spacing-lg) var(--spacing-sm); }
+  .booking-widget .calendar-container { padding: 0; }
+  .calendar-grid { gap: 2px; }
+  /* sul telefono resta visibile il nome del passo in corso */
+  .progress-step.active .step-label { display: inline; }
+}
+
+/* Chip dei periodi liberi: su desktop stanno in griglia da 200px e
+   «Mar 29 → Apr 3 · 5 nights available» andava a capo a meta' data. */
+.gap-dates { white-space: nowrap; }
+@media (min-width: 640px) {
+  .available-gaps .gap-chip { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .available-gaps .gap-chip--promo { flex-direction: column-reverse; gap: 6px; }
+}
+
+/* Desktop: fra intestazione (80px sotto) e widget c'erano altri 128px di
+   sezione, e su un portatile da 900px il calendario partiva sotto la piega. */
+.page-header + .section { padding-top: var(--spacing-md); }

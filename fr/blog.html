@@ -36,7 +36,7 @@
   <script>if(Date.now()>=Date.parse('2027-03-29T00:00:00+02:00'))document.documentElement.classList.remove('has-winter');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
-  <link rel="stylesheet" href="../style.css?v=20261105b">
+  <link rel="stylesheet" href="../style.css?v=20261105ux">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -143,6 +143,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
 
   <aside class="season-card" aria-label="Fermeture hivernale">
     <svg class="season-card__icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M4.2 6.5l15.6 9M4.2 17.5l15.6-9M9.5 3.5 12 6l2.5-2.5M9.5 20.5 12 18l2.5 2.5M3 10.2l3.4.9-.9 3.4M21 13.8l-3.4-.9.9-3.4M3 13.8l3.4-.9-.9-3.4M21 10.2l-3.4.9.9 3.4"/></svg>
@@ -207,6 +208,8 @@
     </div>
   </div>
 
+  <main id="main" tabindex="-1">
+
   <!-- Page Header -->
   <header class="page-header page-header--cinema">
     <div class="vv-cinema__media" aria-hidden="true"><picture><source media="(max-width: 768px)" type="image/avif" srcset="../images/cinema/isola-aerial-poster-sq.avif"><source media="(max-width: 768px)" srcset="../images/cinema/isola-aerial-poster-sq.jpg"><source type="image/avif" sizes="100vw" srcset="../images/cinema/isola-aerial-poster-1280.avif 1280w, ../images/cinema/isola-aerial-poster-1920.avif 1920w"><img src="../images/cinema/isola-aerial-poster-1920.jpg" srcset="../images/cinema/isola-aerial-poster-1280.jpg 1280w, ../images/cinema/isola-aerial-poster-1920.jpg 1920w" sizes="100vw" alt="" width="1920" height="1080" fetchpriority="high" decoding="async"></picture><video data-vv-video muted loop playsinline preload="none" disablepictureinpicture tabindex="-1"><source src="../images/cinema/isola-aerial-sq.mp4" type="video/mp4" media="(max-width: 768px)"><source src="../images/cinema/isola-aerial-1920.mp4" type="video/mp4"></video></div>
@@ -218,9 +221,10 @@
   <!-- Blog Grid -->
   <section class="section">
     <div class="container">
+      <h2 class="sr-only">Tous les articles</h2>
       <div class="blog-grid" id="blogGrid">
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/isola-san-giulio-lake-orta.avif" type="image/avif"><img src="../images/blog/isola-san-giulio-lake-orta.jpg" alt="L'île San Giulio et sa basilique au milieu du lac d'Orta, vues depuis la rive d'Orta San Giulio" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/isola-san-giulio-lake-orta-800.avif 800w, ../images/blog/isola-san-giulio-lake-orta.avif 1200w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/isola-san-giulio-lake-orta.jpg" alt="L'île San Giulio et sa basilique au milieu du lac d'Orta, vues depuis la rive d'Orta San Giulio" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">2 novembre 2026</div>
             <h3 class="blog-card__title">Que faire au lac d'Orta : 20 idées pour chaque saison</h3>
@@ -230,7 +234,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-iseo-vs-lake-orta-hero.avif" type="image/avif"><img src="../images/blog/lake-iseo-vs-lake-orta-hero.jpg" alt="Deux lacs côte à côte au crépuscule : Monte Isola sur le lac d'Iseo, et l'île San Giulio avec les lumières d'Orta San Giulio" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-iseo-vs-lake-orta-hero-800.avif 800w, ../images/blog/lake-iseo-vs-lake-orta-hero-1200.avif 1200w, ../images/blog/lake-iseo-vs-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/lake-iseo-vs-lake-orta-hero.jpg" alt="Deux lacs côte à côte au crépuscule : Monte Isola sur le lac d'Iseo, et l'île San Giulio avec les lumières d'Orta San Giulio" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">28 octobre 2026</div>
             <h3 class="blog-card__title">Lac d'Iseo ou lac d'Orta ? Un comparatif honnête</h3>
@@ -240,7 +244,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/where-to-eat-lake-orta-hero.avif" type="image/avif"><img src="../images/blog/where-to-eat-lake-orta-hero.jpg" alt="Tables et parasols de café sur la Piazza Motta d'Orta San Giulio, devant des palais aux couleurs pastel et à arcades" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/where-to-eat-lake-orta-hero-800.avif 800w, ../images/blog/where-to-eat-lake-orta-hero-1200.avif 1200w, ../images/blog/where-to-eat-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/where-to-eat-lake-orta-hero.jpg" alt="Tables et parasols de café sur la Piazza Motta d'Orta San Giulio, devant des palais aux couleurs pastel et à arcades" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">21 octobre 2026</div>
             <h3 class="blog-card__title">Où manger au lac d'Orta : restaurants, spécialités et vins</h3>
@@ -250,7 +254,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/isola-san-giulio-lake-orta.avif" type="image/avif"><img src="../images/blog/isola-san-giulio-lake-orta.jpg" alt="L'île San Giulio au milieu du lac d'Orta, avec sa basilique et ses maisons au bord de l'eau, face à Orta San Giulio" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/isola-san-giulio-lake-orta-800.avif 800w, ../images/blog/isola-san-giulio-lake-orta.avif 1200w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/isola-san-giulio-lake-orta.jpg" alt="L'île San Giulio au milieu du lac d'Orta, avec sa basilique et ses maisons au bord de l'eau, face à Orta San Giulio" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">13 octobre 2026</div>
             <h3 class="blog-card__title">Lac d'Orta : le guide complet pour une première visite</h3>
@@ -260,7 +264,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/christmas-new-year-lake-orta-hero.avif" type="image/avif"><img src="../images/blog/christmas-new-year-lake-orta-hero.jpg" alt="La Piazza Motta d'Orta San Giulio au crépuscule en décembre, avec le Palazzo della Comunità peint à fresque et un sapin illuminé" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/christmas-new-year-lake-orta-hero-800.avif 800w, ../images/blog/christmas-new-year-lake-orta-hero-1200.avif 1200w, ../images/blog/christmas-new-year-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/christmas-new-year-lake-orta-hero.jpg" alt="La Piazza Motta d'Orta San Giulio au crépuscule en décembre, avec le Palazzo della Comunità peint à fresque et un sapin illuminé" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">13 octobre 2026</div>
             <h3 class="blog-card__title">Noël et Nouvel An au lac d'Orta : lumières, marchés et feu d'artifice (2026)</h3>
@@ -270,7 +274,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-orta-autumn-winter-hero.avif" type="image/avif"><img src="../images/blog/lake-orta-autumn-winter-hero.jpg" alt="Orta San Giulio vue depuis l'eau sous un ciel d'automne" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-orta-autumn-winter-hero-800.avif 800w, ../images/blog/lake-orta-autumn-winter-hero-1200.avif 1200w, ../images/blog/lake-orta-autumn-winter-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/lake-orta-autumn-winter-hero.jpg" alt="Orta San Giulio vue depuis l'eau sous un ciel d'automne" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">4 août 2026</div>
             <h3 class="blog-card__title">Vacances de la Toussaint au lac d'Orta : l'automne italien sans la foule</h3>
@@ -280,7 +284,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/venir-france-lac-orta-hero.avif" type="image/avif"><img src="../images/blog/venir-france-lac-orta-hero.jpg" alt="Les toits d'Orta San Giulio et le lac d'Orta avec le village de Pella sur la rive opposée" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/venir-france-lac-orta-hero-800.avif 800w, ../images/blog/venir-france-lac-orta-hero-1200.avif 1200w, ../images/blog/venir-france-lac-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/venir-france-lac-orta-hero.jpg" alt="Les toits d'Orta San Giulio et le lac d'Orta avec le village de Pella sur la rive opposée" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">31 juillet 2026</div>
             <h3 class="blog-card__title">Aller au lac d'Orta en voiture : ce qui change en 2026</h3>
@@ -290,7 +294,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-orta-autumn-winter-hero.avif" type="image/avif"><img src="../images/blog/lake-orta-autumn-winter-hero.jpg" alt="Orta San Giulio vue depuis l'eau sous un ciel gris d'automne" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-orta-autumn-winter-hero-800.avif 800w, ../images/blog/lake-orta-autumn-winter-hero-1200.avif 1200w, ../images/blog/lake-orta-autumn-winter-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/lake-orta-autumn-winter-hero.jpg" alt="Orta San Giulio vue depuis l'eau sous un ciel gris d'automne" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">22 juillet 2026</div>
             <h3 class="blog-card__title">Le lac d'Orta en automne et en hiver : la saison que personne ne réserve</h3>
@@ -300,7 +304,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-orta-romantic-hero.avif" type="image/avif"><img src="../images/blog/lake-orta-romantic-hero.jpg" alt="Une ruelle pavée entre des murs de pierre sur l'Isola San Giulio, lac d'Orta" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-orta-romantic-hero-800.avif 800w, ../images/blog/lake-orta-romantic-hero-1200.avif 1200w, ../images/blog/lake-orta-romantic-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/lake-orta-romantic-hero.jpg" alt="Une ruelle pavée entre des murs de pierre sur l'Isola San Giulio, lac d'Orta" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">17 juillet 2026</div>
             <h3 class="blog-card__title">Un week-end en amoureux au lac d'Orta</h3>
@@ -310,7 +314,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol.avif" type="image/avif"><img src="../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol.jpg" alt="Le jardin de la Villa Volpe ouvrant sur le lac d'Orta, avec un parasol au bord de l'eau" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="1067"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol-800.avif 800w, ../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol-1200.avif 1200w, ../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/gallery/villavolpeorta-exterior-facade-garden-lake-parasol.jpg" alt="Le jardin de la Villa Volpe ouvrant sur le lac d'Orta, avec un parasol au bord de l'eau" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="1067"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">13 juillet 2026</div>
             <h3 class="blog-card__title">Le lac d'Orta en famille : guide pratique</h3>
@@ -320,7 +324,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/dog-friendly-lake-orta-hero.avif" type="image/avif"><img src="../images/blog/dog-friendly-lake-orta-hero.jpg" alt="Un chien au bord du lac d'Orta observe les cygnes" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/dog-friendly-lake-orta-hero-800.avif 800w, ../images/blog/dog-friendly-lake-orta-hero-1200.avif 1200w, ../images/blog/dog-friendly-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/dog-friendly-lake-orta-hero.jpg" alt="Un chien au bord du lac d'Orta observe les cygnes" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">10 juillet 2026</div>
             <h3 class="blog-card__title">Le lac d'Orta avec son chien : guide de vacances dog-friendly</h3>
@@ -330,7 +334,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/walking-around-lake-orta-hero.avif" type="image/avif"><img src="../images/blog/walking-around-lake-orta-hero.jpg" alt="Vue panoramique du lac d'Orta et de l'Isola San Giulio depuis les hauteurs de Madonna del Sasso" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/walking-around-lake-orta-hero-800.avif 800w, ../images/blog/walking-around-lake-orta-hero-1200.avif 1200w, ../images/blog/walking-around-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/walking-around-lake-orta-hero.jpg" alt="Vue panoramique du lac d'Orta et de l'Isola San Giulio depuis les hauteurs de Madonna del Sasso" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">2 juillet 2026</div>
             <h3 class="blog-card__title">Marcher autour du lac d'Orta : la boucle et les versions courtes</h3>
@@ -364,7 +368,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/sacro-monte-orta-hero.avif" type="image/avif"><img src="../images/blog/sacro-monte-orta-hero.jpg" alt="L'allée de gravier entre deux chapelles du Sacro Monte d'Orta, entourée de grands arbres" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/sacro-monte-orta-hero-800.avif 800w, ../images/blog/sacro-monte-orta-hero-1200.avif 1200w, ../images/blog/sacro-monte-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/sacro-monte-orta-hero.jpg" alt="L'allée de gravier entre deux chapelles du Sacro Monte d'Orta, entourée de grands arbres" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">5 juin 2026</div>
             <h3 class="blog-card__title">Sacro Monte d'Orta : guide du site UNESCO</h3>
@@ -374,7 +378,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-como-vs-orta-hero.avif" type="image/avif"><img src="../images/blog/lake-como-vs-orta-hero.jpg" alt="Panorama du lac d'Orta avec l'Isola San Giulio, vu depuis la colline au-dessus d'Orta San Giulio" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-como-vs-orta-hero-800.avif 800w, ../images/blog/lake-como-vs-orta-hero-1200.avif 1200w, ../images/blog/lake-como-vs-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/lake-como-vs-orta-hero.jpg" alt="Panorama du lac d'Orta avec l'Isola San Giulio, vu depuis la colline au-dessus d'Orta San Giulio" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">21 mai 2026</div>
             <h3 class="blog-card__title">Lac de Côme ou lac d'Orta ? Un comparatif honnête</h3>
@@ -384,7 +388,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/how-to-get-to-lake-orta-hero.avif" type="image/avif"><img src="../images/blog/how-to-get-to-lake-orta-hero.jpg" alt="Orta San Giulio vue depuis l'eau, l'île à gauche et le village le long de la rive" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/how-to-get-to-lake-orta-hero-800.avif 800w, ../images/blog/how-to-get-to-lake-orta-hero-1200.avif 1200w, ../images/blog/how-to-get-to-lake-orta-hero.avif 1600w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/how-to-get-to-lake-orta-hero.jpg" alt="Orta San Giulio vue depuis l'eau, l'île à gauche et le village le long de la rive" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1600" height="900"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">7 mai 2026</div>
             <h3 class="blog-card__title">Comment venir au lac d'Orta : aéroports, trains et routes</h3>
@@ -394,7 +398,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/cascata-qualba-waterfall.avif" type="image/avif"><img src="../images/blog/cascata-qualba-waterfall.jpg" alt="Bain froid à la cascade de la Qualba, près du lac d'Orta" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1200" height="1600"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/cascata-qualba-waterfall-800.avif 800w, ../images/blog/cascata-qualba-waterfall.avif 1200w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/cascata-qualba-waterfall.jpg" alt="Bain froid à la cascade de la Qualba, près du lac d'Orta" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1200" height="1600"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">13 avril 2026</div>
             <h3 class="blog-card__title">Bain froid à la Cascata della Qualba : la cascade secrète du lac d'Orta</h3>
@@ -404,7 +408,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-orta-april-shoulder-season-hero.avif" type="image/avif"><img src="../images/blog/lake-orta-april-shoulder-season-hero.jpg" alt="Le lac d'Orta à l'aube en avril, les montagnes parfaitement reflétées dans l'eau lisse comme un miroir" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1080" height="607"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/lake-orta-april-shoulder-season-hero-800.avif 800w, ../images/blog/lake-orta-april-shoulder-season-hero.avif 1080w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/lake-orta-april-shoulder-season-hero.jpg" alt="Le lac d'Orta à l'aube en avril, les montagnes parfaitement reflétées dans l'eau lisse comme un miroir" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1080" height="607"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">7 avril 2026</div>
             <h3 class="blog-card__title">Le lac d'Orta au printemps : pourquoi l'avant-saison est le meilleur moment pour venir</h3>
@@ -414,7 +418,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/wakeboard-lake-orta-villa-volpe.avif" type="image/avif"><img src="../images/blog/wakeboard-lake-orta-villa-volpe.jpg" alt="Le bateau de wakeboard Wake and More amarré au ponton privé de la Villa Volpe sur le lac d'Orta" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1556" height="1168"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/wakeboard-lake-orta-villa-volpe-800.avif 800w, ../images/blog/wakeboard-lake-orta-villa-volpe-1200.avif 1200w, ../images/blog/wakeboard-lake-orta-villa-volpe.avif 1556w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/wakeboard-lake-orta-villa-volpe.jpg" alt="Le bateau de wakeboard Wake and More amarré au ponton privé de la Villa Volpe sur le lac d'Orta" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1556" height="1168"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">31 mars 2026</div>
             <h3 class="blog-card__title">Wakeboard et wakesurf sur le lac d'Orta : le secret le mieux gardé d'Italie</h3>
@@ -434,7 +438,7 @@
         </article>
 
         <article class="blog-card reveal">
-          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/spring-summer-events-lake-orta.avif" type="image/avif"><img src="../images/blog/spring-summer-events-lake-orta.jpg" alt="Événements du printemps et de l'été près du lac d'Orta 2026" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="877" height="1168"></picture></div>
+          <div class="blog-card__img" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;"><picture><source srcset="../images/blog/spring-summer-events-lake-orta-800.avif 800w, ../images/blog/spring-summer-events-lake-orta.avif 876w" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1100px) 45vw, 360px" type="image/avif"><img src="../images/blog/spring-summer-events-lake-orta.jpg" alt="Événements du printemps et de l'été près du lac d'Orta 2026" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="877" height="1168"></picture></div>
           <div class="blog-card__body">
             <div class="blog-card__date">26 mars 2026</div>
             <h3 class="blog-card__title">Événements du printemps et de l'été près du lac d'Orta : votre calendrier 2026</h3>
@@ -544,11 +548,13 @@
     <a href="book.html" class="btn btn--accent">Réservez votre séjour</a>
   </section>
 
+  </main>
+
   <!-- Footer -->
  <div id="site-footer"></div>
 <script src="../footer.js?v=20261105"></script>
 
-  <script src="../main.js?v=20261105"></script>
+  <script src="../main.js?v=20261105ux"></script>
   <!-- Play inline videos only while in view (lightweight, mobile-friendly) -->
   <script>
   (function(){

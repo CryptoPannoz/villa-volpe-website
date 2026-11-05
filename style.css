@@ -149,10 +149,13 @@
   --color-black: #1A1A1A;
   --color-text: #2D2D2D;
   --color-text-light: #6B6B6B;
-  --color-text-muted: #9A9A9A;
+  --color-text-muted: #6E6E6E;   /* era #9A9A9A: 2,7:1, illeggibile per date e didascalie (audit UI 11/2026) */
   --color-accent: #8B7355;
   --color-accent-light: #A6906F;
   --color-accent-dark: #6E5A42;
+  /* l'oro sui testi piccoli (<18px): #8B7355 sul fondo fa 4,3:1, sotto la soglia di 4,5:1.
+     Titoli grandi, filetti, logo e icone restano --color-accent. */
+  --color-accent-text: #7D6649;
   --color-border: #E8E5E0;
   --color-surface: #F5F3EF;
   --color-overlay: rgba(26, 26, 26, 0.6);
@@ -224,7 +227,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 /* ---------- Typography ---------- */
@@ -268,7 +271,7 @@ p {
 }
 
 .text-accent {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .label {
@@ -276,7 +279,7 @@ p {
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 /* ---------- Layout ---------- */
@@ -406,7 +409,7 @@ p {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 .season-card__title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; line-height: 1.2; color: var(--color-black); }
 .season-card__text { font-size: 0.88rem; line-height: 1.45; color: var(--color-text-light); }
@@ -681,6 +684,7 @@ p {
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.06em;
+  padding-block: 0.3rem;
   color: var(--color-text-muted);
   transition: color var(--duration) var(--ease);
 }
@@ -695,7 +699,7 @@ p {
 }
 
 .nav__lang-link--active {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 /* Language switcher — mobile menu */
@@ -709,6 +713,7 @@ p {
   font-family: var(--font-body);
   font-size: 1.1rem;
   letter-spacing: 0.1em;
+  padding: 0.6rem 0.5rem;
 }
 
 /* Mobile menu toggle */
@@ -718,7 +723,16 @@ p {
   border: none;
   cursor: pointer;
   padding: 0.5rem;
+  min-width: 44px;
+  min-height: 44px;
 }
+
+/* A menu aperto la nav (z-index 1000) copre la × del menu (999): l'hamburger
+   diventa lui la ×, e main.js lo fa chiudere. */
+.nav__toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav__toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav__toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+.mobile-menu__close { display: none; }
 
 .nav__toggle span {
   display: block;
@@ -1013,8 +1027,9 @@ p {
 
 .btn--ghost {
   background: transparent;
-  color: var(--color-accent);
-  padding: 0;
+  color: var(--color-accent-text);
+  padding: 0.35rem 0;
+  margin-block: -0.35rem;   /* area di tocco piu' alta (era 23px) senza spostare nulla */
   letter-spacing: 0.08em;
 }
 
@@ -1251,7 +1266,7 @@ p {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   margin-bottom: 0.5rem;
 }
 
@@ -1336,7 +1351,7 @@ p {
 }
 
 .faq-item__question:hover {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .faq-item__icon {
@@ -1439,6 +1454,8 @@ p {
 }
 
 .footer__links a {
+  display: inline-block;
+  padding-block: 0.3rem;
   font-size: 0.9rem;
   opacity: 0.7;
   transition: opacity var(--duration) var(--ease);
@@ -1474,8 +1491,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.2);
   color: rgba(255,255,255,0.7);
@@ -1544,20 +1561,24 @@ p {
 .carousel__dots {
   display: flex;
   justify-content: center;
-  gap: 8px;
-  margin-top: var(--space-sm);
+  gap: 16px;
+  margin-top: var(--space-md);
 }
 
 .carousel__dot {
-  width: 8px;
-  height: 8px;
+  position: relative;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.3);
+  background: rgba(26, 26, 26, 0.22);
   border: none;
   cursor: pointer;
   padding: 0;
   transition: background 0.3s var(--ease);
 }
+
+/* area di tocco da 26px senza ingrandire il puntino */
+.carousel__dot::after { content: ''; position: absolute; inset: -8px; }
 
 .carousel__dot--active {
   background: var(--color-accent);
@@ -1659,6 +1680,7 @@ p {
 .page-header {
   padding-top: calc(var(--nav-height) + var(--promo-h) + var(--space-xl));
   padding-bottom: var(--space-xl);
+  padding-inline: var(--space-md);   /* senza .container il titolo toccava i bordi a 375px */
   text-align: center;
 }
 
@@ -1718,7 +1740,7 @@ p {
 }
 
 .contact-item__value a {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 /* ---------- CTA Banner ---------- */
@@ -1749,7 +1771,7 @@ p {
   padding: 0.5rem 1rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 /* ---------- Image placeholder ---------- */
@@ -1976,7 +1998,7 @@ p {
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .post-header__date {
@@ -2046,7 +2068,7 @@ p {
 }
 
 .post-content a {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -2109,11 +2131,13 @@ p {
 }
 
 .post-nav__back {
+  display: inline-block;
+  padding-block: 0.35rem;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .post-nav__back:hover {
@@ -2208,7 +2232,7 @@ p {
 
 .leaflet-popup-content strong {
   font-family: 'Playfair Display', serif;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   font-size: 1rem;
 }
 
@@ -2292,7 +2316,7 @@ p {
 .ttd-popup a {
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -2804,7 +2828,7 @@ html:has(.nav:not(.nav--hidden)) .ttd-filters { top: calc(var(--promo-h) + var(-
 .ttd-act:hover { border-color: var(--color-accent); color: var(--color-accent); }
 .ttd-act--main { flex-basis: 100%; justify-content: center; background: var(--color-black); border-color: var(--color-black); color: #fff; }
 .ttd-act--main:hover { color: #fff; opacity: 0.9; }
-.ttd-act--more { border: 0; background: none; padding-left: 0.2rem; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.74rem; }
+.ttd-act--more { border: 0; background: none; padding-left: 0.2rem; color: var(--color-accent-text); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.74rem; }
 .ttd-dlg__nav { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-top: 1rem; }
 .ttd-dlg__arrow, .ttd-dlg__turn {
   border: 1px solid rgba(255,255,255,0.3);
@@ -2858,7 +2882,7 @@ html:has(.nav:not(.nav--hidden)) .ttd-filters { top: calc(var(--promo-h) + var(-
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.03em;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 .ttd-card__link:hover { text-decoration: underline; }
 
@@ -3532,14 +3556,14 @@ html.no-io .vv-cinema .label { opacity: 1; transform: none; }
 .vv-plan__title { flex: 1; margin: 0; font-family: var(--font-display); font-size: 1.55rem; line-height: 1.2; }
 .vv-plan__close { flex: none; border: 0; background: none; font-size: 1.6rem; line-height: 1; color: var(--color-text-muted); cursor: pointer; padding: 0 0.25rem; }
 .vv-plan__text { margin: 0.75rem 0 0; color: var(--color-text-light); line-height: 1.65; }
-.vv-plan__hint { margin: 0.9rem 0 0; font-size: 0.85rem; color: var(--color-accent); }
+.vv-plan__hint { margin: 0.9rem 0 0; font-size: 0.85rem; color: var(--color-accent-text); }
 .vv-plan__nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.1rem; }
 .vv-plan__arrow {
   width: 38px; height: 38px; margin-right: 0.4rem; border-radius: 50%; border: 1px solid var(--color-border);
   background: #fff; font-size: 1.35rem; line-height: 1; color: var(--color-text); cursor: pointer;
 }
 .vv-plan__arrow:hover { border-color: var(--color-accent); color: var(--color-accent); }
-.vv-plan__more { font-size: 0.9rem; font-weight: 600; color: var(--color-accent); text-decoration: none; }
+.vv-plan__more { font-size: 0.9rem; font-weight: 600; color: var(--color-accent-text); text-decoration: none; }
 .vv-plan__more:hover { color: var(--color-accent-dark); }
 .vv-plan__chips { display: flex; flex-wrap: wrap; gap: 0.5rem; grid-column: 1 / -1; justify-content: center; }
 .vv-plan__chip {
@@ -3589,11 +3613,168 @@ html.no-io .vv-cinema .label { opacity: 1; transform: none; }
   font-size: 0.92rem; color: var(--color-text); transition: color var(--duration) var(--ease), background var(--duration) var(--ease);
 }
 .nav__sub a:hover, .nav__sub a:focus-visible { color: var(--color-black); background: rgba(139, 115, 85, 0.08); }
-.nav__sub a[aria-current="page"] { color: var(--color-accent); }
+.nav__sub a[aria-current="page"] { color: var(--color-accent-text); }
 
-.mobile-menu__sub { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem 1.1rem; margin: -1.1rem 0 0.2rem; padding: 0 1rem; }
+.mobile-menu__sub { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 0.6rem; margin: -1.9rem 0 -0.6rem; padding: 0 1rem; }
 .mobile-menu .mobile-menu__sub a {
+  display: inline-block; padding: 0.75rem 0.5rem;   /* 44px di altezza al tocco */
   font-family: var(--font-body); font-size: 0.82rem; font-weight: 500;
   letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-light);
 }
 
+
+
+/* =====================================================================
+   AUDIT UI 11/2026 — accessibilita' e telefono
+   ===================================================================== */
+
+/* Focus da tastiera nel colore del sito (prima: anello di default del browser).
+   Sulle foto e sul footer scuro diventa bianco. */
+:focus-visible { outline: 2px solid var(--color-accent-dark); outline-offset: 3px; }
+.hero :focus-visible, .footer :focus-visible, .season-card--hero :focus-visible,
+.page-header--cinema :focus-visible, .cta-banner--cinema :focus-visible, .vv-cinema :focus-visible,
+.ttd-hero :focus-visible { outline-color: #fff; }
+
+/* Link «salta al contenuto»: invisibile finche' non arriva il focus da tastiera */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1100;
+  padding: 0.7rem 1.1rem;
+  background: var(--color-black);
+  color: var(--color-white);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  transform: translateY(-160%);
+  transition: transform 0.2s var(--ease);
+}
+.skip-link:focus { transform: none; color: var(--color-white); }
+main:focus { outline: none; }
+
+/* Le vecchie rivelazioni (.reveal, dissolvenza + 30px) e lo scroll morbido
+   non guardavano «riduci movimento»: ora si', come il blocco MOTION 2026. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .reveal-stagger > * { opacity: 1; transform: none; transition: none; }
+  .carousel__track { transition: none; }
+}
+
+/* Chiusura invernale — nella pagina col calendario la card fluttuante copriva
+   riepilogo e «Continue», e ripeteva l'avviso .winter-note sopra il calendario. */
+body:has(.booking-widget) .season-card:not(.season-card--hero) { display: none; }
+
+/* Chiusura invernale — su telefono la card era alta 132px (16% dello schermo)
+   su ogni pagina: diventa una barra bassa di due righe attaccata al fondo.
+   Desktop e card della home invariati. */
+@media (max-width: 600px) {
+  .has-winter .season-card:not(.season-card--hero) {
+    left: 0; right: 0; bottom: 0; width: auto;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.6rem 3rem calc(0.65rem + env(safe-area-inset-bottom, 0px)) 1rem;
+    border-width: 1px 0 0;
+    border-radius: 14px 14px 0 0;
+    box-shadow: 0 -8px 30px rgba(26, 26, 26, 0.12);
+  }
+  .season-card:not(.season-card--hero) .season-card__icon { width: 18px; height: 18px; margin-top: 0; }
+  .season-card:not(.season-card--hero) .season-card__label { display: none; }
+  .season-card:not(.season-card--hero) .season-card__body { gap: 0.1rem; }
+  .season-card:not(.season-card--hero) .season-card__title { font-size: 1rem; }
+  .season-card:not(.season-card--hero) .season-card__links { margin-top: 0; gap: 0 0.8rem; }
+  .season-card:not(.season-card--hero) .season-card__links a { font-size: 0.78rem; }
+  /* area di tocco piu' alta senza alzare la barra */
+  .season-card:not(.season-card--hero) .season-card__links a { padding-block: 0.45rem; margin-block: -0.45rem; }
+  .season-card:not(.season-card--hero) .season-card__close { top: 50%; right: 0.25rem; width: 44px; height: 44px; transform: translateY(-50%); }
+  /* il fondo pagina e il focus da tastiera non finiscono sotto la barra */
+  html.has-winter { scroll-padding-bottom: 5rem; }
+  .has-winter body:not(:has(.booking-widget)):has(.season-card:not(.season-card--hero):not(.is-closed)) { padding-bottom: 4.5rem; }
+}
+
+
+/* Things to do — icone SVG al posto delle emoji (audit UI 11/2026): le emoji
+   cambiavano disegno da Android a iPhone e gli screen reader le leggevano ad alta
+   voce («classical building»). Una maschera colorata col colore del testo; le
+   icone sono tratti Lucide/Feather (ISC/MIT). La 🦊 della villa e la ★ restano. */
+.ttd-ico {
+  display: inline-block;
+  flex: none;
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.4em;
+  vertical-align: -0.18em;
+  background-color: currentColor;
+  -webkit-mask: var(--ico) center / contain no-repeat;
+  mask: var(--ico) center / contain no-repeat;
+}
+.ttd-pin { color: #fff; }
+.ttd-pin .ttd-ico { width: 15px; height: 15px; margin: 0; vertical-align: 0; }
+.ttd-ico--landmark { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 21h18M4 10h16M12 3 3 8h18zM6 10v8M10 10v8M14 10v8M18 10v8'/%3E%3C/svg%3E"); }
+.ttd-ico--leaf { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10ZM2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12'/%3E%3C/svg%3E"); }
+.ttd-ico--bike { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='5.5' cy='17.5' r='3.5'/%3E%3Ccircle cx='18.5' cy='17.5' r='3.5'/%3E%3Ccircle cx='15' cy='5' r='1'/%3E%3Cpath d='M12 17.5V14l-3-3 4-3 2 3h2'/%3E%3C/svg%3E"); }
+.ttd-ico--food { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7'/%3E%3C/svg%3E"); }
+.ttd-ico--bag { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4ZM3 6h18M16 10a4 4 0 0 1-8 0'/%3E%3C/svg%3E"); }
+.ttd-ico--anchor { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='5' r='3'/%3E%3Cpath d='M12 22V8M5 12H2a10 10 0 0 0 20 0h-3'/%3E%3C/svg%3E"); }
+.ttd-ico--cross { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='4'/%3E%3Cpath d='M12 8v8M8 12h8'/%3E%3C/svg%3E"); }
+.ttd-ico--wrench { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z'/%3E%3C/svg%3E"); }
+.ttd-ico--car { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2M9 17h6'/%3E%3Ccircle cx='7' cy='17' r='2'/%3E%3Ccircle cx='17' cy='17' r='2'/%3E%3C/svg%3E"); }
+.ttd-ico--waves { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1'/%3E%3C/svg%3E"); }
+.ttd-ico--image { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2'/%3E%3Ccircle cx='9' cy='9' r='2'/%3E%3Cpath d='m21 15-3.09-3.09a2 2 0 0 0-2.82 0L6 21'/%3E%3C/svg%3E"); }
+.ttd-ico--phone { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E"); }
+.ttd-ico--compass { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z'/%3E%3C/svg%3E"); }
+.ttd-ico--globe { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'/%3E%3C/svg%3E"); }
+.ttd-ico--pin { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg%3E"); }
+.ttd-ico--share { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13'/%3E%3C/svg%3E"); }
+.ttd-ico--walk { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0ZM20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0ZM16 17h4M4 13h4'/%3E%3C/svg%3E"); }
+
+/* Pin vicini raggruppati (leaflet.markercluster, caricato da js/things-to-do.js) */
+.ttd-cluster-wrap { background: transparent; border: 0; }
+.ttd-cluster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-black);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  color: #fff;
+  font: 700 0.85rem/1 var(--font-body);
+}
+.leaflet-cluster-anim .leaflet-marker-icon, .leaflet-cluster-anim .leaflet-marker-shadow {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-in;
+}
+@media (prefers-reduced-motion: reduce) {
+  .leaflet-cluster-anim .leaflet-marker-icon, .leaflet-cluster-anim .leaflet-marker-shadow { transition: none; }
+}
+
+/* Telefono: la mappa si sposta solo dopo questo tocco (js/things-to-do.js) */
+.ttd-map__unlock {
+  position: absolute;
+  z-index: 800;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  min-height: 40px;
+  padding: 0.6rem 1.1rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(26, 26, 26, 0.82);
+  color: #fff;
+  font: 600 0.82rem/1.2 var(--font-body);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Titoli letti solo dagli screen reader (es. l'h2 che mancava fra l'h1 e le card in home e nel blog) */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

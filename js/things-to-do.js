@@ -42,6 +42,7 @@
       cat: (el.getAttribute('data-cat') || 'culture').trim(),
       pick: el.hasAttribute('data-pick'),
       emoji: el.getAttribute('data-emoji') || '📍',
+      icon: el.getAttribute('data-icon') || '',   // icona SVG (style.css .ttd-ico--*); la villa tiene la 🦊
       title: titleEl ? titleEl.textContent.trim() : '',
       desc: descEl ? descEl.textContent.trim() : '',
       link: linkEl ? { href: linkEl.getAttribute('href'), text: linkEl.textContent.trim() } : null,
@@ -90,6 +91,8 @@
   var activeFilter = 'all';
   var mapRef = null;
   var groupRef = null;
+  // Telefoni e tablet: dito invece del mouse (mappa bloccata finche' non la tocchi)
+  var COARSE = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
 
   function applyFilter(cat) {
     activeFilter = cat;
@@ -102,7 +105,7 @@
       p.el.style.display = show ? '' : 'none';
       var m = markers[p.id];
       if (m && mapRef && groupRef) {
-        if (show) { if (!mapRef.hasLayer(m)) groupRef.addLayer(m); }
+        if (show) { if (!groupRef.hasLayer(m) && !mapRef.hasLayer(m)) groupRef.addLayer(m); }
         else { groupRef.removeLayer(m); }
       }
     });
@@ -136,8 +139,18 @@
     if (!shown) applyFilter('all');
     mapEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     if (!mapRef) { pendingFocus = id; return; }
-    mapRef.setView([p.lat, p.lng], Math.max(mapRef.getZoom(), 15), { animate: true });
-    if (markers[id]) markers[id].openPopup();
+    if (markers[id]) openMarker(markers[id], p);
+  }
+
+  // Porta la mappa sul posto e apre il fumetto, anche se il pin era dentro un gruppo
+  function openMarker(m, p) {
+    if (groupRef && groupRef.zoomToShowLayer && groupRef.hasLayer(m)) {
+      mapRef.setView([p.lat, p.lng], Math.max(mapRef.getZoom(), 15), { animate: false });
+      groupRef.zoomToShowLayer(m, function () { m.openPopup(); });
+    } else {
+      mapRef.setView([p.lat, p.lng], Math.max(mapRef.getZoom(), 15), { animate: true });
+      m.openPopup();
+    }
   }
   window.VVTtd = { focus: focusPoi };
 
@@ -149,7 +162,8 @@
     var color = CAT_COLOR[p.cat] || CAT_COLOR.culture;
     return L.divIcon({
       className: 'ttd-pin-wrap',
-      html: '<span class="ttd-pin" style="background:' + color + '">' + p.emoji + '</span>',
+      html: '<span class="ttd-pin" style="background:' + color + '">' +
+        (p.icon ? '<span class="ttd-ico ttd-ico--' + p.icon + '"></span>' : p.emoji) + '</span>',
       iconSize: [30, 30],
       iconAnchor: [15, 15],
       popupAnchor: [0, -15]
@@ -171,37 +185,89 @@
     return html + '</div>';
   }
 
+  // Pin vicini raggruppati (intorno a Orta erano una pila illeggibile): plugin
+  // standard di Leaflet, caricato solo qui. Se non arriva, pin sciolti come prima.
+  var CLUSTER_JS = 'https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js';
+  function withCluster(done) {
+    if (L.markerClusterGroup) { done(); return; }
+    var js = document.createElement('script');
+    js.src = CLUSTER_JS;
+    js.onload = js.onerror = function () { done(); };
+    document.body.appendChild(js);
+  }
+
+  function makeGroup() {
+    if (!L.markerClusterGroup) return L.featureGroup();
+    return L.markerClusterGroup({
+      maxClusterRadius: 34,
+      disableClusteringAtZoom: 14,
+      showCoverageOnHover: false,
+      iconCreateFunction: function (cl) {
+        return L.divIcon({
+          className: 'ttd-cluster-wrap',
+          html: '<span class="ttd-cluster">' + cl.getChildCount() + '</span>',
+          iconSize: [38, 38]
+        });
+      }
+    });
+  }
+
   function initMap() {
     if (typeof L === 'undefined') return;
-    var map = L.map('ttd-map', { scrollWheelZoom: false });
+    withCluster(buildMap);
+  }
+
+  function buildMap() {
+    // maxZoom esplicito: markercluster lo pretende, e la base MapLibre non lo dichiara
+    var map = L.map('ttd-map', { scrollWheelZoom: false, maxZoom: 18 });
     mapRef = map;
     VVMap.addBase(map);
 
-    var group = L.featureGroup().addTo(map);
+    var group = makeGroup().addTo(map);
     groupRef = group;
     var bounds = [];
 
     pois.forEach(function (p) {
-      var m = L.marker([p.lat, p.lng], { icon: pinIcon(p), title: p.title });
+      var villaPin = p.cat === 'villa';
+      var m = L.marker([p.lat, p.lng], { icon: pinIcon(p), title: p.title, zIndexOffset: villaPin ? 1000 : 0 });
       m.bindPopup(popupHtml(p), { className: 'ttd-popup-wrap' });
-      m.addTo(group);
+      // la villa resta sempre fuori dai gruppi: e' il punto di riferimento
+      m.addTo(villaPin ? map : group);
       if (p.id) markers[p.id] = m;
       bounds.push([p.lat, p.lng]);
 
       // Card → map: clicking a card focuses its marker.
       p.el.addEventListener('click', function (ev) {
         if (ev.target.closest('a')) return; // let real links work
-        map.setView([p.lat, p.lng], Math.max(map.getZoom(), 15), { animate: true });
-        m.openPopup();
+        openMarker(m, p);
         mapEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
     });
 
-    map.fitBounds(bounds, { padding: [40, 40] });
+    map.fitBounds(bounds, { padding: COARSE ? [20, 20] : [40, 40] });
 
-    // Open the villa marker by default so guests get their bearing.
+    // Su telefono un dito che scorre la pagina non deve restare incastrato nella
+    // mappa (400px su 812): si sposta solo dopo un tocco, lo zoom a due dita va sempre.
+    if (COARSE && map.dragging) {
+      map.dragging.disable();
+      var unlock = document.createElement('button');
+      unlock.type = 'button';
+      unlock.className = 'ttd-map__unlock';
+      unlock.textContent = mapEl.getAttribute('data-t-unlock') || 'Tap to move the map';
+      L.DomEvent.disableClickPropagation(unlock);
+      var free = function () {
+        if (!map.dragging.enabled()) map.dragging.enable();
+        if (unlock.parentNode) unlock.parentNode.removeChild(unlock);
+      };
+      unlock.addEventListener('click', free);
+      map.on('popupopen', free);
+      mapEl.appendChild(unlock);
+    }
+
+    // Open the villa marker by default so guests get their bearing — solo su
+    // computer: sul telefono il fumetto copriva quasi tutti i pin.
     var villa = pois.filter(function (p) { return p.cat === 'villa'; })[0];
-    if (villa && markers[villa.id]) markers[villa.id].openPopup();
+    if (villa && markers[villa.id] && !COARSE && window.innerWidth > 768) markers[villa.id].openPopup();
 
     if (activeFilter !== 'all') applyFilter(activeFilter);
     if (pendingFocus) { var f = pendingFocus; pendingFocus = null; focusPoi(f); }

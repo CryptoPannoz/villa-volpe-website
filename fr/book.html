@@ -36,8 +36,8 @@
   <script>if(Date.now()>=Date.parse('2027-03-29T00:00:00+02:00'))document.documentElement.classList.remove('has-winter');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
-  <link rel="stylesheet" href="../style.css?v=20261105b">
-  <link rel="stylesheet" href="../booking-engine/styles.css">
+  <link rel="stylesheet" href="../style.css?v=20261105ux">
+  <link rel="stylesheet" href="../booking-engine/styles.css?v=20261105ux">
   <style>
     /* ── Layout: single column, centrato ── */
     .booking-layout {
@@ -179,6 +179,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
 
   <aside class="season-card" aria-label="Fermeture hivernale">
     <svg class="season-card__icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M4.2 6.5l15.6 9M4.2 17.5l15.6-9M9.5 3.5 12 6l2.5-2.5M9.5 20.5 12 18l2.5 2.5M3 10.2l3.4.9-.9 3.4M21 13.8l-3.4-.9.9-3.4M3 13.8l3.4-.9-.9-3.4M21 10.2l-3.4.9.9 3.4"/></svg>
@@ -242,11 +243,18 @@
     </div>
   </div>
 
+  <main id="main" tabindex="-1">
+
   <!-- Page Header -->
   <header class="page-header">
     <span class="label page-header__label">Réserver</span>
     <h1 class="page-header__title">Réservez votre séjour</h1>
     <p class="page-header__desc">Vérifiez les disponibilités et réservez en direct — économisez 15 % par rapport à Airbnb.</p>
+    <div class="booking-trust-strip" aria-label="Garanties pour les hôtes">
+      <span>Plus de 690 hôtes ravis</span>
+      <span>Note de 4,91 sur Airbnb</span>
+      <span>Confirmation sous 24 heures</span>
+    </div>
   </header>
 
   <!-- Booking Section -->
@@ -297,7 +305,7 @@
 
             <!-- Available Periods (sopra il calendario) -->
             <div class="available-gaps-section">
-              <h4>Périodes disponibles</h4>
+              <h3>Périodes disponibles</h3>
               <div class="available-gaps" id="available-gaps">
                 <div class="calendar-loader" style="padding:8px;">
                   <span class="spinner"></span>
@@ -328,7 +336,7 @@
               <span class="spinner"></span> Chargement des disponibilités...
             </div>
 
-            <p class="selection-hint" id="selection-hint">Sélectionnez votre date d'arrivée</p>
+            <p class="selection-hint" id="selection-hint" aria-live="polite">Sélectionnez votre date d'arrivée</p>
             <div class="date-error" id="date-error"></div>
 
             <div class="selected-dates">
@@ -346,7 +354,7 @@
             </div>
 
             <div style="margin-top:1.5rem;">
-              <button class="btn-primary" id="continue-to-guests" disabled>Continuer</button>
+              <button class="btn-primary" id="continue-to-guests" aria-describedby="selection-hint" disabled>Continuer</button>
             </div>
           </div>
 
@@ -362,16 +370,16 @@
             <form id="guest-form">
               <div class="form-group">
                 <label for="guest-name">Nom complet</label>
-                <input type="text" id="guest-name" placeholder="Votre nom" required>
+                <input type="text" id="guest-name" autocomplete="name" placeholder="Votre nom" required>
               </div>
               <div class="form-row">
                 <div class="form-group">
                   <label for="guest-email">E-mail</label>
-                  <input type="email" id="guest-email" placeholder="votre@email.com" required>
+                  <input type="email" id="guest-email" autocomplete="email" placeholder="votre@email.com" required>
                 </div>
                 <div class="form-group">
                   <label for="guest-phone">Téléphone</label>
-                  <input type="tel" id="guest-phone" placeholder="+39 123 456 7890" required>
+                  <input type="tel" id="guest-phone" autocomplete="tel" placeholder="+39 123 456 7890" required>
                 </div>
               </div>
               <div class="form-row">
@@ -490,7 +498,7 @@
               <div class="booking-highlight__title">Réservation directe &mdash; économisez 15 %</div>
               <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.7;">
                 Pour les meilleurs tarifs, réservez directement avec nous via ce formulaire ou par e-mail à
-                <a href="mailto:villavolpeorta@gmail.com" style="color:var(--color-accent);font-weight:600;">villavolpeorta@gmail.com</a>.
+                <a href="mailto:villavolpeorta@gmail.com" style="color:var(--color-accent-text);font-weight:600;">villavolpeorta@gmail.com</a>.
                 Vous bénéficierez d'une remise spéciale de 15 % sur le prix Airbnb.
               </p>
             </div>
@@ -499,7 +507,7 @@
               <div class="booking-highlight__title">Via Airbnb</div>
               <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.7;">
                 Vous préférez payer des frais de plateforme plutôt que de faire confiance à un hôte italien sympathique ?
-                On comprend — <a href="https://airbnb.com/rooms/16759665" target="_blank" rel="noopener" style="color:var(--color-accent);font-weight:600;">réservez sur Airbnb</a>.
+                On comprend — <a href="https://airbnb.com/rooms/16759665" target="_blank" rel="noopener" style="color:var(--color-accent-text);font-weight:600;">réservez sur Airbnb</a>.
                 Sachez simplement que vous payez 15 % de plus pour la même villa, le même lac, les mêmes hôtes.
               </p>
             </div>
@@ -508,7 +516,7 @@
               <div class="booking-highlight__title">Payer en crypto</div>
               <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.7;">
                 Vous souhaitez payer en cryptomonnaie ?
-                <a href="https://villavolpeortalake.dtravel.com/" target="_blank" rel="noopener" style="color:var(--color-accent);font-weight:600;">Réservez sur Dtravel</a>
+                <a href="https://villavolpeortalake.dtravel.com/" target="_blank" rel="noopener" style="color:var(--color-accent-text);font-weight:600;">Réservez sur Dtravel</a>
                 et payez en USDT, USDC, ETH ou BTC.
               </p>
             </div>
@@ -538,11 +546,13 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <div id="site-footer"></div>
   <script src="../footer.js?v=20261105"></script>
 
-  <script src="../main.js?v=20261105"></script>
+  <script src="../main.js?v=20261105ux"></script>
   <script src="../booking-engine/calendar.js"></script>
   <script>
     // Hook: popola mini-summary quando si passa allo step guests

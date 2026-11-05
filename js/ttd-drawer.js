@@ -52,9 +52,11 @@
       cat: postcard ? 'postcard' : (a.getAttribute('data-drawer-cat') || a.getAttribute('data-cat')),
       postcard: postcard,
       label: text(a, '.ttd-card__cat'),
+      icon: (function (i) { return i ? (i.className.match(/ttd-ico--([\w-]+)/) || [])[1] : ''; })(a.querySelector('.ttd-card__cat .ttd-ico')),
       title: text(a, '.ttd-card__title'),
       desc: text(a, '.ttd-card__desc'),
       src: img.currentSrc || img.src,
+      w: +img.getAttribute('width') || 720,
       portrait: +img.getAttribute('height') > +img.getAttribute('width'),
       tel: tel ? { href: tel.getAttribute('href'), text: tel.textContent.trim() } : null,
       web: web ? web.getAttribute('href') : '',
@@ -76,6 +78,16 @@
   posts.forEach(function (p, i) { cards.splice(Math.min(cards.length, 1 + i * 2), 0, p); });
 
   // ── The cards on the table ──────────────────────────────────────
+  // Biglietti e cartoline piccoli (tavolo, ventaglio): basta la versione da 360px
+  // (images/things-to-do/*/<id>-360.webp); il retro girato usa sempre quella grande.
+  function setImg(img, c, sizes) {
+    if (/\/images\/things-to-do\/(cards|photos)\/[^/]+\.webp$/.test(c.src.split('?')[0])) {
+      img.sizes = sizes;
+      img.srcset = c.src.replace(/\.webp/, '-360.webp') + ' 360w, ' + c.src + ' ' + c.w + 'w';
+    }
+    img.src = c.src;
+  }
+
   var z = 10;
   cards.forEach(function (c) {
     var b = document.createElement('button');
@@ -84,7 +96,7 @@
     if (c.top) b.setAttribute('data-label', '★ ' + c.badge);
     b.setAttribute('aria-label', c.title + ' — ' + (T.tTurn || ''));
     b.innerHTML = '<img alt="" draggable="false" loading="lazy">';
-    b.firstChild.src = c.src;
+    setImg(b.firstChild, c, '(max-width: 768px) 60vw, 236px');
     c.btn = b;
     table.appendChild(b);
     wireCard(c);
@@ -254,10 +266,19 @@
   var current = null, flipTimer = null;
   var base = window.location.href.split('#')[0];
 
-  function action(tag, cls, label, href) {
+  // Icona SVG (style.css .ttd-ico--*) al posto delle emoji: uguale su ogni telefono
+  function ico(name) {
+    var i = document.createElement('span');
+    i.className = 'ttd-ico ttd-ico--' + name;
+    i.setAttribute('aria-hidden', 'true');
+    return i;
+  }
+
+  function action(tag, cls, label, href, icon) {
     var el = document.createElement(tag);
     el.className = 'ttd-act ' + cls;
     el.textContent = label;
+    if (icon) el.insertBefore(ico(icon), el.firstChild);
     if (tag === 'a') {
       el.href = href;
       if (/^https?:/.test(href)) { el.target = '_blank'; el.rel = 'noopener'; }
@@ -268,31 +289,35 @@
   function fill(c) {
     dlg.querySelector('.ttd-flip__front img').src = c.src;
     dlg.querySelector('.ttd-flip__front img').alt = c.title;
-    dlg.querySelector('.ttd-dlg__cat').textContent = c.label;
+    var cat = dlg.querySelector('.ttd-dlg__cat');
+    cat.textContent = c.label;
+    if (c.icon) cat.insertBefore(ico(c.icon), cat.firstChild);
     dlg.querySelector('.ttd-dlg__title').textContent = c.title;
     dlg.querySelector('.ttd-dlg__desc').textContent = c.desc;
     var d = dlg.querySelector('.ttd-dlg__dist');
-    d.textContent = distText(c);
-    d.hidden = !d.textContent;
+    var dist = distText(c);
+    d.textContent = dist.text;
+    if (dist.icon) d.insertBefore(ico(dist.icon), d.firstChild);
+    d.hidden = !dist.text;
     actions(dlg.querySelector('.ttd-dlg__actions'), c, close);
   }
 
   function distText(c) {
-    return c.pickup ? '🚕 ' + (T.tPickup || '')
-      : c.walk ? '🚶 ' + c.walk + ' ' + (T.tWalk || '')
-      : c.drive ? '🚗 ' + c.drive + ' ' + (T.tDrive || '') : '';
+    return c.pickup ? { icon: 'car', text: T.tPickup || '' }
+      : c.walk ? { icon: 'walk', text: c.walk + ' ' + (T.tWalk || '') }
+      : c.drive ? { icon: 'car', text: c.drive + ' ' + (T.tDrive || '') } : { icon: '', text: '' };
   }
 
   // Call / directions / website / on the map / share (+ the article's own link)
   function actions(box, c, before) {
     box.innerHTML = '';
-    if (c.tel) box.appendChild(action('a', 'ttd-act--main', '📞 ' + (T.tCall || '') + ' · ' + c.tel.text, c.tel.href));
-    if (c.maps) box.appendChild(action('a', '', '🧭 ' + (T.tDirections || ''), c.maps));
-    if (c.web) box.appendChild(action('a', '', '🌐 ' + (T.tWeb || ''), c.web));
-    var onMap = action('button', '', '📍 ' + (T.tMap || ''));
+    if (c.tel) box.appendChild(action('a', 'ttd-act--main', (T.tCall || '') + ' · ' + c.tel.text, c.tel.href, 'phone'));
+    if (c.maps) box.appendChild(action('a', '', T.tDirections || '', c.maps, 'compass'));
+    if (c.web) box.appendChild(action('a', '', T.tWeb || '', c.web, 'globe'));
+    var onMap = action('button', '', T.tMap || '', null, 'pin');
     onMap.addEventListener('click', function () { if (before) before(); if (window.VVTtd) window.VVTtd.focus(c.id); });
     box.appendChild(onMap);
-    var share = action('button', '', '↗ ' + (T.tShare || ''));
+    var share = action('button', '', T.tShare || '', null, 'share');
     share.addEventListener('click', function () { shareCard(c, share); });
     box.appendChild(share);
     if (c.more) box.appendChild(action('a', 'ttd-act--more', c.more.text + ' →', c.more.href));
@@ -350,9 +375,9 @@
       return;
     }
     var done = function () {
-      var old = btn.textContent;
+      var old = Array.prototype.slice.call(btn.childNodes);
       btn.textContent = '✓ ' + (T.tCopied || '');
-      setTimeout(function () { btn.textContent = old; }, 1600);
+      setTimeout(function () { btn.textContent = ''; old.forEach(function (n) { btn.appendChild(n); }); }, 1600);
     };
     if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, function () {});
   }
@@ -377,7 +402,9 @@
     slot.querySelector('.ttd-top__badge').textContent = '★ ' + first.badge;
     slot.querySelector('.ttd-top__title').textContent = first.title;
     slot.querySelector('.ttd-top__desc').textContent = first.desc;
-    slot.querySelector('.ttd-dlg__dist').textContent = distText(first);
+    var dist = distText(first), dEl = slot.querySelector('.ttd-dlg__dist');
+    dEl.textContent = dist.text;
+    if (dist.icon) dEl.insertBefore(ico(dist.icon), dEl.firstChild);
     actions(slot.querySelector('.ttd-dlg__actions'), first, null);
     slot.hidden = false;
   }
@@ -397,7 +424,7 @@
       b.style.zIndex = 10 - Math.abs(i - mid);
       b.setAttribute('aria-label', c.title + ' — ' + (T.tTurn || ''));
       b.innerHTML = '<img alt="" draggable="false">';
-      b.firstChild.src = c.src;
+      setImg(b.firstChild, c, '(max-width: 768px) 36vw, 17vw');
       b.addEventListener('click', function () { open(c); });
       fan.appendChild(b);
     });
