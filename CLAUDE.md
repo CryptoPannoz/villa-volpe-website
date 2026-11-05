@@ -43,10 +43,12 @@ Sito di villa-volpe.com.
 - **Feed Instagram sopra il footer** (ottobre 2026): `js/ig-feed.js`, caricato in async da `footer.js` (quindi su tutte le pagine con `#site-footer`, nelle 4 lingue), stili nel blocco "INSTAGRAM" in fondo a `style.css`. Legge `GET https://villa-volpe-v5.vercel.app/api/public/instagram` (v5 fa da proxy alle immagini) solo quando il footer arriva a ~600px dallo schermo, e crea la sezione **solo a dati arrivati**: errore, timeout di 5 s o meno di 3 post = non compare nulla. 6 riquadri (3 se i post validi sono 3-5). Per provarlo in locale: `window.VV_IG_FEED_URL = '<url del JSON finto>'` prima di scendere al footer. Per spegnerlo: togliere le righe che caricano `js/ig-feed.js` in fondo a `footer.js`.
 - **Pianta interattiva** (dal 04/11/2026, voluta da Alberto): sezione `#floor-plan` in cima alle 4 `discover.html`
   (prima di «Esterni», `section--alt`; le gallerie hanno ora gli id `outdoor`, `bedrooms`, `living`, `bathroom`).
-  Immagine `images/plan/villa-volpe-plan.webp`: la pianta esatta di `scripts/villa-plan.py` del repo v5 (planimetria
-  del manuale 2025 + foto + correzioni di Alberto del 04/11/2026) resa dall'alto con Higgsfield; l'inquadratura del
-  render, misurata sui muri, sta in `xy()`, quindi le coordinate dei punti restano quelle della planimetria (come
-  `planXY` in v5). Visore `js/vv-plan.js` (punti, testi nelle 4 lingue
+  Immagine `images/plan/villa-volpe-plan.webp` (2048×1638): la pianta di `scripts/villa-plan.py` del repo v5
+  (planimetria del manuale 2025 + foto + correzioni di Alberto del 04/11/2026) resa da `scripts/villa-plan-render.py`
+  di v5; dal 05/11/2026 l'esterno segue la foto del drone (parcheggio sul tetto lastricato a est, senza auto, giardino triangolare
+  con l'albero, muro di pietra in diagonale, scala di pietra al lago, vialetto e tavolo di legno a nord) e la lavatrice
+  non è più disegnata. L'inquadratura sta in `xy()`, quindi le coordinate dei punti restano quelle della planimetria
+  (come `planXY` in v5); immagine e script hanno `?v=` nei link, da cambiare a ogni nuova pianta (cache di 10 minuti). Visore `js/vv-plan.js` (punti, testi nelle 4 lingue
   e foto delle gallerie, scheda accanto; la lente è stata tolta su richiesta di Alberto) e stili nel blocco «PIANTA INTERATTIVA» in fondo a `style.css`. Sul sito solo
   stanze ed esterni: niente punti tecnici (caldaia, quadro, router), che stanno solo nella guida ospiti di v5.
 - **Things to do: «il cassetto dei biglietti»** (dal 04/11/2026, voluto da Alberto): le 14 «scelte di casa» sono i
