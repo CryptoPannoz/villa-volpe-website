@@ -35,7 +35,7 @@
   <script>if(Date.now()>=Date.parse('2027-03-29T00:00:00+02:00'))document.documentElement.classList.remove('has-winter');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20261105">
   <link rel="stylesheet" href="booking-engine/styles.css">
   <style>
     /* ── Layout: single column, centrato ── */
@@ -179,11 +179,16 @@
 </head>
 <body>
 
-  <a class="promo-bar" href="/blog/posts/lake-orta-mid-term-stay-month-or-more.html" aria-label="Closed for winter until 28 March 2027, reopening 29 March. Mid-term stays and tailor-made requests welcome">
-    <span class="promo-bar__tag">Winter</span>
-    <span class="promo-bar__text"><strong>Closed until 28 March 2027</strong><span class="promo-bar__dates"> &mdash; reopening 29 March</span></span>
-    <span class="promo-bar__cta">Mid-term &amp; tailor-made stays &rarr;</span>
-  </a>
+  <aside class="season-card" aria-label="Winter closure">
+    <svg class="season-card__icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M4.2 6.5l15.6 9M4.2 17.5l15.6-9M9.5 3.5 12 6l2.5-2.5M9.5 20.5 12 18l2.5 2.5M3 10.2l3.4.9-.9 3.4M21 13.8l-3.4-.9.9-3.4M3 13.8l3.4-.9-.9-3.4M21 10.2l-3.4.9.9 3.4"/></svg>
+    <div class="season-card__body">
+      <span class="season-card__label">Winter break</span>
+      <strong class="season-card__title">Closed until 28 March 2027</strong>
+      <span class="season-card__text">We reopen on 29 March: spring is the loveliest time on the lake.</span>
+      <span class="season-card__links"><a href="/book.html">See the calendar &rarr;</a><a href="/blog/posts/lake-orta-mid-term-stay-month-or-more.html">Stay a month or more &rarr;</a></span>
+    </div>
+    <button type="button" class="season-card__close" aria-label="Close">&times;</button>
+  </aside>
 
   <!-- Navigation -->
   <nav class="nav" id="nav">
@@ -192,6 +197,7 @@
       <ul class="nav__links">
         <li><a href="index.html" class="nav__link">Home</a></li>
         <li><a href="discover.html" class="nav__link">Discover</a></li>
+        <li><a href="things-to-do-lake-orta.html" class="nav__link">Things to do</a></li>
         <li><a href="story.html" class="nav__link">Story</a></li>
         <li><a href="blog.html" class="nav__link">Blog</a></li>
         <li><a href="faqs.html" class="nav__link">FAQs</a></li>
@@ -213,6 +219,7 @@
     <button class="mobile-menu__close" id="mobileClose" aria-label="Close menu">&times;</button>
     <a href="index.html">Home</a>
     <a href="discover.html">Discover</a>
+    <a href="things-to-do-lake-orta.html">Things to do</a>
     <a href="story.html">Story</a>
     <a href="blog.html">Blog</a>
     <a href="faqs.html">FAQs</a>
@@ -530,9 +537,9 @@
 
   <!-- Footer -->
   <div id="site-footer"></div>
-  <script src="footer.js"></script>
+  <script src="footer.js?v=20261105"></script>
 
-  <script src="main.js"></script>
+  <script src="main.js?v=20261105"></script>
   <script src="booking-engine/calendar.js"></script>
   <script>
     // Hook: popola mini-summary quando si passa allo step guests

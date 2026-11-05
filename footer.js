@@ -23,28 +23,28 @@
   var T = {
     en: {
       desc: 'A design glass cube on the sunny shore of Lake Orta. Three meters from crystal clear water, with a view of San Giulio Island.',
-      explore: 'Explore', discover: 'Discover', story: 'Our Story', blog: 'Blog', faqs: 'FAQs',
+      explore: 'Explore', discover: 'Discover', things: 'Things to do', story: 'Our Story', blog: 'Blog', faqs: 'FAQs',
       contact: 'Contact', address: 'Via Novara 38 - Orta San Giulio 28016 - Italy',
       book: 'Book', directBooking: 'Direct Booking (-15%)', airbnb: 'Airbnb Listing', crypto: 'Pay with Crypto',
       rights: '© 2026 Villa Volpe. All rights reserved.'
     },
     fr: {
       desc: 'Un cube de verre design sur la rive ensoleillée du lac d’Orta. À trois mètres d’une eau cristalline, avec vue sur l’île de San Giulio.',
-      explore: 'Explorer', discover: 'Découvrir', story: 'Notre histoire', blog: 'Blog', faqs: 'FAQ',
+      explore: 'Explorer', discover: 'Découvrir', things: 'À faire', story: 'Notre histoire', blog: 'Blog', faqs: 'FAQ',
       contact: 'Contact', address: 'Via Novara 38 - Orta San Giulio 28016 - Italie',
       book: 'Réserver', directBooking: 'Réservation directe (-15%)', airbnb: 'Annonce Airbnb', crypto: 'Payer en crypto',
       rights: '© 2026 Villa Volpe. Tous droits réservés.'
     },
     de: {
       desc: 'Ein Design-Glaswürfel am sonnigen Ufer des Ortasees. Drei Meter vom kristallklaren Wasser entfernt, mit Blick auf die Insel San Giulio.',
-      explore: 'Entdecken', discover: 'Entdecken', story: 'Unsere Geschichte', blog: 'Blog', faqs: 'FAQ',
+      explore: 'Entdecken', discover: 'Entdecken', things: 'Ausflüge', story: 'Unsere Geschichte', blog: 'Blog', faqs: 'FAQ',
       contact: 'Kontakt', address: 'Via Novara 38 - Orta San Giulio 28016 - Italien',
       book: 'Buchen', directBooking: 'Direktbuchung (-15%)', airbnb: 'Airbnb-Inserat', crypto: 'Mit Krypto zahlen',
       rights: '© 2026 Villa Volpe. Alle Rechte vorbehalten.'
     },
     it: {
       desc: 'Un cubo di vetro di design sulla riva soleggiata del Lago d’Orta. A tre metri dall’acqua cristallina, con vista sull’Isola di San Giulio.',
-      explore: 'Esplora', discover: 'Scopri', story: 'La nostra storia', blog: 'Blog', faqs: 'FAQ',
+      explore: 'Esplora', discover: 'Scopri', things: 'Cosa fare', story: 'La nostra storia', blog: 'Blog', faqs: 'FAQ',
       contact: 'Contatti', address: 'Via Novara 38 - Orta San Giulio 28016 - Italia',
       book: 'Prenota', directBooking: 'Prenotazione diretta (-15%)', airbnb: 'Annuncio Airbnb', crypto: 'Paga in crypto',
       rights: '© 2026 Villa Volpe. Tutti i diritti riservati.'
@@ -64,6 +64,7 @@
           <div class="footer__title">${t.explore}</div>
           <ul class="footer__links">
             <li><a href="${langBase}discover.html">${t.discover}</a></li>
+            <li><a href="${langBase}things-to-do-lake-orta.html">${t.things}</a></li>
             <li><a href="${langBase}story.html">${t.story}</a></li>
             <li><a href="${blogHref}">${t.blog}</a></li>
             <li><a href="${langBase}faqs.html">${t.faqs}</a></li>

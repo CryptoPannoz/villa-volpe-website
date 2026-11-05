@@ -435,3 +435,16 @@
   if (document.readyState !== 'loading') init();
   else document.addEventListener('DOMContentLoaded', init);
 })();
+
+/* Chiusura invernale (style.css, .season-card): la card in basso si chiude e resta chiusa in questo browser. */
+(function () {
+  var card = document.querySelector('.season-card:not(.season-card--hero)');
+  if (!card) return;
+  var KEY = 'vv-winter-2027-closed';
+  try { if (localStorage.getItem(KEY)) card.classList.add('is-closed'); } catch (e) { /* niente storage: resta aperta */ }
+  var btn = card.querySelector('.season-card__close');
+  if (btn) btn.addEventListener('click', function () {
+    card.classList.add('is-closed');
+    try { localStorage.setItem(KEY, '1'); } catch (e) { /* va bene anche così */ }
+  });
+})();
