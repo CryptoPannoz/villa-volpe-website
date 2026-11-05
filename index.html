@@ -36,7 +36,7 @@
   <script>if(Date.now()>=Date.parse('2027-03-29T00:00:00+02:00'))document.documentElement.classList.remove('has-winter');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=20261105">
+  <link rel="stylesheet" href="style.css?v=20261105b">
   <!-- Leaflet CSS viene caricato on-demand allo scroll (vedi script in fondo) -->
   <script type="application/ld+json">
   {
@@ -177,11 +177,21 @@
       <a href="index.html" class="nav__logo">Villa <span>Volpe</span></a>
       <ul class="nav__links">
         <li><a href="index.html" class="nav__link nav__link--active">Home</a></li>
-        <li><a href="discover.html" class="nav__link">Discover</a></li>
-        <li><a href="things-to-do-lake-orta.html" class="nav__link">Things to do</a></li>
-        <li><a href="story.html" class="nav__link">Story</a></li>
-        <li><a href="blog.html" class="nav__link">Blog</a></li>
-        <li><a href="faqs.html" class="nav__link">FAQs</a></li>
+        <li class="nav__group">
+          <a href="discover.html" class="nav__link">Discover<span class="nav__caret" aria-hidden="true"></span></a>
+          <ul class="nav__sub">
+            <li><a href="discover.html">The villa</a></li>
+            <li><a href="story.html">Our story</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+          </ul>
+        </li>
+        <li class="nav__group">
+          <a href="things-to-do-lake-orta.html" class="nav__link">Lake Orta<span class="nav__caret" aria-hidden="true"></span></a>
+          <ul class="nav__sub">
+            <li><a href="things-to-do-lake-orta.html">Things to do</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </li>
       </ul>
       <div class="nav__lang" role="group" aria-label="Language">
         <a href="index.html" class="nav__lang-link nav__lang-link--active" hreflang="en" lang="en">EN</a>
@@ -201,10 +211,9 @@
     <button class="mobile-menu__close" id="mobileClose" aria-label="Close menu">&times;</button>
     <a href="index.html">Home</a>
     <a href="discover.html">Discover</a>
-    <a href="things-to-do-lake-orta.html">Things to do</a>
-    <a href="story.html">Story</a>
-    <a href="blog.html">Blog</a>
-    <a href="faqs.html">FAQs</a>
+    <p class="mobile-menu__sub"><a href="discover.html">The villa</a><a href="story.html">Our story</a><a href="faqs.html">FAQs</a></p>
+    <a href="things-to-do-lake-orta.html">Lake Orta</a>
+    <p class="mobile-menu__sub"><a href="things-to-do-lake-orta.html">Things to do</a><a href="blog.html">Blog</a></p>
     <a href="book.html" class="btn btn--dark">Book Now</a>
     <div class="mobile-menu__lang" role="group" aria-label="Language">
       <a href="index.html" class="nav__lang-link nav__lang-link--active" hreflang="en">EN</a>

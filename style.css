@@ -3561,12 +3561,39 @@ html.no-io .vv-cinema .label { opacity: 1; transform: none; }
 /* i link «Vedi le foto» della pianta portano alle gallerie: niente titolo sotto la barra in alto */
 #floor-plan, #outdoor, #bedrooms, #living, #bathroom, #amenities { scroll-margin-top: 5.5rem; }
 
-/* ---------- Menu a sei voci ----------
-   Dal 05/11/2026 c'è anche «Things to do»: fra 1025 e 1280 px (il menu completo comincia a 1025) le voci, le lingue
-   e «Book now» stavano strette, in tedesco il logo andava a capo e le lingue finivano sopra «FAQ». */
+/* ---------- Menu a tre voci (05/11/2026) ----------
+   Home · Discover · Lake Orta: le altre pagine (la villa, la storia, le FAQ; cosa fare, il blog) stanno nelle
+   tendine, che si aprono passando sopra o con il tab. Sul telefono, sotto ogni voce grande, una riga di voci piccole. */
 .nav__logo, .nav__cta { white-space: nowrap; }
-@media (min-width: 1025px) and (max-width: 1280px) {
-  .nav__inner { gap: 1.25rem; }
-  .nav__links { gap: 1.35rem; }
-  .nav__link { font-size: 0.74rem; letter-spacing: 0.06em; }
+.nav__group { position: relative; }
+.nav__group > .nav__link { display: inline-flex; align-items: center; gap: 0.45em; }
+.nav__caret {
+  width: 0.38em; height: 0.38em; margin-top: -0.25em;
+  border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg); transition: transform var(--duration) var(--ease), margin var(--duration) var(--ease);
 }
+.nav__group:hover .nav__caret, .nav__group:focus-within .nav__caret { transform: rotate(225deg); margin-top: 0.2em; }
+/* ponte invisibile fra la voce e la tendina: passando col mouse non si chiude */
+.nav__group::after { content: ''; position: absolute; left: -1rem; right: -1rem; top: 100%; height: 1.6rem; }
+.nav__sub {
+  position: absolute; top: calc(100% + 1.1rem); left: 50%; z-index: 2;
+  min-width: 13.5rem; margin: 0; padding: 0.55rem 0; list-style: none;
+  background: var(--color-bg); border: 1px solid var(--color-border);
+  box-shadow: 0 22px 44px -22px rgba(26, 26, 26, 0.28);
+  opacity: 0; visibility: hidden; transform: translate(-50%, -6px);
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease), visibility 0.2s;
+}
+.nav__group:hover .nav__sub, .nav__group:focus-within .nav__sub { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.nav__sub a {
+  display: block; padding: 0.6rem 1.35rem; white-space: nowrap;
+  font-size: 0.92rem; color: var(--color-text); transition: color var(--duration) var(--ease), background var(--duration) var(--ease);
+}
+.nav__sub a:hover, .nav__sub a:focus-visible { color: var(--color-black); background: rgba(139, 115, 85, 0.08); }
+.nav__sub a[aria-current="page"] { color: var(--color-accent); }
+
+.mobile-menu__sub { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem 1.1rem; margin: -1.1rem 0 0.2rem; padding: 0 1rem; }
+.mobile-menu .mobile-menu__sub a {
+  font-family: var(--font-body); font-size: 0.82rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-light);
+}
+

@@ -17,7 +17,7 @@
   <script>if(Date.now()>=Date.parse('2027-03-29T00:00:00+02:00'))document.documentElement.classList.remove('has-winter');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
-  <link rel="stylesheet" href="../../style.css?v=20261105">
+  <link rel="stylesheet" href="../../style.css?v=20261105b">
   <link rel="canonical" href="https://www.villa-volpe.com/blog/posts/lake-orta-mid-term-stay-month-or-more.html">
   <meta property="og:title" content="Mid-Term Stays on Lake Orta: A Month or More at Villa Volpe">
   <meta property="og:description" content="Rent a lakefront house on Lake Orta for a month or more, October to May. Monthly quotes for remote workers, sabbaticals and slow travellers from the US and beyond.">
@@ -215,11 +215,21 @@
       <a href="/" class="nav__logo">Villa <span>Volpe</span></a>
       <ul class="nav__links">
         <li><a href="/" class="nav__link">Home</a></li>
-        <li><a href="../../discover.html" class="nav__link">Discover</a></li>
-        <li><a href="../../things-to-do-lake-orta.html" class="nav__link">Things to do</a></li>
-        <li><a href="../../story.html" class="nav__link">Story</a></li>
-        <li><a href="../../blog.html" class="nav__link nav__link--active">Blog</a></li>
-        <li><a href="../../faqs.html" class="nav__link">FAQs</a></li>
+        <li class="nav__group">
+          <a href="../../discover.html" class="nav__link">Discover<span class="nav__caret" aria-hidden="true"></span></a>
+          <ul class="nav__sub">
+            <li><a href="../../discover.html">The villa</a></li>
+            <li><a href="../../story.html">Our story</a></li>
+            <li><a href="../../faqs.html">FAQs</a></li>
+          </ul>
+        </li>
+        <li class="nav__group">
+          <a href="../../things-to-do-lake-orta.html" class="nav__link nav__link--active">Lake Orta<span class="nav__caret" aria-hidden="true"></span></a>
+          <ul class="nav__sub">
+            <li><a href="../../things-to-do-lake-orta.html">Things to do</a></li>
+            <li><a href="../../blog.html">Blog</a></li>
+          </ul>
+        </li>
       </ul>
       <div class="nav__lang" role="group" aria-label="Language">
         <a href="lake-orta-mid-term-stay-month-or-more.html" class="nav__lang-link nav__lang-link--active" hreflang="en" lang="en">EN</a>
@@ -238,10 +248,9 @@
     <button class="mobile-menu__close" id="mobileClose" aria-label="Close menu">&times;</button>
     <a href="/">Home</a>
     <a href="../../discover.html">Discover</a>
-    <a href="../../things-to-do-lake-orta.html">Things to do</a>
-    <a href="../../story.html">Story</a>
-    <a href="../../blog.html">Blog</a>
-    <a href="../../faqs.html">FAQs</a>
+    <p class="mobile-menu__sub"><a href="../../discover.html">The villa</a><a href="../../story.html">Our story</a><a href="../../faqs.html">FAQs</a></p>
+    <a href="../../things-to-do-lake-orta.html">Lake Orta</a>
+    <p class="mobile-menu__sub"><a href="../../things-to-do-lake-orta.html">Things to do</a><a href="../../blog.html">Blog</a></p>
     <a href="../../book.html" class="btn btn--dark">Book Now</a>
     <div class="mobile-menu__lang" role="group" aria-label="Language">
       <a href="lake-orta-mid-term-stay-month-or-more.html" class="nav__lang-link nav__lang-link--active" hreflang="en">EN</a>
