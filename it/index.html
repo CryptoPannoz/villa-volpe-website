@@ -36,7 +36,7 @@
   <script>if(Date.now()>=Date.parse('2027-03-29T00:00:00+02:00'))document.documentElement.classList.remove('has-winter');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css?v=20261105">
   <!-- Leaflet CSS viene caricato on-demand allo scroll (vedi script in fondo) -->
   <script type="application/ld+json">
   {
@@ -170,11 +170,6 @@
 </head>
 <body>
 
-  <a class="promo-bar" href="/blog/posts/lake-orta-mid-term-stay-month-or-more.html" aria-label="Chiusi per l&#39;inverno fino al 28 marzo 2027, riapriamo il 29 marzo. Disponibili per soggiorni lunghi e richieste su misura">
-    <span class="promo-bar__tag">Inverno</span>
-    <span class="promo-bar__text"><strong>Chiusi fino al 28 marzo 2027</strong><span class="promo-bar__dates"> &mdash; riapriamo il 29 marzo</span></span>
-    <span class="promo-bar__cta">Soggiorni lunghi e su misura &rarr;</span>
-  </a>
 
   <!-- Navigation -->
   <nav class="nav" id="nav">
@@ -183,6 +178,7 @@
       <ul class="nav__links">
         <li><a href="index.html" class="nav__link nav__link--active">Home</a></li>
         <li><a href="discover.html" class="nav__link">Scopri</a></li>
+        <li><a href="things-to-do-lake-orta.html" class="nav__link">Cosa fare</a></li>
         <li><a href="story.html" class="nav__link">Storia</a></li>
         <li><a href="blog.html" class="nav__link">Blog</a></li>
         <li><a href="faqs.html" class="nav__link">FAQ</a></li>
@@ -205,6 +201,7 @@
     <button class="mobile-menu__close" id="mobileClose" aria-label="Chiudi il menu">&times;</button>
     <a href="index.html">Home</a>
     <a href="discover.html">Scopri</a>
+    <a href="things-to-do-lake-orta.html">Cosa fare</a>
     <a href="story.html">Storia</a>
     <a href="blog.html">Blog</a>
     <a href="faqs.html">FAQ</a>
@@ -240,6 +237,15 @@
     </div>
     <div class="hero__overlay"></div>
     <div class="hero__content">
+      <aside class="season-card season-card--hero" aria-label="Chiusura invernale">
+        <svg class="season-card__icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M4.2 6.5l15.6 9M4.2 17.5l15.6-9M9.5 3.5 12 6l2.5-2.5M9.5 20.5 12 18l2.5 2.5M3 10.2l3.4.9-.9 3.4M21 13.8l-3.4-.9.9-3.4M3 13.8l3.4-.9-.9-3.4M21 10.2l-3.4.9.9 3.4"/></svg>
+        <div class="season-card__body">
+          <span class="season-card__label">Pausa invernale</span>
+          <strong class="season-card__title">Chiusi fino al 28 marzo 2027</strong>
+          <span class="season-card__text">Riapriamo il 29 marzo: la primavera è il momento più bello sul lago.</span>
+          <span class="season-card__links"><a href="/it/book.html">Guarda il calendario &rarr;</a><a href="/blog/posts/lake-orta-mid-term-stay-month-or-more.html">Un mese o più &rarr;</a></span>
+        </div>
+      </aside>
       <span class="hero__label">Lago d'Orta, Piemonte &mdash; Italia</span>
       <h1 class="hero__title">Villa Volpe</h1>
       <p class="hero__subtitle">Tutto quello che ti serve, sulla sponda soleggiata del Lago d'Orta. A tre metri da un'acqua cristallina.</p>
@@ -277,6 +283,29 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Things to do: il cassetto dei biglietti da visita, in alto in home (05/11/2026, Alberto: «dagli più risalto») -->
+  <section class="section home-ttd">
+    <div class="container home-ttd__inner">
+      <div class="home-ttd__text reveal">
+        <span class="label">Cosa fare sul Lago d'Orta</span>
+        <div class="divider"></div>
+        <h2>Il nostro lago, <em>biglietto per biglietto</em></h2>
+        <p>I biglietti da visita che teniamo nel cassetto di Villa Volpe: i ristoranti che amiamo, la barca che passa a prenderti al pontile, passeggiate, sport sul lago e le cartoline che valgono il viaggio. Tutti sulla mappa, con la distanza dalla villa.</p>
+        <div class="home-ttd__actions">
+          <a href="things-to-do-lake-orta.html#drawer" class="btn btn--dark">Apri il cassetto</a>
+          <a href="things-to-do-lake-orta.html#picks" class="btn btn--ghost">Le nostre scelte sulla mappa</a>
+        </div>
+      </div>
+      <a class="home-ttd__fan reveal" href="things-to-do-lake-orta.html#drawer" aria-label="Cosa fare sul Lago d'Orta: apri il cassetto dei biglietti">
+        <img class="home-ttd__card home-ttd__card--postcard" src="../images/things-to-do/photos/isola-san-giulio.webp" alt="" width="720" height="450" loading="lazy" decoding="async">
+        <img class="home-ttd__card" src="../images/things-to-do/cards/filo-fieno.webp" alt="" width="720" height="482" loading="lazy" decoding="async">
+        <img class="home-ttd__card home-ttd__card--postcard" src="../images/things-to-do/photos/antico-agnello-limonaia.webp" alt="" width="960" height="600" loading="lazy" decoding="async">
+        <img class="home-ttd__card" src="../images/things-to-do/cards/wakeboard.webp" alt="" width="720" height="476" loading="lazy" decoding="async">
+        <img class="home-ttd__card" src="../images/things-to-do/cards/navigazione.webp" alt="" width="720" height="450" loading="lazy" decoding="async">
+      </a>
     </div>
   </section>
 
@@ -437,7 +466,7 @@
 
   <!-- Footer -->
 <div id="site-footer"></div>
-<script src="../footer.js"></script>
+<script src="../footer.js?v=20261105"></script>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
@@ -448,7 +477,7 @@
     <div class="lightbox__counter"></div>
   </div>
 
-  <script src="../main.js"></script>
+  <script src="../main.js?v=20261105"></script>
   <!-- Hero video: caricato dopo il load, messo in pausa fuori schermo, parallax -->
   <script>
   (function(){
