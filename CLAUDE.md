@@ -48,7 +48,12 @@ Sito di villa-volpe.com.
   di v5; dal 05/11/2026 l'esterno segue la foto del drone (parcheggio sul tetto lastricato a est, senza auto, giardino triangolare
   con l'albero, muro di pietra in diagonale, scala di pietra al lago, vialetto e tavolo di legno a nord) e la lavatrice
   non è più disegnata. L'inquadratura sta in `xy()`, quindi le coordinate dei punti restano quelle della planimetria
-  (come `planXY` in v5); immagine e script hanno `?v=` nei link, da cambiare a ogni nuova pianta (cache di 10 minuti). Visore `js/vv-plan.js` (punti, testi nelle 4 lingue
+  (come `planXY` in v5); immagine, script e `style.css` hanno `?v=` nei link delle `discover.html`, da cambiare a ogni
+  nuova pianta (cache di 10 minuti). Punti (Alberto, 05/11/2026): 1 parcheggio, 2 soggiorno (due foto, `photos`, da
+  scorrere con i puntini), 3 cucina (foto della cucina ad angolo), 4 camera 1 = nord-est col quadro dei pesci, 5 camera
+  2 = sud con la portafinestra sul lago, 6 bagno, 7 ingresso con vista lago all'angolo dove scende la rampa (al posto
+  della terrazza), 8 doccia esterna vicino all'angolo della casa (foto vera, `outdoor-shower-stone-sink`), 9 accesso
+  privato al lago. Visore `js/vv-plan.js` (punti, testi nelle 4 lingue
   e foto delle gallerie, scheda accanto; la lente è stata tolta su richiesta di Alberto) e stili nel blocco «PIANTA INTERATTIVA» in fondo a `style.css`. Sul sito solo
   stanze ed esterni: niente punti tecnici (caldaia, quadro, router), che stanno solo nella guida ospiti di v5.
 - **Things to do: «il cassetto dei biglietti»** (dal 04/11/2026, voluto da Alberto): le 14 «scelte di casa» sono i
