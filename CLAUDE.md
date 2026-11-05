@@ -47,7 +47,9 @@ Sito di villa-volpe.com.
   (planimetria del manuale 2025 + foto + correzioni di Alberto del 04/11/2026) resa da `scripts/villa-plan-render.py`
   di v5; dal 05/11/2026 l'esterno segue la foto del drone (parcheggio sul tetto lastricato a est, senza auto, giardino triangolare
   con l'albero, muro di pietra in diagonale, scala di pietra al lago, vialetto e tavolo di legno a nord) e la lavatrice
-  non è più disegnata. L'inquadratura sta in `xy()`, quindi le coordinate dei punti restano quelle della planimetria
+  non è più disegnata. Dal 05/11/2026 sera l'immagine è il render del modello 3D di v5 (`scripts/pianta-3d`, texture
+  fatte con Higgsfield dalle foto vere, porta, doccia, siepe, lastre e porfido corretti, ombrellone e tende) passato in
+  Nano Banana Pro e riallineato al pixel, stessa inquadratura: si copia da `public/volpe-pianta.webp` di v5. L'inquadratura sta in `xy()`, quindi le coordinate dei punti restano quelle della planimetria
   (come `planXY` in v5); immagine, script e `style.css` hanno `?v=` nei link delle `discover.html`, da cambiare a ogni
   nuova pianta (cache di 10 minuti). Punti (Alberto, 05/11/2026): 1 parcheggio, 2 soggiorno (due foto, `photos`, da
   scorrere con i puntini), 3 cucina (foto della cucina ad angolo), 4 camera 1 = nord-est col quadro dei pesci, 5 camera

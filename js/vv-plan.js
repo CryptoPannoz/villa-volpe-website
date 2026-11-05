@@ -16,7 +16,7 @@
   var LANGS = ['en', 'it', 'de', 'fr'];
   var L = Math.max(0, LANGS.indexOf((document.documentElement.lang || 'en').slice(0, 2)));
   var BASE = root.getAttribute('data-base') || '';
-  var SRC = BASE + 'images/plan/villa-volpe-plan.webp?v=20261105b';
+  var SRC = BASE + 'images/plan/villa-volpe-plan.webp?v=20261105c';
   var GAL = BASE + 'images/gallery/';
   var W = 2048, H = 1638;
   function xy(x, y) { return { left: (2.5924 * x + 816.6) / W * 100, top: (2.5924 * y + 378.5) / H * 100 }; }
