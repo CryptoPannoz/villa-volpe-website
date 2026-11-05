@@ -3512,6 +3512,17 @@ html.no-io .vv-cinema .label { opacity: 1; transform: none; }
 @container (min-width: 560px) { .vv-plan__name { display: inline-block; } }
 .vv-plan__card { overflow: hidden; border-radius: 20px; background: #fff; border: 1px solid var(--color-border); }
 .vv-plan__photo { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: var(--color-surface); }
+/* più foto per lo stesso punto: si scorrono, i puntini dicono quale si vede */
+.vv-plan__photos { position: relative; }
+.vv-plan__strip { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.vv-plan__strip::-webkit-scrollbar { display: none; }
+.vv-plan__strip .vv-plan__photo { flex: 0 0 100%; scroll-snap-align: start; }
+.vv-plan__dots { position: absolute; left: 0; right: 0; bottom: 10px; display: flex; justify-content: center; gap: 7px; }
+.vv-plan__dot {
+  width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; cursor: pointer;
+  background: rgba(255, 255, 255, 0.55); box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+.vv-plan__dot[aria-current="true"] { background: #fff; }
 .vv-plan__body { padding: 1.4rem 1.4rem 1.25rem; }
 .vv-plan__head { display: flex; align-items: center; gap: 0.75rem; }
 .vv-plan__badge {
