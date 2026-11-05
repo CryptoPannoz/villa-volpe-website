@@ -37,7 +37,7 @@
   <script>if(Date.now()>=Date.parse('2027-03-29T00:00:00+02:00'))document.documentElement.classList.remove('has-winter');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
-  <link rel="stylesheet" href="../../../style.css?v=20261105">
+  <link rel="stylesheet" href="../../../style.css?v=20261105b">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -164,11 +164,21 @@
       <a href="../../index.html" class="nav__logo">Villa <span>Volpe</span></a>
       <ul class="nav__links">
         <li><a href="../../index.html" class="nav__link">Home</a></li>
-        <li><a href="../../discover.html" class="nav__link">Scopri</a></li>
-        <li><a href="../../things-to-do-lake-orta.html" class="nav__link">Cosa fare</a></li>
-        <li><a href="../../story.html" class="nav__link">Storia</a></li>
-        <li><a href="../../blog.html" class="nav__link nav__link--active">Blog</a></li>
-        <li><a href="../../faqs.html" class="nav__link">FAQ</a></li>
+        <li class="nav__group">
+          <a href="../../discover.html" class="nav__link">Scopri<span class="nav__caret" aria-hidden="true"></span></a>
+          <ul class="nav__sub">
+            <li><a href="../../discover.html">La villa</a></li>
+            <li><a href="../../story.html">La nostra storia</a></li>
+            <li><a href="../../faqs.html">FAQ</a></li>
+          </ul>
+        </li>
+        <li class="nav__group">
+          <a href="../../things-to-do-lake-orta.html" class="nav__link nav__link--active">Lago d'Orta<span class="nav__caret" aria-hidden="true"></span></a>
+          <ul class="nav__sub">
+            <li><a href="../../things-to-do-lake-orta.html">Cosa fare</a></li>
+            <li><a href="../../blog.html">Blog</a></li>
+          </ul>
+        </li>
       </ul>
       <div class="nav__lang" role="group" aria-label="Lingua">
         <a href="../../../blog/posts/dodo-gorla-sailing-lake-orta.html" class="nav__lang-link" hreflang="en" lang="en">EN</a>
@@ -186,10 +196,9 @@
     <button class="mobile-menu__close" id="mobileClose" aria-label="Chiudi il menu">&times;</button>
     <a href="../../index.html">Home</a>
     <a href="../../discover.html">Scopri</a>
-    <a href="../../things-to-do-lake-orta.html">Cosa fare</a>
-    <a href="../../story.html">Storia</a>
-    <a href="../../blog.html">Blog</a>
-    <a href="../../faqs.html">FAQ</a>
+    <p class="mobile-menu__sub"><a href="../../discover.html">La villa</a><a href="../../story.html">La nostra storia</a><a href="../../faqs.html">FAQ</a></p>
+    <a href="../../things-to-do-lake-orta.html">Lago d'Orta</a>
+    <p class="mobile-menu__sub"><a href="../../things-to-do-lake-orta.html">Cosa fare</a><a href="../../blog.html">Blog</a></p>
     <a href="../../book.html" class="btn btn--dark">Prenota</a>
     <div class="mobile-menu__lang" role="group" aria-label="Lingua">
       <a href="../../../blog/posts/dodo-gorla-sailing-lake-orta.html" class="nav__lang-link" hreflang="en">EN</a>

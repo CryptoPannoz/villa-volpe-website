@@ -17,7 +17,7 @@
   <script>if(Date.now()>=Date.parse('2027-03-29T00:00:00+02:00'))document.documentElement.classList.remove('has-winter');</script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-latin-var.woff2" crossorigin>
-  <link rel="stylesheet" href="../../../style.css?v=20261105">
+  <link rel="stylesheet" href="../../../style.css?v=20261105b">
   <link rel="canonical" href="https://www.villa-volpe.com/de/blog/posts/lake-orta-with-kids-family-guide.html">
   <meta property="og:title" content="Der Ortasee mit Kindern: der Familien-Guide">
   <meta property="og:description" content="Autofreie Gassen, sanfte Strände, Bootsfahrten zur Insel und eine Villa direkt am Wasser, wo Kinder zum Klang des Sees einschlafen.">
@@ -191,11 +191,21 @@
       <a href="../../index.html" class="nav__logo">Villa <span>Volpe</span></a>
       <ul class="nav__links">
         <li><a href="../../index.html" class="nav__link">Startseite</a></li>
-        <li><a href="../../discover.html" class="nav__link">Entdecken</a></li>
-        <li><a href="../../things-to-do-lake-orta.html" class="nav__link">Ausflüge</a></li>
-        <li><a href="../../story.html" class="nav__link">Geschichte</a></li>
-        <li><a href="../../blog.html" class="nav__link nav__link--active">Blog</a></li>
-        <li><a href="../../faqs.html" class="nav__link">FAQ</a></li>
+        <li class="nav__group">
+          <a href="../../discover.html" class="nav__link">Entdecken<span class="nav__caret" aria-hidden="true"></span></a>
+          <ul class="nav__sub">
+            <li><a href="../../discover.html">Die Villa</a></li>
+            <li><a href="../../story.html">Unsere Geschichte</a></li>
+            <li><a href="../../faqs.html">FAQ</a></li>
+          </ul>
+        </li>
+        <li class="nav__group">
+          <a href="../../things-to-do-lake-orta.html" class="nav__link nav__link--active">Ortasee<span class="nav__caret" aria-hidden="true"></span></a>
+          <ul class="nav__sub">
+            <li><a href="../../things-to-do-lake-orta.html">Ausflüge</a></li>
+            <li><a href="../../blog.html">Blog</a></li>
+          </ul>
+        </li>
       </ul>
       <div class="nav__lang" role="group" aria-label="Language">
         <a href="../../../blog/posts/lake-orta-with-kids-family-guide.html" class="nav__lang-link" hreflang="en" lang="en">EN</a>
@@ -214,10 +224,9 @@
     <button class="mobile-menu__close" id="mobileClose" aria-label="Menü schließen">&times;</button>
     <a href="../../index.html">Startseite</a>
     <a href="../../discover.html">Entdecken</a>
-    <a href="../../things-to-do-lake-orta.html">Ausflüge</a>
-    <a href="../../story.html">Geschichte</a>
-    <a href="../../blog.html">Blog</a>
-    <a href="../../faqs.html">FAQ</a>
+    <p class="mobile-menu__sub"><a href="../../discover.html">Die Villa</a><a href="../../story.html">Unsere Geschichte</a><a href="../../faqs.html">FAQ</a></p>
+    <a href="../../things-to-do-lake-orta.html">Ortasee</a>
+    <p class="mobile-menu__sub"><a href="../../things-to-do-lake-orta.html">Ausflüge</a><a href="../../blog.html">Blog</a></p>
     <a href="../../book.html" class="btn btn--dark">Jetzt buchen</a>
     <div class="mobile-menu__lang" role="group" aria-label="Language">
       <a href="../../../blog/posts/lake-orta-with-kids-family-guide.html" class="nav__lang-link" hreflang="en">EN</a>

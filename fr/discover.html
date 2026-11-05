@@ -161,11 +161,21 @@
       <a href="index.html" class="nav__logo">Villa <span>Volpe</span></a>
       <ul class="nav__links">
         <li><a href="index.html" class="nav__link">Accueil</a></li>
-        <li><a href="discover.html" class="nav__link nav__link--active">Découvrir</a></li>
-        <li><a href="things-to-do-lake-orta.html" class="nav__link">À faire</a></li>
-        <li><a href="story.html" class="nav__link">Histoire</a></li>
-        <li><a href="blog.html" class="nav__link">Blog</a></li>
-        <li><a href="faqs.html" class="nav__link">FAQ</a></li>
+        <li class="nav__group">
+          <a href="discover.html" class="nav__link nav__link--active">Découvrir<span class="nav__caret" aria-hidden="true"></span></a>
+          <ul class="nav__sub">
+            <li><a href="discover.html" aria-current="page">La villa</a></li>
+            <li><a href="story.html">Notre histoire</a></li>
+            <li><a href="faqs.html">FAQ</a></li>
+          </ul>
+        </li>
+        <li class="nav__group">
+          <a href="things-to-do-lake-orta.html" class="nav__link">Lac d'Orta<span class="nav__caret" aria-hidden="true"></span></a>
+          <ul class="nav__sub">
+            <li><a href="things-to-do-lake-orta.html">À faire</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </li>
       </ul>
       <div class="nav__lang" role="group" aria-label="Langue">
         <a href="../discover.html" class="nav__lang-link" hreflang="en" lang="en">EN</a>
@@ -185,10 +195,9 @@
     <button class="mobile-menu__close" id="mobileClose" aria-label="Fermer le menu">&times;</button>
     <a href="index.html">Accueil</a>
     <a href="discover.html">Découvrir</a>
-    <a href="things-to-do-lake-orta.html">À faire</a>
-    <a href="story.html">Histoire</a>
-    <a href="blog.html">Blog</a>
-    <a href="faqs.html">FAQ</a>
+    <p class="mobile-menu__sub"><a href="discover.html">La villa</a><a href="story.html">Notre histoire</a><a href="faqs.html">FAQ</a></p>
+    <a href="things-to-do-lake-orta.html">Lac d'Orta</a>
+    <p class="mobile-menu__sub"><a href="things-to-do-lake-orta.html">À faire</a><a href="blog.html">Blog</a></p>
     <a href="book.html" class="btn btn--dark">Réserver</a>
     <div class="mobile-menu__lang" role="group" aria-label="Langue">
       <a href="../discover.html" class="nav__lang-link" hreflang="en">EN</a>
