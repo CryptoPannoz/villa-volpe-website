@@ -44,7 +44,7 @@ Sito di villa-volpe.com.
   (prima di «Esterni», `section--alt`; le gallerie hanno ora gli id `outdoor`, `bedrooms`, `living`, `bathroom`).
   Immagine `images/plan/villa-volpe-plan.webp` (2048×1638): la pianta di `scripts/villa-plan.py` del repo v5
   (planimetria del manuale 2025 + foto + correzioni di Alberto del 04/11/2026) resa da `scripts/villa-plan-render.py`
-  di v5; dal 05/11/2026 l'esterno segue la foto del drone (parcheggio sul tetto a est con le auto, giardino triangolare
+  di v5; dal 05/11/2026 l'esterno segue la foto del drone (parcheggio sul tetto lastricato a est, senza auto, giardino triangolare
   con l'albero, muro di pietra in diagonale, scala di pietra al lago, vialetto e tavolo di legno a nord) e la lavatrice
   non è più disegnata. L'inquadratura sta in `xy()`, quindi le coordinate dei punti restano quelle della planimetria
   (come `planXY` in v5); immagine e script hanno `?v=` nei link, da cambiare a ogni nuova pianta (cache di 10 minuti). Visore `js/vv-plan.js` (punti, testi nelle 4 lingue
