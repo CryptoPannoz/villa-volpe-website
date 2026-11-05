@@ -1,11 +1,12 @@
 /*
  * Villa Volpe — pianta interattiva della pagina Discover (4 lingue, dalla lingua di <html>).
- * Punti numerati sulla pianta (images/plan/villa-volpe-plan.webp: la pianta di scripts/villa-plan.py di v5 resa con
- * Higgsfield): toccandone uno, la scheda accanto mostra foto, testo e il link alla galleria della stanza. Niente lente:
- * Alberto l'ha tolta il 04/11/2026.
+ * Punti numerati sulla pianta (images/plan/villa-volpe-plan.webp: la pianta di scripts/villa-plan.py di v5 resa da
+ * scripts/villa-plan-render.py, con l'esterno rifatto il 05/11/2026 sulla foto del drone): toccandone uno, la scheda
+ * accanto mostra foto, testo e il link alla galleria della stanza. Niente lente: Alberto l'ha tolta il 04/11/2026.
  * Markup: <div class="vv-plan" data-vv-plan data-base="../"></div> (data-base vuoto alla radice).
- * Le coordinate dei punti sono quelle della planimetria (come in v5). Il render ha un'altra inquadratura, misurata sui
- * muri: xy() porta i punti in percentuale dell'immagine (stessa formula di planXY in v5).
+ * Le coordinate dei punti sono quelle della planimetria (come in v5). L'immagine inquadra x −315…475 e y −146…486 con
+ * 2,5924 px per unità: xy() porta i punti in percentuale dell'immagine (stessa formula di planXY in v5). Il ?v= sul
+ * file evita che per 10 minuti (la cache di GitHub Pages) i punti nuovi finiscano sull'immagine vecchia.
  */
 (function () {
   'use strict';
@@ -15,10 +16,10 @@
   var LANGS = ['en', 'it', 'de', 'fr'];
   var L = Math.max(0, LANGS.indexOf((document.documentElement.lang || 'en').slice(0, 2)));
   var BASE = root.getAttribute('data-base') || '';
-  var SRC = BASE + 'images/plan/villa-volpe-plan.webp';
+  var SRC = BASE + 'images/plan/villa-volpe-plan.webp?v=20261105';
   var GAL = BASE + 'images/gallery/';
-  var W = 2048, H = 1360;
-  function xy(x, y) { return { left: (3.664 * x + 569.5) / W * 100, top: (3.736 * y + 65.2) / H * 100 }; }
+  var W = 2048, H = 1638;
+  function xy(x, y) { return { left: (2.5924 * x + 816.6) / W * 100, top: (2.5924 * y + 378.5) / H * 100 }; }
 
   var UI = [
     { intro: 'Explore the house', introText: '65 m² on a single level, three metres from the water: an open-plan living room with kitchen, two king-size bedrooms, an accessible bathroom, a terrace on the lake and private access to the water.', hint: 'Tap a number to discover that corner of the house.', photos: 'See the photos', prev: 'Previous', next: 'Next', close: 'Close', plan: 'Floor plan of Villa Volpe' },
@@ -29,31 +30,31 @@
 
   // [x, y, stanza?, ancora della galleria, foto, titoli EN/IT/DE/FR, testi EN/IT/DE/FR]
   var POINTS = [
-    { x: 270, y: -2, anchor: 'amenities', photo: 'villavolpeorta-exterior-facade-entrance-ivy-closeup.jpg',
+    { x: 404, y: 42, anchor: 'amenities', photo: 'villavolpeorta-exterior-facade-entrance-ivy-closeup.jpg',
       t: ['Parking & ramp', 'Parcheggio e rampa', 'Parkplatz & Rampe', 'Parking et rampe'],
       d: ['Private parking above the villa and a step-free ramp down to the front door.', 'Parcheggio privato sopra la villa e una rampa senza gradini fino alla porta.', 'Privatparkplatz oberhalb der Villa und eine stufenlose Rampe bis zur Haustür.', 'Parking privé au-dessus de la villa et une rampe sans marches jusqu\'à la porte.'] },
-    { x: 150, y: 120, room: true, anchor: 'living', photo: 'villavolpeorta-interior-living-room-sofa-lake-panorama.jpg',
+    { x: 150, y: 100, room: true, anchor: 'living', photo: 'villavolpeorta-interior-living-room-sofa-lake-panorama.jpg',
       t: ['Living room', 'Soggiorno', 'Wohnraum', 'Séjour'],
       d: ['Open space with sofa and round dining table, French windows onto the lake and San Giulio island.', 'Open space con divano e tavolo tondo, portefinestre sul lago e sull\'isola di San Giulio.', 'Offener Raum mit Sofa und rundem Esstisch, Balkontüren zum See und zur Insel San Giulio.', 'Espace ouvert avec canapé et table ronde, portes-fenêtres sur le lac et l\'île San Giulio.'] },
-    { x: 118, y: 178, anchor: 'living', photo: 'villavolpeorta-interior-kitchen-dining-lake-view.jpg',
+    { x: 106, y: 188, anchor: 'living', photo: 'villavolpeorta-interior-kitchen-dining-lake-view.jpg',
       t: ['Kitchen', 'Cucina', 'Küche', 'Cuisine'],
       d: ['A fully equipped corner kitchen, with Nespresso and moka pot, right next to the French windows on the lake.', 'Cucina ad angolo completa, con Nespresso e moka, accanto alle portefinestre sul lago.', 'Voll ausgestattete Eckküche, mit Nespresso und Moka-Kanne, direkt neben den Balkontüren zum See.', 'Cuisine d\'angle tout équipée, avec Nespresso et moka, juste à côté des portes-fenêtres sur le lac.'] },
-    { x: 262, y: 135, room: true, anchor: 'bedrooms', photo: '4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide.jpg',
+    { x: 262, y: 140, room: true, anchor: 'bedrooms', photo: '4.villavolpeorta-interior-bedroom2-kingbed-mirror-wide.jpg',
       t: ['Bedroom 2', 'Camera 2', 'Schlafzimmer 2', 'Chambre 2'],
       d: ['King-size bed, wardrobe and air conditioning.', 'Letto king-size, armadio e aria condizionata.', 'King-Size-Bett, Kleiderschrank und Klimaanlage.', 'Lit king-size, armoire et climatisation.'] },
-    { x: 125, y: 250, room: true, anchor: 'bedrooms', photo: 'villavolpeorta-interior-bedroom-double-bed-ensuite.jpg',
+    { x: 110, y: 285, room: true, anchor: 'bedrooms', photo: 'villavolpeorta-interior-bedroom-double-bed-ensuite.jpg',
       t: ['Bedroom 1', 'Camera 1', 'Schlafzimmer 1', 'Chambre 1'],
       d: ['King-size bed, wardrobe and a window onto the lake.', 'Letto king-size, armadio e una finestra sul lago.', 'King-Size-Bett, Kleiderschrank und ein Fenster zum See.', 'Lit king-size, armoire et une fenêtre sur le lac.'] },
-    { x: 262, y: 268, room: true, anchor: 'bathroom', photo: 'villavolpeorta-interior-bathroom-walk-in-shower-sink.jpg',
+    { x: 262, y: 240, room: true, anchor: 'bathroom', photo: 'villavolpeorta-interior-bathroom-walk-in-shower-sink.jpg',
       t: ['Bathroom', 'Bagno', 'Bad', 'Salle de bain'],
       d: ['Fully accessible: walk-in shower, grab handles, movable seat and heated towel rail.', 'Completamente accessibile: doccia a filo pavimento, maniglioni, seduta mobile e scaldasalviette.', 'Vollständig barrierefrei: bodengleiche Dusche, Haltegriffe, mobiler Sitz und Handtuchwärmer.', 'Entièrement accessible : douche à l\'italienne, barres d\'appui, siège mobile et sèche-serviettes.'] },
     { x: 50, y: 240, room: true, anchor: 'outdoor', photo: 'villavolpeorta-exterior-terrace-sliding-doors-lake-view.jpg',
       t: ['Terrace', 'Terrazza', 'Terrasse', 'Terrasse'],
       d: ['A stone terrace along the whole house, with two sun awnings, an outdoor dining table and loungers on the lawn facing the lake.', 'Una terrazza in pietra lungo tutta la casa, con due tende da sole, il tavolo da pranzo all\'aperto e i lettini sul prato verso il lago.', 'Eine Steinterrasse entlang des ganzen Hauses, mit zwei Markisen, einem Esstisch im Freien und Liegen auf dem Rasen zum See.', 'Une terrasse en pierre le long de la maison, avec deux stores, une table à manger en plein air et des transats sur la pelouse face au lac.'] },
-    { x: 10, y: 314, anchor: 'outdoor',
+    { x: -39, y: 322, anchor: 'outdoor',
       t: ['Outdoor shower', 'Doccia esterna', 'Außendusche', 'Douche extérieure'],
       d: ['Hot and cold, for after a swim in the lake.', 'Calda e fredda, per dopo il bagno nel lago.', 'Warm und kalt, für nach dem Baden im See.', 'Chaude et froide, pour après la baignade.'] },
-    { x: -84, y: 300, room: true, anchor: 'outdoor', photo: 'villavolpeorta-exterior-sunloungers-sunset-lake-reflection.jpg',
+    { x: -178, y: 446, room: true, anchor: 'outdoor', photo: 'villavolpeorta-exterior-sunloungers-sunset-lake-reflection.jpg',
       t: ['Private lake access', 'Accesso privato al lago', 'Privater Seezugang', 'Accès privé au lac'],
       d: ['No beach: a stone wall on the water, with steps down into the lake. Swim, paddle or simply watch the sunset over San Giulio.', 'Niente spiaggia: un muro di pietra sull\'acqua, con i gradini che scendono nel lago. Bagno, SUP o solo il tramonto su San Giulio.', 'Kein Strand: eine Steinmauer am Wasser, mit Stufen hinunter in den See. Baden, paddeln oder einfach den Sonnenuntergang über San Giulio genießen.', 'Pas de plage : un mur de pierre au bord de l\'eau, avec des marches qui descendent dans le lac. Baignade, paddle ou simplement le coucher de soleil sur San Giulio.'] }
   ];
