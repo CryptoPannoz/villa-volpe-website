@@ -14,7 +14,8 @@
 
 :root {
   /* Villa Volpe brand (allineato a style.css sito) */
-  --primary-color: #8B7355;
+  /* #8B7355 col testo bianco (Continua, giorni scelti) fa 4,49:1: questo 4,6:1, a occhio identico */
+  --primary-color: #897153;
   --primary-hover: #6E5A42;
   --primary-light: #F5F3EF;
   --accent-color: #A6906F;
