@@ -100,7 +100,9 @@ Sito di villa-volpe.com.
     gli articoli in coda in `scheduled-posts` e per il modello degli articoli di v5. Titoli senza salti (h1 → h2 → h3:
     dove la grafica vuole un h3 subito dopo l'h1 c'è un `<h2 class="sr-only">` letto solo dagli screen reader).
   - *Colori:* testi piccoli in oro con `--color-accent-text` (#7D6649, 5,2:1); `--color-accent` (#8B7355) solo per titoli
-    grandi, filetti, logo e icone. `--color-text-muted` è #6E6E6E (era #9A9A9A, illeggibile).
+    grandi, filetti, logo e icone. Fondi col testo bianco (`.btn--accent`, hover dei bottoni, numeri della pianta) con
+    `--color-accent-fill` (#897153, 4,6:1); nel modulo di prenotazione `--primary-color` è lo stesso #897153.
+    `--color-text-muted` è #6E6E6E (era #9A9A9A, illeggibile).
   - *Prenotazione:* niente card fluttuante della chiusura nelle pagine col calendario (`body:has(.booking-widget)`); su
     telefono la card delle altre pagine è una barra bassa di due righe. Campi a 16px (sotto, iPhone zooma).
   - *Things to do:* icone SVG `.ttd-ico--<nome>` (maschere in fondo a `style.css`) al posto delle emoji in filtri, titoli,
