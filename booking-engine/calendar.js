@@ -23,6 +23,8 @@ const BOOKING_CONFIG = {
   apiKey: 'AIzaSyDkmWoTVEgonSPPTYrKIY9SuoodIVO4lpQ',
   // Accensione Villa Volpe v5: le richieste vanno a Neon (stesso doPost del v4, portato identico)
   webAppUrl: 'https://villa-volpe-v5.vercel.app/api/booking',
+  // Prezzi a giornata calcolati da v5 (pagina Prezzi, dal 10/11/2026): /prices e /quote. Qui si mostrano soltanto.
+  pricesApi: 'https://villa-volpe-v5.vercel.app/api/public',
   maxNightsToShow: 29,  // Gap > 29 notti non vengono mostrati nella lista
   maxGuests: 4,
   email: 'villavolpeorta@gmail.com',
@@ -215,6 +217,13 @@ var I18N = {
     mailSubject: 'Booking request',
     botCheckFailed: function(email) { return 'Our anti-spam check could not load (an ad blocker or a strict network can stop it). You can still book: write to us at ' + email + ' with your dates and number of guests.'; },
     botCheckRejected: function(email) { return 'The security check expired or did not succeed. Please send the request again; if it keeps failing, write to us at ' + email + '.'; },
+    perNight: function(p) { return p + ' per night'; },
+    priceLegend: 'Price per night for the whole villa',
+    stayPrice: function(total, nightly) { return total + ' · ' + nightly + '/night'; },
+    priceLabel: 'Price',
+    priceDetail: function(n, nightly, dog) { return n + ' nights × ' + nightly + (dog ? ' + ' + dog + ' pet fee' : ''); },
+    depositLabel: 'Deposit to confirm (30%)',
+    fullLabel: 'Due on confirmation',
     botCheckInteract: 'Please complete the short security check below, then continue.'
   },
   fr: {
@@ -262,6 +271,13 @@ var I18N = {
     mailSubject: 'Demande de réservation',
     botCheckFailed: function(email) { return 'Notre contrôle anti-spam n’a pas pu se charger (un bloqueur de publicité ou un réseau strict peut l’empêcher). Vous pouvez quand même réserver : écrivez-nous à ' + email + ' en indiquant vos dates et le nombre de personnes.'; },
     botCheckRejected: function(email) { return 'La vérification de sécurité a expiré ou n’a pas abouti. Veuillez renvoyer la demande ; si le problème persiste, écrivez-nous à ' + email + '.'; },
+    perNight: function(p) { return p + ' la nuit'; },
+    priceLegend: 'Prix par nuit pour toute la villa',
+    stayPrice: function(total, nightly) { return total + ' · ' + nightly + '/nuit'; },
+    priceLabel: 'Prix',
+    priceDetail: function(n, nightly, dog) { return n + ' nuits × ' + nightly + (dog ? ' + ' + dog + ' animal' : ''); },
+    depositLabel: 'Acompte pour confirmer (30 %)',
+    fullLabel: 'À payer à la confirmation',
     botCheckInteract: 'Veuillez compléter la courte vérification de sécurité ci-dessous, puis continuer.'
   },
   de: {
@@ -309,6 +325,13 @@ var I18N = {
     mailSubject: 'Buchungsanfrage',
     botCheckFailed: function(email) { return 'Unsere Anti-Spam-Prüfung konnte nicht geladen werden (ein Werbeblocker oder ein strenges Netzwerk kann sie verhindern). Sie können trotzdem buchen: Schreiben Sie uns an ' + email + ' mit Ihren Reisedaten und der Anzahl der Gäste.'; },
     botCheckRejected: function(email) { return 'Die Sicherheitsprüfung ist abgelaufen oder fehlgeschlagen. Bitte senden Sie die Anfrage erneut; wenn es weiterhin nicht klappt, schreiben Sie uns an ' + email + '.'; },
+    perNight: function(p) { return p + ' pro Nacht'; },
+    priceLegend: 'Preis pro Nacht für die ganze Villa',
+    stayPrice: function(total, nightly) { return total + ' · ' + nightly + '/Nacht'; },
+    priceLabel: 'Preis',
+    priceDetail: function(n, nightly, dog) { return n + ' Nächte × ' + nightly + (dog ? ' + ' + dog + ' Haustier' : ''); },
+    depositLabel: 'Anzahlung zur Bestätigung (30 %)',
+    fullLabel: 'Fällig bei Bestätigung',
     botCheckInteract: 'Bitte schließen Sie die kurze Sicherheitsprüfung unten ab und fahren Sie dann fort.'
   },
   it: {
@@ -356,6 +379,13 @@ var I18N = {
     mailSubject: 'Richiesta di prenotazione',
     botCheckFailed: function(email) { return 'Il controllo anti-spam non si \u00e8 caricato (pu\u00f2 bloccarlo un ad blocker o una rete aziendale). Puoi prenotare lo stesso: scrivici a ' + email + ' con le date e il numero di ospiti.'; },
     botCheckRejected: function(email) { return 'La verifica di sicurezza \u00e8 scaduta o non \u00e8 riuscita. Invia di nuovo la richiesta; se non funziona, scrivici a ' + email + '.'; },
+    perNight: function(p) { return p + ' a notte'; },
+    priceLegend: 'Prezzo a notte per tutta la villa',
+    stayPrice: function(total, nightly) { return total + ' · ' + nightly + '/notte'; },
+    priceLabel: 'Prezzo',
+    priceDetail: function(n, nightly, dog) { return n + ' notti × ' + nightly + (dog ? ' + ' + dog + ' animale' : ''); },
+    depositLabel: 'Acconto per confermare (30%)',
+    fullLabel: 'Da pagare alla conferma',
     botCheckInteract: 'Completa la breve verifica di sicurezza qui sotto, poi continua.'
   }
 };
@@ -372,6 +402,8 @@ var state = {
   availableGaps: [],   // Array di { start: Date, end: Date, nights: number }
   calendarLoaded: false,
   hasAutoJumpedToAvailability: false,
+  prices: {},          // 'AAAA-MM-GG' → € a notte (solo le notti libere e in vendita, da v5)
+  quotes: {},          // preventivi già chiesti a v5, per chiave date+ospiti+animale
   guestData: {
     name: '',
     email: '',
@@ -391,8 +423,107 @@ document.addEventListener('DOMContentLoaded', function() {
   renderCalendar();
   setupEventListeners();
   loadBlockedDates();
+  loadPrices();
   loadTurnstile();
 });
+
+
+// ═══════════════════════════════════════════════════════════
+// PREZZI (Villa Volpe v5)
+// ═══════════════════════════════════════════════════════════
+// Dal 10/11/2026 i prezzi a giornata li decide v5 (pagina Prezzi): il sito li
+// mostra soltanto, sotto ogni giorno libero e nel riepilogo. La richiesta resta
+// una richiesta: il preventivo lo manda Alberto, con la stessa tariffa.
+// Se v5 non risponde, o ha i prezzi spenti (503, code «off»), il motore resta
+// com'era: niente prezzi, nessun errore per l'ospite.
+
+function priceText(eur) {
+  return new Intl.NumberFormat(BOOKING_LOCALE, { style: 'currency', currency: 'EUR', maximumFractionDigits: eur % 1 ? 2 : 0 }).format(eur);
+}
+
+function loadPrices() {
+  var from = new Date();
+  var to = new Date();
+  to.setDate(to.getDate() + 399); // v5 ne da' al massimo 400 per volta
+  fetch(BOOKING_CONFIG.pricesApi + '/prices?from=' + formatLocalISO(from) + '&to=' + formatLocalISO(to))
+    .then(function(r) { return r.ok ? r.json() : null; })
+    .then(function(data) {
+      if (!data || !data.ok || !data.days) return;
+      data.days.forEach(function(d) { if (d.free && d.p) state.prices[d.d] = d.p; });
+      addPriceLegend();
+      renderCalendar();
+      updateDateDisplay();
+    })
+    .catch(function() { /* senza prezzi il motore funziona come prima */ });
+}
+
+function addPriceLegend() {
+  var legend = document.querySelector('.calendar-legend');
+  if (!legend || document.getElementById('legend-price')) return;
+  var item = document.createElement('div');
+  item.className = 'legend-item legend-item--price';
+  item.id = 'legend-price';
+  item.innerHTML = '<span class="legend-price">€</span> ' + T.priceLegend;
+  legend.appendChild(item);
+}
+
+/** Il preventivo di v5 per date, ospiti e animale (una sola richiesta per combinazione). */
+function fetchQuote(checkIn, checkOut, guests, dog) {
+  var key = formatLocalISO(checkIn) + '_' + formatLocalISO(checkOut) + '_' + guests + '_' + (dog ? 1 : 0);
+  if (!state.quotes[key]) {
+    state.quotes[key] = fetch(BOOKING_CONFIG.pricesApi + '/quote?checkin=' + formatLocalISO(checkIn) + '&checkout=' + formatLocalISO(checkOut) + '&guests=' + guests + '&dog=' + (dog ? 1 : 0))
+      .then(function(r) { return r.json(); })
+      .then(function(q) { return q && q.ok ? q : null; })
+      .catch(function() { return null; });
+  }
+  return state.quotes[key];
+}
+
+/** Accanto alle notti scelte: prezzo del soggiorno e a notte. */
+function renderStayPrice() {
+  var box = document.getElementById('nights-display');
+  if (!box) return;
+  var el = document.getElementById('nights-price');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'nights-price';
+    el.className = 'nights-price';
+    box.appendChild(el);
+  }
+  el.textContent = '';
+  if (!state.checkInDate || !state.checkOutDate || !Object.keys(state.prices).length) return;
+  if (promoWeekFor(state.checkInDate, state.checkOutDate)) return;
+  var ci = state.checkInDate, co = state.checkOutDate;
+  fetchQuote(ci, co, 2, false).then(function(q) {
+    if (!q || state.checkInDate !== ci || state.checkOutDate !== co) return;
+    el.textContent = T.stayPrice(priceText(q.stay), priceText(q.nightly));
+  });
+}
+
+/** Nel riepilogo: prezzo del soggiorno (con l'animale) e acconto, da v5. */
+function renderQuoteSummary() {
+  ['v5-price-row', 'v5-deposit-row'].forEach(function(id) { var r = document.getElementById(id); if (r) r.remove(); });
+  var card = document.querySelector('.summary-card');
+  if (!card || !Object.keys(state.prices).length) return;
+  if (promoWeekFor(state.checkInDate, state.checkOutDate)) return;
+  var g = state.guestData;
+  var guests = (Number(g.adults) || 0) + (Number(g.children) || 0);
+  fetchQuote(state.checkInDate, state.checkOutDate, guests || 2, g.pets === 'yes').then(function(q) {
+    if (!q || document.getElementById('v5-price-row')) return;
+    var row = document.createElement('div');
+    row.id = 'v5-price-row';
+    row.className = 'summary-row summary-row--price';
+    row.innerHTML = '<span>' + T.priceLabel + '</span><strong>' + priceText(q.total)
+      + '<small>' + T.priceDetail(q.nights, priceText(q.nightly), q.dog ? priceText(q.dog) : '') + '</small></strong>';
+    var dep = document.createElement('div');
+    dep.id = 'v5-deposit-row';
+    dep.className = 'summary-row';
+    dep.innerHTML = '<span>' + (q.payment.kind === 'deposit' ? T.depositLabel : T.fullLabel) + '</span><strong>' + priceText(q.payment.now) + '</strong>';
+    var note = card.querySelector('.summary-row--note');
+    card.insertBefore(row, note);
+    card.insertBefore(dep, note);
+  });
+}
 
 
 // ═══════════════════════════════════════════════════════════
@@ -789,6 +920,14 @@ function renderCalendar() {
       dayCell.classList.add('available');
       dayCell.setAttribute('aria-label', formatDateDisplay(date) + ' ' + T.ariaAvailable);
 
+      // prezzo a notte di v5 sotto il numero del giorno
+      var nightPrice = state.prices[dayCell.dataset.date];
+      if (nightPrice) {
+        dayCell.classList.add('has-price');
+        dayCell.innerHTML = '<span class="day-num">' + day + '</span><span class="day-price">' + priceText(nightPrice) + '</span>';
+        dayCell.setAttribute('aria-label', formatDateDisplay(date) + ' ' + T.ariaAvailable + ', ' + T.perNight(priceText(nightPrice)));
+      }
+
       // Evidenzia se il giorno fa parte di un gap valido (≥ soggiorno minimo)
       if (state.calendarLoaded && isInAvailableGap(date)) {
         dayCell.classList.add('in-gap');
@@ -904,6 +1043,7 @@ function updateDateDisplay() {
     checkOutDisplay.textContent = formatDateDisplay(state.checkOutDate);
     nightsCount.textContent = calculateNights(state.checkInDate, state.checkOutDate);
     nightsDisplay.style.display = 'block';
+    renderStayPrice();
     continueBtn.disabled = false;
   } else {
     checkOutDisplay.textContent = state.checkInDate ? T.selectCheckout : T.selectDate;
@@ -1229,6 +1369,7 @@ function updateSummary() {
     state.guestData.pets === 'yes' ? T.petsYes : T.petsNo;
 
   renderPromoTerms();
+  renderQuoteSummary();
 }
 
 

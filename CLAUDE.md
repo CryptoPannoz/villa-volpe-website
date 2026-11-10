@@ -111,6 +111,13 @@ Sito di villa-volpe.com.
   - *Media:* video d'apertura ricodificati (CRF 28: 4,4 MB su computer, 1,9 MB) + `hero-villa-2026-portrait.mp4` (9:16,
     1,5 MB) e poster verticale per i telefoni in verticale; foto della galleria e delle card del blog con varianti
     `-800/-1200.avif`; biglietti e cartoline del cassetto con `-360.webp`; pianta con `tools/plan-sizes.py`.
+- **Prezzi nel motore di prenotazione** (dal 10/11/2026, voluti da Alberto): li calcola Villa Volpe v5 (prezzi a
+  giornata, pagina Prezzi di v5) e `booking-engine/calendar.js` li mostra soltanto: sotto ogni giorno libero
+  (`GET https://villa-volpe-v5.vercel.app/api/public/prices`), accanto alle notti scelte e nel riepilogo con totale e
+  acconto (`/api/public/quote`, stessa tariffa del preventivo di Alberto, cane 120 €). La disponibilità resta quella del
+  calendario Google. Se v5 non risponde o ha i prezzi spenti (503, `code: "off"`) il motore resta senza prezzi, come
+  prima. La richiesta resta una richiesta: il preventivo lo manda Alberto. CORS: v5 accetta solo villa-volpe.com e
+  localhost (in locale il calendario Google invece è bloccato dalla chiave, che vale solo per il dominio).
 - **Clasp:** no (script in villa-volpe-scripts).
 ---
 *Workspace multi-progetto — vedi `PROJECTS.md` nella radice. GitHub: gh=CryptoPannoz. 🔒 Niente credenziali nei file.*
