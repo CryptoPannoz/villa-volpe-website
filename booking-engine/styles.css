@@ -958,3 +958,17 @@ textarea { resize: vertical; min-height: 80px; }
 /* Desktop: fra intestazione (80px sotto) e widget c'erano altri 128px di
    sezione, e su un portatile da 900px il calendario partiva sotto la piega. */
 .page-header + .section { padding-top: var(--spacing-md); }
+
+/* ── Prezzi a giornata da Villa Volpe v5 (10/11/2026) ──────
+   Il prezzo a notte sotto il numero del giorno; nel riepilogo prezzo e
+   acconto. Senza prezzi (v5 non risponde) nessuna di queste classi compare. */
+.calendar-day.has-price { flex-direction: column; gap: 1px; line-height: 1.1; }
+.calendar-day .day-price { font-size: 10px; font-weight: 500; opacity: 0.75; letter-spacing: -0.2px; white-space: nowrap; }
+.calendar-day.selected .day-price { opacity: 0.9; }
+.legend-price { display: inline-flex; align-items: center; justify-content: center; width: 14px; height: 14px; font-size: 10px; font-weight: 700; color: var(--text-secondary); }
+.nights-price { margin-top: 2px; font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.summary-row--price strong { text-align: right; }
+.summary-row--price small { display: block; font-size: 12px; font-weight: 400; color: var(--text-secondary); }
+@media (max-width: 480px) {
+  .calendar-day .day-price { font-size: 9px; letter-spacing: -0.3px; }
+}
